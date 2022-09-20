@@ -1,0 +1,10 @@
+<html>
+       <head>
+       <title>index</title>
+       </head>
+   <body> 
+        <?php
+              include('pages-login.html');
+         ?>
+   </body>
+<html>
