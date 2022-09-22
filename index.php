@@ -1,6 +1,6 @@
 <html>
        <head>
-       <title>index</title>
+       <title>inversionesatlantico</title>
        </head>
    <body> 
         <?php
