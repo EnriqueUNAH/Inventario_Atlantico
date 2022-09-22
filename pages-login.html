@@ -29,6 +29,13 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script>
+    function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {return false;}
+    }
+    </script>
 
 </head>
 
@@ -64,14 +71,14 @@
                       <label for="yourUsername" class="form-label">Usuario</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" id="text1" name="username" onkeypress="javascript: return validar_espacio(event,this)"  class="form-control" id="username" required>
                         <div class="invalid-feedback">Ingresa tu nombre de Usuario.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Contraseña</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Por favor ingresa tu contraseña</div>
                     </div>
 
