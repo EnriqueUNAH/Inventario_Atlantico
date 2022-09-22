@@ -9,10 +9,15 @@ $resultado= mysqli_query( $conexion , $consulta );
 
 $filas = mysqli_num_rows( $resultado );
 if ( $filas ) {
+     
      include('index.html');
+     
+     echo '<script>alert("Bienvenido");</script>';
 } else {
+     echo '<script>alert("Usuario o Contraseña Invalida");</script>';
      include('index.php');     
 }
 mysqli_free_result($resultado);
 mysqli_close($conexion);
+
 ?>
