@@ -4,7 +4,7 @@ $contraseña = $_POST[ 'password' ];
 session_start();
 $_SESSION[ 'usuario' ] = $usuario;
 include( 'db.php' );
-$consulta="SELECT * FROM _tblusuario where Username = '$usuario' and Passwor = '$contraseña'";
+$consulta="SELECT * FROM tbl_ms_usuario where Usuario = '$usuario' and Contrasena = '$contraseña'";
 $resultado= mysqli_query( $conexion , $consulta );
 
 $filas = mysqli_num_rows( $resultado );
