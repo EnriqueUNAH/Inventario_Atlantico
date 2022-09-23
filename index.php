@@ -1,10 +1,10 @@
 <html>
        <head>
-       <title>inversionesatlantico</title>
+       <title>Dashboard - INVENTARIOS DEL ATLANTICO</title>
        </head>
    <body> 
         <?php
-              include('pages-login.html');
+              include('login.html');
          ?>
    </body>
 <html>

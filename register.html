@@ -29,12 +29,13 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin - v2.4.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script>
+    function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {return false;}
+    }
+    </script>
 </head>
 
 <body>
@@ -60,29 +61,32 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">CREAR CUENTA</h5>
-                    <p class="text-center small">INGRESA TUS DATOS PERSONALES PARA HACER UNA CUENTA</p>
+                    <p class="text-center small">INGRESA TUS DATOS PERSONALES PARA GESTIONAR UNA CUENTA</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="insertar.php" method="post" class="row g-3 needs-validation" method="post" validate>
                     <div class="col-12">
-                      <label for="yourName" class="form-label">TU NOMBRE</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <label for="yourName" class="form-label">USUARIO:</label>
+                      <input type="text" style="text-transform:uppercase" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">POR FAVOR, INGRESA TU USUARIO!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">TU NOMBRE:</label>
+                      <input type="text" style="text-transform:uppercase" name="name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU NOMBRE!</div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">TU CORREO</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA UNA CUENTA DE CORREO VALIDA!</div>
+                      <label for="yourName" class="form-label">ROL DE USUARIO:</label>
+                      <input type="text" style="text-transform:uppercase" name="Rol" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">POR FAVOR, INGRESA TU ROL!</div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">NOMBRE DE USUARIO</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">POR FAVOR ESCOJE UN NOMBRE DE USUARIO.</div>
-                      </div>
+                      <label for="yourEmail" class="form-label">TU CORREO:</label>
+                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">POR FAVOR INGRESA UNA CUENTA DE CORREO VALIDA!</div>
                     </div>
 
                     <div class="col-12">
@@ -92,12 +96,30 @@
                     </div>
 
                     <div class="col-12">
+                      <label for="yourName" class="form-label">FECHA DE CREACION:</label>
+                      <input type="date"  name="Date" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">FECHA INVALIDA!</div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">FECHA DE VENCIMIENTO:</label>
+                      <input type="date"  name="Date_" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">FECHA INVALIDA!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">ESTADO DEL USUARIO:</label>
+                      <input type="text" style="text-transform:uppercase" name="Estate" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">ESTADO INVALIDA!</div>
+                    </div>
+
+                    <div class="col-12">
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">CREAR CUENTA</button>
+                      <button name="btnregistrar" class="btn btn-primary w-100" type="submit">CREAR CUENTA</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">YA TIENES UNA CUENTA? <a href="pages-login.html">INICIA SESION</a></p>
+                      <p class="small mb-0">YA TIENES UNA CUENTA? <a href="login.html">INICIA SESION</a></p>
                     </div>
                   </form>
 
