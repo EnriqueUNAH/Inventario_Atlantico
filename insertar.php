@@ -9,7 +9,7 @@
         $filas =  $filas+1;
         $fechaCreacion = date('d-m-y');
         $fechaVencimiento = $_POST['Date_'];
-        $estado = strtoupper($_POST['Estate']);
+        $estado = strtoupper($_POST['estado']);
         $rol = strtoupper($_POST['Rol']);
         $descripcion = "";
         
