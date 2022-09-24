@@ -8,6 +8,10 @@
 </head>
 <body>
         <?php
+            $nombre = strtoupper($_POST[ 'name' ]);
+            $nombre_usuario = strtoupper($_POST[ 'username' ]);
+            $contra = ($_POST[ 'password' ]);
+            $correo = ($_POST[ 'email' ]);
             include('gestion.html');
          ?>
 </body>

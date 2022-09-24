@@ -49,7 +49,7 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                <a href="login.html" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block">INVERSIONES DEL ATLANTICO</span>
                 </a>
@@ -60,11 +60,11 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">GESTION USUARIO</h5>
+                    <h5 class="card-title text-center pb-0 fs-4">GESTION DE USUARIO</h5>
                     <p class="text-center small">INGRESO DE DATOS PARA GESTIONAR UN USUARIO</p>
                   </div>
 
-                  <form action="insertar.php" method="post" class="row g-3 needs-validation" method="post" validate>
+                  <form action="insertar_usuario_rol_otros.php" method="post" class="row g-3 needs-validation" method="post" validate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">USUARIO:</label>
                       <input type="text" style="text-transform:uppercase" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourName" required>
@@ -125,9 +125,7 @@
                     <div class="col-12">
                       <button name="btnregistrar" class="btn btn-primary w-100" type="submit">CREAR CUENTA</button>
                     </div>
-                    <div class="col-12">
-                      <p class="small mb-0">YA TIENES UNA CUENTA? <a href="login.html">INICIA SESION</a></p>
-                    </div>
+
                   </form>
 
                 </div>

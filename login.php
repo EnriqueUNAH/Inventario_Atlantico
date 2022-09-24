@@ -1,5 +1,5 @@
 <?php
-$usuario = strtoupper($_POST[ 'username' ]) ;
+$usuario = strtoupper($_POST[ 'username' ]);
 $contraseña = $_POST[ 'password' ];
 session_start();
 $_SESSION[ 'usuario' ] = $usuario;

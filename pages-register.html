@@ -28,6 +28,13 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script>
+    function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {return false;}
+    }
+    </script>
 
 </head>
 
@@ -57,22 +64,31 @@
                     <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="gestion.php" method="post" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
-                      <label for="yourName" class="form-label">NOMBRE DE USUARIO:</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <label for="yourName" class="form-label">SU NOMBRE:</label>
+                      <input type="text" style="text-transform:uppercase" name="name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU NOMBRE DE USUARIO!</div>
                     </div>
 
                     <div class="col-12">
+                      <label for="yourUsername" class="form-label">NOMBRE DE USUARIO:</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" style="text-transform:uppercase" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">POR FAVOR ESCRIBA UN NOMBRE DE USUARIO.</div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA:</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">CORREO ELECTRONICO:</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <input type="email" name="email" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">POR FAVOR INGRESA CORREO ELECTRONICO VALIDO!</div>
                     </div>
 
