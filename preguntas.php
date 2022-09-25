@@ -13,6 +13,7 @@
     $respuesta=($_POST[ 'respuesta' ]);
     $contrasena = ($_POST[ 'password' ]);
     $contrasena_ = ($_POST[ 'password_' ]);
+    $fechaC = date('Y-m-d');
 
     $consulta="SELECT * FROM tbl_ms_usuario";
     $resultado= mysqli_query( $conexion , $consulta );
@@ -30,13 +31,17 @@
         # code...
         $insertar="INSERT INTO tbl_preguntas VALUES('$filas','$pregunta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
         mysqli_query( $conexion , $insertar );
-        mysqli_close($conexion);
+
     } else {
         # code...
         echo '<script>alert("Contraseña Invalida No coinciden");</script>';
         include('preguntas.html');
     }
-    
+
+    $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$filas','$respuesta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
+    mysqli_query( $conexion , $insertar_ );
+
+    mysqli_close($conexion);
     include('login.html');
 ?>
 </body>
