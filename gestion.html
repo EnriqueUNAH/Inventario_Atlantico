@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -64,10 +64,10 @@
                     <p class="text-center small">INGRESO DE DATOS PARA GESTIONAR UN USUARIO</p>
                   </div>
 
-                  <form action="insertar_usuario_rol_otros.php" method="post" class="row g-3 needs-validation" method="post" validate>
+                  <form action="globales.php" method="post" class="row g-3 needs-validation" method="post" validate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">USUARIO:</label>
-                      <input type="text" style="text-transform:uppercase" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourName" required>
+                      <input type="text" style="text-transform:uppercase" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourNameUser" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU USUARIO!</div>
                     </div>
 
@@ -79,7 +79,7 @@
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">ROL DE USUARIO:</label>
-                      <input type="text" style="text-transform:uppercase" name="Rol" class="form-control" id="yourName" required>
+                      <input type="text" style="text-transform:uppercase" name="Rol" class="form-control" id="yourRol" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU ROL!</div>
                     </div>
 
@@ -97,13 +97,13 @@
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">FECHA DE CREACION:</label>
-                      <input type="date"  name="Date" class="form-control" id="yourName" required>
+                      <input type="date"  name="Date" class="form-control" id="yourDate" required>
                       <div class="invalid-feedback">FECHA INVALIDA!</div>
                     </div>
                     
                     <div class="col-12">
                       <label for="yourName" class="form-label">FECHA DE VENCIMIENTO:</label>
-                      <input type="date"  name="Date_" class="form-control" id="yourName" required>
+                      <input type="date"  name="Date_" class="form-control" id="yourDate_" required>
                       <div class="invalid-feedback">FECHA INVALIDA!</div>
                     </div>
 
