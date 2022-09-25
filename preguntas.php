@@ -30,8 +30,11 @@
     if ($contrasena==$contrasena_) {
         # code...
         $insertar="INSERT INTO tbl_preguntas VALUES('$filas','$pregunta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
+        $actualizarContra = "UPDATE tbl_ms_usuario SET contrasena = $contrasena_ WHERE Id_Usuario = $filas";
+        $actualizarRespuesta = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = $filas WHERE Id_Usuario = $filas";
         mysqli_query( $conexion , $insertar );
-
+        mysqli_query( $conexion , $actualizarContra );
+        mysqli_query( $conexion , $actualizarRespuesta );
     } else {
         # code...
         echo '<script>alert("Contraseña Invalida No coinciden");</script>';
