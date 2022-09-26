@@ -45,7 +45,7 @@
     mysqli_query( $conexion , $insertar_ );
 
     mysqli_close($conexion);
-    include('login.html');
+    include('index.php');
 ?>
 </body>
 </html>
