@@ -11,7 +11,7 @@
             $resultado= mysqli_query( $conexion , $consulta );
             $filas = mysqli_num_rows( $resultado );
             $filas=$filas+1;
-            $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','NUEVO','$nombre','$contrasena','$filas','$fechaC','1','0','0','$fechaC','$correo','$nombre','$fechaC','$nombre','$fechaC','$filas','$filas')";
+            $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasena','$filas','$fechaC','1','0','0','$fechaC','$correo','$nombre','$fechaC','$nombre','$fechaC','$filas','$filas')";
             mysqli_query( $conexion , $insertar );
 
             mysqli_close($conexion);
