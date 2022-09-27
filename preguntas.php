@@ -14,7 +14,11 @@
     $contrasena = ($_POST[ 'password' ]);
     $contrasena_ = ($_POST[ 'password_' ]);
     $fechaC = date('Y-m-d');
-
+    $conteoP = 0;
+    if ($pregunta<>"") {
+        # code...
+        $conteoP = $conteoP + 1;
+    }
     $consulta="SELECT * FROM tbl_ms_usuario";
     $resultado= mysqli_query( $conexion , $consulta );
     $filas = mysqli_num_rows( $resultado );
@@ -31,7 +35,7 @@
         # code...
         $insertar="INSERT INTO tbl_preguntas VALUES('$filas','$pregunta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
         $actualizarContra = "UPDATE tbl_ms_usuario SET contrasena = $contrasena_ WHERE Id_Usuario = $filas";
-        $actualizarRespuesta = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = $filas WHERE Id_Usuario = $filas";
+        $actualizarRespuesta = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = $conteoP WHERE Id_Usuario = $filas";
         mysqli_query( $conexion , $insertar );
         mysqli_query( $conexion , $actualizarContra );
         mysqli_query( $conexion , $actualizarRespuesta );
@@ -45,7 +49,7 @@
     mysqli_query( $conexion , $insertar_ );
 
     mysqli_close($conexion);
-    include('index.php');
+    include('login.html');
 ?>
 </body>
 </html>
