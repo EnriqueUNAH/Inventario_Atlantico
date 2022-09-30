@@ -37,6 +37,15 @@
     }
     </script>
 
+    <script>
+      function maximo(campo,limite)
+      {
+      if(campo.value.length>=limite){
+      campo.value=campo.value.substring(0,limite);
+      }
+      }
+    </script>
+
 </head>
 
 <body>
@@ -65,13 +74,13 @@
                     <p class="text-center small">INGRESA TU USUARIO Y CONTRASEÑA PARA INGRESAR</p>
                   </div>
 
-                  <form action="login.php" method="post" class="row g-3 needs-validation" validate>
+                  <form action="login.php" method="post" class="row g-3 needs-validation" novalidate="false">
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Usuario</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" style="text-transform:uppercase" id="text1" name="username" onkeypress="javascript: return validar_espacio(event,this)"  class="form-control" id="username" required>
+                        <input type="text" style="text-transform:uppercase" id="text1" name="username" onkeypress="javascript: return validar_espacio(event,this)"  onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="username" required>
                         <div class="invalid-feedback">Ingresa tu nombre de Usuario.</div>
                       </div>
                     </div>

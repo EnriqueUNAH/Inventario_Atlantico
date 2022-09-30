@@ -29,6 +29,49 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src= "jquery.js"></script>
+
+  <script>
+    function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {
+      return false;
+    }
+  }
+    </script>
+
+<script>
+  function validarUn_espacio(e, campo)
+  {
+    document.getElementById("yourAnswer").addEventListener("keydown", teclear);
+    var flag = false;
+    var teclaAnterior = "";
+
+    function teclear(event) {
+      teclaAnterior = teclaAnterior + " " + event.keyCode;
+      var arregloTA = teclaAnterior.split(" ");
+      if (event.keyCode == 32 && arregloTA[arregloTA.length - 2] == 32) {
+        event.preventDefault();
+      }
+  }
+}
+  </script>
+
+  <script>
+    $(function(){
+    var mayus = new RegExp ("^(?=.*[A-Z].*[A-Z].*[A-Z])");
+    var special = new RegExp ( "^(?=.*[!@#$%&*].*[!@#$%&*].*[!@#$%&*])");
+    var numbers = new RegExp ("^(?=.*[0-9])");
+    var lower = new RegExp ( "^(?=.*[a-z])");
+    var len = new RegExp ("^(?=.{8,})");
+    });
+    var regExp = [ mayus , special , numbers , lower , len ] ;
+    var elements = [ $( "#mayus" ) , $( "#special" ) , $( "#numbers" ) , $( "#lower" ) ,$( "#len" )];
+    $("#yourPassword ").on ( "keyup" , function() {
+    })
+  </script>
+
 </head>
 
 <body>
@@ -57,7 +100,7 @@
                     <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
 
-                  <form action="preguntas.php" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="recuperar_pregunta.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>
                       <select name="pregunta" class="form-control" id="_pregunta">
@@ -75,7 +118,7 @@
                     
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">RESPUESTA:</label>
-                      <input type="text" name="respuesta" class="form-control" id="yourAnswer" required>
+                      <input type="text" name="respuesta" onkeypress="javascript: return validarUn_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="yourAnswer" required>
                       <div class="invalid-feedback"></div>
                     </div>
 

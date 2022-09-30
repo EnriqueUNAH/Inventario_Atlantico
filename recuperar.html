@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -29,6 +29,23 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script>
+    function maximo(campo,limite)
+    {
+    if(campo.value.length>=limite){
+    campo.value=campo.value.substring(0,limite);
+    }
+    }
+  </script>
+
+<script>
+  function validar_espacio(e, campo)
+  {
+  key = e.keyCode ? e.keyCode : e.which;
+  if (key == 32) {return false;}
+  }
+</script>
+
 </head>
 
 <body>
@@ -57,19 +74,22 @@
                     <p class="text-center small">POR FAVOR INGRESE LA INFORMACION NECESARIA</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="_por_correo.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
-                      <label for="yourName" class="form-label">INGRESE SU USUARIO</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <label for="yourUsername" class="form-label">NOMBRE DE USUARIO:</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" style="text-transform:uppercase" name="persona" onkeypress="javascript: return validar_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">POR FAVOR ESCRIBA UN NOMBRE DE USUARIO.</div>
+                      </div>
                     </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">ENVIAR CONTRASEÑA POR CORREO ELECTRONICO</button>
+                      <button action="_por_correo.php" method="post" class="btn btn-primary w-100" type="submit" name="btnCorreo">ENVIAR CONTRASEÑA POR CORREO ELECTRONICO</button>
                     </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">RECUPERAR VIA PREGUNTAS SECRETAS</button>
+                      <button action="_por_correo.php" method="post" class="btn btn-primary w-100" type="submit" name="btnPregunta">RECUPERAR VIA PREGUNTAS SECRETAS</button>
                     </div>
 
                   </form>
