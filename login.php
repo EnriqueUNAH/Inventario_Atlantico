@@ -26,7 +26,9 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      $id=$otra_['Id_Usuario'];
  }
 
-
+ $consulta_parametro="SELECT * FROM tbl_ms_parametros";
+ $resultado_Id__=mysqli_query( $conexion , $consulta_parametro);
+     $filas_=mysqli_num_rows( $resultado );
 
  $consulta_valor_parametro="SELECT Valor FROM tbl_ms_parametros where Id_Usuario = '$id'";
  $resultado_Parametro_Intentos=mysqli_query( $conexion , $consulta_valor_parametro);
@@ -37,7 +39,8 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
 
  if ($intento_de_parametro==0) {
      # code...
-     $insertar_parametro_intento="INSERT INTO tbl_ms_parametros VALUES('$id','ADMIN_INTENTOS_INVALIDOS','$intento_de_parametro','$id','$fechaC','$fechaC')";
+     $filas_++;
+     $insertar_parametro_intento="INSERT INTO tbl_ms_parametros VALUES('$filas','ADMIN_INTENTOS_INVALIDOS','$intento_de_parametro','$id','$fechaC','$fechaC')";
      mysqli_query( $conexion , $insertar_parametro_intento);
 }
 
