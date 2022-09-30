@@ -97,13 +97,13 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">CONFIGURACION DE PREGUNTAS</h5>
-                    <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
+                    <p class="text-center small">SELECCIONA TU PREGUNTA PARA GESTIONAR TU CUENTA</p>
                   </div>
 
-                  <form action="recuperar_pregunta.php" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="recuperar_por_pregunta.php" method="post" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>
-                      <select name="pregunta" class="form-control" id="_pregunta">
+                      <select name="Lapregunta" class="form-control" id="_pregunta">
                         <option></option>
                         <option>¿EN QUE MES NACISTE?</option>
                         <option>¿COMO SE LLAMA TU MAMÁ?</option>
@@ -130,7 +130,7 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
-                      <input type="password" name="password_" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password_" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword_" required>
                       <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
                     </div>
 
