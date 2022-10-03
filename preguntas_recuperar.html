@@ -59,7 +59,7 @@
   </script>
 
   <script>
-    $(function(){
+    (function validaciones_generales(e,campo){
     var mayus = new RegExp ("^(?=.*[A-Z].*[A-Z].*[A-Z])");
     var special = new RegExp ( "^(?=.*[!@#$%&*].*[!@#$%&*].*[!@#$%&*])");
     var numbers = new RegExp ("^(?=.*[0-9])");
@@ -115,22 +115,21 @@
                       <div class="invalid-feedback">PREGUNTA INVALIDA!</div>
                     </div>
 
-                    
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">RESPUESTA:</label>
-                      <input type="text" name="respuesta" onkeypress="javascript: return validarUn_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="yourAnswer" required>
-                      <div class="invalid-feedback"></div>
+                      <label for="yourName" class="form-label">RESPUESTA:</label>
+                      <input type="text" style="text-transform:uppercase" name="respuesta" class="form-control" id="yourAnswer" required>
+                      <div class="invalid-feedback">POR FAVOR, INGRESA TU RESPUESTA!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA NUEVA:</label>
-                      <input type="password" name="password" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
+                      <input type="password" name="password" onkeypress="javascript: return validar_espacio(event,this)"  minlength="8" maxlength="50" class="form-control" id="yourPassword" required>
+                      <div class="invalid-feedback">POR FAVOR INGRESA UNA CONTRASEÑA CORRECTA!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
-                      <input type="password" name="password_" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword_" required>
+                      <input type="password" name="password_" onkeypress="javascript: return validar_espacio(event,this)" minlength="8" maxlength="50" class="form-control" id="yourPassword_" required>
                       <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
                     </div>
 
