@@ -250,68 +250,12 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Clientes</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Ventas</li>
-          <li class="breadcrumb-item active">Ventas</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-
-    <div class="formulario">
-      <div class="row">
-          <div class="col-12">
-              <h3> 
-                  Agregar Factura de cliente.
-              </h3>
-          </div>
-          <div class="col-12">
-
-              <form class="factura">
-                  <label for="">Nùmero Factura</label>
-                  <input type="text" id="NUMERO_FACTURA" class="form-control" placeholder="Ingrese el Numero de la Factura">
-                  <label for="">ID Socio</label>
-                  <input type="text" id="ID_SOCIO" class="form-control" placeholder="Ingrese el ID Socio">
-                  <label for="">Fecha Factura</label>
-                  <input type="text" id="FECHA_FACTURA" class="form-control" placeholder="Ingrese La fecha de la factura">
-                  <label for="">Detalle</label>
-                  <input type="text" id="DETALLE" class="form-control" placeholder="Ingrese el Detalle">
-                  <label for="">Sub Total</label>
-                  <input type="text" id="SUB_TOTAL" class="form-control" placeholder="Ingrese el Sub Total">
-                  <label for="">Total ISV</label>
-                  <input type="text" id="TOTAL_ISV" class="form-control" placeholder="Ingrese el Total ISV">
-                  <label for="">Total</label>
-                  <input type="text" id="TOTAL" class="form-control" placeholder="Ingrese el Total">
-                  <label for="">Fecha Vencimiento</label>
-                  <input type="text" id="FECHA_VENCIMIENTO" class="form-control" placeholder="Ingrese la Fecha de vencimiento">
-                  <label for="">Estado</label>
-                  <input type="text" id="ESTADO" class="form-control" placeholder="Ingrese el Estado">
-                  <hr>
-                  <div class="btnfactura">
-                      <input type="submit" id="btnagregar" onclick="AgregarFactura()" value="Ingresar Factura" class="btn btn-success">
-
-                  </div>
-                 
-
-
-
-              </form>
-          </div>
-      </div>
-  </div>
-
-
     <div class="container">
       <div class="consulta mt-4">
           <div class="row">
               <div class="col-6">
                   <h3>
-                   Lista de Facturas de clientes.
+                   Lista Clientes.
                   </h3>
               </div>
           </div>
@@ -320,18 +264,20 @@
                   <table class="table table-hove">
                       <thead>
                           <tr>
-                              <th>ID</th>
-                              <th>NÙMERO FACTURA</th>
-                              <th>ID SOCIO</th>
-                              <th>FECHA FACTURA</th>
-                              <th>DETALLE</th>
-                              <th>SUB TOTAL</th>
-                              <th>TOTAL ISV</th>
-                              <th>TOTAL</th>
-                              <th>FECHA DE VENCIMIENTO</th>
-                              <th>ESTADO</th>
+                              <th>Codigo Cliente</th>
+                              <th>Identidad</th>
+                              <th>Nombres</th>
+                              <th>Apellidos</th>
+                              <th>Teléfono</th>
+                              <th>Correo Electronico</th>
+                              <th>Dirección</th>
+                              <th>Edad</th>
+                              <th>Fecha Registro</th>
+                              <th>Género</th>
+                              <th>Acciones</th>
                           </tr>
                       </thead>
+
                       <tbody class="Facturascliente">
                       </tbody>
                   </table>
@@ -339,6 +285,45 @@
           </div>
       </div>
    
+      <div class="formulario">
+        <div class="row">
+            <div class="col-12">
+                <h3> 
+                    Agregar Cliente.
+                </h3>
+            </div>
+            <div class="col-12">
+  
+                <form class="factura">
+                    <label for="">Codigo Cliente</label>
+                    <input type="text" id="NUMERO_FACTURA" class="form-control" placeholder="Ingrese el Numero de la Factura">
+                    <label for="">Identidad</label>
+                    <input type="text" id="ID_SOCIO" class="form-control" placeholder="Ingrese el ID Socio">
+                    <label for="">Nombres</label>
+                    <input type="text" id="FECHA_FACTURA" class="form-control" placeholder="Ingrese La fecha de la factura">
+                    <label for="">Apellidos</label>
+                    <input type="text" id="DETALLE" class="form-control" placeholder="Ingrese el Detalle">
+                    <label for="">Telefono</label>
+                    <input type="text" id="SUB_TOTAL" class="form-control" placeholder="Ingrese el Sub Total">
+                    <label for="">Correo Electronico</label>
+                    <input type="text" id="TOTAL_ISV" class="form-control" placeholder="Ingrese el Total ISV">
+                    <label for="">Dirección</label>
+                    <input type="text" id="TOTAL" class="form-control" placeholder="Ingrese el Total">
+                    <label for="">Edad</label>
+                    <input type="text" id="FECHA_VENCIMIENTO" class="form-control" placeholder="Ingrese la Fecha de vencimiento">
+                    <label for="">Fecha Registro</label>
+                    <input type="text" id="ESTADO" class="form-control" placeholder="Ingrese el Estado">
+                    <label for="">Genero</label>
+                    <input type="text" id="ESTADO" class="form-control" placeholder="Ingrese el Estado">
+                    <hr>
+                    <div class="btnfactura">
+                        <input type="submit" id="btnagregar" onclick="AgregarFactura()" value="Ingresar Cliente" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
   </main><!-- End #main -->
 
