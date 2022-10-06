@@ -36,7 +36,7 @@
     $filas_ = mysqli_num_rows( $resultado_ );
     if ($filas_>1){
         mysqli_close($conexion);
-        include('../mantenimiento-estante.html');
+        include('../cambiar_contrasena.html');
     }else{
         include ("../preguntasprueba.php");
     }         

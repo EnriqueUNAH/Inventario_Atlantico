@@ -62,6 +62,7 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
 }*/
 if ($estado== "NUEVO"){
      include('../preguntasprueba.php');
+     
 }elseif($estado == "ACTIVO"){
      $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarEstado );
