@@ -15,3 +15,17 @@ function mostrarPassword(){
 		$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
 	});
 });
+
+
+    function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {return false;}
+    }
+	
+	function maximo(campo,limite)
+      {
+      if(campo.value.length>=limite){
+      campo.value=campo.value.substring(0,limite);
+      }
+      }
