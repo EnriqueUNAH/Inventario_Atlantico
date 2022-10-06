@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IVERSIONES DEL ATLANTICO</title>
-</head>
-<body>
 <?php
     include( 'db.php' );
     $pregunta=($_POST[ 'pregunta' ]);
@@ -42,16 +33,15 @@
     } else {
         # code...
         echo '<script>alert("Contraseña Invalida No coinciden");</script>';
-        include('preguntas.html');
+        include('../preguntas.html');
     }
 
     $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$filas','$respuesta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
     mysqli_query( $conexion , $insertar_ );
 
     mysqli_close($conexion);
-    include('login.html');
+    include('../login.html');
 ?>
 </body>
-</html>
 
 
