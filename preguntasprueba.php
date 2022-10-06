@@ -59,11 +59,21 @@
                     <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
 
-                  <form action="/phpCode/preguntas.php" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="preguntas.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>
                       <select name="pregunta" class="form-control" id="_pregunta">
-                        <option></option>
+                      <?php
+                            include("db.php");
+                            $consulta = "SELECT * FROM tbl_preguntas";
+                            $ejecutar= mysqli_query($conexion,$consulta);
+                        ?>
+
+                        <?php foreach ($ejecutar as $opciones): ?>
+                            <option value="<?php echo $opciones['Pregunta']?>"><?php echo $opciones['Pregunta'] ?></option>
+                        <?php endforeach ?>
+                        <?php ?>    
+                                            
                       </select>
                       <div class="invalid-feedback">PREGUNTA INVALIDA!</div>
                     </div>

@@ -8,10 +8,12 @@ session_start();
 $_SESSION[ 'usuario' ] = $usuario;
 include( 'db.php' );
 
+ # Consulto si existe el usuario
 $consulta="SELECT * FROM tbl_ms_usuario where Usuario = '$usuario' and Contrasena = '$contraseña'";
 $resultado= mysqli_query( $conexion , $consulta );
 $filas = mysqli_num_rows( $resultado );
 
+# Consulto el estado del usuario
 $consulta_Estado="SELECT Estado_Usuario FROM tbl_ms_usuario where Usuario = '$usuario'";
 $resultado_Estado=mysqli_query( $conexion , $consulta_Estado );
 while ($otra=mysqli_fetch_array( $resultado_Estado )) {
@@ -19,6 +21,7 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      $estado=$otra['Estado_Usuario'];
  }
 
+ # Consulto el id Usuario
  $consulta_Id="SELECT Id_Usuario FROM tbl_ms_usuario where Usuario = '$usuario'";
  $resultado_Id=mysqli_query( $conexion , $consulta_Id);
  while ($otra_=mysqli_fetch_array( $resultado_Id )) {
@@ -45,18 +48,32 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
 }
 
      # code...
-if ($estado<>"BLOQUEADO" and $filas==1 and $intento_de_parametro<3) {
+/*if ($estado<>"BLOQUEADO" and $filas==1 and $intento_de_parametro<3) {
      # code...
      $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarEstado );
-     include('index.html');
+     include('../index.html');
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      $intento_de_parametro++;
      $actualizarValor_Parametro = "UPDATE tbl_ms_parametros SET valor = $intento_de_parametro WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarValor_Parametro );
-     include('login.html');
+     include('../login.html');
+}*/
+if ($estado== "NUEVO"){
+     include('../preguntasprueba.php');
+}elseif($estado == "ACTIVO"){
+     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Id_Usuario = $id";
+     mysqli_query( $conexion , $actualizarEstado );
+     include('../index.html');
+}else{
+     echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
+     $intento_de_parametro++;
+     $actualizarValor_Parametro = "UPDATE tbl_ms_parametros SET valor = $intento_de_parametro WHERE Id_Usuario = $id";
+     mysqli_query( $conexion , $actualizarValor_Parametro );
+     include('../login.html');
 }
+
 
      # code...
 if ($intento_de_parametro==3) {
@@ -66,7 +83,7 @@ if ($intento_de_parametro==3) {
      mysqli_query( $conexion , $Actualizar_parametro );
      $actualizarEstado_ = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'BLOQUEADO' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarEstado_ );
-     include('login.html');
+     include('../login.html');
 }
 
 mysqli_free_result($resultado);

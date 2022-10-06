@@ -26,7 +26,7 @@
 
 </head> 
 <body> 
-    <?php include('../preguntas.html');?>
+    <?php include('../login.html');?>
  
 </body> 
 </html>
