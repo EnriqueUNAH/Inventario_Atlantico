@@ -75,8 +75,8 @@
 
                   <form action="registro.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
-                      <label for="yourName" class="form-label">SU NOMBRE:</label>
-                      <input type="text" style="text-transform:uppercase" name="name" class="form-control" id="yourName" required>
+                      <label for="yourName" class="form-label">Nombre Completo:</label>
+                      <input type="text" style="text-transform:uppercase" name="name" placeholder="Por favor ingrese su nombre completo" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU NOMBRE DE USUARIO!</div>
                     </div>
 
@@ -84,20 +84,20 @@
                       <label for="yourUsername" class="form-label">NOMBRE DE USUARIO:</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" style="text-transform:uppercase" name="username" onkeypress="javascript: return validar_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="yourUsername" required>
+                        <input type="text" style="text-transform:uppercase" name="username" placeholder="Favor ingrese su nombre de usuario" onkeypress="javascript: return validar_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">POR FAVOR ESCRIBA UN NOMBRE DE USUARIO.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA:</label>
-                      <input type="password" name="password" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" placeholder="Favor ingrese contraseña" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">CORREO ELECTRONICO:</label>
-                      <input type="email" name="email" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
+                      <input type="email" name="email" placeholder="Favor ingrese su Correo Electronico" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">POR FAVOR INGRESA CORREO ELECTRONICO VALIDO!</div>
                     </div>
 
