@@ -39,7 +39,7 @@ function mostrarPassword(){
 		}
 	}
 
-	  function checkPassword(valor){
+	  function checkPassword(){
 		var myregex = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/; 
 	   if(myregex.test(valor)){
 		   alert(valor+" es valido :-) !");

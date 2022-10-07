@@ -53,6 +53,34 @@
     }
   </script>
 
+<script>
+  function validatePassword() {
+    var p = document.getElementById('yourPassword').value,
+        errors = [];
+    if (p.length < 8) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
+    }
+    if (p.search(/[a-z]/i) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
+    }
+    if (p.search(/[A-Z]/i) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
+    }
+    if (p.search(/[0-9]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
+    }
+    if (p.search(/[@$?¡\-_]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
+    }
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }else{
+      return True;
+    }  
+}
+</script>
+
 </head>
 
 <body>
@@ -81,7 +109,7 @@
                     <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form action="../Inversiones_Atlantico/phpCode/registro.php" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="../Inversiones_Atlantico/phpCode/registro.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Completo:</label>
                       <input type="text" style="text-transform:uppercase" name="name" placeholder="nombre" class="form-control" id="yourName" required>
@@ -100,7 +128,7 @@
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input ID="txtPassword" type="Password" required pattern="[^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$]" Class="form-control" name="password" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
+                        <input type="Password" Class="form-control" name="password" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
                         <div class="input-group-append">
                             <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                         </div>
