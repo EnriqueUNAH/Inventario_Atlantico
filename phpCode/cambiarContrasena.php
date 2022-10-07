@@ -15,5 +15,4 @@ if ($filas) {
     mysqli_query( $conexion , $actualizarContra );
     echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';
 }
-
 ?>

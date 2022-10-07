@@ -69,9 +69,12 @@
 
                   <form action="../phpCode/login.php" onsubmit="checkForm(this)" method="post" class="row g-3 needs-validation" novalidate="false">
 
+
+
                     <div class="col-12">
                       <div class="input-group has-validation">
-                        <input type="text" placeholder="Usuario"  style="text-transform:uppercase" id="text1" name="username" onkeypress="javascript: return validar_espacio(event,this)"  onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="username" required>
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" placeholder="Usuario" name="username" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">Ingresa tu nombre de Usuario.</div>
                       </div>
                     </div>
