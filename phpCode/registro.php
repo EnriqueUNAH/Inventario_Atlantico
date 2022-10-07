@@ -1,4 +1,3 @@
-
 <?php
     include( 'db.php' );
     $nombre = strtoupper($_POST[ 'name' ]);
@@ -18,9 +17,8 @@
     mysqli_close($conexion);
 
 ?>
-
 <!DOCTYPE html> 
-<html lang="en"> 
+<html lang="es"> 
 <head> 
     <meta charset="UTF-8"> 
 
