@@ -13,6 +13,21 @@ $consulta="SELECT * FROM tbl_ms_usuario where Usuario = '$usuario' and Contrasen
 $resultado= mysqli_query( $conexion , $consulta );
 $filas = mysqli_num_rows( $resultado );
 
+#Consulta contraseña
+$consulta_contra="SELECT Contrasena FROM tbl_ms_usuario where Usuario = '$usuario'";
+$resultado_contra=mysqli_query( $conexion , $consulta_contra );
+while ($contra=mysqli_fetch_array( $resultado_contra )) {
+     # code...
+     $contrasena=$contra['Contrasena'];
+ }
+
+ if($contrasena<>$contraseña){
+     echo '<script>alert("Contraseña incorrecta");</script>';
+          
+ }
+
+
+
 # Consulto el estado del usuario
 $consulta_Estado="SELECT Estado_Usuario FROM tbl_ms_usuario where Usuario = '$usuario'";
 $resultado_Estado=mysqli_query( $conexion , $consulta_Estado );
@@ -63,9 +78,7 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
 if ($estado== "NUEVO"){
      include('../preguntasprueba.php');
      
-}elseif($estado == "ACTIVO"){
-     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Id_Usuario = $id";
-     mysqli_query( $conexion , $actualizarEstado );
+}elseif($estado == "ACTIVO" and $contrasena==$contraseña){
      include('../index.html');
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';

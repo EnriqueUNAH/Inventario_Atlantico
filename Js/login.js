@@ -29,3 +29,23 @@ function mostrarPassword(){
       campo.value=campo.value.substring(0,limite);
       }
       }
+
+	  
+	  function checkForm(form){
+		if(form.username.value == "") {
+		  alert("Error: Debe escribir Usuario!");
+		  form.username.focus();
+		  return false;
+		}
+	}
+
+	  function checkPassword(valor){
+		var myregex = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/; 
+	   if(myregex.test(valor)){
+		   alert(valor+" es valido :-) !");
+		   return true;        
+	   }else{
+		  alert(valor+" NO es valido!");
+		   return false;        
+	   }   
+	 }

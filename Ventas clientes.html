@@ -35,6 +35,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <script src="/Js/clientes.js"></script>
+
+
 </head>
 
 <body>
@@ -262,6 +265,75 @@
       </nav>
     </div><!-- End Page Title -->
 
+    <div class="container">
+      <div class="consulta mt-4">
+          <div class="row">
+              <div class="col-6">
+                  <h3>lista de Clientes</h3>
+              </div>                
+          </div>
+          <div class="box-body">
+              <div class="table table-responsive">
+                  <table class="table table-hover">
+                      <head>
+                          <tr>
+                              <th>Cod Cliente</th>
+                              <th>Número DNI</th>
+                              <th>Nombres</th>
+                              <th>Apellidos</th>
+                              <th>Télefono</th>
+                              <th>Correo Electrónico</th>
+                              <th>Dirección</th>
+                              <th>Fecha Registro</th>
+                              <th>Genero</th>
+                          </tr>
+                      </head>
+                      <tbody class="cliente">
+                         
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="formulario">
+        <div class="row">
+            <div class="col-12">
+                <h3>Agregar Proveerdores</h3>
+            </div>
+            <div class="col-12">
+
+                <label for="">Número DNI</label>
+                <input type="text" id="NumeroDNI" class="form-control" placeholder="Ingrese número identidad">
+
+                <label for="">Nombres</label>
+                <input type="text" id="Nombres" class="form-control" placeholder="Ingrese Nombres">
+
+                <label for="">Apellidos</label>
+                <input type="text" id="Apellidos" class="form-control" placeholder="Ingrese Apellidos">
+
+                <label for="">Télefono</label>
+                <input type="text" id="Telefono" class="form-control" placeholder="Ingrese número de telefono">
+
+                <label for="">Correo Electrónico</label>
+                <input type="text" id="Correo" class="form-control" placeholder="Ingrese correo electrónico">
+
+                <label for="">Dirección</label>
+                <input type="text" id="Direccion" class="form-control" placeholder="Ingrese Dirección">
+
+                <label for="">Fecha Registro</label>
+                <input type="text" id="FechaRegistro" class="form-control" placeholder="Ingrese Fecha Registro">
+                
+                <label for="">Genero</label>
+                <input type="text" id="Genero" class="form-control" placeholder="Ingrese Genero">
+
+                <hr>
+                <div class="btnagregar">
+                    <input type="submit" id="btnagregar" onclick="agregarPedido()" value="Agregar Pedido" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+    </div>
    
 
   </main><!-- End #main -->

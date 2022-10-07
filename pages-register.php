@@ -26,8 +26,16 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+  <!--librerias para contraseña-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="Js/login.js"></script>
+
+
   <script>
     function validar_espacio(e, campo)
     {
@@ -91,8 +99,13 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA:</label>
-                      <input type="password" name="password" placeholder="Contraseña" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
+                      <div class="input-group">
+                        <input ID="txtPassword" type="Password" required pattern="[^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$]" Class="form-control" name="password" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
+                        <div class="input-group-append">
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        </div>
+                      </div>
+  
                     </div>
 
                     <div class="col-12">
