@@ -5,7 +5,7 @@ $id=0;
 $intento_de_parametro=0;
 $fechaC = date('Y-m-d');
 session_start();
-$_SESSION[ 'usuario' ] = $usuario;
+$_SESSION['nombre'] = $usuario;
 include( 'db.php' );
 
  # Consulto si existe el usuario
@@ -78,8 +78,8 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
 if ($estado== "NUEVO"){
      include('../preguntasprueba.php');
      
-}elseif($estado == "ACTIVO" and $contrasena==$contraseña){
-     include('../index.html');
+}elseif($estado == "ACTIVO" and $contraseña==$contrasena){
+     include('../principal.php');
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      $intento_de_parametro++;
