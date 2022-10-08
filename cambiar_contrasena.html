@@ -45,7 +45,7 @@
       if (p.search(/[0-9]/) < 0) {
           errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
       }
-      if (p.search(/[@$?¡\-_]/) < 0) {
+      if (p.search(/[#@$?¡\-_]/) < 0) {
           errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
       }
       if (errors.length > 0) {
@@ -84,10 +84,10 @@
                     <p class="text-center small">INGRESO DE DATOS</p>
                   </div>
 
-                  <form action="../phpCode/cambiarContrasena.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
+                  <form action="../php/cambiarContrasena.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA ANTERIOR:</label>
-                      <input type="password" name="password" required pattern="[^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$]" Class="form-control" name="password" placeholder="Ingrese su contraseña Anterior"  onkeypress="javascript: return validar_espacio(event,this)" id="yourPassword" required>
+                      <input type="password" name="password" Class="form-control" name="password" placeholder="Ingrese su contraseña Anterior"  onkeypress="javascript: return validar_espacio(event,this)" id="NoyourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 

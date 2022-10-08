@@ -21,13 +21,6 @@ while ($contra=mysqli_fetch_array( $resultado_contra )) {
      $contrasena=$contra['Contrasena'];
  }
 
- if($contrasena<>$contraseña){
-     echo '<script>alert("Contraseña incorrecta");</script>';
-          
- }
-
-
-
 # Consulto el estado del usuario
 $consulta_Estado="SELECT Estado_Usuario FROM tbl_ms_usuario where Usuario = '$usuario'";
 $resultado_Estado=mysqli_query( $conexion , $consulta_Estado );
@@ -75,10 +68,9 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      mysqli_query( $conexion , $actualizarValor_Parametro );
      include('../login.html');
 }*/
-if ($estado== "NUEVO"){
-     include('../preguntasprueba.php');
-     
-}elseif($estado == "ACTIVO" and $contraseña==$contrasena){
+if ($estado=="NUEVO" and $contraseña==$contrasena){
+     include('../preguntasprueba.php');  
+}elseif($estado=="ACTIVO" and $contraseña==$contrasena){
      include('../principal.php');
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';

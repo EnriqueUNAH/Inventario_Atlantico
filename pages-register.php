@@ -69,7 +69,7 @@
     if (p.search(/[0-9]/) < 0) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
     }
-    if (p.search(/[@$?¡\-_]/) < 0) {
+    if (p.search(/[#@$?¡\-_]/) < 0) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
     }
     if (errors.length > 0) {
@@ -109,7 +109,7 @@
                     <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form action="../Inversiones_Atlantico/Code/registro.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="php/registro.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Completo:</label>
                       <input type="text" style="text-transform:uppercase" name="name" placeholder="nombre" class="form-control" id="yourName" required>
