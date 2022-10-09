@@ -33,8 +33,29 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <script src="Js/login.js"></script>
+  <script src="/Js/login.js"></script>
 
+
+  <script>
+    function mostrarPassword(){
+        var cambio = document.getElementById("yourPassword");
+		if(cambio.type == "password"){
+			cambio.type = "text";
+			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		}else{
+			cambio.type = "password";
+			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		}
+	} 
+	
+	$(document).ready(function () {
+	//CheckBox mostrar contraseña
+	$('#ShowPassword').click(function () {
+		$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+	});
+});
+
+  </script>
 
   <script>
     function validar_espacio(e, campo)
@@ -133,7 +154,6 @@
                             <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                         </div>
                       </div>
-  
                     </div>
 
                     <div class="col-12">

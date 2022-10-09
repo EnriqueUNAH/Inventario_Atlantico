@@ -1,5 +1,5 @@
 function mostrarPassword(){
-        var cambio = document.getElementById("txtPassword");
+        var cambio = document.getElementById("yourPassword");
 		if(cambio.type == "password"){
 			cambio.type = "text";
 			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');

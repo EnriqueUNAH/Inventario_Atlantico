@@ -82,9 +82,14 @@
                     </div>
 
                     <div class="col-12">
-                      <input type="password" name="password" Class="form-control" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" id="yourPassword" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA LA CONTRASEÑA!</div>
-                    </div>
+                      <div class="input-group">
+                        <input type="Password" Class="form-control" name="password" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
+                        <div class="input-group-append">
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        </div>
+                      </div>
+                     </div>   
+
 
                     <div class="col-12">
                     </div>
