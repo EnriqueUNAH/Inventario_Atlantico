@@ -69,7 +69,7 @@
     if (p.search(/[0-9]/) < 0) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
     }
-    if (p.search(/[#@$?¡\-_]/) < 0) {
+    if (p.search(/[*&!^)(#@$?¡\-_]/) < 0) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
     }
     if (errors.length > 0) {
