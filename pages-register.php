@@ -50,11 +50,10 @@
 	
 	$(document).ready(function () {
 	//CheckBox mostrar contraseña
-	$('#ShowPassword').click(function () {
-		$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-	});
-});
-
+    $('#ShowPassword').click(function () {
+      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+    });
+    });
   </script>
 
   <script>
@@ -166,7 +165,7 @@
                       <button class="btn btn-primary w-100" type="submit">REGISTRAME!</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">YA TIENES CUENTA? <a href="login.html">INICIAR SESION</a></p>
+                      <p class="small mb-0">YA TIENES CUENTA? <a href="php/index.php">INICIAR SESION</a></p>
                     </div>
                   </form>
 

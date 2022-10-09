@@ -6,6 +6,7 @@ $intento_de_parametro=0;
 $fechaC = date('Y-m-d');
 session_start();
 $_SESSION['nombre'] = $usuario;
+$_SESSION['nombre_'] = $_POST['username'];
 include( 'db.php' );
 
  # Consulto si existe el usuario

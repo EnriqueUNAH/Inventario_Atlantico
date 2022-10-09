@@ -35,10 +35,45 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script src="../Js/login.js"></script>
+  <script src="Js/login.js"></script>
 
-  
-  
+  <script>
+    function mostrarPassword(){
+        var cambio = document.getElementById("yourPassword");
+		if(cambio.type == "password"){
+			cambio.type = "text";
+			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		}else{
+			cambio.type = "password";
+			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		}
+	} 
+	
+	$(document).ready(function () {
+	//CheckBox mostrar contraseña
+    $('#ShowPassword').click(function () {
+      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+    });
+    });
+  </script>
+ <script>
+  function validar_espacio(e, campo)
+  {
+  key = e.keyCode ? e.keyCode : e.which;
+  if (key == 32) {return false;}
+  }
+  </script>
+
+<script>
+  function maximo(campo,limite)
+  {
+  if(campo.value.length>=limite){
+  campo.value=campo.value.substring(0,limite);
+  }
+  }
+</script>
+
+
 </head>
 
 <body>
@@ -76,7 +111,7 @@
                     <div class="col-12">
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" style="text-transform:uppercase" placeholder="Usuario" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" style="text-transform:uppercase" placeholder="Usuario" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">Ingresa tu nombre de Usuario.</div>
                       </div>
                     </div>
