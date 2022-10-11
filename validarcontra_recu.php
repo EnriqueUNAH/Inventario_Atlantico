@@ -7,7 +7,7 @@ $contrasena=($_POST[ 'password_' ]);
 $contrasena_=($_POST[ 'password__' ]);
     if ($contrasena==$contrasena_) {
         # code...
-        $actualizarContra = "UPDATE tbl_ms_usuario SET contrasena = '$contrasena_' WHERE Usuario='$usuario'";
+        $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Usuario='$usuario'";
         mysqli_query( $conexion , $actualizarContra );
     
         echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';

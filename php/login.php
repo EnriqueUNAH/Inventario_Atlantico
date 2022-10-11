@@ -7,6 +7,7 @@ $fechaC = date('Y-m-d');
 session_start();
 $_SESSION['nombre'] = $usuario;
 $_SESSION['nombre_'] = $_POST['username'];
+$_SESSION['nombre_reset'] = $_POST['username'];
 include( 'db.php' );
 
  # Consulto si existe el usuario
@@ -69,6 +70,12 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      mysqli_query( $conexion , $actualizarValor_Parametro );
      include('../login.html');
 }*/
+
+if ($estado=="RESETEO") {
+     # code...
+     include('../cambiar_contrasena_reset.html');
+}
+
 if ($estado=="NUEVO" and $contraseña==$contrasena){
      include('../preguntasprueba.php');  
 }elseif($estado=="ACTIVO" and $contraseña==$contrasena){
@@ -80,7 +87,6 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
      mysqli_query( $conexion , $actualizarValor_Parametro );
      include('../login.html');
 }
-
 
      # code...
 if ($intento_de_parametro==3) {
