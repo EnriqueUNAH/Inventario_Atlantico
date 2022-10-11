@@ -1,6 +1,7 @@
 <?php
     include( 'db.php' );
     $respuesta=($_POST[ 'respuesta' ]);
+    $pregunta=($_POST[ 'pregunta' ]);
     $fechaC = date('Y-m-d');
 
     $consulta="SELECT * FROM tbl_ms_usuario";
@@ -12,6 +13,15 @@
         # code...
         $nombre=$otra['Usuario'];
     }
+
+
+    $consultar_ = mysqli_query( $conexion , "SELECT Id_Pregunta FROM tbl_preguntas WHERE Pregunta='$pregunta'");
+    while ($otra_=mysqli_fetch_array( $consultar_ )) {
+        # code...
+        $id=$otra_['Id_Pregunta'];
+    }
+
+
     $fechaC=date('Y-m-d');
 
     /*if ($contrasena==$contrasena_) {
@@ -28,7 +38,7 @@
         include('../preguntas.html');
     }*/ 
 
-    $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$filas','$respuesta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
+    $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$id','$respuesta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
     mysqli_query( $conexion , $insertar_ );
 
     $consultar_ = "SELECT * FROM tbl_ms_preguntas_usuario WHERE Creado_Por='$nombre'";

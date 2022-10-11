@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INVERSIONES ATLANTICO</title>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -29,13 +32,10 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="Inventario_Atlantico/Js/preguntasapi.js"></script>
-
-
 </head>
-
 <body>
 
-  <main>
+<main>
     <div class="container">
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -59,14 +59,14 @@
                     <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
 
-                  <form action="preguntas.php" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form  action="validarrespuesta.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>
                       <select name="pregunta" class="form-control" id="_pregunta">
                       <?php
                             include("db.php");
-                            $consulta = "SELECT * FROM tbl_preguntas";
-                            #$ejecutar= mysqli_query($conexion,$consulta);
+                            $ejecutar= mysqli_query( $conexion , "SELECT * FROM tbl_preguntas");
+                            
                         ?>
 
                         <?php foreach ($ejecutar as $opciones): ?>
@@ -76,36 +76,30 @@
                                             
                       </select>
                       <div class="invalid-feedback">PREGUNTA INVALIDA!</div>
-                    </div>
+                    </div> 
 
-                    
-                    
                     <div class="col-12">
                       <label for="yourName" class="form-label">RESPUESTA:</label>
                       <input type="text" style="text-transform:uppercase" name="respuesta" class="form-control" id="yourAnswer" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU RESPUESTA!</div>
                     </div>
+
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">CONFIRMAR</button>
                     </div>
+                    
                   </form>
-
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-
       </section>
-
     </div>
   </main><!-- End #main -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+</body>
+ <!-- Vendor JS Files -->
+ <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
@@ -116,7 +110,4 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-</body>
-
 </html>

@@ -74,7 +74,7 @@
                     <p class="text-center small">POR FAVOR INGRESE LA INFORMACION NECESARIA</p>
                   </div>
 
-                  <form action="preguntas_recuperar.php" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="validar.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">NOMBRE DE USUARIO:</label>
                       <div class="input-group has-validation">
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="col-12">
-                      <button action="preguntas_recuperar.php" method="post" class="btn btn-primary w-100" type="submit" name="btnPregunta">RECUPERAR VIA PREGUNTAS SECRETAS</button>
+                      <button action="validar.php" method="post" class="btn btn-primary w-100" type="submit" name="btnPregunta">RECUPERAR VIA PREGUNTAS SECRETAS</button>
                     </div>
 
                   </form>
