@@ -1,5 +1,8 @@
+<?php
+include( 'db.php' );
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -287,10 +290,40 @@
                               <th>Fecha Registro</th>
                               <th>Genero</th>
                           </tr>
+                          
+                          <?php
+                            $consulta = "SELECT * FROM tbl_clientes";
+                            $ejecutarCONSULTA = mysqli_query($conexion, $consulta);
+                            $verFilas = mysqli_num_rows($ejecutarCONSULTA);
+                            $fila = mysqli_fetch_array($ejecutarCONSULTA);
+
+                            if(!$ejecutarCONSULTA){
+                              echo  "error en la consulta";
+                            }else{
+                              if($verFilas<1){
+                                echo"<tr><td>Sin registros</td></tr>";
+                              }else{
+                                for($i=0; $i<=$fila; $i++){
+                                  echo"
+                                    <tr>
+                                      <td>'.$cod_cliente[0].'</td>
+                                      <td>'.$numero_dni[1].'</td>
+                                      <td>'.$nombres.[2]'</td>
+                                      <td>'.$apellidos[3].'</td>
+                                      <td>'.$telefono[4].'</td>
+                                      <td>'.$correo[5].'</td>
+                                      <td>'.$direccion[6].'</td>
+                                      <td>'.$fecha[7].'</td>
+                                      <td>'.$genero[8].'</td>
+                                    </tr>
+                                    ";
+                            $fila = mysqli_fetch_array($ejecutarCONSULTA);
+                                }
+                              }
+                            }
+
+                          ?>
                       </head>
-                      <tbody class="cliente">
-                         
-                      </tbody>
                   </table>
               </div>
           </div>
@@ -329,7 +362,7 @@
 
                 <hr>
                 <div class="btnagregar">
-                    <input type="submit" id="btnagregar" onclick="agregarPedido()" value="Agregar Pedido" class="btn btn-success">
+                    <input type="submit" id="btnagregar" onclick="" value="Agregar Pedido" class="btn btn-success">
                 </div>
             </div>
         </div>
@@ -337,6 +370,30 @@
    
 
   </main><!-- End #main -->
+
+
+    <?php
+      if(isset($_POST['btnagregar'])){
+        $cod_cliente = $_POST ["Cod_cliente"];
+        $numero_dni = $_POST ["NumeroDNI"];
+        $nombres = $_POST ["Nombres"];
+        $apellidos = $_POST ["Apellidos"];
+        $telefono = $_POST ["Telefono"];
+        $correo = $_POST ["Correo"];
+        $direccion = $_POST ["Direccion"];
+        $fecha = $_POST ["FechaRegistro"];
+        $genero = $_POST ["Genero"];
+
+        $insertarDatos = "INSERT INTO tbl_clientes VALUES('$numero_dni','$Nombres','$apellidos','$telefono','$correo','$direccion','$fecha','$genero')";
+
+        $ejecutarInsert = mysqli_query($conexion, $insertarDatos);
+
+        if(!$ejecutarInsert){
+          echo"Error";
+        }
+
+      }
+    ?>
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -350,17 +407,17 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/chart.js/chart.min.js"></script>
+  <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="../assets/vendor/quill/quill.min.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
 </body>
 

@@ -137,7 +137,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Ventas clientes.html">
+            <a href="../Ventas_clientes.php">
               <i class="bi bi-circle"></i><span>VER CLIENTES</span>
             </a>
           </li>
