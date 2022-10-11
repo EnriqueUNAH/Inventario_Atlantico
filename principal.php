@@ -1,8 +1,4 @@
-<?php
 
-    session_destroy();
-	
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -171,7 +167,7 @@
             </a>
           </li>
           <li>
-            <a href="Inventario-proveedores.html">
+            <a href="../DetalleProveedores.php">
               <i class="bi bi-circle"></i><span>VER PROVEEDORES</span>
             </a>
           </li>
