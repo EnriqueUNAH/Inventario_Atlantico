@@ -28,49 +28,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="Inventario_Atlantico/Js/preguntasapi.js"></script>
 
-  <script src= "jquery.js"></script>
-
-  <script>
-    function validar_espacio(e, campo)
-    {
-		key = e.keyCode ? e.keyCode : e.which;
-		if (key == 32) {
-      return false;
-    }
-  }
-    </script>
-
-<script>
-  function validarUn_espacio(e, campo)
-  {
-    document.getElementById("yourAnswer").addEventListener("keydown", teclear);
-    var flag = false;
-    var teclaAnterior = "";
-
-    function teclear(event) {
-      teclaAnterior = teclaAnterior + " " + event.keyCode;
-      var arregloTA = teclaAnterior.split(" ");
-      if (event.keyCode == 32 && arregloTA[arregloTA.length - 2] == 32) {
-        event.preventDefault();
-      }
-  }
-}
-  </script>
-
-  <script>
-    (function validaciones_generales(e,campo){
-    var mayus = new RegExp ("^(?=.*[A-Z].*[A-Z].*[A-Z])");
-    var special = new RegExp ( "^(?=.*[!@#$%&*].*[!@#$%&*].*[!@#$%&*])");
-    var numbers = new RegExp ("^(?=.*[0-9])");
-    var lower = new RegExp ( "^(?=.*[a-z])");
-    var len = new RegExp ("^(?=.{8,})");
-    });
-    var regExp = [ mayus , special , numbers , lower , len ] ;
-    var elements = [ $( "#mayus" ) , $( "#special" ) , $( "#numbers" ) , $( "#lower" ) ,$( "#len" )];
-    $("#yourPassword ").on ( "keyup" , function() {
-    })
-  </script>
 
 </head>
 
@@ -97,45 +56,38 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">CONFIGURACION DE PREGUNTAS</h5>
-                    <p class="text-center small">SELECCIONA TU PREGUNTA PARA GESTIONAR TU CUENTA</p>
+                    <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
 
-                  <form action="/phpCode/recuperar_por_pregunta.php" method="post" class="row g-3 needs-validation" novalidate>
+                  <form action="preguntas.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>
-                      <select name="Lapregunta" class="form-control" id="_pregunta">
-                        <option></option>
-                        <option>¿EN QUE MES NACISTE?</option>
-                        <option>¿COMO SE LLAMA TU MAMÁ?</option>
-                        <option>¿A CUAL SECUNDARIA FUISTE?</option>
-                        <option>¿CUAL ES TU EQUIPO FAVORITO?</option>
-                        <option>¿COMO SE LLAMA TU PAPÁ?</option>
-                        <option>¿EN CUAL CIUDAD NACISTE?</option>
+                      <select name="pregunta" class="form-control" id="_pregunta">
+                      <?php
+                            include("db.php");
+                            $consulta = "SELECT * FROM tbl_preguntas";
+                            $ejecutar= mysqli_query($conexion,$consulta);
+                        ?>
+
+                        <?php foreach ($ejecutar as $opciones): ?>
+                            <option value="<?php echo $opciones['Pregunta']?>"><?php echo $opciones['Pregunta'] ?></option>
+                        <?php endforeach ?>
+                        <?php ?>    
+                                            
                       </select>
                       <div class="invalid-feedback">PREGUNTA INVALIDA!</div>
                     </div>
 
+                    
                     <div class="col-12">
                       <label for="yourName" class="form-label">RESPUESTA:</label>
                       <input type="text" style="text-transform:uppercase" name="respuesta" class="form-control" id="yourAnswer" required>
                       <div class="invalid-feedback">POR FAVOR, INGRESA TU RESPUESTA!</div>
                     </div>
-
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">CONTRASEÑA NUEVA:</label>
-                      <input type="password" name="password" onkeypress="javascript: return validar_espacio(event,this)"  minlength="8" maxlength="50" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA UNA CONTRASEÑA CORRECTA!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
-                      <input type="password" name="password_" onkeypress="javascript: return validar_espacio(event,this)" minlength="8" maxlength="50" class="form-control" id="yourPassword_" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA TU CONTRASEÑA!</div>
-                    </div>
-
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">CONFIRMAR</button>
                     </div>
+                  </form>
 
                 </div>
               </div>

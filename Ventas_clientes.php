@@ -304,7 +304,7 @@ include( 'db.php' );
                                 echo"<tr><td>Sin registros</td></tr>";
                               }else{
                                 for($i=0; $i<=$fila; $i++){
-                                  echo"
+                                  echo'
                                     <tr>
                                       <td>'.$cod_cliente[0].'</td>
                                       <td>'.$numero_dni[1].'</td>
@@ -316,7 +316,7 @@ include( 'db.php' );
                                       <td>'.$fecha[7].'</td>
                                       <td>'.$genero[8].'</td>
                                     </tr>
-                                    ";
+                                    ';
                             $fila = mysqli_fetch_array($ejecutarCONSULTA);
                                 }
                               }
