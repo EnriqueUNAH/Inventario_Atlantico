@@ -66,18 +66,19 @@
                       <?php
                             include("db.php");
                             $consulta = "SELECT * FROM tbl_preguntas";
-                            $ejecutar= mysqli_query($conexion,$consulta);
+                            #$ejecutar= mysqli_query($conexion,$consulta);
                         ?>
 
                         <?php foreach ($ejecutar as $opciones): ?>
                             <option value="<?php echo $opciones['Pregunta']?>"><?php echo $opciones['Pregunta'] ?></option>
                         <?php endforeach ?>
-                        <?php ?>    
+                        <?php ?>
                                             
                       </select>
                       <div class="invalid-feedback">PREGUNTA INVALIDA!</div>
                     </div>
 
+                    
                     
                     <div class="col-12">
                       <label for="yourName" class="form-label">RESPUESTA:</label>
