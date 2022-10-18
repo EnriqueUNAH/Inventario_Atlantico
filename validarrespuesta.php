@@ -19,8 +19,11 @@ while ($otra_=mysqli_fetch_array( $consultar_ )) {
     $respuesta_=$otra_['Respuesta'];
 }
 
-if ($pregunta==$pregunta_ and $respuesta==$respuesta_) {
+if ($id==$id_) {
     # code...
     include('cambiar_contrasena_recu.html');
+}else{
+    echo '<script>alert("RESPUESTA INCORRECTA");</script>';
+    include('preguntas_recuperar.php');
 }
 ?>
