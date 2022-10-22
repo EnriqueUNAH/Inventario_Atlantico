@@ -35,44 +35,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script src="Js/login.js"></script>
-
-  <script>
-    function mostrarPassword(){
-        var cambio = document.getElementById("yourPassword");
-		if(cambio.type == "password"){
-			cambio.type = "text";
-			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-		}else{
-			cambio.type = "password";
-			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-		}
-	} 
-	
-	$(document).ready(function () {
-	//CheckBox mostrar contraseña
-    $('#ShowPassword').click(function () {
-      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    });
-    });
-  </script>
- <script>
-  function validar_espacio(e, campo)
-  {
-  key = e.keyCode ? e.keyCode : e.which;
-  if (key == 32) {return false;}
-  }
-  </script>
-
-<script>
-  function maximo(campo,limite)
-  {
-  if(campo.value.length>=limite){
-  campo.value=campo.value.substring(0,limite);
-  }
-  }
-</script>
-
+  <script src="../Js/login.js"></script>
 
 </head>
 
@@ -87,7 +50,7 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="login.html" class="logo d-flex align-items-center w-auto">
+                <a href="../Login/index.php" class="logo d-flex align-items-center w-auto">
                   <img src="../assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block">INVERSIONES DEL ATLANTICO</span>
                 </a>
@@ -104,8 +67,6 @@
                   </div>
 
                   <form action="../php/login.php" method="post" class="row g-3 needs-validation">
-
-
 
                     <div class="col-12">
                       <div class="input-group has-validation">
@@ -131,13 +92,10 @@
                       <button class="btn btn-primary w-100" type="submit">Entrar</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">No tengo cuenta <a href="../pages-register.php">CREAR CUENTA</a></p>
+                      <p class="small mb-0">No tengo cuenta <a href="../Login/autoRegistro.php">AutoRegistro</a></p>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">¿Olvidaste Contraseña? <a href="../recuperar.php">RECUPERAR</a></p>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Opcion AutoRegistro <a href="../autoregistro.html">AUTOREGISTRO</a></p>
+                      <p class="small mb-0">¿Olvidaste Contraseña? <a href="../Login/recuperar.php">RECUPERAR</a></p>
                     </div>
                   </form>
 

@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+$_SESSION['nombre'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -120,7 +123,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="../Principal/principal.php">
           <i class="bi bi-grid"></i>
           <span>INICIO</span>
         </a>
@@ -133,12 +136,12 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Ventas_clientes.php">
+            <a href="../Principal/Ventas/Ventas_clientes.php">
               <i class="bi bi-circle"></i><span>VER CLIENTES</span>
             </a>
           </li>
           <li>
-            <a href="Ventas ventas.html">
+            <a href="../Principal/Ventas/Ventas_ventas.php">
               <i class="bi bi-circle"></i><span>VER VENTAS</span>
             </a>
           </li>
@@ -157,7 +160,7 @@
             </a>
           </li>
           <li>
-            <a href="Inventario-inventario.html">
+          <a href="../Principal/Inventario/Inventario-inventario.php">
               <i class="bi bi-circle"></i><span>VER INVENTARIO</span>
             </a>
           </li>
@@ -167,7 +170,7 @@
             </a>
           </li>
           <li>
-            <a href="../DetalleProveedores.php">
+            <a href="../Principal/Inventario/DetalleProveedores.php">
               <i class="bi bi-circle"></i><span>VER PROVEEDORES</span>
             </a>
           </li>
@@ -186,7 +189,7 @@
             </a>
           </li>
           <li>
-            <a href="Mantenimiento-tipo-mov.html">
+            <a href="../Principal/Mantenimiento/Mantenimiento-tipo-mov.php">
               <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
             </a>
           </li>
@@ -220,7 +223,7 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="gestion.html">
+            <a href="../Principal/Seguridad/mantenimiento_usuario.php">
               <i class="bi bi-circle"></i><span>GESTION DE USUARIOS</span>
             </a>
           </li>
@@ -248,9 +251,6 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
-
-    
 
     <section class="section dashboard">
       <div class="row">

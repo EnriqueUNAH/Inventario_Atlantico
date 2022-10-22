@@ -3,9 +3,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception; 
 // Load Composer's autolveder
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 $DesdeLetra = "a";
 $HastaLetra = "z";
@@ -16,7 +16,7 @@ $letraAleatoria = chr(rand(ord($DesdeLetra), ord($HastaLetra)));
 $numeroAleatorio = rand($DesdeNumero, $HastaNumero);
 $contrasena_=$letraAleatoria.$numeroAleatorio;
 
-   include('db2.php');
+   include('../Principal/db2.php');
    $nombre=strtoupper($_POST['persona']);
     $consultar = mysqli_query( $conexion2 , "SELECT Correo_Electronico FROM tbl_ms_usuario WHERE Usuario='$nombre'" );
     while ($otra=mysqli_fetch_array( $consultar )) {
@@ -81,12 +81,12 @@ if (($filas)){
 
 
     echo '<script>alert("CORREO ENVIADO CON EXITO");</script>';
-    include('login.html');
+    include('../php/index.php');
     
 }
 
 
 if (isset($_POST['btnPregunta']) and $filas) {
-    include('preguntas_recuperar.html');
+    include('preguntas_recuperar.php');
 }
 ?>

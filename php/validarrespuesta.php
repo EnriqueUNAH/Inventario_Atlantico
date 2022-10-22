@@ -1,5 +1,5 @@
 <?php
-include('php/db.php');
+include('../php/db.php');
 $pregunta=($_POST[ 'pregunta' ]);
 $respuesta = ($_POST[ 'respuesta' ]);
 
@@ -21,7 +21,7 @@ while ($otra_=mysqli_fetch_array( $consultar_ )) {
 
 if ($id==$id_) {
     # code...
-    include('cambiar_contrasena_recu.html');
+    include('../Login/cambiar_contrasena_recu.php');
 }else{
     echo '<script>alert("RESPUESTA INCORRECTA");</script>';
     include('preguntas_recuperar.php');

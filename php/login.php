@@ -7,7 +7,6 @@ $fechaC = date('Y-m-d');
 session_start();
 $_SESSION['nombre'] = $usuario;
 $_SESSION['nombre_'] = $_POST['username'];
-$_SESSION['nombre_reset'] = $_POST['username'];
 include( 'db.php' );
 
  # Consulto si existe el usuario
@@ -70,23 +69,18 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      mysqli_query( $conexion , $actualizarValor_Parametro );
      include('../login.html');
 }*/
-
-if ($estado=="RESETEO") {
-     # code...
-     include('../cambiar_contrasena_reset.html');
-}
-
 if ($estado=="NUEVO" and $contraseña==$contrasena){
-     include('../preguntasprueba.php');  
+     include('../Login/preguntasPrimeraVez.php');  
 }elseif($estado=="ACTIVO" and $contraseña==$contrasena){
-     include('../principal.php');
+     include('../Principal/principal.php');
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      $intento_de_parametro++;
      $actualizarValor_Parametro = "UPDATE tbl_ms_parametros SET valor = $intento_de_parametro WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarValor_Parametro );
-     include('../login.html');
+     include('../Login/index.php');
 }
+
 
      # code...
 if ($intento_de_parametro==3) {

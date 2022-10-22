@@ -1,3 +1,6 @@
+//Muestra contraseña
+//valida que no se puedan insertar espacios
+//
 function mostrarPassword(){
         var cambio = document.getElementById("yourPassword");
 		if(cambio.type == "password"){

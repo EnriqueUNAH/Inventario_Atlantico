@@ -39,10 +39,6 @@
     function validatePassword() {
       var p = document.getElementById('yourPassword').value,
           errors = [];
-
-          var p2 = document.getElementById('yourPassword_').value,
-          errors2 = [];
-
       if (p.length < 8) {
           errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
       }
@@ -64,34 +60,8 @@
       }else{
         return True;
       }  
-
-
-      if (p2.length < 8) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
-      }
-      if (p2.search(/[a-z]/i) < 0) {
-          errors2.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
-      }
-      if (p2.search(/[A-Z]/i) < 0) {
-          errors2.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
-      }
-      if (p2.search(/[0-9]/) < 0) {
-          errors2.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
-      }
-      if (p2.search(/[*&!^)(#@$?¡\-_]/) < 0) {
-          errors2.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
-      }
-      if (errors2.length > 0) {
-          alert(errors2.join("\n"));
-          return false;
-      }else{
-        return True;
-      }  
   }
   </script>
-
-
-
   <script>
     function mostrarPassword(){
         var cambio = document.getElementById("yourPassword");
@@ -194,7 +164,8 @@
                     <p class="text-center small">INGRESO DE DATOS</p>
                   </div>
 
-                  <form action="../reseteo_por_correo.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
+                  <form action="../php/validarcontra_recu.php" method="post"  onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
+                    
 
                      <div class="col-12">
                       <label for="yourPassword" class="form-label">NUEVA CONTRASEÑA:</label>
@@ -208,7 +179,7 @@
                      </div>
 
                      <div class="col-12">
-                      <label for="yourPassword_" class="form-label">CONFIRMAR NUEVA CONTRASEÑA:</label>
+                      <label for="yourPassword" class="form-label">CONFIRMAR NUEVA CONTRASEÑA:</label>
                       <div class="input-group">
                         <input type="Password" Class="form-control" name="password__" placeholder="Confirme su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="confirmar" required>
                         <div class="input-group-append">

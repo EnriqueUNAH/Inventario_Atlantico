@@ -1,5 +1,5 @@
 <?php
-include('php/db.php');
+include('db.php');
 session_start();
 $usuario=$_SESSION['usuario'] ;
 
@@ -11,11 +11,11 @@ $contrasena_=($_POST[ 'password__' ]);
         mysqli_query( $conexion , $actualizarContra );
     
         echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';
-        include('login.html');
+        include('../Login/index.php');
     } else {
         # code...
         echo '<script>alert("Contraseña Invalida No coinciden");</script>';
-        include('../cambiar_contrasena_recu.html');
+        include('../Login/cambiar_contrasena_recu.php');
     } 
 
 ?>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>IVERSIONES DEL ATLANTICO</title>
+  <title>INVERSIONES DEL ATLANTICO</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,45 +26,18 @@
   <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="../assets/css/style.css" rel="stylesheet">
-
-  
   <!--librerias para contraseña-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script>
-    function validatePassword() {
-      var p = document.getElementById('yourPassword').value,
-          errors = [];
-      if (p.length < 8) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
-      }
-      if (p.search(/[a-z]/i) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
-      }
-      if (p.search(/[A-Z]/i) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
-      }
-      if (p.search(/[0-9]/) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
-      }
-      if (p.search(/[*&!^)(#@$?¡\-_]/) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
-      }
-      if (errors.length > 0) {
-          alert(errors.join("\n"));
-          return false;
-      }else{
-        return True;
-      }  
-  }
-  </script>
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <script src="../Js/autoRegistro.js"></script>
+  
   <script>
     function mostrarPassword(){
-        var cambio = document.getElementById("yourPassword");
+        var cambio = document.getElementById("confirmar");
 		if(cambio.type == "password"){
 			cambio.type = "text";
 			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
@@ -100,41 +73,7 @@
     });
     });
   </script>
-  <script>
-    function mostrarPassword__(){
-        var cambio = document.getElementById("confirmar");
-		if(cambio.type == "password"){
-			cambio.type = "text";
-			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-		}else{
-			cambio.type = "password";
-			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-		}
-	} 
-  
-	$(document).ready(function () {
-	//CheckBox mostrar contraseña
-    $('#ShowPassword').click(function () {
-      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    });
-    });
-  </script>
- <script>
-  function validar_espacio__(e, campo)
-  {
-  key = e.keyCode ? e.keyCode : e.which;
-  if (key == 32) {return false;}
-  }
-  </script>
 
-<script>
-  function maximo(campo,limite)
-  {
-  if(campo.value.length>=limite){
-  campo.value=campo.value.substring(0,limite);
-  }
-  }
-</script>
 
 </head>
 
@@ -149,7 +88,7 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                <a href="pages-register.html" class="logo d-flex align-items-center w-auto">
                   <img src="../assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block">INVERSIONES DEL ATLANTICO</span>
                 </a>
@@ -160,14 +99,27 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">CAMBIAR CONTRASEÑA</h5>
-                    <p class="text-center small">INGRESO DE DATOS</p>
+                    <h5 class="card-title text-center pb-0 fs-4">CREAR UNA CUENTA</h5>
+                    <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form action="validarcontra_recu.php" method="post"  onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
-                    
+                  <form action="../php/registro.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" novalidate="false">
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Nombre Completo:</label>
+                      <input type="text" style="text-transform:uppercase" name="name" placeholder="nombre" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">POR FAVOR, INGRESA TU NOMBRE DE USUARIO!</div>
+                    </div>
 
-                     <div class="col-12">
+                    <div class="col-12">
+                      <label for="yourUsername" class="form-label">NOMBRE DE USUARIO:</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" style="text-transform:uppercase" name="username" placeholder="Usuario" onkeypress="javascript: return validar_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" required>
+                        <div class="invalid-feedback">POR FAVOR ESCRIBA UN NOMBRE DE USUARIO.</div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
                       <label for="yourPassword" class="form-label">NUEVA CONTRASEÑA:</label>
                       <div class="input-group">
                         <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="nuevo" required>
@@ -179,29 +131,32 @@
                      </div>
 
                      <div class="col-12">
-                      <label for="yourPassword" class="form-label">CONFIRMAR NUEVA CONTRASEÑA:</label>
+                      <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="confirmar" required>
+                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="confirmar" required>
                         <div class="input-group-append">
-                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword__()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            <div class="invalid-feedback">Confirme su nueva contraseña!</div>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                            <div class="invalid-feedback">Confirme su contraseña!</div>
                           </div>
                       </div>
                      </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">ACEPTAR</button>
+                      <label for="yourEmail" class="form-label">CORREO ELECTRONICO:</label>
+                      <input type="email" name="email" placeholder="nombre@dominio.com" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">POR FAVOR INGRESA CORREO ELECTRONICO VALIDO!</div>
                     </div>
 
-
-
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">REGISTRAME!</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">YA TIENES CUENTA? <a href="../php/index.php">INICIAR SESION</a></p>
+                    </div>
                   </form>
 
                 </div>
               </div>
-
-              </div>
-
             </div>
           </div>
         </div>
