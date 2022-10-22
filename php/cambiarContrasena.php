@@ -23,11 +23,11 @@ $filas = mysqli_num_rows( $resultado );
     mysqli_query( $conexion , $actualizarEstado );
 
     echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';
-    include('../login.html');
+    include('../Login/index.php');
    }else{
    echo '<script>alert("Contraseñas no coinciden");</script>';
    session_abort();
-   include('../cambiar_contrasena.html');
+   include('../Login/cambiar_contrasena.php');
 }
 
 

@@ -46,9 +46,9 @@
     $filas_ = mysqli_num_rows( $resultado_ );
     if ($filas_>1){
         mysqli_close($conexion);
-        include('../cambiar_contrasena.html');
+        include('../Login/cambiar_contrasena.php');
     }else{
-        include ("../preguntasprueba.php");
+        include ("../Login/preguntasPrimeraVez.php");
     }         
 ?>
 
