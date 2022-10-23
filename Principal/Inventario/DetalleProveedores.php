@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>Detalles de <b>Proveedores</b></h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Proveedor</button>
+                        <button type="button" onclick=" window.location='CrearProveedor.php'" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Proveedor</button>
                     </div>
                 </div>
             </div>
@@ -42,6 +42,7 @@
                                         echo "<td>" . $row['NOMBRE_REPRESENTANTE'] . "</td>";
                                         echo "<td>" . $row['NOMBRE_EMPRESA'] . "</td>";
                                         echo "<td>" . $row['RTN'] . "</td>";
+                                        echo "<td>" . $row['COD_PRODUCTO'] . "</td>";
                                         echo "<td>";
                                     echo "</tr>";
                                 }
