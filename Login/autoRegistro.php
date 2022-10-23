@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -33,11 +33,68 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
-  <script src="../Js/autoRegistro.js"></script>
+
+  <script>
+function validarPassword(){
+  var q=document.getElementById('yourPassword2').value;
+    errors=[];
+    if (q.length<8){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
+    }
+    if (q.search(/[a-z]/i)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
+    }
+    if (q.search(/[A-Z]/i)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
+    }
+    if (q.search(/[0-9]/)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
+    }
+    if (q.search(/[*&!^)(#@$?¡\-_]/)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
+    }
+    if (errors.length>0){
+        alert(errors.join("\n"));
+        return false;
+    }else{
+      return true;
+    }  
+}
+</script>
   
+
+<script>
+function validarPassword_(){
+  var q=document.getElementById('yourPassword').value;
+    errors=[];
+    if (q.length<8){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
+    }
+    if (q.search(/[a-z]/i)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
+    }
+    if (q.search(/[A-Z]/i)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
+    }
+    if (q.search(/[0-9]/)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
+    }
+    if (q.search(/[*&!^)(#@$?¡\-_]/)<0){
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
+    }
+    if (errors.length>0){
+        alert(errors.join("\n"));
+        return false;
+    }else{
+      return true;
+    }  
+}
+</script>
+
+
   <script>
     function mostrarPassword(){
-        var cambio = document.getElementById("confirmar");
+        var cambio = document.getElementById("yourPassword");
 		if(cambio.type == "password"){
 			cambio.type = "text";
 			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
@@ -54,9 +111,10 @@
     });
     });
   </script>
+
   <script>
     function mostrarPassword_(){
-        var cambio = document.getElementById("nuevo");
+        var cambio = document.getElementById("yourPassword2");
 		if(cambio.type == "password"){
 			cambio.type = "text";
 			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
@@ -68,11 +126,19 @@
   
 	$(document).ready(function () {
 	//CheckBox mostrar contraseña
-    $('#ShowPassword').click(function () {
+    $('#ShowPassword2').click(function () {
       $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
     });
     });
   </script>
+
+<script>
+function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {return false;}
+    }
+</script>
 
 
 </head>
@@ -103,7 +169,7 @@
                     <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form action="../php/registro.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" novalidate="false">
+                  <form action="../php/registro.php" onsubmit="validarPassword(); return false;" method="post" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Completo:</label>
                       <input type="text" style="text-transform:uppercase" name="name" placeholder="nombre" class="form-control" id="yourName" required>
@@ -122,20 +188,20 @@
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">NUEVA CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="nuevo" required>
+                        <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" onblur="validarPassword_(); return false;" class="form-control" id="yourPassword" required>
                         <div class="input-group-append">
-                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_()"> <span class="fa fa-eye-slash icon"></span> </button>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="javascript: mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                             <div class="invalid-feedback">Ingrese su nueva contraseña!</div>
                           </div>
                       </div>
                      </div>
 
                      <div class="col-12">
-                      <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
+                      <label for="yourPassword2" class="form-label">CONFIRMAR CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="confirmar" required>
+                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword2" required>
                         <div class="input-group-append">
-                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                            <button id="show_password2" class="btn btn-primary" type="button" onclick="javascript: mostrarPassword_()"> <span class="fa fa-eye-slash icon"></span> </button>
                             <div class="invalid-feedback">Confirme su contraseña!</div>
                           </div>
                       </div>

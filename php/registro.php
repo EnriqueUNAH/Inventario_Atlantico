@@ -2,7 +2,7 @@
     include( 'db.php' );
     $nombre = strtoupper($_POST[ 'name' ]);
     $usuario = strtoupper($_POST[ 'username' ]);
-    $contrasena = ($_POST[ 'password' ]);
+    $contrasena = ($_POST[ 'password__' ]);
     $correo = ($_POST[ 'email' ]);
     $fechaC = date('Y-m-d');
 
