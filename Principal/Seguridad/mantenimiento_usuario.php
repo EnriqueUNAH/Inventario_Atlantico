@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>MANTENIMIENTO DE <b>USUARIOS</b></h2></div>
                     <div class="col-sm-8">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Usuario</button>
+                        <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Usuario</button>
                     </div>
                 </div>
             </div>
