@@ -65,7 +65,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="Mantinimiento-tipo-persona.html">
+            <a href="../Mantenimiento/Mantinimiento-tipo-persona.php">
               <i class="bi bi-circle"></i><span>TIPO PERSONA</span>
             </a>
           </li>

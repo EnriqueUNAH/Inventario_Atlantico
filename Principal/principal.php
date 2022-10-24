@@ -103,7 +103,7 @@ $_SESSION['nombre'];
             <li>
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="cerrar_sesion.php">
+              <a class="dropdown-item d-flex align-items-center" href="../php/cerrar_sesion.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Cerrar Sesion</span>
               </a>
@@ -184,7 +184,7 @@ $_SESSION['nombre'];
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="Mantinimiento-tipo-persona.html">
+            <a href="../Principal/Mantenimiento/Mantinimiento-tipo-persona.php">
               <i class="bi bi-circle"></i><span>TIPO PERSONA</span>
             </a>
           </li>

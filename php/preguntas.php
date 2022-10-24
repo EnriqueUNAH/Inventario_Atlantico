@@ -21,6 +21,13 @@
         $id=$otra_['Id_Pregunta'];
     }
 
+    $consultar__ = mysqli_query( $conexion , "SELECT Estado_usuario FROM tbl_ms_usuario WHERE Id_Usuario='$filas'");
+    while ($otra__=mysqli_fetch_array( $consultar__ )) {
+        # code...
+        $estado=$otra__['Estado_usuario'];
+    }
+
+
 
     $fechaC=date('Y-m-d');
 
@@ -44,12 +51,20 @@
     $consultar_ = "SELECT * FROM tbl_ms_preguntas_usuario WHERE Creado_Por='$nombre'";
     $resultado_= mysqli_query( $conexion , $consultar_ );
     $filas_ = mysqli_num_rows( $resultado_ );
-    if ($filas_>1){
+
+
+    echo ($estado);    
+    if ($estado = 'RESETEO' and $filas_>1){
+        include('../Login/cambiar_contrasena.php');        
+    }elseif($estado = 'NUEVO'){
+        $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO'";
+        mysqli_query($conexion, $ALTER);
         mysqli_close($conexion);
-        include('../Login/cambiar_contrasena.php');
+        include('../Login/index.php');
     }else{
         include ("../Login/preguntasPrimeraVez.php");
-    }         
+    }
+    
 ?>
 
 

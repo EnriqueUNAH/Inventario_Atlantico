@@ -56,6 +56,10 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      mysqli_query( $conexion , $insertar_parametro_intento);
 }
 
+
+
+
+
      # code...
 /*if ($estado<>"BLOQUEADO" and $filas==1 and $intento_de_parametro<3) {
      # code...
@@ -71,6 +75,8 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
 }*/
 if ($estado=="NUEVO" and $contraseña==$contrasena){
      include('../Login/preguntasPrimeraVez.php');  
+}elseif($estado=="RESETEO" and $contraseña==$contrasena){
+     include('../Login/cambiar_contrasena.php');
 }elseif($estado=="ACTIVO" and $contraseña==$contrasena){
      include('../Principal/principal.php');
 }else{

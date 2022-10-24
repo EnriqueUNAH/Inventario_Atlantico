@@ -121,7 +121,7 @@ $('[data-toggle="tooltip"]').tooltip();
             <li>
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../cerrar_sesion.php">
+              <a class="dropdown-item d-flex align-items-center" href="../../php/cerrar_sesion.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Cerrar Sesion</span>
               </a>
