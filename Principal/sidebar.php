@@ -41,7 +41,7 @@
             </a>
           </li>
           <li>
-            <a href="../Principal/Inventario/Inventario-inventario.php">
+            <a href="../Inventario/Inventario-inventario.php">
               <i class="bi bi-circle"></i><span>VER INVENTARIO</span>
             </a>
           </li>
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a href="../Principal/Inventario/DetalleProveedores.php">
+            <a href="../Inventario/DetalleProveedores.php">
               <i class="bi bi-circle"></i><span>VER PROVEEDORES</span>
             </a>
           </li>
