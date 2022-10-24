@@ -11,7 +11,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>MANTENIMIENTO DE <b>USUARIOS</b></h2></div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-8">
                         <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Usuario</button>
                     </div>
                 </div>
@@ -45,6 +45,7 @@
                                         echo "<th>FECHA CREACION</th>";
                                         echo "<th>MODIFICADO POR</th>";
                                         echo "<th>FECHA MODIFICACIÓN</th>";
+                                        echo "<th>Otras Opciones</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -66,7 +67,7 @@
                                         echo "<td>" . $row['Fecha_Creacion'] . "</td>";
                                         echo "<td>" . $row['Modificado_Por'] . "</td>";
                                         echo "<td>" . $row['Fecha_Modificacion'] . "</td>";
-                                        echo "<td>";
+                                        echo '<td><a href="ActualizarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i> Editar</button><p></p></button> <a href="BorrarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            

@@ -164,7 +164,7 @@
                     <p class="text-center small">INGRESO DE DATOS</p>
                   </div>
 
-                  <form action="../php/cambiarContrasena.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
+                  <form action="../php/cambiarContrasena.php" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
                     
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">CONTRASEÑA ANTIGUA:</label>
@@ -180,7 +180,7 @@
                      <div class="col-12">
                       <label for="yourPassword" class="form-label">NUEVA CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="nuevo" required>
+                        <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" onblur="validarPassword_(); return false;" class="form-control" id="nuevo" required>
                         <div class="input-group-append">
                             <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_()"> <span class="fa fa-eye-slash icon"></span> </button>
                             <div class="invalid-feedback">Ingrese su nueva contraseña!</div>
@@ -191,7 +191,7 @@
                      <div class="col-12">
                       <label for="yourPassword" class="form-label">CONFIRMAR NUEVA CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="confirmar" required>
+                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" onblur="validarPassword_(); return false;" class="form-control" id="confirmar" required>
                         <div class="input-group-append">
                             <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword__()"> <span class="fa fa-eye-slash icon"></span> </button>
                             <div class="invalid-feedback">Confirme su nueva contraseña!</div>
