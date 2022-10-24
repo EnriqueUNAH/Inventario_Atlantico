@@ -65,12 +65,12 @@
                       <select name="pregunta" class="form-control" id="_pregunta">
                       <?php
                             include("db.php");
-                            $consulta = "SELECT * FROM tbl_preguntas";
+                            $consulta = "SELECT * FROM tbl_ms_preguntas";
                             $ejecutar= mysqli_query($conexion,$consulta);
                         ?>
 
                         <?php foreach ($ejecutar as $opciones): ?>
-                            <option value="<?php echo $opciones['Pregunta']?>"><?php echo $opciones['Pregunta'] ?></option>
+                            <option value="<?php echo $opciones['PREGUNTA']?>"><?php echo $opciones['PREGUNTA'] ?></option>
                         <?php endforeach ?>
                         <?php ?>    
                                             
