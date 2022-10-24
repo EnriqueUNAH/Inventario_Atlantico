@@ -53,7 +53,19 @@
     $filas_ = mysqli_num_rows( $resultado_ );
 
 
-    echo ($estado);    
+
+    if($estado = 'NUEVO' and $filas_<2){
+        include ("../Login/preguntasPrimeraVez.php");
+    }elseif($estado = 'NUEVO' and $filas_>1){
+        $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO'";
+        mysqli_query($conexion, $ALTER);
+        mysqli_close($conexion);
+        include('../Login/index.php');
+    }elseif($estado = 'RESETEO' and $filas_>1){
+        include('../Login/cambiar_contrasena.php'); 
+    }
+
+/*    echo ($estado);    
     if ($estado = 'RESETEO' and $filas_>1){
         include('../Login/cambiar_contrasena.php');        
     }elseif($estado = 'NUEVO'){
@@ -63,7 +75,7 @@
         include('../Login/index.php');
     }else{
         include ("../Login/preguntasPrimeraVez.php");
-    }
+    }*/
     
 ?>
 
