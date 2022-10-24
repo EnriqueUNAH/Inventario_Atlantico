@@ -169,7 +169,7 @@ function validar_espacio(e, campo)
                     <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form action="../php/registro.php" onsubmit="validarPassword(); return false;" method="post" class="row g-3 needs-validation" novalidate>
+                  <form action="../php/registro.php" method="post" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Completo:</label>
                       <input type="text" style="text-transform:uppercase" name="name" placeholder="nombre" class="form-control" id="yourName" required>
@@ -199,7 +199,7 @@ function validar_espacio(e, campo)
                      <div class="col-12">
                       <label for="yourPassword2" class="form-label">CONFIRMAR CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword2" required>
+                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" onblur="validarPassword(); return false;" class="form-control" id="yourPassword2" required>
                         <div class="input-group-append">
                             <button id="show_password2" class="btn btn-primary" type="button" onclick="javascript: mostrarPassword_()"> <span class="fa fa-eye-slash icon"></span> </button>
                             <div class="invalid-feedback">Confirme su contraseña!</div>
