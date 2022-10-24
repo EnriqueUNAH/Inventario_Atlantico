@@ -16,8 +16,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Update Record</h2>
-                    <p>Por favor llena este form y submit para actualizar un Proveedor a la base.</p>
+                    <h2 class="mt-5">Delete Record</h2>
+                    <p>Por favor llena este form y submit para borrar un Proveedor a la base.</p>
                     <form action="delete.php" method="post">
 
                     <div class="col-12">
@@ -25,25 +25,6 @@
                       <input type="text" name="CodigoProveedor" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
-
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">Nombre Representante</label>
-                      <input type="text" name="NombreRepresentante" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">Nombre Empresa</label>
-                      <input type="text" name="NombreEmpresa" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">RTN</label>
-                      <input type="text" name="RTN" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
-                    </div>
-                    <div class="col-12">
                     <P>
                         
                     </P>
