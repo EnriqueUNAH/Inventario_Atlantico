@@ -56,28 +56,23 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      mysqli_query( $conexion , $insertar_parametro_intento);
 }
 
-
-
-
-
+#    Consulta primer ingreso
+$primeringreso="SELECT Primer_Ingreso FROM tbl_ms_usuario where Usuario = '$usuario'";
+$resultado_primer=mysqli_query( $conexion , $primeringreso );
+while ($primerI=mysqli_fetch_array( $resultado_primer )) {
      # code...
-/*if ($estado<>"BLOQUEADO" and $filas==1 and $intento_de_parametro<3) {
-     # code...
-     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Id_Usuario = $id";
-     mysqli_query( $conexion , $actualizarEstado );
-     include('../index.html');
-}else{
-     echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
-     $intento_de_parametro++;
-     $actualizarValor_Parametro = "UPDATE tbl_ms_parametros SET valor = $intento_de_parametro WHERE Id_Usuario = $id";
-     mysqli_query( $conexion , $actualizarValor_Parametro );
-     include('../login.html');
-}*/
-if ($estado=="NUEVO" and $contraseña==$contrasena){
+     $primer=$primerI['Primer_Ingreso'];
+ }
+
+ #   Decision ingreso
+if ($estado=="NUEVO" and $contraseña==$contrasena){     
      include('../Login/preguntasPrimeraVez.php');  
 }elseif($estado=="RESETEO" and $contraseña==$contrasena){
      include('../Login/cambiar_contrasena.php');
 }elseif($estado=="ACTIVO" and $contraseña==$contrasena){
+     $primer_ = $primer + 1;
+     $actualizarPrimer = "UPDATE tbl_ms_usuario SET Primer_Ingreso = '$primer_' WHERE Id_Usuario = $id";
+     mysqli_query( $conexion , $actualizarPrimer);
      include('../Principal/principal.php');
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';

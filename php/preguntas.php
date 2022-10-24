@@ -15,7 +15,7 @@
     }
 
 
-    $consultar_ = mysqli_query( $conexion , "SELECT Id_Pregunta FROM tbl_preguntas WHERE Pregunta='$pregunta'");
+    $consultar_ = mysqli_query( $conexion , "SELECT Id_Pregunta FROM tbl_ms_preguntas WHERE Pregunta='$pregunta'");
     while ($otra_=mysqli_fetch_array( $consultar_ )) {
         # code...
         $id=$otra_['Id_Pregunta'];
@@ -53,8 +53,19 @@
     $filas_ = mysqli_num_rows( $resultado_ );
 
 
+    echo($nombre);
 
     if($estado = 'NUEVO' and $filas_<2){
+        #Trae preguntas contestadas tabla ms_usuarios
+        $preguntascontestadas="SELECT Preguntas_Contestadas FROM tbl_ms_usuario where Usuario = '$nombre'";
+        $resultado_pregu=mysqli_query( $conexion , $preguntascontestadas );
+        while ($preguntasco=mysqli_fetch_array( $resultado_pregu )) {
+            # code...
+            $contestadas=intval($preguntasco['Preguntas_Contestadas']);
+        }
+        $contestadas++; 
+        $actualizarPre = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = '$contestadas' WHERE Usuario = '$nombre'";
+        mysqli_query( $conexion , $actualizarPre);
         include ("../Login/preguntasPrimeraVez.php");
     }elseif($estado = 'NUEVO' and $filas_>1){
         $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO'";
