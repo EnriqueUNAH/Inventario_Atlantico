@@ -55,6 +55,7 @@ function validarPassword(){
     }
     if (errors.length>0){
         alert(errors.join("\n"));
+        document.getElementById("yourPassword2").value = "";
         return false;
     }else{
       return true;
@@ -84,6 +85,7 @@ function validarPassword_(){
     }
     if (errors.length>0){
         alert(errors.join("\n"));
+        document.getElementById("yourPassword").value = "";
         return false;
     }else{
       return true;
@@ -208,9 +210,9 @@ function validar_espacio(e, campo)
                      </div>
 
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">CORREO ELECTRONICO:</label>
-                      <input type="email" name="email" placeholder="nombre@dominio.com" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">POR FAVOR INGRESA CORREO ELECTRONICO VALIDO!</div>
+                      <label for="yourEmail" class="form-label">CORREO:</label>
+                      <input type="email" name="email" placeholder="nombre@dominio.com" class="form-control" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">Por favor ingresa un email valido!</div>
                     </div>
 
                     <div class="col-12">
