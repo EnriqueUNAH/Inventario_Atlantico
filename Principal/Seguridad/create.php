@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
         // Prepararn el query
-        $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','NUEVO','$Contrasena','$filas','$fechaC','1','0','0','$fechaC','$Correo','$Usuario','$fechaC','$Usuario','$fechaC','$filas','$filas')";
+        $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','NUEVO','$Contrasena','$fechaC','0','0','$fechaC','$Correo','$Usuario','$fechaC','$Usuario','$fechaC','2')";
          
         mysqli_query( $conexion2 , $sql);
     include("mantenimiento_usuario.php");

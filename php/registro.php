@@ -34,7 +34,7 @@
        echo '<script>alert("Nombre de usuario ya existente o contraseñas no coinciden");</script>';
         include('../Login/autoRegistro.php');
     }else{
-        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasena','$filas','$fechaC','1','0','0','$fechaC','$correo','$nombre','$fechaC','$nombre','$fechaC','$filas','$filas')";
+        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasena','$fechaC','0','0','$fechaC','$correo','$nombre','$fechaC','$nombre','$fechaC','2')";
         mysqli_query( $conexion , $insertar );
         echo '<script>alert("Usuario Creado Satisfactoriamente");</script>';
         include('../Login/index.php');
