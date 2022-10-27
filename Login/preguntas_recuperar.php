@@ -65,7 +65,7 @@
                       <select name="pregunta" class="form-control" id="_pregunta">
                       <?php
                             include("db.php");
-                            $ejecutar= mysqli_query( $conexion , "SELECT * FROM tbl_preguntas");
+                            $ejecutar= mysqli_query( $conexion , "SELECT * FROM tbl_ms_preguntas");
                             
                         ?>
 

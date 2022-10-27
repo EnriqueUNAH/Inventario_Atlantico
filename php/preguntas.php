@@ -45,7 +45,7 @@
         include('../preguntas.html');
     }*/ 
 
-    $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$id','$respuesta','$nombre','$fechaC','$nombre','$fechaC','$filas')";
+    $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$id','$filas','$respuesta','$nombre','$fechaC','$nombre','$fechaC')";
     mysqli_query( $conexion , $insertar_ );
 
     $consultar_ = "SELECT * FROM tbl_ms_preguntas_usuario WHERE Creado_Por='$nombre'";

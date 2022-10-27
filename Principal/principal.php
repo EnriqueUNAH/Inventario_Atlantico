@@ -194,17 +194,17 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="Mantenimiento-tipo-producto.html">
+            <a href="../Principal/Mantenimiento/Mantenimiento-tipo-producto.php">
               <i class="bi bi-circle"></i><span>TIPO PRODUCTO</span>
             </a>
           </li>
           <li>
-            <a href="Mantenimiento-estante.html">
+            <a href="../Principal/Mantenimiento-estante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>
             </a>
           </li>
           <li>
-            <a href="Mantenimiento-Promocion.html">
+            <a href="../Principal/Mantenimiento-Promocion.php">
               <i class="bi bi-circle"></i><span>PROMOCION</span>
             </a>
           </li>
