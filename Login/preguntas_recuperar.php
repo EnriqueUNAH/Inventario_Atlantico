@@ -70,7 +70,7 @@
                         ?>
 
                         <?php foreach ($ejecutar as $opciones): ?>
-                            <option value="<?php echo $opciones['Pregunta']?>"><?php echo $opciones['Pregunta'] ?></option>
+                            <option value="<?php echo $opciones['PREGUNTA']?>"><?php echo $opciones['PREGUNTA'] ?></option>
                         <?php endforeach ?>
                         <?php ?>
                                             
