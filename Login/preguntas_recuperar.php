@@ -31,9 +31,30 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
-  <script src="../Js/preguntasapi.js"></script>
 </head>
 <body>
+
+<?php 
+ # Consulto el id usuario
+ $consulta_Id="SELECT Id_Usuario FROM tbl_ms_usuario where Usuario = '$usuario'";
+ $resultado_Id=mysqli_query( $conexion , $consulta_Id);
+ while ($otra_=mysqli_fetch_array( $resultado_Id )) {
+     # code...
+     $id_user=$otra_['Id_Usuario'];
+ }
+
+ #Consulto id de preguntas
+ $consulta_Id_pre="SELECT ID_PREGUNTA FROM tbl_ms_preguntas_usuario WHERE ID_USUARIO='$id_user'";
+ $resultado_Id_pre=mysqli_query( $conexion , $consulta_Id_pre);
+ while ($id_pre=mysqli_fetch_array( $resultado_Id_pre )) {
+     # code...
+     $id_preguntas=$id_pre['ID_PREGUNTA'];
+ }
+
+
+?>
+
+
 
 <main>
     <div class="container">
@@ -58,17 +79,17 @@
                     <h5 class="card-title text-center pb-0 fs-4">CONFIGURACION DE PREGUNTAS</h5>
                     <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
-
+                    
+                  <?php echo($id_preguntas) ?>
                   <form  action="../php/validarrespuesta.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>
                       <select name="pregunta" class="form-control" id="_pregunta">
                       <?php
                             include("db.php");
-                            $ejecutar= mysqli_query( $conexion , "SELECT * FROM tbl_ms_preguntas");
+                            $ejecutar= mysqli_query( $conexion , "SELECT * FROM tbl_ms_preguntas " ); //WHERE ID_USUARIO = '$id_preguntas'
                             
                         ?>
-
                         <?php foreach ($ejecutar as $opciones): ?>
                             <option value="<?php echo $opciones['PREGUNTA']?>"><?php echo $opciones['PREGUNTA'] ?></option>
                         <?php endforeach ?>
