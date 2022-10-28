@@ -34,65 +34,6 @@
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
 
-  <script>
-function validarPassword(){
-  var q=document.getElementById('yourPassword2').value;
-    errors=[];
-    if (q.length<8){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
-    }
-    if (q.search(/[a-z]/i)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
-    }
-    if (q.search(/[A-Z]/i)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
-    }
-    if (q.search(/[0-9]/)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
-    }
-    if (q.search(/[*&!^)(#@$?¡\-_]/)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
-    }
-    if (errors.length>0){
-        alert(errors.join("\n"));
-        document.getElementById("yourPassword2").value = "";
-        return false;
-    }else{
-      return true;
-    }  
-}
-</script>
-  
-
-<script>
-function validarPassword_(){
-  var q=document.getElementById('yourPassword').value;
-    errors=[];
-    if (q.length<8){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
-    }
-    if (q.search(/[a-z]/i)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
-    }
-    if (q.search(/[A-Z]/i)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
-    }
-    if (q.search(/[0-9]/)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
-    }
-    if (q.search(/[*&!^)(#@$?¡\-_]/)<0){
-        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
-    }
-    if (errors.length>0){
-        alert(errors.join("\n"));
-        document.getElementById("yourPassword").value = "";
-        return false;
-    }else{
-      return true;
-    }  
-}
-</script>
-
 
   <script>
     function mostrarPassword(){
@@ -105,7 +46,27 @@ function validarPassword_(){
 			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
 		}
 	} 
-  
+	
+	$(document).ready(function () {
+	//CheckBox mostrar contraseña
+    $('#ShowPassword').click(function () {
+      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+    });
+    });
+  </script>
+
+<script>
+    function mostrarPassword1(){
+        var cambio = document.getElementById("yourPassword1");
+		if(cambio.type == "password"){
+			cambio.type = "text";
+			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		}else{
+			cambio.type = "password";
+			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		}
+	} 
+	
 	$(document).ready(function () {
 	//CheckBox mostrar contraseña
     $('#ShowPassword').click(function () {
@@ -115,35 +76,50 @@ function validarPassword_(){
   </script>
 
   <script>
-    function mostrarPassword_(){
-        var cambio = document.getElementById("yourPassword2");
-		if(cambio.type == "password"){
-			cambio.type = "text";
-			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-		}else{
-			cambio.type = "password";
-			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-		}
-	} 
-  
-	$(document).ready(function () {
-	//CheckBox mostrar contraseña
-    $('#ShowPassword2').click(function () {
-      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    });
-    });
-  </script>
-
-<script>
-function validar_espacio(e, campo)
+    function validar_espacio(e, campo)
     {
 		key = e.keyCode ? e.keyCode : e.which;
 		if (key == 32) {return false;}
     }
+    </script>
+
+  <script>
+    function maximo(campo,limite)
+    {
+    if(campo.value.length>=limite){
+    campo.value=campo.value.substring(0,limite);
+    }
+    }
+  </script>
+
+<script>
+  function validatePassword() {
+    var p = document.getElementById('yourPassword').value,
+        errors = [];
+    if (p.length < 8) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
+    }
+    if (p.search(/[a-z]/i) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
+    }
+    if (p.search(/[A-Z]/i) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
+    }
+    if (p.search(/[0-9]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
+    }
+    if (p.search(/[*&!^)(#@$?¡\-_]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
+    }
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }else{
+      return True;
+    }  
+}
 </script>
 
-
-</head>
 
 <body>
 
@@ -188,26 +164,24 @@ function validar_espacio(e, campo)
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">NUEVA CONTRASEÑA:</label>
+                      <label for="yourPassword" class="form-label">CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" onblur="validarPassword_(); return false;" class="form-control" id="yourPassword" required>
+                        <input type="Password" Class="form-control" name="password" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
                         <div class="input-group-append">
-                            <button id="show_password" class="btn btn-primary" type="button" onclick="javascript: mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            <div class="invalid-feedback">Ingrese su nueva contraseña!</div>
-                          </div>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        </div>
                       </div>
-                     </div>
+                    </div>
 
-                     <div class="col-12">
-                      <label for="yourPassword2" class="form-label">CONFIRMAR CONTRASEÑA:</label>
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label"> CONFIRMAR CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" onblur="validarPassword(); return false;" class="form-control" id="yourPassword2" required>
+                        <input type="Password" Class="form-control" name="password1" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword1" required>
                         <div class="input-group-append">
-                            <button id="show_password2" class="btn btn-primary" type="button" onclick="javascript: mostrarPassword_()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            <div class="invalid-feedback">Confirme su contraseña!</div>
-                          </div>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword1()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        </div>
                       </div>
-                     </div>
+                    </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">CORREO:</label>
