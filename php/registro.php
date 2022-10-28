@@ -30,7 +30,7 @@
         include('../Login/autoRegistro.php');
     }else{
         $contrasenaA = $contrasena;
-        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasenaA','$filas','$fechaC','1','0','0','$fechaC','$correo','$nombre','$fechaC','$nombre','$fechaC','$filas','$filas')";
+        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasenaA','$fechaC','0','0','$fechaC','$correo','$nombre','$fechaC','$nombre','$fechaC','$filas')";
         mysqli_query( $conexion , $insertar );
         echo '<script>alert("Usuario Creado satisfactoriamente");</script>';
         include('../Login/index.php');

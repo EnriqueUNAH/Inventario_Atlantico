@@ -53,7 +53,6 @@
     $filas_ = mysqli_num_rows( $resultado_ );
 
 
-    echo($nombre);
 
     if($estado = 'NUEVO' and $filas_<2){
         #Trae preguntas contestadas tabla ms_usuarios
