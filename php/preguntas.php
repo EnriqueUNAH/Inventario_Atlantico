@@ -54,25 +54,34 @@
 
 
 
-    if($estado = 'NUEVO' and $filas_<2){
+    if($estado = 'NUEVO' and $filas_<3){
+        
         #Trae preguntas contestadas tabla ms_usuarios
         $preguntascontestadas="SELECT Preguntas_Contestadas FROM tbl_ms_usuario where Usuario = '$nombre'";
         $resultado_pregu=mysqli_query( $conexion , $preguntascontestadas );
+        
         while ($preguntasco=mysqli_fetch_array( $resultado_pregu )) {
             # code...
             $contestadas=intval($preguntasco['Preguntas_Contestadas']);
+            
         }
-        $contestadas++; 
+        
+        $contestadas++;
+     
         $actualizarPre = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = '$contestadas' WHERE Usuario = '$nombre'";
         mysqli_query( $conexion , $actualizarPre);
-        include ("../Login/preguntasPrimeraVez.php");
-    }elseif($estado = 'NUEVO' and $filas_>1){
-        $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO'";
-        mysqli_query($conexion, $ALTER);
-        mysqli_close($conexion);
-        include('../Login/index.php');
+
+        if($filas_<2){
+            include ("../Login/preguntasPrimeraVez.php");
+        }elseif($estado = 'NUEVO' and $filas_>1){
+            $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO'";
+            mysqli_query($conexion, $ALTER);
+            mysqli_close($conexion);
+            include('../Login/index.php');
     }elseif($estado = 'RESETEO' and $filas_>1){
         include('../Login/cambiar_contrasena.php'); 
+    }
+
     }
 
 /*    echo ($estado);    
