@@ -13,7 +13,7 @@ try {
       // Get hidden input value
       $cod = $_POST["CodigoUsuario"];
   
-          $sql = "DELETE FROM tbl_ms_usuario WHERE Id_Usuario = '$cod'";
+          $sql = "DELETE FROM tbl_ms_usuario WHERE ID_USUARIO = '$cod'";
   
           mysqli_query($conexion2 , $sql);
       }
@@ -21,10 +21,10 @@ try {
   } catch (Exception $e) {
     // exception is raised and it'll be handled here
     // $e->getMessage() contains the error message
-    echo $e->getMessage();
-    die();
+    
+    $var = $e->getMessage();
+    echo "<script> alert('".$var."'); </script>";
+
+    include("mantenimiento_usuario.php");
   }
 ?>
-
-// code before the try-catch block
- 
