@@ -4,7 +4,7 @@ require_once "../db2.php";
  
 // Definir variables e inicializarlas
 $CodigoProveedor = $NombreRepresentante = $NombreEmpresa = "";
-$RTN=0;
+$RTN = $CodigoProducto=0;
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -49,9 +49,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $rtn = $RTN;
     }
-    
+
+    // Validate cod producto
+   //  $CodigoProducto = trim($_POST["CodigoProducto"]);
+    // if(empty($CodigoProducto)){
+     //    $prod_err = "Por favor ingresa Codigo Producto.";     
+   //  } elseif(!ctype_digit($CodigoProducto)){
+  //       $prod_err = "Por favor ingresa un valor positivo.";
+   //  } else{
+    //     $codprod = $CodigoProducto;
+  //   }
+
     // Check errores en las entradas antes de insertar a la base
-    if(empty($name_err) && empty($name_err2) && empty($rtn_err) && empty($cod_err)){
+    if(empty($name_err) && empty($name_err2) && empty($rtn_err) && empty($cod_err) && empty($prod_err)){
         // Prepararn el query
         $sql = "INSERT INTO tbl_proveedor(COD_PROVEEDOR, NOMBRE_REPRESENTANTE, NOMBRE_EMPRESA, RTN) VALUES ('$CodigoProveedor', '$NombreRepresentante', '$NombreEmpresa', '$RTN')";
          

@@ -33,7 +33,6 @@
                                         echo "<th>Nombre Representante</th>";
                                         echo "<th>Nombre Empresa</th>";
                                         echo "<th>RTN</th>";
-                                        echo "<th>Codigo Producto</th>";
                                         echo "<th>Otras Opciones</th>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -43,7 +42,6 @@
                                         echo "<td>" . $row['NOMBRE_REPRESENTANTE'] . "</td>";
                                         echo "<td>" . $row['NOMBRE_EMPRESA'] . "</td>";
                                         echo "<td>" . $row['RTN'] . "</td>";
-                                        echo "<td>" . $row['COD_PRODUCTO'] . "</td>";
                                         echo '<td><a href="ActualizarProveedor.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i> Editar</button></button> <a href="BorrarProveedor.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
                                 }
                                 echo "</tbody>";                            

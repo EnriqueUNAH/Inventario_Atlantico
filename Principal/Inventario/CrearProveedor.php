@@ -23,28 +23,35 @@
                     <div class="col-12">
                       <label for="yourName" class="form-label">Codigo Proveedor</label>
                       <input type="text" name="CodigoProveedor" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <div class="invalid-feedback">Por favor ingrese codigo del proveedor!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Representante</label>
                       <input type="text" name="NombreRepresentante" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <div class="invalid-feedback">Por favor ingrese el nombre del representante!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Empresa</label>
                       <input type="text" name="NombreEmpresa" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <div class="invalid-feedback">Por favor ingrese una empresa!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">RTN</label>
                       <input type="text" name="RTN" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <div class="invalid-feedback">Por favor ingrese un RTN!</div>
                     </div>
                     <div class="col-12">
-                    <P>
+
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Codigo Producto</label>
+                      <input type="text" name="CodigoProducto" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Por favor ingrese el codigo del producto!</div>
+                    </div>
+
+                    <p>
                         
                     </P>
                     </div>
