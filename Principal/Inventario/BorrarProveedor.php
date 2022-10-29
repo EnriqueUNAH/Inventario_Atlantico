@@ -25,14 +25,13 @@
                       <input type="text" name="CodigoProveedor" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
-                    <P>
-                        
-                    </P>
+                     <div class="form-group">
+                        <label class="col-sm-6 control-label">&nbsp;</label>
+                        <div class="col-sm-6">
+                            <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
+                            <a href="DetalleProveedores.php" class="btn btn-sm btn-danger">Cancelar</a>
+                        </div>
                     </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Borrar Proveedor</button>
-                    </div>
-                    
                     </form>
                 </div>
             </div>        

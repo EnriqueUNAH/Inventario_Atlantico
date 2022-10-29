@@ -55,13 +55,13 @@
                       <div class="invalid-feedback">Por favor ingresa un email valido!</div>
                     </div>
                    
-                    <p>
-                        
-                    </P>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Actualizar Proveedor</button>
-                    </div>
+                    <div class="form-group">
+					            <label class="col-sm-6 control-label">&nbsp;</label>
+					            <div class="col-sm-6">
+						          <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
+						          <a href="mantenimiento_usuario.php" class="btn btn-sm btn-danger">Cancelar</a>
+					            </div>
+				            </div>
                     
                     </form>
                 </div>
