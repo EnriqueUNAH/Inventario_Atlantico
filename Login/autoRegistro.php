@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -33,6 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
+  <script src="/Js/login.js"></script>
 
 
   <script>
@@ -120,6 +121,7 @@
 }
 </script>
 
+</head>
 
 <body>
 
@@ -147,7 +149,7 @@
                     <p class="text-center small">Ingrese sus datos personales para crear una cuenta</p>
                   </div>
 
-                  <form action="../php/registro.php" method="post" class="row g-3 needs-validation" novalidate>
+                  <form action="../php/registro.php" onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Completo:</label>
                       <input type="text" style="text-transform:uppercase" name="name" placeholder="nombre" class="form-control" id="yourName" required>
@@ -158,7 +160,7 @@
                       <label for="yourUsername" class="form-label">NOMBRE DE USUARIO:</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" style="text-transform:uppercase" name="username" placeholder="Usuario" onkeypress="javascript: return validar_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" required>
+                        <input type="text" style="text-transform:uppercase" name="username" placeholder="Usuario" onkeypress="javascript: return validar_espacio(event,this)" onKeyUp="maximo(this,100)" onKeyDown="maximo(this,100)" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">POR FAVOR ESCRIBA UN NOMBRE DE USUARIO.</div>
                       </div>
                     </div>
@@ -174,7 +176,7 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label"> CONFIRMAR CONTRASEÑA:</label>
+                      <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
                       <div class="input-group">
                         <input type="Password" Class="form-control" name="password1" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword1" required>
                         <div class="input-group-append">
@@ -184,16 +186,16 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">CORREO:</label>
-                      <input type="email" name="email" placeholder="nombre@dominio.com" class="form-control" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">Por favor ingresa un email valido!</div>
+                      <label for="yourEmail" class="form-label">CORREO ELECTRONICO:</label>
+                      <input type="email" name="email" placeholder="nombre@dominio.com" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">POR FAVOR INGRESA CORREO ELECTRONICO VALIDO!</div>
                     </div>
 
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">REGISTRAME!</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">YA TIENES CUENTA? <a href="../php/index.php">INICIAR SESION</a></p>
+                      <p class="small mb-0">YA TIENES CUENTA? <a href="../LOgin/index.php">INICIAR SESION</a></p>
                     </div>
                   </form>
 

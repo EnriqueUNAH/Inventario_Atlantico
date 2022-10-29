@@ -4,7 +4,7 @@ $pregunta=($_POST[ 'pregunta' ]);
 $respuesta = ($_POST[ 'respuesta' ]);
 
 
-$consultar = mysqli_query( $conexion , "SELECT Id_Pregunta,Pregunta FROM tbl_Preguntas WHERE Pregunta='$pregunta'" );
+$consultar = mysqli_query( $conexion , "SELECT Id_Pregunta,Pregunta FROM tbl_ms_preguntas WHERE Pregunta='$pregunta'" );
 while ($otra=mysqli_fetch_array( $consultar )) {
     # code...
     $id=$otra['Id_Pregunta'];
