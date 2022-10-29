@@ -54,10 +54,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name4 = $NombreUsuario;
     }
     
+    try {
+        // code
         // Prepararn el query
-        $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','NUEVO','$Contrasena','$fechaC','0','0','$fechaC','$Correo','$Usuario','$fechaC','$Usuario','$fechaC','2')";
-         
-        mysqli_query( $conexion2 , $sql);
-    include("mantenimiento_usuario.php");
+              $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','NUEVO','$Contrasena','$fechaC','0','0','$fechaC','$Correo','$Usuario','$fechaC','$Usuario','$fechaC','2')";
+               
+              mysqli_query( $conexion2 , $sql);
+          include("mantenimiento_usuario.php");
+      } catch (Exception $e) {
+        // exception is raised and it'll be handled here
+        // $e->getMessage() contains the error message
+        $var = $e->getMessage();
+          echo "<script> alert('".$var."'); </script>";
+          include("mantenimiento_usuario.php");
+      }
 }
 ?>

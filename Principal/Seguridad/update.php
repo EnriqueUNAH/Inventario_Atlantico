@@ -39,8 +39,9 @@ try {
     include("Mantenimiento_Usuario.php");
   } catch (Exception $e) {
     // exception is raised and it'll be handled here
-    echo $e->getMessage();
-    die();
+    $var = $e->getMessage();
+    echo "<script> alert('".$var."'); </script>";
+    include("Mantenimiento_Usuario.php");
   }
 
        

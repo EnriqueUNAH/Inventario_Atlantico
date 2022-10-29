@@ -33,10 +33,21 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Nuevo Rol</label>
-                      <input type="text" name="Rol" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Por favor ingresa Rol!</div>
-                    </div>
+                      <label for="yourName" class="form-label">SELECCIONE UN ROL:</label>
+                      <select name="Rol" class="form-control">
+                      <?php
+                            include("../db2.php");
+                            $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_ms_roles " );
+                            
+                        ?>
+                        <?php foreach ($ejecutar as $opciones): ?>
+                            <option value="<?php echo $opciones['ROL']?>"><?php echo $opciones['ROL'] ?></option>
+                        <?php endforeach ?>
+                        <?php ?>
+                                            
+                      </select>
+                      <div class="invalid-feedback">Rol INVALIDO!</div>
+                    </div> 
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Nuevo Correo</label>

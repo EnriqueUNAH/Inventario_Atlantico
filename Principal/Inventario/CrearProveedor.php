@@ -45,12 +45,6 @@
                     </div>
                     <div class="col-12">
 
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">Codigo Producto</label>
-                      <input type="text" name="CodigoProducto" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Por favor ingrese el codigo del producto!</div>
-                    </div>
-
                     <p>
                         
                     </P>

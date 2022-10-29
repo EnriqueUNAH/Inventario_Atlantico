@@ -84,14 +84,14 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
 
 
      # code...
-if ($intento_de_parametro==3) {
+if ($intento_de_parametro==3 and $usuario<>"ADMIN") {
      # code...
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET valor = '3' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $Actualizar_parametro );
      $actualizarEstado_ = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'BLOQUEADO' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarEstado_ );
-     include('../login.html');
+     include('../Login/index.php');
 }
 
 mysqli_free_result($resultado);
