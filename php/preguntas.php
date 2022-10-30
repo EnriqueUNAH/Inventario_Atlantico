@@ -1,6 +1,6 @@
 <?php
     include( 'db.php' );
-    $respuesta=($_POST[ 'respuesta' ]);
+    $respuesta=strtoupper(($_POST[ 'respuesta' ]));
     $pregunta=($_POST[ 'pregunta' ]);
     $fechaC = date('Y-m-d');
 
