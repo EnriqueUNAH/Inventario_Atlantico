@@ -36,6 +36,8 @@
 
 <?php 
  # Consulto el id usuario
+ $id_user= $usuario="";
+
  $consulta_Id="SELECT Id_Usuario FROM tbl_ms_usuario where Usuario = '$usuario'";
  $resultado_Id=mysqli_query( $conexion , $consulta_Id);
  while ($otra_=mysqli_fetch_array( $resultado_Id )) {
@@ -80,7 +82,7 @@
                     <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
                     
-                  <?php echo($id_preguntas) ?>
+
                   <form  action="../php/validarrespuesta.php" method="post" class="row g-3 needs-validation" novalidate="false">
                     <div class="col-12">
                       <label for="yourName" class="form-label">SELECCIONE UNA PREGUNTA:</label>

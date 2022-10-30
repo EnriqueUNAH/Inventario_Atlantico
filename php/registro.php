@@ -36,10 +36,10 @@
     }else{
         $contrasenaA = $contrasena;
         $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasenaA','$fechaC','0','0','$fechaC','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
-        $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
+       //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
 
         mysqli_query( $conexion , $insertar );
-        mysqli_query( $conexion , $bitacora );
+        //mysqli_query( $conexion , $bitacora );
         echo '<script>alert("Usuario Creado satisfactoriamente");</script>';
         include('../Login/index.php');
     }
