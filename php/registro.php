@@ -18,6 +18,11 @@
     $resultado_= mysqli_query( $conexion , $consulta_ );
     $filas_ = mysqli_num_rows( $resultado_ );
 
+    #select ID_USUARIO
+   // $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE Usuario='$usuario'";
+    //$resultado_id= mysqli_query( $conexion , $consulta_id );
+    //$filas_id = mysqli_num_rows( $resultado_id );
+
     #Confirmar contraseña
     $conformarContra = $_POST[ 'password1' ];
 
@@ -31,7 +36,10 @@
     }else{
         $contrasenaA = $contrasena;
         $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasenaA','$fechaC','0','0','$fechaC','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
+        $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
+
         mysqli_query( $conexion , $insertar );
+        mysqli_query( $conexion , $bitacora );
         echo '<script>alert("Usuario Creado satisfactoriamente");</script>';
         include('../Login/index.php');
     }
