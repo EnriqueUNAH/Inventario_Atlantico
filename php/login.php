@@ -38,6 +38,12 @@ while ($otra=mysqli_fetch_array( $resultado_Estado )) {
      $id=$otra_['Id_Usuario'];
  }
 
+     #select ID_BITACORA
+     $consulta_id_BIT="SELECT * FROM tbl_bitacora";
+     $resultado_id_BIT= mysqli_query( $conexion , $consulta_id_BIT );
+     $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
+     $filas_id_BIT++;
+
  $consulta_parametro="SELECT * FROM tbl_ms_parametros";
  $resultado_Id__=mysqli_query( $conexion , $consulta_parametro);
      $filas_=mysqli_num_rows( $resultado_Id__ );
@@ -73,7 +79,7 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
      $primer_ = $primer + 1;
      $actualizarPrimer = "UPDATE tbl_ms_usuario SET Primer_Ingreso = '$primer_' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarPrimer);
-     $bitacora3="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$id','$id','INGRESO AL SISTEMA','INGRESO A LA PANTALLA PRINCIPAL DESDE LOGIN')";
+     $bitacora3="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','$id','INGRESO AL SISTEMA','INGRESO A LA PANTALLA PRINCIPAL DESDE LOGIN')";
      mysqli_query( $conexion , $bitacora3 );
      include('../Principal/principal.php');
 }else{
@@ -81,7 +87,7 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
      $intento_de_parametro++;
      $actualizarValor_Parametro = "UPDATE tbl_ms_parametros SET valor = $intento_de_parametro WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarValor_Parametro );
-     $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$id','$id','INTENTOS LOGIN','REGISTRO POR INTENTOS DE INGRESAR AL SISTEMA DESDE EL INDEX')";
+     $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','$id','INTENTOS LOGIN','REGISTRO POR INTENTOS DE INGRESAR AL SISTEMA DESDE EL INDEX')";
      mysqli_query( $conexion , $bitacora );
      include('../Login/index.php');
 }
@@ -95,7 +101,7 @@ if ($intento_de_parametro==3 and $usuario<>"ADMIN") {
      mysqli_query( $conexion , $Actualizar_parametro );
      $actualizarEstado_ = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'BLOQUEADO' WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $actualizarEstado_ );
-     $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$id','$id','INTENTOS LOGIN','REGISTRO DE BLOQUEO POR INTENTOS DE INGRESAR AL SISTEMA DESDE EL INDEX')";
+     $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','$id','INTENTOS LOGIN','REGISTRO DE BLOQUEO POR INTENTOS DE INGRESAR AL SISTEMA DESDE EL INDEX')";
      mysqli_query( $conexion , $bitacora2 );
      include('../Login/index.php');
 }
