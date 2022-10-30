@@ -16,20 +16,20 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Delete Tipo Producto</h2>
-                    <p>Por favor llena este form y submit para borrar un tipo producto de la base.</p>
-                    <form action="DeleteTipoProducto.php" method="post">
+                    <h2 class="mt-5">Delete Tipo Movimiento</h2>
+                    <p>Por favor llena este form y submit para borrar un tipo movimiento de la base.</p>
+                    <form action="DeleteTipoMovimiento.php" method="post">
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Codigo Tipo Movimiento</label>
-                      <input type="text" name="CodigoTipoProducto" class="form-control" id="yourName" required>
+                      <input type="text" name="CodigoTipoMovimiento" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Porfavor, ingrese un codigo!</div>
                     </div>
                      <div class="form-group">
                         <label class="col-sm-6 control-label">&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                            <a href="Mantenimiento-tipo-producto.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            <a href="Mantenimiento-tipo-mov.php" class="btn btn-sm btn-danger">Cancelar</a>
                         </div>
                     </div>
                     </form>
