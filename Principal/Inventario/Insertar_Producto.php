@@ -10,64 +10,84 @@ $CANTIDAD_MINIMA = $CANTIDAD_MAXIMA= $COD_TIPO_PRODUCTO= $PRECIO_VENTA=0;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validar codigo producto
-    $CodigoProveedor = trim($_POST["CodigoProveedor"]);
-    if(empty($CodigoProveedor)){
+    $COD_PRODUCTO = trim($_POST["CodigoProducto"]);
+    if(empty($COD_PRODUCTO)){
         $cod_err = "Por favor ingresa un Codigo valido.";     
-    } elseif(!ctype_digit($CodigoProveedor)){
+    } elseif(!ctype_digit($COD_PRODUCTO)){
         $cod_err = "Por favor ingresa un valor positivo.";
     } else{
-        $cod = $CodigoProveedor;
+        $cod = $COD_PRODUCTO;
     }
 
 
-    // Validate nombre representante
-    $NombreRepresentante= trim($_POST["NombreRepresentante"]);
-    if(empty($NombreRepresentante)){
-        $name_err = "Por favor ingresa el nombre del representante.";
-    } elseif(!filter_var($NombreRepresentante, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+    // Validate nombre del Producto
+    $Nombre_PRODUCTO= trim($_POST["NombreProducto"]);
+    if(empty($Nombre_PRODUCTO)){
+        $name_err = "Por favor ingresa el nombre del Producto.";
+    } elseif(!filter_var($Nombre_PRODUCTO, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
         $name_err = "Por favor ingresa un nombre valido";
     } else{
-        $name = $NombreRepresentante;
+        $name = $Nombre_PRODUCTO;
     }
     
-    // Validate nombre empresa
-    $NombreEmpresa= trim($_POST["NombreEmpresa"]);
+    // Validate descripcion
+    $DESCRIPCION= trim($_POST["Descripcion"]);
     if(empty($NombreEmpresa)){
-        $name_err2 = "Por favor ingresa el nombre de la empresa.";
-    } elseif(!filter_var($NombreEmpresa, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err2 = "Por favor ingresa un nombre valido";
+        $name_err2 = "Por favor ingresa la descripcion.";
+    } elseif(!filter_var($DESCRIPCION, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $name_err2 = "Por favor ingresa una descripcion valida";
     } else{
-        $name2 = $NombreEmpresa;
+        $name2 = $DESCRIPCION;
     }
     
-    // Validar RTN
-    $RTN = trim($_POST["RTN"]);
-    if(empty($RTN)){
-        $rtn_err = "Por favor ingresa un RTN valido.";     
-    } elseif(!ctype_digit($RTN)){
-        $rtn_err = "Por favor ingresa un valor positivo.";
+    // Validar cantidad minima
+    $CANTIDAD_MINIMA = trim($_POST["CANTIDAD_MINIMA"]);
+    if(empty($CANTIDAD_MINIMA)){
+        $cant_min_err = "Por favor ingresa una cantidad valida.";     
+    } elseif(!ctype_digit($CANTIDAD_MINIMA)){
+        $cant_min_err = "Por favor ingresa un valor positivo.";
     } else{
-        $rtn = $RTN;
+        $cantidad_min= $CANTIDAD_MINIMA;
     }
 
-    // Validate cod producto
-   //  $CodigoProducto = trim($_POST["CodigoProducto"]);
-    // if(empty($CodigoProducto)){
-     //    $prod_err = "Por favor ingresa Codigo Producto.";     
-   //  } elseif(!ctype_digit($CodigoProducto)){
-  //       $prod_err = "Por favor ingresa un valor positivo.";
-   //  } else{
-    //     $codprod = $CodigoProducto;
-  //   }
+    // Validar cantidad maxima
+    $CANTIDAD_MAXIMA = trim($_POST["CANTIDAD_MAXIMA"]);
+    if(empty($CANTIDAD_MAXIMA)){
+        $cant_max_err = "Por favor ingresa una cantidad valida.";     
+    } elseif(!ctype_digit($CANTIDAD_MINIMA)){
+        $cant_max_err = "Por favor ingresa un valor positivo.";
+    } else{
+        $cantidad_max= $CANTIDAD_MAXIMA;
+    }
+
+    // Validar codigo tipo producto
+    $COD_TIPO_PRODUCTO = trim($_POST["COD_TIPO_PRODUCTO"]);
+    if(empty($COD_TIPO_PRODUCTO)){
+        $cod_err2 = "Por favor ingresa un codigo valida.";     
+    } elseif(!ctype_digit($COD_TIPO_PRODUCTO)){
+        $cod_err2 = "Por favor ingresa un valor positivo.";
+    } else{
+        $cod_tip_producto= $COD_TIPO_PRODUCTO;
+    }
+
+    // Validar precio de venta
+    $PRECIO_VENTA = trim($_POST["PRECIO_VENTA"]);
+    if(empty($PRECIO_VENTA)){
+        $precio_err = "Por favor ingresa un precio valido.";     
+    } elseif(!ctype_digit($PRECIO_VENTA)){
+        $precio_err = "Por favor ingresa un valor positivo.";
+    } else{
+        $precio= $PRECIO_VENTA;
+    }
 
     // Check errores en las entradas antes de insertar a la base
-    if(empty($name_err) && empty($name_err2) && empty($rtn_err) && empty($cod_err) && empty($prod_err)){
+    //if(empty($cod_err) && empty($name_err) && empty($name_err2) && empty($cant_min_err) && empty($cant_max_err) && empty($cod_err2) && empty($precio_err) ){
         // Prepararn el query
-        $sql = "INSERT INTO tbl_proveedor(COD_PROVEEDOR, NOMBRE_REPRESENTANTE, NOMBRE_EMPRESA, RTN) VALUES ('$CodigoProveedor', '$NombreRepresentante', '$NombreEmpresa', '$RTN')";
-         
+        $sql = "INSERT INTO tbl_producto(COD_PRODUCTO,Nombre_PRODUCTO,DESCRIPCION,CANTIDAD_MINIMA,CANTIDAD_MAXIMA,COD_TIPO_PRODUCTO,PRECIO_VENTA) VALUES ('$COD_PRODUCTO', '$Nombre_PRODUCTO', '$DESCRIPCION', '$CANTIDAD_MINIMA', '$CANTIDAD_MAXIMA', '$COD_TIPO_PRODUCTO', '$PRECIO_VENTA')";
+ 
         mysqli_query( $conexion2 , $sql);
-        
-    }
-    include("DetalleProveedores.php");
+
+    //}
+    include("Detalle_Productos.php");
 }
 ?>

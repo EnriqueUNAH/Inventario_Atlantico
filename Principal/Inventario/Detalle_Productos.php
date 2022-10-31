@@ -36,6 +36,7 @@
                                         echo "<th>Cantidad Maxima</th>";
                                         echo "<th>Codigo Tipo Producto</th>";
                                         echo "<th>Precio de Venta</th>";
+                                        echo "<th>Otras Opciones</th>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
@@ -47,7 +48,7 @@
                                         echo "<td>" . $row['CANTIDAD_MAXIMA'] . "</td>";
                                         echo "<td>" . $row['COD_TIPO_PRODUCTO'] . "</td>";
                                         echo "<td>" . $row['PRECIO_VENTA'] . "</td>";
-                                        echo '<td><a href="ActualizarProveedor.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i> Editar</button></button> <a href="BorrarProveedor.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
+                                        echo '<td><a href="ActualizarProducto.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i>Editar</button><p></p><a href="BorrarProducto.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
