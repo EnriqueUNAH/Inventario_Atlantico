@@ -1,7 +1,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span></span></strong>. Todos los derechos resevados (Diseños Alpha)
+      &copy; Copyright <strong><span></span></strong>. Todos los derechos reservados (Diseños Alpha)
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
