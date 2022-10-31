@@ -88,6 +88,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_query( $conexion2 , $sql);
 
     //}
-    include("Detalle_Productos.php");
+
+    header('Location: Detalle_Productos.php');
+    die();
+
 }
 ?>

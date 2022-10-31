@@ -43,9 +43,7 @@
                       <input type="text" name="RTN" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Por favor ingrese un RTN!</div>
                     </div>
-                    <div class="col-12">
-
-
+      
                     <div class="form-group">
 					            <label class="col-sm-6 control-label">&nbsp;</label>
 					            <div class="col-sm-6">

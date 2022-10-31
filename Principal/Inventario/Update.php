@@ -48,6 +48,7 @@ if(isset($_POST["CodigoProveedor"]) && !empty($_POST["CodigoProveedor"])){
          
         mysqli_query($conexion2 , $sql);
     }
-    include("DetalleProveedores.php");
+    header('Location: DetalleProveedores.php');
+    die();
 }
 ?>

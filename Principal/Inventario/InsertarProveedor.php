@@ -50,16 +50,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $rtn = $RTN;
     }
 
-    // Validate cod producto
-   //  $CodigoProducto = trim($_POST["CodigoProducto"]);
-    // if(empty($CodigoProducto)){
-     //    $prod_err = "Por favor ingresa Codigo Producto.";     
-   //  } elseif(!ctype_digit($CodigoProducto)){
-  //       $prod_err = "Por favor ingresa un valor positivo.";
-   //  } else{
-    //     $codprod = $CodigoProducto;
-  //   }
-
     // Check errores en las entradas antes de insertar a la base
     if(empty($name_err) && empty($name_err2) && empty($rtn_err) && empty($cod_err) && empty($prod_err)){
         // Prepararn el query
@@ -68,6 +58,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_query( $conexion2 , $sql);
         
     }
-    include("DetalleProveedores.php");
+
+    header('Location: DetalleProveedores.php');
+    die();
 }
 ?>
