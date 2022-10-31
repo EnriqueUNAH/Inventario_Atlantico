@@ -64,11 +64,7 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>MANTENIMIENTO</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Mantenimiento/Mantinimiento-tipo-persona.php">
-              <i class="bi bi-circle"></i><span>TIPO PERSONA</span>
-            </a>
-          </li>
+          
           <li>
             <a href="../Mantenimiento/Mantenimiento-tipo-mov.php">
               <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
@@ -80,18 +76,23 @@
             </a>
           </li>
           <li>
-            <a href="Mantenimiento-estante.html">
+            <a href="../Mantenimiento/Mantenimiento-estante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>
             </a>
           </li>
           <li>
-            <a href="Mantenimiento-Promocion.html">
+            <a href="../Mantenimiento/Mantenimiento-Promocion.php">
               <i class="bi bi-circle"></i><span>PROMOCION</span>
             </a>
           </li>
           <li>
-            <a href="Mantenimiento descuento.html">
+            <a href="../Mantenimiento/Mantenimiento descuento.php">
               <i class="bi bi-circle"></i><span>DESCUENTO</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Mantenimiento/Mantenimiento-genero.php">
+              <i class="bi bi-circle"></i><span>GENERO</span>
             </a>
           </li>
         </ul>

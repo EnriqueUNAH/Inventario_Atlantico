@@ -183,11 +183,7 @@ $_SESSION['nombre'];
           <i class="bi bi-layout-text-window-reverse"></i><span>MANTENIMIENTO</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Mantenimiento/Mantinimiento-tipo-persona.php">
-              <i class="bi bi-circle"></i><span>TIPO PERSONA</span>
-            </a>
-          </li>
+          
           <li>
             <a href="../Principal/Mantenimiento/Mantenimiento-tipo-mov.php">
               <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
@@ -199,18 +195,23 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Principal/Mantenimiento-estante.php">
+            <a href="../Principal/Mantenimiento/Mantenimiento-estante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>
             </a>
           </li>
           <li>
-            <a href="../Principal/Mantenimiento-Promocion.php">
+            <a href="../Principal/Mantenimiento/Mantenimiento-Promocion.php">
               <i class="bi bi-circle"></i><span>PROMOCION</span>
             </a>
           </li>
           <li>
-            <a href="Mantenimiento descuento.html">
+            <a href="../Principal/Mantenimiento/Mantenimiento descuento.php">
               <i class="bi bi-circle"></i><span>DESCUENTO</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Principal/Mantenimiento/Mantenimiento-genero.php">
+              <i class="bi bi-circle"></i><span>GENERO</span>
             </a>
           </li>
         </ul>
