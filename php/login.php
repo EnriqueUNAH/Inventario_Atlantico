@@ -82,12 +82,14 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
  #   Decision ingreso
 if ($estado=="NUEVO" and $contraseña==$contrasena){   
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
-     mysqli_query( $conexion , $Actualizar_parametro );  
-     include('../Login/preguntasPrimeraVez.php');  
+     mysqli_query( $conexion , $Actualizar_parametro );   
+     header('Location: ../Login/preguntasPrimeraVez.php');
+     die();
 }elseif($estado=="RESETEO" and $contraseña==$contrasena){  
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
-     include('../Login/cambiar_contrasena.php');
+     header('Location: ../Login/cambiar_contrasena.php');
+     die();
 }elseif($estado=="ACTIVO" and $contraseña==$contrasena){
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
@@ -96,13 +98,16 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
      mysqli_query( $conexion , $actualizarPrimer);
      $bitacora3="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','$id','INGRESO AL SISTEMA','INGRESO A LA PANTALLA PRINCIPAL DESDE LOGIN')";
      mysqli_query( $conexion , $bitacora3 );
-     include('../Principal/principal.php');
+     header('Location: ../Principal/principal.php');
+     die();
 }elseif($estado=="BLOQUEADO"){
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
-     include('../Login/index.php');
+     header('Location: ../Login/index.php');
+     die();
 }elseif($usuario == "ADMIN" and $contraseña<> $contrasena){
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
-     include('../Login/index.php');
+     header('Location: ../Login/index.php');
+     die();
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      $filas_PAR=$filas_PAR-1;
@@ -113,8 +118,8 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
      $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','$id','INTENTOS LOGIN','REGISTRO POR INTENTOS DE INGRESAR AL SISTEMA DESDE EL INDEX')";
      mysqli_query( $conexion , $bitacora );
      $intento_de_parametro++;
-
-     include('../Login/index.php');
+     header('Location: ../Login/index.php');
+     die();
 }
 
 
@@ -128,7 +133,8 @@ if ( $filas_PAR==0 and $usuario<>"ADMIN") {
      mysqli_query( $conexion , $actualizarEstado_ );
      $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','$id','INTENTOS LOGIN','REGISTRO DE BLOQUEO POR INTENTOS DE INGRESAR AL SISTEMA DESDE EL INDEX')";
      mysqli_query( $conexion , $bitacora2 );
-     include('../Login/index.php');
+     header('Location: ../Login/index.php');
+     die();
 }
 
 mysqli_free_result($resultado);
