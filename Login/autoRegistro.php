@@ -100,10 +100,10 @@
     if (p.length < 8) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
     }
-    if (p.search(/[a-z]/i) < 0) {
+    if (p.search(/[a-z]/) < 0) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
     }
-    if (p.search(/[A-Z]/i) < 0) {
+    if (p.search(/[A-Z]/) < 0) {
         errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
     }
     if (p.search(/[0-9]/) < 0) {
