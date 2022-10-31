@@ -5,9 +5,10 @@ $contraseñaAntigua = $_POST[ 'password' ];
 $contraseñaNueva_ = $_POST[ 'password__' ];
 session_start();
 $usuario_ =  $_SESSION['nombre'];
+$fechaC = date('Y-m-d');
 
     #select ID_USUARIO
-    $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE Usuario='$usuario'";
+    $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE Usuario='$usuario_'";
     $resultado_id= mysqli_query( $conexion , $consulta_id );
     $filas_id = mysqli_num_rows( $resultado_id );
 
@@ -24,7 +25,7 @@ $filas = mysqli_num_rows( $resultado );
     # code...    
     $actualizarContra = "UPDATE tbl_ms_usuario SET contrasena = '$contraseñaNueva' WHERE Usuario='$usuario_'";
     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Usuario='$usuario_'";
-    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','ACTUALIZAR CONTRASEÑA','CAMBIO DE CONTRASEÑA')";
+    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','cambiar contraseña','CAMBIO DE CONTRASEÑA')";
     $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas'+1,'$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
 
     mysqli_query( $conexion , $actualizarContra );
