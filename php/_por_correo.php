@@ -93,7 +93,7 @@ $body.='<table role="presentation" style="width:100%;border-collapse:collapse;bo
 $body.='<tr>';
 $body.='<td style="width:260px;padding:0;vertical-align:top;color:#153643;">';
 $body.='<p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p>';
-$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Su nueva contraseña es:</p>'.'</p>'.$contrasena_;
+$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Su nueva contraseña es:</p>'.'<p></p>'.$contrasena_;
 $body.='<p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://localhost/Inversiones_Atlantico/php/index.php" style="color:#ee4c50;text-decoration:underline;">Entrar</a></p>';
 $body.='</td>';
 $body.='<td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>';
