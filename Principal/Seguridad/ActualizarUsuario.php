@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Nuevo Usuario</label>
+                      <label for="yourName" class="form-label">Nuevo Nombre</label>
                       <input type="text" name="Usuario" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Por favor ingresa un Usuario!</div>
                     </div>

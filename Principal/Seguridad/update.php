@@ -36,15 +36,15 @@ try {
     $sql = "UPDATE tbl_ms_usuario SET NOMBRE_USUARIO='$nombre', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC' WHERE ID_USUARIO='$id'";
          
     mysqli_query($conexion2 , $sql);
-    
-    include("Mantenimiento_Usuario.php");
+
+    header('Location: Mantenimiento_Usuario.php');
+
   } catch (Exception $e) {
     // exception is raised and it'll be handled here
     $var = $e->getMessage();
     echo "<script> alert('".$var."'); </script>";
-    include("Mantenimiento_Usuario.php");
-  }
-
-       
+    header('Location: Mantenimiento_Usuario.php');
+    die();
+  }      
 
 ?>
