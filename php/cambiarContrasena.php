@@ -26,7 +26,7 @@ $filas = mysqli_num_rows( $resultado );
     $actualizarContra = "UPDATE tbl_ms_usuario SET contrasena = '$contraseñaNueva' WHERE Usuario='$usuario_'";
     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Usuario='$usuario_'";
     $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','cambiar contraseña','CAMBIO DE CONTRASEÑA')";
-    $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas'+1,'$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
+    $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
 
     mysqli_query( $conexion , $actualizarContra );
     mysqli_query( $conexion , $actualizarEstado );
