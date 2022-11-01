@@ -21,10 +21,10 @@ $fechaC = date('Y-m-d');
     if ($contrasena==$contrasena_) {
         # code...
         $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Usuario='$usuario'";
-        $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','VALIDACION DE CONTRASEÑA','VALIDAR CONTRASEÑA POR RECUPERACION')";
+        //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','VALIDACION DE CONTRASEÑA','VALIDAR CONTRASEÑA POR RECUPERACION')";
 
         mysqli_query( $conexion , $actualizarContra );
-        mysqli_query( $conexion , $bitacora );
+       // mysqli_query( $conexion , $bitacora );
 
         echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';
         include('../Login/index.php');
