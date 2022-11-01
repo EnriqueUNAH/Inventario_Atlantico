@@ -35,33 +35,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script>
-    function validatePassword() {
-      var p = document.getElementById('yourPassword').value,
-          errors = [];
-      if (p.length < 8) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
-      }
-      if (p.search(/[a-z]/i) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
-      }
-      if (p.search(/[A-Z]/i) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
-      }
-      if (p.search(/[0-9]/) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
-      }
-      if (p.search(/[*&!^)(#@$?¡\-_]/) < 0) {
-          errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
-      }
-      if (errors.length > 0) {
-          alert(errors.join("\n"));
-          return false;
-      }else{
-        return True;
-      }  
-  }
-  </script>
+  
   <script>
     function mostrarPassword(){
         var cambio = document.getElementById("yourPassword");
@@ -73,67 +47,78 @@
 			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
 		}
 	} 
-  
+	
 	$(document).ready(function () {
 	//CheckBox mostrar contraseña
     $('#ShowPassword').click(function () {
       $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
     });
     });
-  </script>
-  <script>
-    function mostrarPassword_(){
-        var cambio = document.getElementById("nuevo");
-		if(cambio.type == "password"){
-			cambio.type = "text";
-			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-		}else{
-			cambio.type = "password";
-			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-		}
-	} 
-  
-	$(document).ready(function () {
-	//CheckBox mostrar contraseña
-    $('#ShowPassword').click(function () {
-      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    });
-    });
-  </script>
-  <script>
-    function mostrarPassword__(){
-        var cambio = document.getElementById("confirmar");
-		if(cambio.type == "password"){
-			cambio.type = "text";
-			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-		}else{
-			cambio.type = "password";
-			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-		}
-	} 
-  
-	$(document).ready(function () {
-	//CheckBox mostrar contraseña
-    $('#ShowPassword').click(function () {
-      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    });
-    });
-  </script>
- <script>
-  function validar_espacio__(e, campo)
-  {
-  key = e.keyCode ? e.keyCode : e.which;
-  if (key == 32) {return false;}
-  }
   </script>
 
 <script>
-  function maximo(campo,limite)
-  {
-  if(campo.value.length>=limite){
-  campo.value=campo.value.substring(0,limite);
-  }
-  }
+    function mostrarPassword1(){
+        var cambio = document.getElementById("yourPassword1");
+		if(cambio.type == "password"){
+			cambio.type = "text";
+			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		}else{
+			cambio.type = "password";
+			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		}
+	} 
+	
+	$(document).ready(function () {
+	//CheckBox mostrar contraseña
+    $('#ShowPassword').click(function () {
+      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+    });
+    });
+  </script>
+
+  <script>
+    function validar_espacio(e, campo)
+    {
+		key = e.keyCode ? e.keyCode : e.which;
+		if (key == 32) {return false;}
+    }
+    </script>
+
+  <script>
+    function maximo(campo,limite)
+    {
+    if(campo.value.length>=limite){
+    campo.value=campo.value.substring(0,limite);
+    }
+    }
+  </script>
+
+<script>
+  function validatePassword() {
+    var p = document.getElementById('yourPassword').value,
+        errors = [];
+    if (p.length < 8) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER 8 CARACTERES");
+    }
+    if (p.search(/[a-z]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MINUSCULA"); 
+    }
+    if (p.search(/[A-Z]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UNA MAYUSCULA"); 
+    }
+    if (p.search(/[0-9]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN NUMERO");
+    }
+    if (p.search(/[*&!^)(#@$?¡\-_]/) < 0) {
+        errors.push("TU CONTRASEÑA AL MENOS DEBE TENER UN CARACTER ESPECIAL");
+    }
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }else{
+      return True;
+    }  
+}
 </script>
 
 </head>
@@ -167,27 +152,25 @@
                   <form action="../php/validarcontra_recu.php" method="post"  onsubmit="validatePassword(); return false;" method="post" class="row g-3 needs-validation" onsubmit="checkPassword(this);">
                     
 
-                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">NUEVA CONTRASEÑA:</label>
+                  <div class="col-12">
+                      <label for="yourPassword" class="form-label">CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password_" placeholder="Ingrese su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="nuevo" required>
+                        <input type="Password" Class="form-control" name="password" placeholder="Ingrese su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword" required>
                         <div class="input-group-append">
-                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            <div class="invalid-feedback">Ingrese su nueva contraseña!</div>
-                          </div>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        </div>
                       </div>
-                     </div>
+                    </div>
 
-                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">CONFIRMAR NUEVA CONTRASEÑA:</label>
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">CONFIRMAR CONTRASEÑA:</label>
                       <div class="input-group">
-                        <input type="Password" Class="form-control" name="password__" placeholder="Confirme su nueva contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="confirmar" required>
+                        <input type="Password" Class="form-control" name="password1" placeholder="Confirme su contraseña"  onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourPassword1" required>
                         <div class="input-group-append">
-                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword__()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            <div class="invalid-feedback">Confirme su nueva contraseña!</div>
-                          </div>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword1()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        </div>
                       </div>
-                     </div>
+                    </div>
 
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">ACEPTAR</button>

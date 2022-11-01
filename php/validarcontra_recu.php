@@ -3,8 +3,8 @@ include('db.php');
 session_start();
 $usuario=$_SESSION['usuario'] ;
 
-$contrasena=($_POST[ 'password_' ]);
-$contrasena_=($_POST[ 'password__' ]);
+$contrasena=($_POST[ 'password' ]);
+$contrasena_=($_POST[ 'password1' ]);
 $fechaC = date('Y-m-d');
 
     $consulta="SELECT * FROM tbl_bitacora";
