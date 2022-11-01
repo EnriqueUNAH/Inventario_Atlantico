@@ -5,6 +5,7 @@ require_once "../db2.php";
 // Definir variables
 $nombre = $Rol = $Correo = "";
 $id=0;
+$fechaC = date('Y-m-d');
  
 // procesando la data del submit
 
@@ -32,7 +33,7 @@ if(isset($_POST["Correo"]) && !empty($_POST["Correo"])){
 
 try {
     // code
-    $sql = "UPDATE tbl_ms_usuario SET USUARIO='$nombre', CORREO_ELECTRONICO='$Correo' WHERE ID_USUARIO='$id'";
+    $sql = "UPDATE tbl_ms_usuario SET NOMBRE_USUARIO='$nombre', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC' WHERE ID_USUARIO='$id'";
          
     mysqli_query($conexion2 , $sql);
     
