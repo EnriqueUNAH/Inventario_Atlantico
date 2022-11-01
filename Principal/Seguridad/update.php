@@ -33,6 +33,19 @@ if(isset($_POST["Correo"]) && !empty($_POST["Correo"])){
 
 try {
     // code
+      #select ID_USUARIO
+      $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE ID_USUARIO='$id'";
+      $resultado_id= mysqli_query( $conexion2 , $consulta_id );
+      $filas_id = mysqli_num_rows( $resultado_id );
+
+       #select ID_BITACORA
+      $consulta_id_BIT="SELECT * FROM tbl_bitacora";
+      $resultado_id_BIT= mysqli_query( $conexion2 , $consulta_id_BIT );
+      $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
+      $filas_id_BIT++;
+
+      $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','$filas_id','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
+      mysqli_query( $conexion2 , $bitacora);
     $sql = "UPDATE tbl_ms_usuario SET NOMBRE_USUARIO='$nombre', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC' WHERE ID_USUARIO='$id'";
          
     mysqli_query($conexion2 , $sql);
