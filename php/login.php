@@ -81,17 +81,17 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
 
  #   Decision ingreso
 if ($estado=="NUEVO" and $contraseña==$contrasena){   
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );   
      include('../Login/preguntasPrimeraVez.php');
 
 }elseif($estado=="RESETEO" and $contraseña==$contrasena){  
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      include('../Login/cambiar_contrasena.php');
 
 }elseif($estado=="ACTIVO" and $contraseña==$contrasena){
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      $primer_ = $primer + 1;
      $actualizarPrimer = "UPDATE tbl_ms_usuario SET Primer_Ingreso = '$primer_' WHERE Id_Usuario = $id";
@@ -111,7 +111,7 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
 }else{
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      $filas_PAR=$filas_PAR-1;
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '$filas_PAR' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '$filas_PAR' WHERE PARAMETRO='ADMIN_INTENTOS'";
 
     // $actualizarValor_Parametro = "UPDATE tbl_ms_parametros SET valor = $intento_de_parametro WHERE Id_Usuario = $id";
      mysqli_query( $conexion , $Actualizar_parametro );
@@ -126,7 +126,7 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
 if ( $filas_PAR==0 and $usuario<>"ADMIN") {
      # code...
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET valor = '3' WHERE PARAMETRO='ADMIN_INTENTOS_INVALIDOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET valor = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      $actualizarEstado_ = "UPDATE tbl_ms_usuario SET ESTADO_USUARIO = 'BLOQUEADO' WHERE ID_USUARIO = $id";
      mysqli_query( $conexion , $actualizarEstado_ );
