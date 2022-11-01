@@ -43,7 +43,7 @@ $_SESSION['nombre'];
     <div class="d-flex align-items-center justify-content-between">
       <a href="../Principal/principal.php" class="logo d-flex align-items-center">
         <img src="../assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">INVENTARIOS DEL ATLANTICO</span>
+        <span class="d-none d-lg-block">INVERISONES DEL ATLANTICO</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -231,8 +231,8 @@ $_SESSION['nombre'];
         </ul>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="cambiar_contrasena.html">
-              <i class="bi bi-circle"></i><span>CAMBIO DE CONTRASEÑA</span>
+            <a href="../Principal/Seguridad/bitacora.php">
+              <i class="bi bi-circle"></i><span>BITACORA</span>
             </a>
           </li>
         </ul>

@@ -112,8 +112,8 @@
         </ul>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="cambiar_contrasena.html">
-              <i class="bi bi-circle"></i><span>CAMBIO DE CONTRASEÑA</span>
+            <a href="../Seguridad/bitacora.php">
+              <i class="bi bi-circle"></i><span>BITACORA</span>
             </a>
           </li>
         </ul>

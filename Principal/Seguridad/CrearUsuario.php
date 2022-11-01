@@ -33,6 +33,22 @@
                       <div class="invalid-feedback">Por favor ingresa tu nombre de usuario!</div>
                     </div>
 
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Seleccione un Rol:</label>
+                      <select name="Rol" class="form-control">
+                      <?php
+                            include("../db2.php");
+                            $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_ms_roles " );
+                            
+                        ?>
+                        <?php foreach ($ejecutar as $opciones): ?>
+                            <option value="<?php echo $opciones['ROL']?>"><?php echo $opciones['ROL'] ?></option>
+                        <?php endforeach ?>
+                        <?php ?>
+                                            
+                      </select>
+                      <div class="invalid-feedback">Rol INVALIDO!</div>
+                    </div> 
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Contraseña</label>
@@ -40,13 +56,10 @@
                       <div class="invalid-feedback">Por favor ingresa la Contraseña!</div>
                     </div>
 
-                    
-
-
                     <div class="col-12">
                       <label for="yourName" class="form-label">Correo</label>
                       <input type="text" name="Correo" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <div class="invalid-feedback">Por favor ingresa un correo!</div>
                     </div>
                  
                     <div class="form-group">

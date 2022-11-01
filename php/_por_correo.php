@@ -7,22 +7,30 @@ require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
 require '../PHPMailer/src/SMTP.php';
 
-//$DesdeLetra = "a";
-//$HastaLetra = "z";
-//$desdeletra = "A";
-//$hastaletra = "Z";
-//$DesdeNumero = 1;
-//$HastaNumero = 10000;
-//$letraAleatoria = chr(rand(ord($DesdeLetra), ord($HastaLetra)));
-//$numeroAleatorio = rand($DesdeNumero, $HastaNumero);
-//$contrasena_=$letraAleatoria.$numeroAleatorio;
+$DesdeLetra = "a";
+$HastaLetra = "z";
+$desdeletra = "A";
+$hastaletra = "Z";
+$DesdeNumero = 1;
+$HastaNumero = 10000;
+$letraAleatoria = chr(rand(ord($DesdeLetra), ord($HastaLetra)));
+$numeroAleatorio = rand($DesdeNumero, $HastaNumero);
+$contrasena_=$letraAleatoria.$numeroAleatorio;
 
-$key = "";
-$pattern = "1234567890abcdefghijklmñnopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ.-_*/=[]{}#@|~¬&()?¿";
-$max = strlen($pattern)-1;
-for($i = 0; $i < 8; $i++){
-    $key .= substr($pattern, mt_rand(0,$max), 1);
-}
+
+//$pattern = "abcdefghijklmnopqrstuvwxyz";
+//$pattern2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//$pattern3 = "*&!^)(#@$?¡\-_";
+//$pattern4 = "0123456789";
+//$max = strlen($pattern)-1;
+//$max2 = strlen($pattern2)-1;
+//$max3 = strlen($pattern3)-1;
+//$max4 = strlen($pattern4)-1;
+
+//$key .= substr($pattern, mt_rand(0,$max),3);
+//$key .= substr($pattern2, mt_rand(0,$max2),3);
+//$key .= substr($pattern3, mt_rand(0,$max3),3);
+//$key .= substr($pattern4, mt_rand(0,$max4),3);
 
    include('../Principal/db2.php');
    $nombre=strtoupper($_POST['persona']);
@@ -46,11 +54,12 @@ for($i = 0; $i < 8; $i++){
 
 
 
-    $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$key' WHERE Id_Usuario='$filas'";
+    $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Id_Usuario='$filas'";
     mysqli_query( $conexion2 , $actualizarContra );
 
     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'RESETEO' WHERE Id_Usuario='$filas'";
     mysqli_query( $conexion2 , $actualizarEstado );
+
 $body="";
 $body .='<!DOCTYPE html>';
 $body .='<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">';
@@ -98,7 +107,7 @@ $body.='<table role="presentation" style="width:100%;border-collapse:collapse;bo
 $body.='<tr>';
 $body.='<td style="width:260px;padding:0;vertical-align:top;color:#153643;">';
 $body.='<p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p>';
-$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Su nueva contraseña es:</p>'.'<p></p>'.$key;
+$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Su nueva contraseña es:</p>'.'<p></p>'.$contrasena_;
 $body.='<p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://localhost/Inversiones_Atlantico/php/index.php" style="color:#ee4c50;text-decoration:underline;">Entrar</a></p>';
 $body.='</td>';
 $body.='<td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>';
@@ -186,13 +195,14 @@ if (($filas)){
 
 
     echo '<script>alert("CORREO ENVIADO CON EXITO");</script>';
-
+    mysqli_close($conexion2);
     include('../php/index.php'); 
+    //header('Location: ../php/index.php');
 }
 
 
 if (isset($_POST['btnPregunta']) and $filas) {
-    header('Location: preguntas_recuperar.php');
-    die();
+    include('preguntas_recuperar.php'); 
+
 }
 ?>

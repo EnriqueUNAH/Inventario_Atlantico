@@ -24,13 +24,12 @@ $filas = mysqli_num_rows( $resultado );
  if ($contrasena==$contraseñaAntigua and $contraseñaNueva==$contraseñaNueva_) {
     # code...    
     $actualizarContra = "UPDATE tbl_ms_usuario SET contrasena = '$contraseñaNueva' WHERE Usuario='$usuario_'";
-    $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Usuario='$usuario_'";
-    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','cambiar contraseña','CAMBIO DE CONTRASEÑA')";
-    $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
-
     mysqli_query( $conexion , $actualizarContra );
+    $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Usuario='$usuario_'";
     mysqli_query( $conexion , $actualizarEstado );
+    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','cambiar contraseña','CAMBIO DE CONTRASEÑA')";
     mysqli_query( $conexion , $bitacora );
+    $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
     mysqli_query( $conexion , $bitacora2 );
 
     echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';
