@@ -27,10 +27,10 @@ $filas = mysqli_num_rows( $resultado );
     mysqli_query( $conexion , $actualizarContra );
     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'ACTIVO' WHERE Usuario='$usuario_'";
     mysqli_query( $conexion , $actualizarEstado );
-    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','cambiar contraseña','CAMBIO DE CONTRASEÑA')";
-    mysqli_query( $conexion , $bitacora );
-    $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
-    mysqli_query( $conexion , $bitacora2 );
+   // $bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','cambiar contraseña','CAMBIO DE CONTRASEÑA')";
+   // mysqli_query( $conexion , $bitacora );
+   // $bitacora2="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','ESTADO','CAMBIO DE ESTADO')";
+    //mysqli_query( $conexion , $bitacora2 );
 
     echo '<script>alert("CONTRASEÑA CAMBIADA CON EXITO");</script>';
     include('../Login/index.php');
