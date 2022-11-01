@@ -155,13 +155,13 @@ if (($filas)){
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.office365.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'implementacion_PACIII@hotmail.com';                     //SMTP username
-        $mail->Password   = 'usuayfjikdyxscnt';                               //SMTP password
+        $mail->Username   = 'inversiones_del_atlantico@hotmail.com';                     //SMTP username
+        $mail->Password   = 'mqgxpguufuglmvhl';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('implementacion_PACIII@hotmail.com', 'Mailer Diseños Alpha');
+        $mail->setFrom('inversiones_del_atlantico@hotmail.com', 'Mailer Diseños Alpha');
         $mail->addAddress($correo);     //Add a recipient
     
         //Content
