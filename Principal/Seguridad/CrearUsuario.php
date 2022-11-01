@@ -1,5 +1,4 @@
-<?php include("../cabecera.php") ?>
-<?php include("../sidebar.php")?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,4 +64,3 @@
     </div>
 </body>
 </html>
-<?php include("../footer.php")?>
