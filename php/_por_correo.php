@@ -161,7 +161,7 @@ if (($filas)){
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('inversiones_del_atlantico@hotmail.com', 'Mailer Diseños Alpha');
+        $mail->setFrom('inversiones_del_atlantico@hotmail.com', 'Mailer Inversiones del Atlantico');
         $mail->addAddress($correo);     //Add a recipient
     
         //Content
