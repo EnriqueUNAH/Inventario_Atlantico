@@ -10,7 +10,7 @@ $fechaC = date('Y-m-d');
 try {
     // code
    
-    if(isset($_POST["CodigoUsuario"]) and $_POST["CodigoUsuario"]<>1 ){
+    if(isset($_POST["CodigoUsuario"]) ){
       // Get hidden input value
       $cod = $_POST["CodigoUsuario"];
 

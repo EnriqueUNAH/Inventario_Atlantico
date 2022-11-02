@@ -225,7 +225,7 @@ $_SESSION['nombre'];
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="../Principal/Seguridad/mantenimiento_usuario.php">
-              <i class="bi bi-circle"></i><span>GESTION DE USUARIOS</span>
+              <i class="bi bi-circle"></i><span>MANTENIMIENTO DE USUARIOS</span>
             </a>
           </li>
         </ul>

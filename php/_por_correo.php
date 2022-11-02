@@ -1,5 +1,7 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
+try {
+    //code...
+    use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception; 
 // Load Composer's autolveder
@@ -21,7 +23,7 @@ $contrasena_=$letraAleatoria.$numeroAleatorio;
 //$pattern = "abcdefghijklmnopqrstuvwxyz";
 //$pattern2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //$pattern3 = "*&!^)(#@$?¡\-_";
-//$pattern4 = "0123456789";
+//$pattern4 = "123456789";
 //$max = strlen($pattern)-1;
 //$max2 = strlen($pattern2)-1;
 //$max3 = strlen($pattern3)-1;
@@ -52,13 +54,6 @@ $contrasena_=$letraAleatoria.$numeroAleatorio;
     //$filas_=mysqli_num_rows( $resultado__ );
     //$filas_=$filas_+1;
 
-
-
-    $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Id_Usuario='$filas'";
-    mysqli_query( $conexion2 , $actualizarContra );
-
-    $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'RESETEO' WHERE Id_Usuario='$filas'";
-    mysqli_query( $conexion2 , $actualizarEstado );
 
 $body="";
 $body .='<!DOCTYPE html>';
@@ -160,7 +155,7 @@ if (($filas)){
     $mail = new PHPMailer(true);
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.office365.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -183,7 +178,14 @@ if (($filas)){
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();
-        echo 'Message has been sent';
+
+        
+    $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Id_Usuario='$filas'";
+    mysqli_query( $conexion2 , $actualizarContra );
+
+    $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'RESETEO' WHERE Id_Usuario='$filas'";
+    mysqli_query( $conexion2 , $actualizarEstado );
+
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
@@ -205,4 +207,12 @@ if (isset($_POST['btnPregunta']) and $filas) {
     include('preguntas_recuperar.php'); 
 
 }
+} catch (\Throwable $th) {
+    //throw $th;
+    $var = $th->getMessage();
+    echo "<script> alert('".$var."'); </script>";
+
+    include("../Login/recuperar.php");
+}
+
 ?>
