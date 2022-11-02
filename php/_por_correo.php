@@ -64,18 +64,18 @@ $body.='<meta charset="UTF-8">';
 $body.=' <meta name="viewport" content="width=device-width,initial-scale=1">';
 $body.='<meta name="x-apple-disable-message-reformatting">';
 $body.='<title></title>';
-$body.='<!--[if mso]>';
-$body.='<noscript>';
-$body.='<xml>';
-$body.='<o:OfficeDocumentSettings>';
-$body.='<o:PixelsPerInch>96</o:PixelsPerInch>';
-$body.='</o:OfficeDocumentSettings>';
-$body.='</xml>';
-$body.='</noscript>';
-$body.='<![endif]-->';
-$body.='<style>';
-$body.='table, td, div, h1, p {font-family: Arial, sans-serif;}';
-$body.='</style>';
+//$body.='<!--[if mso]>';
+//$body.='<noscript>';
+//$body.='<xml>';
+//$body.='<o:OfficeDocumentSettings>';
+//$body.='<o:PixelsPerInch>96</o:PixelsPerInch>';
+//$body.='</o:OfficeDocumentSettings>';
+//$body.='</xml>';
+//$body.='</noscript>';
+//$body.='<![endif]-->';
+//$body.='<style>';
+//$body.='table, td, div, h1, p {font-family: Arial, sans-serif;}';
+//$body.='</style>';
 $body.='</head>';
 $body.='<body style="margin:0;padding:0;">';
 $body.='<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">';
@@ -83,10 +83,10 @@ $body.='<tr>';
 $body.='<td align="center" style="padding:0;">';
 $body.='<table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">';
 $body.='<tr>';
-$body.='<td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">';
-$body.='<img src="https://assets.codepen.io/210284/h1.png" alt="" width="300" style="height:auto;display:block;" />';
-$body.='</td>';
-$body.='</tr>';
+//$body.='<td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">';
+//$body.='<img src="https://assets.codepen.io/210284/h1.png" alt="" width="300" style="height:auto;display:block;" />';
+//$body.='</td>';
+//$body.='</tr>';
 $body.='<tr>';
 $body.='<td style="padding:36px 30px 42px 30px;">';
 $body.='<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">';
@@ -120,12 +120,12 @@ $body.='</table>';
 $body.='</td>';
 $body.='</tr>';
 $body.='<tr>';
-$body.='<td style="padding:30px;background:#ee4c50;">';
+$body.='<td style="padding:30px;background:#1f9dc4;">';
 $body.='<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">';
 $body.='<tr>';
 $body.='<td style="padding:0;width:50%;" align="left">';
 $body.='<p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">';
-$body.='&reg; Someone, Somewhere 2021<br/><a href="http://www.example.com" style="color:#ffffff;text-decoration:underline;">Unsubscribe</a>';
+$body.='&reg; Diseños Alpha, Inventarios del Atlantico 2022<br/><a href="http://www.example.com" style="color:#ffffff;text-decoration:underline;">Unsubscribe</a>';
 $body.='</p>';
 $body.='</td>';
 $body.='<td style="padding:0;width:50%;" align="right">';
@@ -160,7 +160,7 @@ if (($filas)){
         $mail->Host       = 'smtp.office365.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'inversiones_del_atlantico@hotmail.com';                     //SMTP username
-        $mail->Password   = 'mqgxpguufuglmvhl';                               //SMTP password
+        $mail->Password   = 'nbhonhvqfrrcduei';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
