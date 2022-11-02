@@ -1,13 +1,14 @@
 <?php
-try {
     //code...
     use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception; 
-// Load Composer's autolveder
-require '../PHPMailer/src/Exception.php';
-require '../PHPMailer/src/PHPMailer.php';
-require '../PHPMailer/src/SMTP.php';
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception; 
+    // Load Composer's autolveder
+    require '../PHPMailer/src/Exception.php';
+    require '../PHPMailer/src/PHPMailer.php';
+    require '../PHPMailer/src/SMTP.php';
+try {
+
 
 $DesdeLetra = "a";
 $HastaLetra = "z";
@@ -153,7 +154,6 @@ $body.='</html>';
 if (($filas)){
     //Create a new PHPMailer instance
     $mail = new PHPMailer(true);
-    try {
         //Server settings
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
@@ -185,10 +185,6 @@ if (($filas)){
 
     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'RESETEO' WHERE Id_Usuario='$filas'";
     mysqli_query( $conexion2 , $actualizarEstado );
-
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
     
 
     //$insertar="INSERT INTO tbl_ms_parametros VALUES('$filas_','ADMIN_VIGENCIA','30','$filas','$fechaC','$fechaC')";
