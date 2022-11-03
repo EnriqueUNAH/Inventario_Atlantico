@@ -1,87 +1,131 @@
-<?php include("../cabecera.php") ?>
-<?php include("../sidebar.php")?>
+<?php include('../cabecera.php') ?>
+<?php include('../sidebar.php') ?>
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <main id="main" class="main">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    	<!-- SCRIPTS JS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="peticion.js"></script>
+        <style>
+    body {
+        color: #566787;
+        background: #f5f5f5;
+		font-family: 'Roboto', sans-serif;
+	}
+    .table-responsive {
+        margin: 30px 0;
+    }
+	.table-wrapper {
+		min-width: 900px;
+        background: #fff;
+        padding: 20px;        
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+	.table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+    .table-title h2 {
+        margin: 8px 0 0;
+        font-size: 22px;
+    }
+    .search-box {
+        position: static;        
+        float: right;
+    }
+    .search-box input {
+        height: 34px;
+        border-radius: 20px;
+        padding-left: 35px;
+        border-color: #ddd;
+        box-shadow: none;
+    }
+	.search-box input:focus {
+		border-color: #3FBAE4;
+	}
+    .search-box i {
+        color: #a0a5b1;
+        position: relative;
+        font-size: 19px;
+        top: 8px;
+        left: 10px;
+    }
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    }
+    table.table-striped tbody tr:nth-of-type(odd) {
+    	background-color: #fcfcfc;
+	}
+	table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    table.table td:last-child {
+        width: 130px;
+    }
+    table.table td a {
+        color: #a0a5b1;
+        display: inline-block;
+        margin: 0 5px;
+    }
+	table.table td a.view {
+        color: #03A9F4;
+    }
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #E34724;
+    }
+    table.table td i {
+        font-size: 19px;
+    }    
+</style>
+<script>
+</script>
+	</head>
+	<body>
+    <main id="main" class="main">
 
-    <div class="pagetitle">
-    <div class="container-lg">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                <div class="col-sm-10"><h2>Mantenimiento de <b>Usuarios</b></h2></div>
-                    </div>
-                    <div class="search-box">
-                                <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+        <div class="pagetitle">
+        <div class="container-lg">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+            <div class="col-sm-4"><h2>Mantenimiento de <b>Usuarios</b></h2></div>
+            <p></p>
+                <div class="col-sm-22">
+                <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-info">Agregar Nuevo Usuario</button>
+                </div>
+                <div>
+                    <p></p>
+                </div>
+                <div class="search-box">
+                                <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Buscar&hellip;">
                             </div>
-                    <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Usuario</button>
-                </div>
-            </div>
-            <table class="table table-bordered">
-                <tbody>
-                <div class="col-sm-6">
+                        <div class="col-sm-6">
+                            <p></p>
+                        </div> 
+                        <table id="tabla_resultado" class="table table-striped table-hover table-bordered">
+                        </table>
+     </main><!-- End #main -->
+	</body>
+</html>
 
-                        </div>
-                <?php
-                    // Include db
-                    require_once "../db2.php";
-                    
-                    //  query
-                    $sql = "SELECT * FROM tbl_ms_usuario";
-                    if($result = mysqli_query($conexion2, $sql)){
-                        if(mysqli_num_rows($result) > 0){
-                            echo '<table class="table table-bordered table-striped">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                                        echo "<th>USUARIO</th>";
-                                        echo "<th>Nombre USUARIO</th>";
-                                        echo "<th>ESTADO</th>";
-                                        echo "<th>FECHA ULTIMA CONEXIÓN</th>";
-                                        echo "<th>PREGUNTAS CONTESTADAS</th>";
-                                        echo "<th>PRIMER INGRESO</th>";
-                                          echo "<th>CORREO ELECTRONICO</th>";
-                                        echo "<th>Otras Opciones</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['USUARIO'] . "</td>";
-                                        echo "<td>" . $row['NOMBRE_USUARIO'] . "</td>";
-                                        echo "<td>" . $row['ESTADO_USUARIO'] . "</td>";
-                                        echo "<td>" . $row['FECHA_ULTIMA_CONEXION'] . "</td>";
-                                        echo "<td>" . $row['PREGUNTAS_CONTESTADAS'] . "</td>";
-                                        echo "<td>" . $row['PRIMER_INGRESO'] . "</td>";
-                                        echo "<td>" . $row['CORREO_ELECTRONICO'] . "</td>";
-                                        echo '<td><a href="ActualizarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i> Editar</button><p></p></button> <a href="BorrarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Liberar resultado
-                            mysqli_free_result($result);
-                        } else{
-                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
-                        }
-                    } else{
-                        echo "Oops! Something went wrong. Please try again later.";
-                    }
- 
-                    // CERRAR CONEXION
-                    mysqli_close($conexion2);
-                    ?>
-                </div>
-                </tbody>
-            </table>
-        </div>
-        </div>        
-    </div>     
-    </div><!-- End Page Title -->
-
-   
-
-  </main><!-- End #main -->
-
-  <?php include("../footer.php")?>
+<?php include("../footer.php")?>
