@@ -23,16 +23,17 @@
                     require_once "../db2.php";
                     
                     //  query
-                    $sql = "SELECT * FROM tbl_bitacora";
+                    //$sql = "SELECT * FROM tbl_bitacora";
+                    $sql = "SELECT * FROM tbl_bitacora bi inner join tbl_ms_usuario us on bi.ID_USUARIO=us.ID_USUARIO order by FECHA desc";
                     if($result = mysqli_query($conexion2, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>ID BITACORA</th>";
+                                        //echo "<th>ID BITACORA</th>";
                                         echo "<th>FECHA</th>";
-                                        echo "<th>ID USUARIO</th>";
-                                        echo "<th>ID OBJETO</th>";
+                                        echo "<th>USUARIO</th>";
+                                        echo "<th>PANTALLA</th>";
                                         echo "<th>ACCION</th>";
                                         echo "<th>DESCRIPCION</th>";
                                     echo "</tr>";
@@ -40,9 +41,9 @@
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['ID_BITACORA'] . "</td>";
+                                       // echo "<td>" . $row['ID_BITACORA'] . "</td>";
                                         echo "<td>" . $row['FECHA'] . "</td>";
-                                        echo "<td>" . $row['ID_USUARIO'] . "</td>";
+                                        echo "<td>" . $row['NOMBRE_USUARIO'] . "</td>";
                                         echo "<td>" . $row['ID_OBJETO'] . "</td>";
                                         echo "<td>" . $row['ACCION'] . "</td>";
                                         echo "<td>" . $row['DESCRIPCION'] . "</td>";
