@@ -114,7 +114,7 @@
       </div>
 
       <div class="col-8">
-        <label for="yourName" class="form-label">SelECCIONE UN ROL:</label>
+        <label for="yourName" class="form-label">SELECCIONE UN ROL:</label>
         <select name="Rol" class="form-control">
         <?php
               include("../db2.php");

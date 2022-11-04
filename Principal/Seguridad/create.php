@@ -52,7 +52,7 @@ if($filas_ ){?>
 <?php
 }elseif($_filas_){?>
     <script> 
-       alert("Correo Electrinoco ya existente");
+       alert("Correo Electronico ya existente");
        location.href= "CrearUsuario.php";
     </SCRipt>
     <?php

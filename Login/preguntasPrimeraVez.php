@@ -56,7 +56,7 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">CONFIGURACION DE PREGUNTAS</h5>
-                    <p class="text-center small">SELECCIONA DOS PREGUNTAS PARA GESTIONAR TU CUENTA</p>
+                    <p class="text-center small">SELECCIONA PREGUNTAS PARA GESTIONAR TU CUENTA</p>
                   </div>
 
                   <form action="preguntas.php" method="post" class="row g-3 needs-validation" novalidate="false">
