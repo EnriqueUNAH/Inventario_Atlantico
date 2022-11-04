@@ -111,7 +111,7 @@
             <div class="col-sm-4"><h2>Mantenimiento de <b>Usuarios</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-info">Agregar Nuevo Usuario</button>
+                <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-primary">NUEVO</button>
                 </div>
                 <div>
                     <p></p>
