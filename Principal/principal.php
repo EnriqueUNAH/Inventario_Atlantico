@@ -43,7 +43,7 @@ $_SESSION['nombre'];
     <div class="d-flex align-items-center justify-content-between">
       <a href="../Principal/principal.php" class="logo d-flex align-items-center">
         <img src="../assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">INVERSIONES DEL ATLANTICO</span>
+        <span class="d-none d-lg-block">INVERSIONES DEL ATLÁNTICO</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
