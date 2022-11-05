@@ -2,6 +2,11 @@
 // Incluir db2 file
 require_once "../db2.php";
  
+session_start();
+
+$user = $_SESSION['nombre'];
+
+
 // Definir variables e inicializarlas
 /*$Usuario = $EstadoUsuario = $NombreUsuario = "";
 $Contrasena = $Correo = "";
@@ -58,7 +63,7 @@ if($filas_ ){?>
     <?php
 }else{
     //inserto datos en tabla usuario
-    $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','DEFAULT','$Contrasena','$fechaC','0','0','$fechaC','$correo_electronico','$Usuario','$fechaC','$Usuario','$fechaC','$id_rol_')";
+    $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','NUEVO','$Contrasena','$fechaC','0','0','$fechaC','$correo_electronico','$user','$fechaC','$user','$fechaC','$id_rol_')";
     mysqli_query( $conexion2 , $sql);
 
     #select ID_USUARIO

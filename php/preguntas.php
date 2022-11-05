@@ -65,24 +65,32 @@
         
         echo '<script>alert("Respuesta Guardada");</script>';
         include ("../Login/preguntasPrimeraVez.php");
-    }elseif($estado = 'NUEVO' and $filas_  == $valor_p_p){
-         #Trae preguntas contestadas tabla ms_usuarios
-         $preguntascontestadas="SELECT Preguntas_Contestadas FROM tbl_ms_usuario where Usuario = '$nombre'";
-         $resultado_pregu=mysqli_query( $conexion , $preguntascontestadas );
-         
-         while ($preguntasco=mysqli_fetch_array( $resultado_pregu )) {
-             # code...
-             $contestadas=intval($preguntasco['Preguntas_Contestadas']);
-             
-         }
-         $contestadas++;
-         #Cambio valor de preguntas contestadas
-         $actualizarPre = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = '$contestadas' WHERE Usuario = '$nombre'";
-         mysqli_query( $conexion , $actualizarPre);
+    }elseif($filas_  == $valor_p_p){
+        #Trae preguntas contestadas tabla ms_usuarios
+        $preguntascontestadas="SELECT Preguntas_Contestadas FROM tbl_ms_usuario where Usuario = '$nombre'";
+        $resultado_pregu=mysqli_query( $conexion , $preguntascontestadas );
+        
+        while ($preguntasco=mysqli_fetch_array( $resultado_pregu )) {
+            # code...
+            $contestadas=intval($preguntasco['Preguntas_Contestadas']);
+            
+        }
+        $contestadas++;
+        #Cambio valor de preguntas contestadas
+        $actualizarPre = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = '$contestadas' WHERE Usuario = '$nombre'";
+        mysqli_query( $conexion , $actualizarPre);
 
-        $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO'";  //obeservar
-        mysqli_query($conexion, $ALTER);
-        mysqli_close($conexion);?>
+        if($estado == "NUEVO"){
+            $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO' WHERE  Usuario = '$nombre'";  //obeservar
+            mysqli_query($conexion, $ALTER);
+            mysqli_close($conexion);
+        }else{
+            $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='INACTIVO' WHERE  Usuario = '$nombre'";  //obeservar
+            mysqli_query($conexion, $ALTER);
+            mysqli_close($conexion);
+        }
+        
+        ?>
         <script> 
            alert("Pregunta Contestadas Correctamente");
            location.href= "../Login/index.php";

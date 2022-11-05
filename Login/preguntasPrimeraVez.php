@@ -66,6 +66,7 @@
                       <?php
                             include("db.php");
                             $consulta = "SELECT * FROM tbl_ms_preguntas";
+                            //$consulta = "SELECT * FROM tbl_ms_preguntas pre inner join tbl_ms_preguntas_usuario pu on pre.id_pregunta=pu.id_pregunta;";
                             $ejecutar= mysqli_query($conexion,$consulta);
                         ?>
 

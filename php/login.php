@@ -104,6 +104,9 @@ if ($estado=="NUEVO" and $contraseña==$contrasena){
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
      include('../Login/index.php');
 
+}elseif($estado=="INACTIVO"){
+     echo '<script>alert("USUARIO INACTIVO, LLAME AL ADMINISTRADOR");</script>';
+     include('../Login/index.php');
 }elseif($usuario == "ADMIN" and $contraseña<> $contrasena){
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      include('../Login/index.php');

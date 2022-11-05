@@ -30,9 +30,8 @@ $resultado_Correo= mysqli_query( $conexion , $consultaCoreeo );
 $_filas_ = mysqli_num_rows( $resultado_Correo );
 
 
-/*
-$insertar_fecha_v = "SELECT DATE_ADD('2018-01-01', INTERVAL $parametro_fecha DAY);"
-*/
+//$insertar_fecha_v = "SELECT DATE_ADD('2018-01-01', INTERVAL $parametro_fecha DAY);"
+
 
 
     #select ID_USUARIO
@@ -58,7 +57,7 @@ $insertar_fecha_v = "SELECT DATE_ADD('2018-01-01', INTERVAL $parametro_fecha DAY
         <?php
     }else{
         $contrasenaA = $contrasena;
-        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','NUEVO','$contrasenaA','$fechaC','0','0','$fechaC','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
+        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','INACTIVO','$contrasenaA','$fechaC','0','0','$fechaC','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
        //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
 
         mysqli_query( $conexion , $insertar );
