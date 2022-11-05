@@ -44,7 +44,7 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="preguntas.html" class="logo d-flex align-items-center w-auto">
+                <a href="preguntasPrimeraVez.php" class="logo d-flex align-items-center w-auto">
                   <img src="../assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block">INVERSIONES DEL ATLANTICO</span>
                 </a>
@@ -65,8 +65,38 @@
                       <select name="pregunta" class="form-control" id="_pregunta">
                       <?php
                             include("db.php");
-                            $consulta = "SELECT * FROM tbl_ms_preguntas";
-                            //$consulta = "SELECT * FROM tbl_ms_preguntas pre inner join tbl_ms_preguntas_usuario pu on pre.id_pregunta=pu.id_pregunta;";
+                            session_start();
+                            $user=$_SESSION['name'];
+                            # Consulto PREGUNTAS CONTESTADAS
+                            $consulta_Pregunta="SELECT PREGUNTAS_CONTESTADAS FROM tbl_ms_usuario where USUARIO = '$user'";
+                            $resultado_Pregunta=mysqli_query( $conexion , $consulta_Pregunta );
+                            while ($valor=mysqli_fetch_array( $resultado_Pregunta )) {
+                                  # code...
+                                  $filas_Pre=$valor['PREGUNTAS_CONTESTADAS'];
+                              }
+
+                                  # Consulto ID
+                            $consulta_ID="SELECT ID_USUARIO FROM tbl_ms_usuario where USUARIO = '$user'";
+                            $resultado_ID=mysqli_query( $conexion , $consulta_ID );
+                            while ($valor2=mysqli_fetch_array( $resultado_ID )) {
+                                  # code...
+                                  $id=$valor2['ID_USUARIO'];
+                              }
+
+                            if($filas_Pre==0) {
+                              # code...
+                              $consulta = "SELECT * FROM tbl_ms_preguntas";
+                              $filas_Pre=$filas_Pre+1;
+                              $Actualizar_pregunta="UPDATE tbl_ms_usuario SET PREGUNTAS_CONTESTADAS = '$filas_Pre' WHERE USUARIO = '$user'";
+                              mysqli_query( $conexion , $Actualizar_pregunta );
+                            }else{
+                              # code...
+                              $consulta = "SELECT *
+                            FROM inversionesatlantico.tbl_ms_preguntas t2
+                           WHERE NOT EXISTS (SELECT NULL
+                                               FROM inversionesatlantico.tbl_ms_preguntas_usuario t1
+                                              WHERE t2.ID_PREGUNTA=t1.ID_PREGUNTA AND t1.ID_USUARIO='$id')";
+                            }
                             $ejecutar= mysqli_query($conexion,$consulta);
                         ?>
 

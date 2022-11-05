@@ -1,11 +1,12 @@
 <?php
+session_start();
 include( 'db.php' );
 $nombre = strtoupper($_POST[ 'name' ]);
 $usuario = strtoupper($_POST[ 'username' ]);
+$_SESSION['name']=$usuario;
 $contrasena = ($_POST[ 'password' ]);
 $correo = ($_POST[ 'email' ]);
 $fechaC = date('Y-m-d');
-
 
 $consulta="SELECT * FROM tbl_ms_usuario";
 $resultado= mysqli_query( $conexion , $consulta );
