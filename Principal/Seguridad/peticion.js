@@ -1,12 +1,12 @@
 $(obtener_registros());
 
-function obtener_registros(alumnos)
+function obtener_registros(data)
 {
 	$.ajax({
 		url : 'buscar.php',
 		type : 'POST',
 		dataType : 'HTML',
-		data : { alumnos: alumnos },
+		data : { data: data },
 		})
 
 	.done(function(resultado){

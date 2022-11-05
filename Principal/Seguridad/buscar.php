@@ -17,9 +17,9 @@ $tabla="";
 $query="SELECT * FROM tbl_ms_usuario ORDER BY ID_USUARIO";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
-if(isset($_POST['alumnos']))
+if(isset($_POST['data']))
 {
-	$q=$conexion->real_escape_string($_POST['alumnos']);
+	$q=$conexion->real_escape_string($_POST['data']);
 	$query="SELECT * FROM tbl_ms_usuario WHERE 
 		NOMBRE_USUARIO LIKE '%".$q."%' OR
 		ESTADO_USUARIO LIKE '%".$q."%' OR
