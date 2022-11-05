@@ -24,8 +24,7 @@ $Usuario = strtoupper($_POST[ 'Usuario' ]);
 $correo_electronico = ($_POST[ 'Correo' ]);
 $Rol = ($_POST[ 'Rol' ]);
 
-$Usuario = ($_POST[ 'Usuario' ]);
-$NombreUsuario = ($_POST[ 'Nombre' ]);
+$NombreUsuario = strtoupper(($_POST[ 'Nombre' ]));
 $Contrasena = ($_POST[ 'Contrasena' ]);
 
 
