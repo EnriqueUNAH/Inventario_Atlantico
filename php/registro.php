@@ -7,6 +7,7 @@ $_SESSION['name']=$usuario;
 $contrasena = ($_POST[ 'password' ]);
 $correo = ($_POST[ 'email' ]);
 $fechaC = date('Y-m-d');
+$fecha_v = date('Y-m-d');
 
 $consulta="SELECT * FROM tbl_ms_usuario";
 $resultado= mysqli_query( $conexion , $consulta );
@@ -29,6 +30,9 @@ while ($valor_fecha=mysqli_fetch_array( $resultado_Parametro_fecha )) {
 $consultaCoreeo="SELECT CORREO_ELECTRONICO FROM tbl_ms_usuario WHERE CORREO_ELECTRONICO='$correo'";
 $resultado_Correo= mysqli_query( $conexion , $consultaCoreeo );
 $_filas_ = mysqli_num_rows( $resultado_Correo );
+
+//sumo 30 días
+$fecha_v = date("Y-m-d",strtotime($fecha_v."+ $parametro_fecha days")); 
 
 
 //$insertar_fecha_v = "SELECT DATE_ADD('2018-01-01', INTERVAL $parametro_fecha DAY);"
@@ -58,7 +62,7 @@ $_filas_ = mysqli_num_rows( $resultado_Correo );
         <?php
     }else{
         $contrasenaA = $contrasena;
-        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','INACTIVO','$contrasenaA','$fechaC','0','0','$fechaC','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
+        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','INACTIVO','$contrasenaA','$fechaC','0','0','$fecha_v','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
        //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
 
         mysqli_query( $conexion , $insertar );
