@@ -87,8 +87,8 @@
                               # code...
                               $consulta = "SELECT * FROM tbl_ms_preguntas";
                               $filas_Pre=$filas_Pre+1;
-                              $Actualizar_pregunta="UPDATE tbl_ms_usuario SET PREGUNTAS_CONTESTADAS = '$filas_Pre' WHERE USUARIO = '$user'";
-                              mysqli_query( $conexion , $Actualizar_pregunta );
+                             // $Actualizar_pregunta="UPDATE tbl_ms_usuario SET PREGUNTAS_CONTESTADAS = '$filas_Pre' WHERE USUARIO = '$user'";
+                             // mysqli_query( $conexion , $Actualizar_pregunta );
                             }else{
                               # code...
                               $consulta = "SELECT *

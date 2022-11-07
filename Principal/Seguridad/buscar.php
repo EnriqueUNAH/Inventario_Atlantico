@@ -14,15 +14,18 @@ if ($conexion -> connect_error)
 //////////////// VALORES INICIALES ///////////////////////
 
 $tabla="";
-$query="SELECT * FROM tbl_ms_usuario ORDER BY ID_USUARIO";
+//$query="SELECT * FROM tbl_ms_usuario ORDER BY ID_USUARIO";
+$query="SELECT * FROM tbl_ms_usuario u inner join tbl_ms_estado e on u.ID_ESTADO = e.ID_ESTADO ORDER BY ID_USUARIO";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
 if(isset($_POST['data']))
 {
 	$q=$conexion->real_escape_string($_POST['data']);
-	$query="SELECT * FROM tbl_ms_usuario WHERE 
+	//$query="SELECT * FROM tbl_ms_usuario  WHERE 
+	$query="SELECT * FROM tbl_ms_usuario u inner join tbl_ms_estado e on u.ID_ESTADO = e.ID_ESTADO where
+
 		NOMBRE_USUARIO LIKE '%".$q."%' OR
-		ESTADO_USUARIO LIKE '%".$q."%' OR
+		NOMBRE_ESTADO LIKE '%".$q."%' OR
 		FECHA_ULTIMA_CONEXION LIKE '%".$q."%' OR
 		PRIMER_INGRESO LIKE '%".$q."%' OR
 		CORREO_ELECTRONICO LIKE '%".$q."%'";
@@ -47,7 +50,7 @@ if ($buscar->num_rows > 0)
 		$tabla.=
 		'<tr>
 			<td>'.$filas['NOMBRE_USUARIO'].'</td>
-			<td>'.$filas['ESTADO_USUARIO'].'</td>
+			<td>'.$filas['NOMBRE_ESTADO'].'</td>
 			<td>'.$filas['FECHA_ULTIMA_CONEXION'].'</td>
 			<td>'.$filas['PRIMER_INGRESO'].'</td>
 			<td>'.$filas['CORREO_ELECTRONICO'].'</td>

@@ -62,7 +62,7 @@ if($filas_ ){?>
     <?php
 }else{
     //inserto datos en tabla usuario
-    $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','NUEVO','$Contrasena','$fechaC','0','0','$fechaC','$correo_electronico','$user','$fechaC','$user','$fechaC','$id_rol_')";
+    $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','1','$Contrasena','$fechaC','0','0','$fechaC','$correo_electronico','$user','$fechaC','$user','$fechaC','$id_rol_')";
     mysqli_query( $conexion2 , $sql);
 
     #select ID_USUARIO
@@ -76,7 +76,7 @@ if($filas_ ){?>
     $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
     $filas_id_BIT++;
 
-    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','$filas_id','CREAR','CREACION DE ADMIN DESDE MANTENIMIENTO USUARIO')";
+    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','2','CREAR','CREACION DE ADMIN DESDE MANTENIMIENTO USUARIO')";
     mysqli_query( $conexion2 , $bitacora);
     include("mantenimiento_usuario.php");
 

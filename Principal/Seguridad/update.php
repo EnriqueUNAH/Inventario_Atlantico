@@ -1,7 +1,8 @@
 <?php
 // Include config file
 require_once "../db2.php";
- 
+$Estado = $_POST["Estado"];
+
 // Definir variables
 $nombre = $Rol = $Correo = "";
 $id=0;
@@ -18,18 +19,31 @@ if(isset($_POST["Usuario"]) && !empty($_POST["Usuario"])){
     // Get hidden input value
     $nombre = $_POST["Usuario"];
 }
-    
+
+if(isset($_POST["Id_Estado"]) && !empty($_POST["Id_Estado"])){
+  // Get hidden input value
+  $Estado = $_POST["Id_Estado"];
+}  
+
 if(isset($_POST["Rol"]) && !empty($_POST["Rol"])){
     // Get hidden input value
     $Rol = $_POST["Rol"];
 }
-    
-    
+ 
     
 if(isset($_POST["Correo"]) && !empty($_POST["Correo"])){
     // Get hidden input value
     $Correo = $_POST["Correo"];
 }
+
+
+   # Consulto Id de la tabla Estado
+   $consulta_Parametro="SELECT ID_ESTADO FROM tbl_ms_estado where NOMBRE_ESTADO='$Estado'" ;
+   $resultado_Parametro=mysqli_query( $conexion2 , $consulta_Parametro );
+   while ($valor=mysqli_fetch_array( $resultado_Parametro )) {
+        # code...
+        $Estado_=$valor['ID_ESTADO'];
+    }
 
 try {
     // code
@@ -44,9 +58,9 @@ try {
       $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
       $filas_id_BIT++;
 
-      $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','$filas_id','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
+      $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','2','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
       mysqli_query( $conexion2 , $bitacora);
-    $sql = "UPDATE tbl_ms_usuario SET NOMBRE_USUARIO='$nombre', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC' WHERE ID_USUARIO='$id'";
+    $sql = "UPDATE tbl_ms_usuario SET NOMBRE_USUARIO='$nombre', ID_ESTADO='$Estado_', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC' WHERE ID_USUARIO='$id'";
          
     mysqli_query($conexion2 , $sql);
 

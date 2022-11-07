@@ -21,10 +21,10 @@
         $id=$otra_['Id_Pregunta'];
     }
 
-    $consultar__ = mysqli_query( $conexion , "SELECT Estado_usuario FROM tbl_ms_usuario WHERE Id_Usuario='$filas'");
+  $consultar__ = mysqli_query( $conexion , "SELECT Nombre_Estado FROM tbl_ms_usuario u inner join tbl_ms_estado e on u.ID_ESTADO = e.ID_ESTADO WHERE Id_Usuario='$filas'");
     while ($otra__=mysqli_fetch_array( $consultar__ )) {
         # code...
-        $estado=$otra__['Estado_usuario'];
+        $estado=$otra__['Nombre_Estado'];
     }
 
 
@@ -81,11 +81,11 @@
         mysqli_query( $conexion , $actualizarPre);
 
         if($estado == "NUEVO"){
-            $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='ACTIVO' WHERE  Usuario = '$nombre'";  //obeservar
+            $ALTER = "UPDATE tbl_ms_usuario SET Id_Estado='2' WHERE  Usuario = '$nombre'";  //obeservar
             mysqli_query($conexion, $ALTER);
             mysqli_close($conexion);
         }else{
-            $ALTER = "UPDATE tbl_ms_usuario SET Estado_Usuario='INACTIVO' WHERE  Usuario = '$nombre'";  //obeservar
+            $ALTER = "UPDATE tbl_ms_usuario SET Id_Estado='3' WHERE  Usuario = '$nombre'";  //obeservar
             mysqli_query($conexion, $ALTER);
             mysqli_close($conexion);
         }

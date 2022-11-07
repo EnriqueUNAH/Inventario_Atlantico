@@ -24,7 +24,9 @@
                     
                     //  query
                     //$sql = "SELECT * FROM tbl_bitacora";
-                    $sql = "SELECT * FROM tbl_bitacora bi inner join tbl_ms_usuario us on bi.ID_USUARIO=us.ID_USUARIO order by FECHA desc";
+                    //$sql = "SELECT * FROM tbl_bitacora bi inner join tbl_ms_usuario us on bi.ID_USUARIO=us.ID_USUARIO order by FECHA desc";
+                    $sql = "SELECT * FROM tbl_ms_usuario us inner join  tbl_bitacora bi on bi.ID_USUARIO=us.ID_USUARIO inner join  tbl_ms_objetos ob on bi.ID_OBJETO=ob.ID_OBJETO order by FECHA DESC";
+  
                     if($result = mysqli_query($conexion2, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped">';
@@ -43,8 +45,8 @@
                                     echo "<tr>";
                                        // echo "<td>" . $row['ID_BITACORA'] . "</td>";
                                         echo "<td>" . $row['FECHA'] . "</td>";
-                                        echo "<td>" . $row['NOMBRE_USUARIO'] . "</td>";
-                                        echo "<td>" . $row['ID_OBJETO'] . "</td>";
+                                        echo "<td>" . $row['USUARIO'] . "</td>";
+                                        echo "<td>" . $row['OBJETO'] . "</td>";
                                         echo "<td>" . $row['ACCION'] . "</td>";
                                         echo "<td>" . $row['DESCRIPCION'] . "</td>";
                                         //echo '<td><a href="ActualizarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i> Editar</button><p></p></button> <a href="BorrarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
