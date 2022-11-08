@@ -21,7 +21,7 @@ $fechaC = date('Y-m-d');
     if ($contrasena==$contrasena_) {
         # code...
         $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Usuario='$usuario'";
-        $actualizarEstado = "UPDATE tbl_ms_usuario SET ESTADO_USUARIO = 'ACTIVO' WHERE Usuario='$usuario'";
+        $actualizarEstado = "UPDATE tbl_ms_usuario SET ID_ESTADO = '2' WHERE Usuario='$usuario'";
 
         //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas_id','$filas_id','VALIDACION DE CONTRASEÑA','VALIDAR CONTRASEÑA POR RECUPERACION')";
 
