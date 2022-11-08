@@ -236,6 +236,34 @@ $_SESSION['nombre'];
             </a>
           </li>
         </ul>
+
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="../Seguridad/Rol.php">
+              <i class="bi bi-circle"></i><span>ROLES</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="../Seguridad/Pregunta.php">
+              <i class="bi bi-circle"></i><span>PREGUNTAS</span>
+            </a>
+          </li>
+        </ul>     
+        
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="../Seguridad/Parametro.php">
+              <i class="bi bi-circle"></i><span>PARAMETROS</span>
+            </a>
+          </li>
+        </ul> 
+
+
+
+
       </li><!-- End Icons Nav -->
       
 
