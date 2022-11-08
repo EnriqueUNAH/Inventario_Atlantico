@@ -54,7 +54,7 @@ if ($buscar->num_rows > 0)
 			<td>'.$filas['FECHA_ULTIMA_CONEXION'].'</td>
 			<td>'.$filas['PRIMER_INGRESO'].'</td>
 			<td>'.$filas['CORREO_ELECTRONICO'].'</td>
-            <td><a href="ActualizarUsuario.php" class="edit" title="Edit" data-toggle="tooltip"><i class=material-icons>&#xE254;</i></a><a href="BorrarUsuario.php" class="delete" title="Delete" data-toggle="tooltip"><i class=material-icons>&#xE872;</i></a></td>
+            <td><a href="ActualizarUsuario.php" id="modificar" name="modificar" class="edit" title="Edit" data-toggle="tooltip"><i class=material-icons>&#xE254;</i></a><a href="BorrarUsuario.php" id="eliminar" name="eliminar" class="delete" title="Delete" data-toggle="tooltip"><i class=material-icons>&#xE872;</i></a></td>
 		 </tr>
 		';
 	}
