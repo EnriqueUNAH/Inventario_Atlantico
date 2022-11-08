@@ -68,6 +68,5 @@ if ($buscar->num_rows > 0)
 		$tabla="No se encontraron coincidencias con sus criterios de búsqueda.";
 	}
 
-
 echo $tabla;
 ?>
