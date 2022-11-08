@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     // Validate nombre del tipo de producto
-    $NombreGenero= trim($_POST["NombreRol"]);
+    $NombreRol= trim($_POST["NombreRol"]);
     if(empty($NombreRol)){
         $name_err = "Por favor ingresa el nombre del rol.";
     } elseif(!filter_var($NombreRol, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
