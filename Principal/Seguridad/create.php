@@ -7,9 +7,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception; 
 
      // Load Composer's autolveder
-     require '../PHPMailer/src/Exception.php';
-     require '../PHPMailer/src/PHPMailer.php';
-     require '../PHPMailer/src/SMTP.php';
+     require '../../PHPMailer/src/Exception.php';
+     require '../../PHPMailer/src/PHPMailer.php';
+     require '../../PHPMailer/src/SMTP.php';
 
      // Incluir db2 file
 require_once "../db2.php";
@@ -107,7 +107,9 @@ $body.='<table role="presentation" style="width:100%;border-collapse:collapse;bo
 $body.='<tr>';
 $body.='<td style="width:200px;padding:0;vertical-align:top;color:#153643;">';
 $body.='<p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p>';
-$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">NUEVO USUARIO CREADO</p>'.'<p></p>'.$usuario;
+$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">NUEVO USUARIO CREADO</p>'.'<p></p>'.$Usuario;
+$body.='<p></p>';
+$body.='<p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">SU CONTRASEÑA</p>'.'<p></p>'.$Contrasena;
 $body.='<p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://localhost/Inversiones_Atlantico/php/index.php" style="color:#ee4c50;text-decoration:underline;">Entrar</a></p>';
 $body.='</td>';
 //$body.='<td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>';
@@ -169,7 +171,7 @@ $body.='</html>';
     
         //Recipients
         $mail->setFrom('inversiones_del_atlantico@hotmail.com', 'Mailer Inversiones del Atlantico');
-        $mail->addAddress($correo);     //Add a recipient
+        $mail->addAddress($correo_electronico);     //Add a recipient
     
         //Content
         $mail->isHTML(TRUE);                                  //Set email format to HTML
