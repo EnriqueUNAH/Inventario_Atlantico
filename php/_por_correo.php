@@ -184,7 +184,7 @@ if (($filas)){
     $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Id_Usuario='$filas'";
     mysqli_query( $conexion2 , $actualizarContra );
 
-    $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'RESETEO' WHERE Id_Usuario='$filas'";
+    $actualizarEstado = "UPDATE tbl_ms_usuario SET ID_ESTADO = '5' WHERE Id_Usuario='$filas'";
     mysqli_query( $conexion2 , $actualizarEstado );
     include("../php/index.php"); 
     mysqli_close($conexion2);
