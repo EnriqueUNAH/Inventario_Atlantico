@@ -15,20 +15,21 @@ if ($conexion -> connect_error)
 
 $tabla="";
 //$query="SELECT * FROM tbl_ms_usuario ORDER BY ID_USUARIO";
-$query="SELECT * FROM tbl_ms_usuario u inner join tbl_ms_estado e on u.ID_ESTADO = e.ID_ESTADO ORDER BY ID_USUARIO";
+$query="SELECT * FROM tbl_ms_estado e inner join tbl_ms_usuario u on e.ID_ESTADO = u.ID_ESTADO inner join tbl_ms_roles r on u.ID_ROL =r.ID_ROL ORDER BY ID_USUARIO";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
 if(isset($_POST['data']))
 {
 	$q=$conexion->real_escape_string($_POST['data']);
 	//$query="SELECT * FROM tbl_ms_usuario  WHERE 
-	$query="SELECT * FROM tbl_ms_usuario u inner join tbl_ms_estado e on u.ID_ESTADO = e.ID_ESTADO where
+	$query="SELECT * FROM tbl_ms_estado e inner join tbl_ms_usuario u on e.ID_ESTADO = u.ID_ESTADO inner join tbl_ms_roles r on u.ID_ROL =r.ID_ROL where
 
 		NOMBRE_USUARIO LIKE '%".$q."%' OR
 		NOMBRE_ESTADO LIKE '%".$q."%' OR
 		FECHA_ULTIMA_CONEXION LIKE '%".$q."%' OR
 		PRIMER_INGRESO LIKE '%".$q."%' OR
-		CORREO_ELECTRONICO LIKE '%".$q."%'";
+		CORREO_ELECTRONICO LIKE '%".$q."%' OR
+		ROL LIKE '%".$q."%'";
 }
 
 $buscar=$conexion->query($query);
@@ -55,7 +56,7 @@ if ($buscar->num_rows > 0)
 			<td>' . $row['FECHA_ULTIMA_CONEXION'] . '</td>
 			<td>' . $row['PRIMER_INGRESO'] .'</td>
 			<td>' . $row['CORREO_ELECTRONICO'] .'</td>
-			<td>' . $row['ID_ROL'] .'</td>
+			<td>' . $row['ROL'] .'</td>
             <td><a href="ActualizarUsuario.php" id="modificar" name="modificar" class="edit" title="Edit" data-toggle="tooltip"><i class=material-icons>&#xE254;</i></a><a href="BorrarUsuario.php" id="eliminar" name="eliminar" class="delete" title="Delete" data-toggle="tooltip"><i class=material-icons>&#xE872;</i></a></td>
 		 </tr>
 		';
