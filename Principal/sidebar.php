@@ -126,7 +126,14 @@
             </a>
           </li>
         </ul>
-        
+
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="../Seguridad/Pregunta.php">
+              <i class="bi bi-circle"></i><span>PREGUNTAS</span>
+            </a>
+          </li>
+        </ul>        
         
       </li><!-- End Icons Nav -->
       
