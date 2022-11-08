@@ -75,7 +75,6 @@ try {
     mysqli_query($conexion2 , $sql);
 
 
-
     header('Location: Mantenimiento_Usuario.php');
 
   } catch (Exception $e) {

@@ -51,12 +51,12 @@ if ($buscar->num_rows > 0)
 	{
 		$tabla.=
 		'<tr>
-			<td id="nombre_usuario">'. $row['NOMBRE_USUARIO'] .'</td>
+			<td id="nombre_usuario" contenteditable="true">'. $row['NOMBRE_USUARIO'] .'</td>
 			<td id="NOMBRE_ESTADO" class=nr>' . $row['NOMBRE_ESTADO'] . '</td>
 			<td>' . $row['FECHA_ULTIMA_CONEXION'] . '</td>
 			<td>' . $row['PRIMER_INGRESO'] .'</td>
-			<td>' . $row['CORREO_ELECTRONICO'] .'</td>
-			<td>' . $row['ROL'] .'</td>
+			<td contenteditable="true">' . $row['CORREO_ELECTRONICO'] .'</td>
+			<td contenteditable="true">' . $row['ROL'] .'</td>
             <td><a href="ActualizarUsuario.php" id="modificar" name="modificar" class="edit" title="Edit" data-toggle="tooltip"><i class=material-icons>&#xE254;</i></a><a href="BorrarUsuario.php" id="eliminar" name="eliminar" class="delete" title="Delete" data-toggle="tooltip"><i class=material-icons>&#xE872;</i></a></td>
 		 </tr>
 		';
