@@ -80,7 +80,16 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
  }
 
  #   Decision ingreso
-if ($estado=='NUEVO' and $contraseña==$contrasena){   
+ if($filas<1 and $estado==""){
+     echo '<script>alert("Usuario Inexistente");</script>';
+     ?>
+     <script type="text/javascript">
+     window.location.href = "../Login/index.php";
+     </script>
+
+<?php
+
+ }elseif ($estado=='NUEVO' and $contraseña==$contrasena){   
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );   
      include('../Login/preguntasPrimeraVez.php');
