@@ -2,6 +2,7 @@
 // Include config file
 require_once "../db2.php";
 $Estado = $_POST["Estado"];
+$rol_ = $_POST["Rol"];
 
 // Definir variables
 $nombre = $Rol = $Correo = "";
@@ -45,6 +46,15 @@ if(isset($_POST["Correo"]) && !empty($_POST["Correo"])){
         $Estado_=$valor['ID_ESTADO'];
     }
 
+  # Consulto Id rool de la tabla Estado
+  $consulta_rol="SELECT ID_ROL FROM tbl_ms_roles where ROL='$rol_'" ;
+  $resultado_rol=mysqli_query( $conexion2 , $consulta_rol );
+  while ($valor1=mysqli_fetch_array( $resultado_rol )) {
+      # code...
+      $rool=$valor1['ID_ROL'];
+  }
+
+
 try {
     // code
       #select ID_USUARIO
@@ -60,9 +70,11 @@ try {
 
       $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','2','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
       mysqli_query( $conexion2 , $bitacora);
-    $sql = "UPDATE tbl_ms_usuario SET NOMBRE_USUARIO='$nombre', ID_ESTADO='$Estado_', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC' WHERE ID_USUARIO='$id'";
-         
+
+    $sql = "UPDATE tbl_ms_usuario SET  NOMBRE_USUARIO='$nombre', ID_ESTADO='$Estado_', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC', ID_ROL='$rool'  WHERE ID_USUARIO='$id'";   
     mysqli_query($conexion2 , $sql);
+
+
 
     header('Location: Mantenimiento_Usuario.php');
 
