@@ -21,11 +21,11 @@
                     <form action="Pregunta-Insertar.php" method="post">
 
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Codigo genero</label>
+                      <label for="yourName" class="form-label">Codigo Pregunta</label>
                       <input type="text" name="IdPregunta" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Porfavor, ingrese el codigo!</div>
                     </div>
-
+  
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Pregunta</label>
                       <input type="text" name="NombrePregunta" class="form-control" id="yourName" required>

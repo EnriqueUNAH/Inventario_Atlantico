@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate nombre del tipo de producto
     $NombreGenero= trim($_POST["NombreRol"]);
-    if(empty($NombreGenero)){
+    if(empty($NombreRol)){
         $name_err = "Por favor ingresa el nombre del rol.";
     } elseif(!filter_var($NombreRol, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
         $name_err = "Por favor ingresa un nombre valido";
@@ -34,8 +34,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check errores en las entradas antes de insertar a la base
     if(empty($name_err) && empty($cod_err)){
         // Prepararn el query
-        $sql = "INSERT INTO tbl_genero(ID_ROL, ROL) VALUES ('$IdRol', '$NombreRol')";
-         
+        $sql = "INSERT INTO tbl_ms_roles (ID_ROL, ROL) VALUES ('$IdRol', '$NombreRol')";
+        
         mysqli_query( $conexion2 , $sql);
         
     }

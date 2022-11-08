@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($name_err) && empty($cod_err)){
         // Prepararn el query
         $sql = "INSERT INTO tbl_ms_preguntas(ID_PREGUNTA, PREGUNTA) VALUES ('$IdPregunta', '$NombrePregunta')";
-         
+        
         mysqli_query( $conexion2 , $sql);
         
     }
