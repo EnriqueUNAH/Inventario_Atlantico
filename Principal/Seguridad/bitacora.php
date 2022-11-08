@@ -25,9 +25,9 @@
                     //  query
                     //$sql = "SELECT * FROM tbl_bitacora";
                     //$sql = "SELECT * FROM tbl_bitacora bi inner join tbl_ms_usuario us on bi.ID_USUARIO=us.ID_USUARIO order by FECHA desc";
-                    $sql = "SELECT * FROM tbl_ms_usuario us inner join  tbl_bitacora bi on bi.ID_USUARIO=us.ID_USUARIO inner join  tbl_ms_objetos ob on bi.ID_OBJETO=ob.ID_OBJETO order by FECHA DESC";
+                    $sql = "SELECT * FROM tbl_ms_objetos ob inner join  tbl_bitacora bi on bi.ID_OBJETO=ob.ID_OBJETO inner join tbl_ms_usuario us  on bi.ID_USUARIO=us.ID_USUARIO order by FECHA DESC";
   
-                    if($result = mysqli_query($conexion2, $sql)){
+                    if($result = mysqli_query($conexion2, $sql)){ 
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
