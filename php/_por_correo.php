@@ -7,7 +7,7 @@
     require '../PHPMailer/src/Exception.php';
     require '../PHPMailer/src/PHPMailer.php';
     require '../PHPMailer/src/SMTP.php';
-try {
+try{
 
 
 $DesdeLetra = "a";
@@ -178,6 +178,7 @@ if (($filas)){
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();
+        echo '<script>alert("CORREO ENVIADO CON EXITO");</script>';
 
         
     $actualizarContra = "UPDATE tbl_ms_usuario SET Contrasena = '$contrasena_' WHERE Id_Usuario='$filas'";
@@ -185,16 +186,13 @@ if (($filas)){
 
     $actualizarEstado = "UPDATE tbl_ms_usuario SET Estado_Usuario = 'RESETEO' WHERE Id_Usuario='$filas'";
     mysqli_query( $conexion2 , $actualizarEstado );
-    
+    include("../php/index.php"); 
+    mysqli_close($conexion2);
+
 
     //$insertar="INSERT INTO tbl_ms_parametros VALUES('$filas_','ADMIN_VIGENCIA','30','$filas','$fechaC','$fechaC')";
    // mysqli_query( $conexion2 , $insertar );
 
-
-
-    echo '<script>alert("CORREO ENVIADO CON EXITO");</script>';
-    mysqli_close($conexion2);
-    include('../php/index.php'); 
     //header('Location: ../php/index.php');
 }
 
@@ -207,8 +205,8 @@ if (isset($_POST['btnPregunta']) and $filas) {
     //throw $th;
     $var = $th->getMessage();
     echo "<script> alert('".$var."'); </script>";
-
-    include("../Login/recuperar.php");
+    include("../php/index.php"); 
+    //include("../Login/recuperar.php");
 }
 
 ?>
