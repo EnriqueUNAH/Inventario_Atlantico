@@ -16,20 +16,20 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Borrar Rol</h2>
-                    <p>Por favor llena este form y submit para borrar un rol de la base.</p>
-                    <form action="Rol-Delete.php" method="post">
+                    <h2 class="mt-5">Borrar Objeto</h2>
+                    <p>Por favor llena este form y submit para borrar un Objeto de la base.</p>
+                    <form action="Objeto-Delete.php" method="post">
 
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Codigo Rol</label>
-                      <input type="text" name="CodigoRol" class="form-control" id="yourName" required>
+                      <label for="yourName" class="form-label">Codigo Objeto</label>
+                      <input type="text" name="CodigoObjeto" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Porfavor, ingrese un codigo!</div>
                     </div>
                      <div class="form-group">
                         <label class="col-sm-6 control-label">&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                            <a href="Mantenimiento-genero.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            <a href="Objeto.php" class="btn btn-sm btn-danger">Cancelar</a>
                         </div>
                     </div>
                     </form>
