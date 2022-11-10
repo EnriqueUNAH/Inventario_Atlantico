@@ -90,24 +90,22 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>AÑADIR NUEVO ROL</h1>
+      <h1>AÑADIR NUEVO PARAMETRO</h1>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 <!-- Change Password Form -->
 
-    <form action="Roles_create.php" method="post" onsubmit="validatePassword(); return false;" class="row g-3 needs-validation" novalidate="false">
+    <form action="Parametros_create.php" method="post" onsubmit="validatePassword(); return false;" class="row g-3 needs-validation" novalidate="false">
 
     <div class="col-8">
-        <label for="yourName" class="form-label">NOMBRE ROL:</label>
-        <input type="text" style="text-transform:uppercase" name="rol"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA TU NOMBRE DE USUARIO!</div>
+        <label for="yourName" class="form-label">PARAMETRO:</label>
+        <input type="text" style="text-transform:uppercase" name="PARAMETRO"  class="form-control" id="yourName" required>
       </div>
 
       <div class="col-8">
-        <label for="yourName" class="form-label">DESCRIPCION:</label>
-        <input type="text" style="text-transform:uppercase" name="descripcion"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA TU NOMBRE DE USUARIO!</div>
+        <label for="yourName" class="form-label">VALOR:</label>
+        <input type="number" style="text-transform:uppercase" name="VALOR"  class="form-control" id="yourName" required>
       </div>
 
       <div class="text-center">
@@ -115,7 +113,7 @@
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
           <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-          <a href="CrudRoles.php" class="btn btn-sm btn-danger">Cancelar</a>
+          <a href="CrudParametros.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
       </div>
