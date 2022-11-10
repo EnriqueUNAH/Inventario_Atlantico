@@ -1,64 +1,51 @@
 <?php
-// Include config file
-require_once "../db2.php";
-$Estado = $_POST["Estado"];
-$rol_ = $_POST["Rol"];
 
-// Definir variables
-$nombre = $Rol = $Correo = "";
-$id=0;
+session_start();
+$usuario =$_SESSION['nombre'];
+
+include('../db2.php');
+$id_usuario = $_POST['ID_USUARIO'];
+$nombre_usuario = $_POST['NOMBRE_USUARIO'];
+$rol_tabla 	 = $_POST['ROL'];
+$Estado = $_POST['NOMBRE_ESTADO'];
+$rol_tabla 	 = $_POST['ROL'];
+$Correo 	 = $_POST['CORREO_ELECTRONICO'];
+
 $fechaC = date('Y-m-d');
- 
-// procesando la data del submit
-
-if(isset($_POST["Id"]) && !empty($_POST["Id"])){
-    // Get hidden input value
-    $id = $_POST["Id"];
-}
-
-if(isset($_POST["Usuario"]) && !empty($_POST["Usuario"])){
-    // Get hidden input value
-    $nombre = $_POST["Usuario"];
-}
-
-if(isset($_POST["Id_Estado"]) && !empty($_POST["Id_Estado"])){
-  // Get hidden input value
-  $Estado = $_POST["Id_Estado"];
-}  
-
-if(isset($_POST["Rol"]) && !empty($_POST["Rol"])){
-    // Get hidden input value
-    $Rol = $_POST["Rol"];
-}
- 
-    
-if(isset($_POST["Correo"]) && !empty($_POST["Correo"])){
-    // Get hidden input value
-    $Correo = $_POST["Correo"];
-}
-
 
    # Consulto Id de la tabla Estado
    $consulta_Parametro="SELECT ID_ESTADO FROM tbl_ms_estado where NOMBRE_ESTADO='$Estado'" ;
    $resultado_Parametro=mysqli_query( $conexion2 , $consulta_Parametro );
    while ($valor=mysqli_fetch_array( $resultado_Parametro )) {
         # code...
-        $Estado_=$valor['ID_ESTADO'];
+        $id_estado=$valor['ID_ESTADO'];
     }
 
   # Consulto Id rool de la tabla Estado
-  $consulta_rol="SELECT ID_ROL FROM tbl_ms_roles where ROL='$rol_'" ;
+  $consulta_rol="SELECT ID_ROL FROM tbl_ms_roles where ROL='$rol_tabla'" ;
   $resultado_rol=mysqli_query( $conexion2 , $consulta_rol );
   while ($valor1=mysqli_fetch_array( $resultado_rol )) {
       # code...
-      $rool=$valor1['ID_ROL'];
+      $id_rol=$valor1['ID_ROL'];
   }
 
+$update = ("UPDATE tbl_ms_usuario 
+	SET 
+	NOMBRE_USUARIO  ='" .$nombre_usuario. "',
+  	ID_ESTADO  ='" .$id_estado. "',
+	ID_ROL  ='" .$id_rol. "',
+	CORREO_ELECTRONICO ='" .$Correo. "',
+	MODIFICADO_POR ='" .$usuario. "',
+	FECHA_MODIFICACION ='" .$fechaC. "' 
+
+WHERE ID_USUARIO='" .$id_usuario. "'
+");
+$result_update = mysqli_query($conexion2, $update);
 
 try {
     // code
       #select ID_USUARIO
-      $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE ID_USUARIO='$id'";
+      $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE ID_USUARIO='$id_usuario'";
       $resultado_id= mysqli_query( $conexion2 , $consulta_id );
       $filas_id = mysqli_num_rows( $resultado_id );
 
@@ -75,14 +62,17 @@ try {
     mysqli_query($conexion2 , $sql);
 
 
-    header('Location: Mantenimiento_Usuario.php');
 
   } catch (Exception $e) {
     // exception is raised and it'll be handled here
     $var = $e->getMessage();
-    echo "<script> alert('".$var."'); </script>";
-    header('Location: Mantenimiento_Usuario.php');
-    die();
-  }      
+    echo "<script type='text/javascript'>
+        window.location='CrudUsuarios.php';
+    </script>";     
+
+  }
+echo "<script type='text/javascript'>
+        window.location='CrudUsuarios.php';
+    </script>";     
 
 ?>
