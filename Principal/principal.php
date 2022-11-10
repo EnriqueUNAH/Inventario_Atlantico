@@ -247,6 +247,15 @@ $_SESSION['nombre'];
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
+            <a href="../Principal/Seguridad/CrudEstado.php">
+              <i class="bi bi-circle"></i><span>ESTADOS</span>
+            </a>
+          </li>
+        </ul>
+
+
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
             <a href="../Seguridad/Pregunta.php">
               <i class="bi bi-circle"></i><span>PREGUNTAS</span>
             </a>
