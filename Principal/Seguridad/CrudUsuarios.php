@@ -13,8 +13,6 @@
   <link rel="stylesheet" type="text/css" href="../css/cargando.css">
   <link rel="stylesheet" type="text/css" href="../css/maquinawrite.css">
 
-
-
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,6 +47,10 @@
 	</head>
   
 	<body>
+     <ul class="navbar-nav mr-auto collapse navbar-collapse">
+      <li class="nav-item active">
+        <a href="CrudUsuarios.php"> 
+        </a>
     <main id="main" class="main">
     <?php
         include('../db2.php');
@@ -143,7 +145,7 @@
   </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
@@ -165,7 +167,7 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'id='+ id;
+        var dataString = 'ID_USUARIO='+ id;
         url = "recib_Delete.php";
             $.ajax({
                 type: "POST",
@@ -173,7 +175,7 @@
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="hindex.php";
+                  window.location.href="CrudUsuarios.php";
                   $('#respuesta').html(data);
                 }
             });
