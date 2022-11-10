@@ -121,7 +121,7 @@
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/Rol.php">
+            <a href="../Seguridad/CrudRoles.php">
               <i class="bi bi-circle"></i><span>ROLES</span>
             </a>
           </li>

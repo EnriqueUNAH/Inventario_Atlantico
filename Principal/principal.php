@@ -239,7 +239,7 @@ $_SESSION['nombre'];
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/Rol.php">
+            <a href="../Principal/Seguridad/CrudRoles.php">
               <i class="bi bi-circle"></i><span>ROLES</span>
             </a>
           </li>
@@ -255,7 +255,7 @@ $_SESSION['nombre'];
         
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/Parametro.php">
+            <a href="../Principal/Seguridad/Parametro.php">
               <i class="bi bi-circle"></i><span>PARAMETROS</span>
             </a>
           </li>
