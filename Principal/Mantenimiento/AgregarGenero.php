@@ -22,13 +22,13 @@
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Codigo genero</label>
-                      <input type="text" name="CodigoGenero" class="form-control" id="yourName" required>
+                      <input type="text" name="CodigoGenero" class="form-control" id="yourName" required value="<?=$_POST['CodigoGenero']?>">
                       <div class="invalid-feedback">Porfavor, ingrese el codigo!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Genero</label>
-                      <input type="text" name="NombreGenero" class="form-control" id="yourName" required>
+                      <input type="text" name="NombreGenero" class="form-control" id="yourName" required value="<?=$_POST['NombreGenero']?>">
                       <div class="invalid-feedback">Porfavor, ingrese el genero!</div>
                     </div>
 

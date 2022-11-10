@@ -28,7 +28,7 @@
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nombre Movimiento</label>
-                      <input type="text" name="NombreMovimiento" class="form-control" id="yourName" required>
+                      <input type="text" name="NombreMovimiento" class="form-control" id="yourName" required value="<?=$_POST['NombreMovimiento']?>">
                       <div class="invalid-feedback">Porfavor, ingrese el tipo de movimiento!</div>
                     </div>
 
