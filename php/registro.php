@@ -8,6 +8,7 @@ $nombre = strtoupper($_POST[ 'name' ]);
 $usuario = strtoupper($_POST[ 'username' ]);
 $_SESSION['name']=$usuario;
 $contrasena = ($_POST[ 'password' ]);
+$hash=password_hash($_POST[ 'password' ], PASSWORD_DEFAULT);
 $correo = ($_POST[ 'email' ]);
 $fechaC = date('Y-m-d');
 $fecha_v = date('Y-m-d');
@@ -65,7 +66,7 @@ $fecha_v = date("Y-m-d",strtotime($fecha_v."+ $parametro_fecha days"));
         <?php
     }else{
         $contrasenaA = $contrasena;
-        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas','$usuario','$nombre','3','$contrasenaA','$fechaC','0','0','$fecha_v','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
+        $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas_','$usuario','$nombre','3','$hash','$fechaC','0','0','$fecha_v','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
        //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
 
         mysqli_query( $conexion , $insertar );

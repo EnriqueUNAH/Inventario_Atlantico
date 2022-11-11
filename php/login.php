@@ -28,7 +28,7 @@ $consulta_contra="SELECT Contrasena FROM tbl_ms_usuario where Usuario = '$usuari
 $resultado_contra=mysqli_query( $conexion , $consulta_contra );
 while ($contra=mysqli_fetch_array( $resultado_contra )) {
      # code...
-     $contrasena=$contra['Contrasena'];
+     $hash=$contra['Contrasena'];
  }
 
 # Consulto el estado del usuario
@@ -89,17 +89,17 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
 
 <?php
 
- }elseif ($estado=='NUEVO' and $contraseña==$contrasena){   
+ }elseif ($estado=='NUEVO' and (password_verify($contraseña, $hash))){   
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );   
      include('../Login/preguntasPrimeraVez.php');
 
-}elseif($estado=="RESETEO" and $contraseña==$contrasena){  
+}elseif($estado=="RESETEO" and (password_verify($contraseña, $hash))){  
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      include('../Login/cambiar_contrasena.php');
 
-}elseif($estado=="ACTIVO" and $contraseña==$contrasena){
+}elseif($estado=="ACTIVO" and (password_verify($contraseña, $hash))){
      $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      $primer_ = $primer + 1;

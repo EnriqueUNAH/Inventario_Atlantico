@@ -58,7 +58,10 @@ try {
       $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','2','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
       mysqli_query( $conexion2 , $bitacora);
 
-    $sql = "UPDATE tbl_ms_usuario SET  NOMBRE_USUARIO='$nombre', ID_ESTADO='$Estado_', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC', ID_ROL='$rool'  WHERE ID_USUARIO='$id'";   
+      
+   // $sql = "UPDATE tbl_ms_usuario SET  NOMBRE_USUARIO='$nombre', ID_ESTADO='$Estado_', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC', ID_ROL='$rool'  WHERE ID_USUARIO='$id'";   
+    $sql = "UPDATE tbl_ms_usuario SET  NOMBRE_USUARIO='$nombre_usuario', ID_ESTADO='$id_estado', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre_usuario' , FECHA_MODIFICACION='$fechaC', ID_ROL='$id_rol'  WHERE ID_USUARIO='$id_usuario'";   
+   
     mysqli_query($conexion2 , $sql);
 
 

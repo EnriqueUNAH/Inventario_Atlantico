@@ -62,7 +62,7 @@
 
                     <div class="form-group">
                   <label for="recipient-name" class="col-form-label">NUEVO CORREO:</label>
-                  <input type="text" name="CORREO_ELECTRONICO" placeholder="nombre@dominio.com" class="form-control" value="<?php echo $dataCliente['CORREO_ELECTRONICO']; ?>" required="true">
+                  <input type="email" name="CORREO_ELECTRONICO" placeholder="nombre@dominio.com" class="form-control" value="<?php echo $dataCliente['CORREO_ELECTRONICO']; ?>" required="true">
                   <div class="invalid-feedback">Por favor ingresa un email valido!</div>
                 </div>
 

@@ -151,7 +151,7 @@
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
           <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-          <a href="mantenimiento_usuario.php" class="btn btn-sm btn-danger">Cancelar</a>
+          <a href="CrudUsuarios.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
       </div>
