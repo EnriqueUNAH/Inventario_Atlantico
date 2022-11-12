@@ -4,26 +4,19 @@ session_start();
 $usuario =$_SESSION['nombre'];
 
 include('../db2.php');
-$ID_ROL = $_POST['ID_ROL'];
-$ROL = strtoupper($_POST[ 'ROL' ]);
-$DESCRIPCION = strtoupper($_POST[ 'DESCRIPCION' ]);
+$COD_GENERO = $_POST['COD_GENERO'];
+$NOMBRE_GENERO = strtoupper($_POST[ 'NOMBRE_GENERO' ]);
 
-
-$fechaC = date('Y-m-d');
-
-$update = ("UPDATE tbl_ms_roles 
+$update = ("UPDATE tbl_genero 
 	SET 
-	ROL  ='" .$ROL. "',
-  	DESCRIPCION  ='" .$DESCRIPCION. "',
-    MODIFICADO_POR ='" .$usuario. "',
-    FECHA_MODIFICACION ='" .$fechaC. "' 
+	NOMBRE_GENERO  ='" .$NOMBRE_GENERO. "'
   
-WHERE ID_ROL='" .$ID_ROL. "'
+WHERE COD_GENERO='" .$COD_GENERO. "'
 ");
 $result_update = mysqli_query($conexion2, $update);
 
 echo "<script type='text/javascript'>
-        window.location='CrudRoles.php';
+        window.location='CrudGenero.php';
     </script>";     
 
 ?>

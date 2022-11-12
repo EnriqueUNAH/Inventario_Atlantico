@@ -93,12 +93,12 @@
                           <tr>
                             <td><?php echo $dataCliente['NOMBRE_GENERO']; ?></td>
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteGENERO<?php echo $dataCliente['COD_GENRO']; ?>">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteGENERO<?php echo $dataCliente['COD_GENERO']; ?>">
                                   Eliminar
                               </button>
                             
                             
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ediTGENERO<?php echo $dataCliente['COD_GENRO']; ?>">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ediTGENERO<?php echo $dataCliente['COD_GENERO']; ?>">
                                   Modificar
                               </button>
                           </td>
@@ -149,7 +149,7 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'ID_ROL='+ id;
+        var dataString = 'COD_GENERO='+ id;
         url = "Genero_recib_Delete.php";
             $.ajax({
                 type: "POST",

@@ -26,7 +26,7 @@ if($NOMBRE_GENERO_ ){?>
 <?php
 }else{
     //inserto datos en tabla NOMBRE_GENEROes
-    $sql="INSERT INTO tbl_ms_NOMBRE_GENEROes VALUES('$filas','$NOMBRE_GENERO')";
+    $sql="INSERT INTO tbl_genero VALUES('$filas','$NOMBRE_GENERO')";
     mysqli_query( $conexion2 , $sql);
 
     include("CrudGenero.php");

@@ -22,7 +22,7 @@
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
           <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-          <a href="CrudRoles.php" class="btn btn-sm btn-danger">Cancelar</a>
+          <a href="CrudGenero.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
       </div>
