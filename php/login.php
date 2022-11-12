@@ -116,7 +116,7 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
 }elseif($estado=="INACTIVO"){
      echo '<script>alert("USUARIO INACTIVO, LLAME AL ADMINISTRADOR");</script>';
      include('../Login/index.php');
-}elseif($usuario == "ADMIN" and $contraseña<> $contrasena){
+}elseif($usuario == "ADMIN" and (password_verify($contraseña, $hash))){
      echo '<script>alert("USUARIO O CLAVE INCORRECTA");</script>';
      include('../Login/index.php');
 
