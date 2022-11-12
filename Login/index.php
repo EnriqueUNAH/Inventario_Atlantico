@@ -37,6 +37,22 @@
 
   <script src="../Js/login.js"></script>
 
+  <script>
+    function check(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8) {
+        return true;
+    }
+
+    // Patrón de entrada, en este caso solo acepta numeros y letras
+    patron = /[A-Za-z0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+  </script>
+
 </head>
 
 <body>
@@ -71,7 +87,7 @@
                     <div class="col-12">
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" style="text-transform:uppercase" placeholder="Usuario" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourUsername" required>
+                        <input type="text" style="text-transform:uppercase" onkeypress="return check(event)" placeholder="Usuario" name="username" onkeypress="javascript: return validar_espacio(event,this)" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">Ingresa tu nombre de Usuario.</div>
                       </div>
                     </div>
