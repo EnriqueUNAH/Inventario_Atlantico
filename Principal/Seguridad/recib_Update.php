@@ -5,11 +5,11 @@ $usuario =$_SESSION['nombre'];
 
 include('../db2.php');
 $id_usuario = $_POST['ID_USUARIO'];
-$nombre_usuario = $_POST['NOMBRE_USUARIO'];
-$rol_tabla 	 = $_POST['ROL'];
-$Estado = $_POST['NOMBRE_ESTADO'];
-$rol_tabla 	 = $_POST['ROL'];
-$Correo 	 = $_POST['CORREO_ELECTRONICO'];
+$nombre_usuario = strtoupper($_POST['NOMBRE_USUARIO']);
+$rol_tabla =strtoupper($_POST['ROL']);
+$Estado = strtoupper($_POST['NOMBRE_ESTADO']);
+$rol_tabla 	 = strtoupper($_POST['ROL']);
+$Correo 	 = strtolower($_POST['CORREO_ELECTRONICO']);
 
 $fechaC = date('Y-m-d');
 
