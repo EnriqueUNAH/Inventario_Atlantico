@@ -1,7 +1,7 @@
 <div class="modal fade" id="editOBJETO<?php echo $dataCliente['ID_OBJETO']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: #563d7c !important;">
+      <div class="modal-header" style="background-color: #41B3D8 !important;">
         <h6 class="modal-title" style="color: #fff; text-align: center;">
             Actualizar Información
         </h6>
