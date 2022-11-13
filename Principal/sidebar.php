@@ -81,7 +81,7 @@
             </a>
           </li>
           <li>
-            <a href="../Mantenimiento/Mantenimiento-Promocion.php">
+            <a href="../Mantenimiento/CrudPromocion.php">
               <i class="bi bi-circle"></i><span>PROMOCION</span>
             </a>
           </li>
