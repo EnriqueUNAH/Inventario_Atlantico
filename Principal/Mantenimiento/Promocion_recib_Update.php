@@ -4,14 +4,14 @@ session_start();
 $usuario =$_SESSION['nombre'];
 
 include('../db2.php');
-$COD_Promocion = $_POST['COD_PROMOCION'];
-$NOMBRE_Promocion = strtoupper($_POST[ 'NOMBRE_PROMOCION' ]);
+$Cod_Promocion = $_POST['COD_PROMOCION'];
+$Nombre_Promocion = strtoupper($_POST[ 'NOMBRE_PROMOCION' ]);
 
 $update = ("UPDATE tbl_Promocion 
 	SET 
-	NOMBRE_Promocion  ='" .$NOMBRE_Promocion. "'
+	NOMBRE_Promocion  ='" .$Nombre_Promocion. "'
   
-WHERE COD_PROMOCION='" .$COD_Promocion. "'
+WHERE COD_PROMOCION='" .$Cod_Promocion. "'
 ");
 $result_update = mysqli_query($conexion2, $update);
 

@@ -4,7 +4,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Promocion</h1>
+      <h1>PROMOCIÓN</h1>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -12,21 +12,21 @@
 
     <form action="Promocion_create.php" method="post"  class="row g-3 needs-validation" novalidate="false">
 
-    <div class="col-8">
-        <label for="yourName" class="form-label">PROMOCION</label>
-        <input type="text" style="text-transform:uppercase" name="PROMOCION"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DE LA PROMOCION!</div>
+    <div class="col-7">
+       <br>
+        <label for="yourName" class="form-label">NOMBRE DE LA PROMOCIÓN</label>
+        <input type="text" style="text-transform:uppercase" name="NOMBRE_PROMOCION"  class="form-control" id="yourName" required><br>
+        <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DE LA PROMOCIÓN!</div>
 
-      <div class="col-8">
+        <div class="col-5">
         <label for="yourName" class="form-label">FECHA INICIAL</label>
-        <input type="text" style="text-transform:uppercase" name="FECHA_INICIAL"  class="form-control" id="yourName" required>
+        <input type="date" style="text-transform:uppercase" name="FECHA_INICIAL"  class="form-control" id="yourName" required><br>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA FECHA!</div>
 
-      <div class="col-8">
         <label for="yourName" class="form-label">FECHA FINAL</label>
-        <input type="text" style="text-transform:uppercase" name="FECHA_FINAL"  class="form-control" id="yourName" required>
+        <input type="date" style="text-transform:uppercase" name="FECHA_FINAL"  class="form-control" id="yourName" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA FECHA!</div>
-      </div>
+    </div>
 
 
 
