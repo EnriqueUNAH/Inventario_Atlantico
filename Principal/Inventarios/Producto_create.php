@@ -11,7 +11,7 @@ $filas=$filas+1;
 $Descripcion = $_POST['DESCRIPCION'];
 $Cantidad_Minima = $_POST['CANTIDAD_MINIMA'];
 $Cantidad_Maxima = $_POST['CANTIDAD_MAXIMA'];
-$Cod_Tipo_Producto = $_POST['COD_TIPO_PRODUCTO'];
+//$Cod_Tipo_Producto = $_POST['COD_TIPO_PRODUCTO'];
 $Precio_Venta = $_POST['PRECIO_VENTA'];
 $Nombre_Tipo_Producto = $_POST['NOMBRE_TIPO_PRODUCTO'];
 
@@ -23,8 +23,8 @@ $consulta_="SELECT NOMBRE_PRODUCTO FROM tbl_Producto WHERE Nombre_PRODUCTO='$Nom
 $resultado_= mysqli_query( $conexion2 , $consulta_ );
 $Nombre_Producto_ = mysqli_num_rows( $resultado_ );
 
-//Consultar el con tipo_producto seleccionado de la tabla tipo_producto
-$cod_tipo_producto="SELECT COD_TIPO_PRODUCTO FROM tbl_tipo_producto WHERE COD_TIPO_PRODUCTO='$Cod_Tipo_Producto'";
+//Consultar el codigo del tipo_producto seleccionado de la tabla tipo_producto
+$cod_tipo_producto="SELECT COD_TIPO_PRODUCTO FROM TBL_TIPO_PRODUCTO WHERE NOMBRE_TIPO_PRODUCTO='$Nombre_Tipo_Producto'";
 $resultado_tipo_producto= mysqli_query( $conexion2 , $cod_tipo_producto );
     while ($COD_TIPO_PRODUCTO=mysqli_fetch_array( $resultado_tipo_producto )) {
         # code...
@@ -32,8 +32,7 @@ $resultado_tipo_producto= mysqli_query( $conexion2 , $cod_tipo_producto );
     }
 
 
-
-
+  
 
 
 
@@ -47,7 +46,7 @@ if($Nombre_Producto_ ){?>
 <?php
 }else{
     //inserto datos en tabla Producto
-    $sql="INSERT INTO TBL_PRODUCTO VALUES('$filas','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$Cod_Tipo_Producto','$Precio_Venta')";
+    $sql="INSERT INTO TBL_PRODUCTO VALUES('$filas','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$cod_tipo_producto_','$Precio_Venta')";
     mysqli_query( $conexion2 , $sql);
 
     include("CrudProducto.php");
