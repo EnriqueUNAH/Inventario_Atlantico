@@ -2,7 +2,7 @@
 <div class="modal fade" id="editChildresn<?php echo $dataCliente['COD_PROVEEDOR']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: #563d7c !important;">
+      <div class="modal-header" style="background-color: #3d5a7c !important;">
         <h6 class="modal-title" style="color: #fff; text-align: center;">
             Actualizar Información
         </h6>

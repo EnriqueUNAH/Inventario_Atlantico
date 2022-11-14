@@ -9,31 +9,24 @@ $tel	 = $_REQUEST['telefono'];
 $correo	 = $_REQUEST['correo'];
 $dir	 = $_REQUEST['direccion'];
 $fechaC = date('Y-m-d');
+$genero =$_REQUEST['genero'];
+$gen=0;
+if ($genero=="MASCULINO") {
+    # code...
+    $gen=1;
+}else {
+    # code...
+    $gen=2;
+}
 
+# Consulto filas
+$consulta="SELECT * FROM tbl_cliente";
+$resultado= mysqli_query( $conexion2 , $consulta );
+$filas = mysqli_num_rows( $resultado );
 
-$QueryInsert = ("INSERT INTO tbl_cliente(
-    NUMERO_DNI,
-    PRIMER NOMBRE,
-    SEGUNDO NOMBRE,
-    PRIMER APELLIDO,
-    SEGUNDO APELLIDO,
-    TELEFONO,
-    CORREO_ELECTRONICO,
-    DIRECCION,
-    FECHA_REGISTRO
-)
-VALUES (
-    '".$dni. "',
-    '".$nombreP. "',
-    '".$nombreS. "',
-    '".$apellidoP. "',
-    '".$apellidoS."',
-    '".$tel. "',
-    '".$correo. "',
-    '".$dir."',
-    '".$fechaC."'
-)");
-mysqli_query($conexion2, $QueryInsert);
+$insertar_="INSERT INTO tbl_cliente VALUES('$filas','$dni','$nombreP','$nombreS','$apellidoP','$apellidoS','$tel','$correo','$dir','$fechaC','$gen')";
+
+mysqli_query($conexion2, $insertar_);
 
 header("location:crudclientes.php");
 ?>

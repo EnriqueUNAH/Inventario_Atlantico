@@ -91,6 +91,7 @@
                              // mysqli_query( $conexion , $Actualizar_pregunta );
                             }else{
                               # code...
+                              include("db.php");
                               $consulta = "SELECT *
                             FROM inversionesatlantico.tbl_ms_preguntas t2
                            WHERE NOT EXISTS (SELECT NULL

@@ -55,7 +55,7 @@
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_cliente e inner join tbl_genero u on e.COD_CLIENTE = u.COD_GENERO");
+        $sqlCliente   = ("SELECT * FROM tbl_cliente");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -108,10 +108,10 @@
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
-                            <td><?php echo $dataCliente['PRIMER NOMBRE']; ?></td>
-                            <td><?php echo $dataCliente['SEGUNDO NOMBRE']; ?></td>
-                            <td><?php echo $dataCliente['PRIMER APELLIDO']; ?></td>
-                            <td><?php echo $dataCliente['SEGUNDO APELLIDO']; ?></td>
+                            <td><?php echo $dataCliente['PRIMER_NOMBRE']; ?></td>
+                            <td><?php echo $dataCliente['SEGUNDO_NOMBRE']; ?></td>
+                            <td><?php echo $dataCliente['PRIMER_APELLIDO']; ?></td>
+                            <td><?php echo $dataCliente['SEGUNDO_APELLIDO']; ?></td>
                             <td><?php echo $dataCliente['TELEFONO']; ?></td>
                             <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
                             <td><?php echo $dataCliente['DIRECCION']; ?></td>
@@ -134,10 +134,6 @@
 
                             <!--Ventana Modal para Actualizar--->
                             <?php  include('ModalEditarCliente.php'); ?>
-
-                            <!--Ventana Modal para Actualizar--->
-                            <?php  include('modal_insetarCliente.php'); ?>
-
 
                         <?php } ?>
                 
@@ -174,7 +170,7 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'COD_PROVEEDOR='+ id;
+        var dataString = 'COD_CLIENTE='+ id;
         url = "reciboborrado.php";
             $.ajax({
                 type: "POST",
@@ -201,5 +197,85 @@
     
 	</body>
 </html>
+<div class="modal fade" id="InsertChildresn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #3d5a7c !important;">
+        <h6 class="modal-title" style="color: #fff; text-align: center;">
+            INSERTAR INFORMACION
+        </h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
+
+      <form method="POST" action="recibcliente.php">
+        <input type="hidden" name="id">
+
+            <div class="modal-body" id="cont_modal">
+
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">DNI:</label>
+                  <input type="text" name="DNI" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">PRIMER NOMBRE:</label>
+                  <input type="text" name="primer" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">SEGUNDO NOMBRE:</label>
+                  <input type="text" name="segundo" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">PRIMER APELLIDO:</label>
+                  <input type="text" name="apellido" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">SEGUNDO APELLIDO:</label>
+                  <input type="text" name="apellido2" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">TELEFONO:</label>
+                  <input type="text" name="telefono" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">CORREO ELECTONICO:</label>
+                  <input type="email" class="form-control" name="correo" required='true'>
+              </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">DIRECCION:</label>
+                  <input type="text" name="direccion" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                      <label for="yourName" class="form-label">SELECCIONE GENERO:</label>
+                      <select name="genero" class="form-control">
+                      <?php
+                            
+                              # code...
+                              include("../db2.php");
+                              $consulta = "SELECT * FROM tbl_genero";
+                            
+                            $ejecutar= mysqli_query($conexion2,$consulta);
+                        ?>
+                      <option selected value="">--Seleccionar genero--</option>
+
+                        <?php foreach ($ejecutar as $opciones): ?>
+                            <option name="genero" value="<?php echo $opciones['NOMBRE_GENERO']?>"><?php echo $opciones['NOMBRE_GENERO'] ?></option>
+                        <?php endforeach ?>
+                        <?php ?>    
+                                            
+                      </select>
+                      <div class="invalid-feedback">GENERO INVALIDO!</div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+              <button type="submit" class="btn btn-primary">GUARDAR DATOS</button>
+            </div>
+       </form>
+
+    </div>
+  </div>
+</div>
 <?php include("../footer.php")?>
