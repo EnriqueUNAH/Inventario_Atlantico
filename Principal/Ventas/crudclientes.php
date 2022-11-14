@@ -55,7 +55,7 @@
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_proveedor");
+        $sqlCliente   = ("SELECT * FROM tbl_cliente e inner join tbl_genero u on e.COD_CLIENTE = u.COD_GENERO");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -68,7 +68,7 @@
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2>DETALLE DE <b>PROVEEDORES</b></h2></div>
+      <div class="col-sm-12"><h2>DETALLE DE <b>CLIENTES</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
@@ -91,9 +91,14 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">NOMBRE REPRESENTANTE</th>
-                            <th scope="col">NOMBRE DE LA EMPRESA</th>
-                            <th scope="col">RTN</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">PRIMER NOMBRE</th>
+                            <th scope="col">SEGUNDO NOMBRE</th>
+                            <th scope="col">PRIMER APELLIDO</th>
+                            <th scope="col">SEGUNDO APELLIDO</th>
+                            <th scope="col">TELEFONO</th>
+                            <th scope="col">CORREO ELECTONICO</th>
+                            <th scope="col">DIRECCION</th>
                             <th scope="col">ACCIONES</th>
 
                           </tr>
@@ -102,31 +107,36 @@
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['NOMBRE_REPRESENTANTE']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_EMPRESA']; ?></td>
-                            <td><?php echo $dataCliente['RTN']; ?></td>
+                            <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
+                            <td><?php echo $dataCliente['PRIMER NOMBRE']; ?></td>
+                            <td><?php echo $dataCliente['SEGUNDO NOMBRE']; ?></td>
+                            <td><?php echo $dataCliente['PRIMER APELLIDO']; ?></td>
+                            <td><?php echo $dataCliente['SEGUNDO APELLIDO']; ?></td>
+                            <td><?php echo $dataCliente['TELEFONO']; ?></td>
+                            <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
+                            <td><?php echo $dataCliente['DIRECCION']; ?></td>
                             
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_PROVEEDOR']; ?>">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_CLIENTE']; ?>">
                                   Eliminar
                               </button>
                             
                             
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_PROVEEDOR']; ?>">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_CLIENTE']; ?>">
                                   Modificar
                               </button>
                           </td>
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('ModalEliminarProveedor.php'); ?>
+                            <?php include('ModalEliminarCliente.php'); ?>
 
 
                             <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditarProveedor.php'); ?>
+                            <?php  include('ModalEditarCliente.php'); ?>
 
                             <!--Ventana Modal para Actualizar--->
-                            <?php  include('modal_insetarProveedor.php'); ?>
+                            <?php  include('modal_insetarCliente.php'); ?>
 
 
                         <?php } ?>
@@ -172,7 +182,7 @@
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="crud_proveedores.php";
+                  window.location.href="crudclientes.php";
                   $('#respuesta').html(data);
                 }
             });

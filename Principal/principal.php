@@ -136,7 +136,7 @@ $_SESSION['nombre'];
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Principal/Ventas/Ventas_clientes.php">
+            <a href="../Principal/Ventas/crudclientes.php">
               <i class="bi bi-circle"></i><span>VER CLIENTES</span>
             </a>
           </li>
