@@ -22,6 +22,23 @@
                   <input type="text" name="Nombre_PRODUCTO"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['Nombre_PRODUCTO']; ?>" required="true">
                 </div>
 
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label"> DESCRIPCION</label>
+                  <input type="text" name="DESCRIPCION"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['DESCRIPCION']; ?>" required="true">         
+                </div> 
+
+                
+                <div class="form-group">
+                <label for="yourName" class="form-label">CANTIDAD MÍNIMA</label>
+                <input type="number" name="CANTIDAD_MINIMA"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['CANTIDAD_MINIMA']; ?>" required="true">
+                <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
+                </div>
+
+                <div class="form-group">
+                <label for="yourName" class="form-label">CANTIDAD MÁXIMA</label>
+                <input type="number" name="CANTIDAD_MAXIMA"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['CANTIDAD_MAXIMA']; ?>" required="true">
+                <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
+                </div>  
                                    
             </div>
             <div class="modal-footer">
