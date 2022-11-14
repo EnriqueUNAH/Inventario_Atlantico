@@ -99,6 +99,7 @@
                             }
                             $ejecutar= mysqli_query($conexion,$consulta);
                         ?>
+                      <option selected disabled value="">--Seleccionar pregunta--</option>
 
                         <?php foreach ($ejecutar as $opciones): ?>
                             <option value="<?php echo $opciones['PREGUNTA']?>"><?php echo $opciones['PREGUNTA'] ?></option>
