@@ -121,6 +121,7 @@
               $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_ms_roles " );
               
           ?>
+            <option selected disabled value="">--SELECCIONE ROL--</option>
           <?php foreach ($ejecutar as $opciones): ?>
               <option value="<?php echo $opciones['ROL']?>"><?php echo $opciones['ROL'] ?></option>
           <?php endforeach ?>

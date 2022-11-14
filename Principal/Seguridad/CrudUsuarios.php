@@ -73,6 +73,12 @@
                 <div class="col-sm-22">
                 <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-primary">NUEVO</button>
                 <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
+                <p></p>
+                
+                <div class="search-box">
+                                <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Buscar&hellip;">
+                            </div>
+                        <div class="col-sm-20">
                 <div>
                     <p></p>
                 </div> 
