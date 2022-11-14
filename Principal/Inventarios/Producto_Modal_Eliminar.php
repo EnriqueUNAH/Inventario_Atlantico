@@ -1,5 +1,5 @@
 <!-- Ventana modal para eliminar -->
-<div class="modal fade" id="deletePromocion<?php echo $dataCliente['COD_PROMOCION']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -10,13 +10,13 @@
 
         <div class="modal-body">
           <strong style="text-align: center !important"> 
-            <?php echo $dataCliente['NOMBRE_PROMOCION']; ?> 
+            <?php echo $dataCliente['Nombre_PRODUCTO']; ?> 
           </strong>
         </div>
         
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-danger btnBorrar" data-dismiss="modal" id="<?php echo $dataCliente['COD_PROMOCION']; ?>">Borrar</button>
+          <button type="submit" class="btn btn-danger btnBorrar" data-dismiss="modal" id="<?php echo $dataCliente['COD_PRODUCTO']; ?>">Borrar</button>
         </div>
         
         </div>

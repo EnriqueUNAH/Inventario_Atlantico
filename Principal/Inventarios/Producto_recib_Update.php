@@ -4,19 +4,19 @@ session_start();
 $usuario =$_SESSION['nombre'];
 
 include('../db2.php');
-$Cod_Promocion = $_POST['COD_PROMOCION'];
-$Nombre_Promocion = strtoupper($_POST[ 'NOMBRE_PROMOCION' ]);
+$Cod_Producto = $_POST['COD_PRODUCTO'];
+$Nombre_Producto = strtoupper($_POST[ 'Nombre_PRODUCTO' ]);
 
-$update = ("UPDATE tbl_Promocion 
+$update = ("UPDATE tbl_Producto 
 	SET 
-	NOMBRE_Promocion  ='" .$Nombre_Promocion. "'
+	Nombre_PRODUCTO  ='" .$Nombre_Producto. "'
   
-WHERE COD_PROMOCION='" .$Cod_Promocion. "'
+WHERE COD_PRODUCTO='" .$Cod_Producto. "'
 ");
 $result_update = mysqli_query($conexion2, $update);
 
 echo "<script type='text/javascript'>
-        window.location='CrudPromocion.php';
+        window.location='CrudProducto.php';
     </script>";     
 
 ?>

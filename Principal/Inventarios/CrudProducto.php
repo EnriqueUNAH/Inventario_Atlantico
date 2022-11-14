@@ -87,7 +87,7 @@
                             
                             <th> NOMBRE</th>
                             <th> DESCRIPCIÓN</th>
-                            <th> DESCRIPCIÓN</th>
+                            <th> CANTIDAD MÍNIMA</th>
                             <th> CANTIDAD MÁXIMA</th>
                             <th> TIPO DE PRODUCTO</th>
                             <th> PRECIO DE VENTA</th>
@@ -98,20 +98,20 @@
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['NOMBRE_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
                             <td><?php echo $dataCliente['DESCRIPCION']; ?></td>
-                            <td><?php echo $dataCliente['DESCRIPCION']; ?></td>
+                            <td><?php echo $dataCliente['CANTIDAD_MINIMA']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD_MAXIMA']; ?></td>
-                            <td><?php echo $dataCliente['TIPO_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['COD_TIPO_PRODUCTO']; ?></td>
                             <td><?php echo $dataCliente['PRECIO_VENTA']; ?></td>
                            
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePRODUCTO<?php echo $dataCliente['COD_PRODUCTO']; ?>">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
                                   Eliminar
                               </button>
                             
                             
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPRODUCTO<?php echo $dataCliente['COD_PRODUCTO']; ?>">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
                                   Modificar
                               </button>
                           </td>
