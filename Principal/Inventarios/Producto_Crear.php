@@ -15,12 +15,12 @@
     <div class="col-7">
        <br>
         <label for="yourName" class="form-label">NOMBRE DEL PRODUCTO</label>
-        <input type="text" style="text-transform:uppercase" name="NOMBRE_PRODUCTO"  class="form-control" id="yourName" required><br>
+        <input type="text" style="text-transform:uppercase" name="Nombre_PRODUCTO"  class="form-control" id="yourName" required><br>
         <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DEL PRODUCTO!</div>
 
         
         <label for="yourName" class="form-label">DESCRIPCIÓN</label>
-        <input type="text" style="text-transform:uppercase" name="FECHA_INICIAL"  class="form-control" id="yourName" required><br>
+        <input type="text" style="text-transform:uppercase" name="DESCRIPCION"  class="form-control" id="yourName" required><br>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA DESCRIPCIÓN!</div>
 
         <label for="yourName" class="form-label">CANTIDAD MÍNIMA</label>
@@ -28,17 +28,11 @@
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
 
         <label for="yourName" class="form-label">CANTIDAD MÁXIMA</label>
-        <input type="text" style="text-transform:uppercase" name="CANTIDAD_MINIMA"  class="form-control" id="yourName" required>
+        <input type="text" style="text-transform:uppercase" name="CANTIDAD_MAXIMA"  class="form-control" id="yourName" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
 
-        <label for="yourName" class="form-label">PRECIO DE VENTA</label>
-        <input type="text" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA UN PRECIO DE VENTA!</div>
-
-
-    
         <label for="yourName" class="form-label">SELECCIONE UN TIPO DE PRODUCTO:</label>
-        <select name="Rol" class="form-control">
+        <select name="Nombre_Tipo_Producto" class="form-control">
         <?php
               include("../db2.php");
               $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_tipo_producto " );
@@ -52,6 +46,14 @@
         </select>
         <div class="invalid-feedback">Tipo de Producto INVÁLIDO!</div>
       </div> 
+
+        <label for="yourName" class="form-label">PRECIO DE VENTA</label>
+        <input type="text" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" required>
+        <div class="invalid-feedback">POR FAVOR, INGRESA UN PRECIO DE VENTA!</div>
+
+
+    
+
 
 
 
