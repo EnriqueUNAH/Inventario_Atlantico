@@ -51,7 +51,7 @@
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_PRODUCTO");
+        $sqlCliente   = ("SELECT * FROM tbl_PRODUCTO as p INNER JOIN tbl_TIPO_PRODUCTO as tp on p.COD_TIPO_PRODUCTO = tp.COD_TIPO_PRODUCTO");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -102,7 +102,7 @@
                             <td><?php echo $dataCliente['DESCRIPCION']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD_MINIMA']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD_MAXIMA']; ?></td>
-                            <td><?php echo $dataCliente['COD_TIPO_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['NOMBRE_TIPO_PRODUCTO']; ?></td>
                             <td><?php echo $dataCliente['PRECIO_VENTA']; ?></td>
                            
                           <td> 
