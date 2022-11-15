@@ -3,7 +3,7 @@ $(obtener_registros());
 function obtener_registros(data)
 {
 	$.ajax({
-		url : 'buscar.php',
+		url : 'bitacora.php',
 		type : 'POST',
 		dataType : 'HTML',
 		data : { data: data },

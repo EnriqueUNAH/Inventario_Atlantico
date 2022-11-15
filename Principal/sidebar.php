@@ -113,7 +113,7 @@
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/bitacora.php">
+            <a href="../Seguridad/crud_bitacora.php">
               <i class="bi bi-circle"></i><span>BITACORA</span>
             </a>
           </li>

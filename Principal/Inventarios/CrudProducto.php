@@ -68,7 +68,9 @@
             <p></p>
                 <div class="col-sm-22">
                 <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">NUEVO</button>
-                </div>
+                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
+             
+            </div>
                 <div>
                     <p></p>
                 </div> 

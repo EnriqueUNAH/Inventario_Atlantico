@@ -1,81 +1,66 @@
-<?php include("../cabecera.php") ?>
-<?php include("../sidebar.php")?>
+<?php
+/////// CONEXIÓN A LA BASE DE DATOS /////////
+$host = 'localhost';
+$basededatos = 'inversionesatlantico';
+$usuario = 'root';
+$contraseña = '123456';
 
+$conexion = new mysqli($host, $usuario,$contraseña, $basededatos);
+if ($conexion -> connect_error)
+{
+	die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion-> mysqli_connect_error());
+}
 
-  <main id="main" class="main">
+//////////////// VALORES INICIALES ///////////////////////
 
-    <div class="pagetitle">
-    <div class="container-lg">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-8"><h2>PANTALLA DE <b>BITACORA</b></h2></div>
-                    <div class="col-sm-8">
-                    <!--<button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar Nuevo Usuario</button>-->
-                    </div>
-                </div>
-            </div>
-            <table class="table table-bordered">
-                <tbody>
-                <?php
-                    // Include db
-                    require_once "../db2.php";
-                    
-                    //  query
-                    //$sql = "SELECT * FROM tbl_bitacora";
-                    //$sql = "SELECT * FROM tbl_bitacora bi inner join tbl_ms_usuario us on bi.ID_USUARIO=us.ID_USUARIO order by FECHA desc";
-                    $sql = "SELECT * FROM tbl_ms_objetos ob inner join  tbl_bitacora bi on bi.ID_OBJETO=ob.ID_OBJETO inner join tbl_ms_usuario us  on bi.ID_USUARIO=us.ID_USUARIO order by FECHA DESC";
+$tabla="";
+//$query="SELECT * FROM tbl_ms_usuario ORDER BY ID_USUARIO";
+
+$query="SELECT * FROM tbl_ms_objetos ob inner join  tbl_bitacora bi on bi.ID_OBJETO=ob.ID_OBJETO inner join tbl_ms_usuario us  on bi.ID_USUARIO=us.ID_USUARIO order by FECHA DESC";
   
-                    if($result = mysqli_query($conexion2, $sql)){ 
-                        if(mysqli_num_rows($result) > 0){
-                            echo '<table class="table table-bordered table-striped">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                                        //echo "<th>ID BITACORA</th>";
-                                        echo "<th>FECHA</th>";
-                                        echo "<th>USUARIO</th>";
-                                        echo "<th>PANTALLA</th>";
-                                        echo "<th>ACCION</th>";
-                                        echo "<th>DESCRIPCION</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                       // echo "<td>" . $row['ID_BITACORA'] . "</td>";
-                                        echo "<td>" . $row['FECHA'] . "</td>";
-                                        echo "<td>" . $row['USUARIO'] . "</td>";
-                                        echo "<td>" . $row['OBJETO'] . "</td>";
-                                        echo "<td>" . $row['ACCION'] . "</td>";
-                                        echo "<td>" . $row['DESCRIPCION'] . "</td>";
-                                        //echo '<td><a href="ActualizarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-edit"></i> Editar</button><p></p></button> <a href="BorrarUsuario.php"><button type="button" class="btn btn-info add-new"><i class="fa fa-trash"></i> Eliminar</button><td>';
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Liberar resultado
-                            mysqli_free_result($result);
-                        } else{
-                            echo '<div class="alert alert-danger"><em>No se encontraron Records.</em></div>';
-                        }
-                    } else{
-                        echo "Oops! algo salio mal. por favor intentalo despues.";
-                    }
- 
-                    // CERRAR CONEXION
-                    mysqli_close($conexion2);
-                    ?>
-                </div>
-                </tbody>
-            </table>
-        </div>
-        </div>        
-    </div>     
-    </div><!-- End Page Title -->
 
-   
+///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
+if(isset($_POST['data']))
+{
+	$q=$conexion->real_escape_string($_POST['data']);
+	//$query="SELECT * FROM tbl_ms_usuario  WHERE 
 
-  </main><!-- End #main -->
+    $query="SELECT * FROM tbl_ms_objetos ob inner join  tbl_bitacora bi on bi.ID_OBJETO=ob.ID_OBJETO inner join tbl_ms_usuario us  on bi.ID_USUARIO=us.ID_USUARIO order by FECHA DESC
+    WHERE 
+    NOMBRE_USUARIO LIKE '%".$q."%';
+}
 
-  <?php include("../footer.php")?>
+$buscar=$conexion->query($query);
+if ($buscar->num_rows > 0)
+{
+	$tabla.= 
+	'<table class="table">
+		<tr class="bg-primary">
+			<td>FECHA</td>
+            <td>USUARIO</td>
+			<td>PANTALLA</td>
+			<td>ACCION</td>
+			<td>DESCRIPCION</td>
+		</tr>';
+
+	while($row= $buscar->fetch_assoc())
+	{
+		$tabla.=
+		'<tr>
+			<td>'. $row['FECHA'] .'</td>
+			<td>' . $row['NOMBRE_USUARIO'] . '</td>
+			<td>' . $row['OBJETO'] . '</td>
+			<td>' . $row['ACCION'] .'</td>
+			<td>' . $row['DESCRIPCION'] .'</td>
+		 </tr>
+		';
+	}
+
+	$tabla.='</table>';
+} else
+	{
+		$tabla="No se encontraron coincidencias con sus criterios de búsqueda.";
+	}
+
+echo $tabla;
+?>
