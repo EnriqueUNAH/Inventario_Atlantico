@@ -12,6 +12,19 @@ $rol_tabla 	 = strtoupper($_POST['ROL']);
 $Correo 	 = strtolower($_POST['CORREO_ELECTRONICO']);
 
 $fechaC = date('Y-m-d');
+//id bitacora
+$consulta_bita="SELECT * FROM tbl_bitacora";
+$resultado_bita= mysqli_query( $conexion2 , $consulta_bita );
+$filas_bi = mysqli_num_rows( $resultado_bita );
+$filas_bbitacora=$filas_bi+1;
+
+$consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE ID_USUARIO='$id_usuario'";
+$resultado_id= mysqli_query( $conexion2 , $consulta_id );
+while ($valor_=mysqli_fetch_array( $resultado_id )) {
+  # code...
+  $id_usuario_ing=$valor_['id_usuario'];
+} 
+
 
    # Consulto Id de la tabla Estado
    $consulta_Parametro="SELECT ID_ESTADO FROM tbl_ms_estado where NOMBRE_ESTADO='$Estado'" ;
@@ -29,6 +42,12 @@ $fechaC = date('Y-m-d');
       $id_rol=$valor1['ID_ROL'];
   }
 
+   #select ID_BITACORA
+   $consulta_id_BIT="SELECT * FROM tbl_bitacora";
+   $resultado_id_BIT= mysqli_query( $conexion2 , $consulta_id_BIT );
+   $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
+   $filas_id_BIT++;
+
 $update = ("UPDATE tbl_ms_usuario 
 	SET 
 	NOMBRE_USUARIO  ='" .$nombre_usuario. "',
@@ -42,38 +61,9 @@ WHERE ID_USUARIO='" .$id_usuario. "'
 ");
 $result_update = mysqli_query($conexion2, $update);
 
-try {
-    // code
-      #select ID_USUARIO
-      $consulta_id="SELECT ID_USUARIO FROM tbl_ms_usuario WHERE ID_USUARIO='$id_usuario'";
-      $resultado_id= mysqli_query( $conexion2 , $consulta_id );
-      $filas_id = mysqli_num_rows( $resultado_id );
+  $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id_usuario','2','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
+  mysqli_query( $conexion2 , $bitacora);
 
-       #select ID_BITACORA
-      $consulta_id_BIT="SELECT * FROM tbl_bitacora";
-      $resultado_id_BIT= mysqli_query( $conexion2 , $consulta_id_BIT );
-      $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
-      $filas_id_BIT++;
-
-      $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','2','EDITAR','ACTUALIZACION DE EMPLEADO DESDE MANTENIMIENTO USUARIO')";
-      mysqli_query( $conexion2 , $bitacora);
-
-      
-   // $sql = "UPDATE tbl_ms_usuario SET  NOMBRE_USUARIO='$nombre', ID_ESTADO='$Estado_', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre' , FECHA_MODIFICACION='$fechaC', ID_ROL='$rool'  WHERE ID_USUARIO='$id'";   
-    $sql = "UPDATE tbl_ms_usuario SET  NOMBRE_USUARIO='$nombre_usuario', ID_ESTADO='$id_estado', CORREO_ELECTRONICO='$Correo', MODIFICADO_POR='$nombre_usuario' , FECHA_MODIFICACION='$fechaC', ID_ROL='$id_rol'  WHERE ID_USUARIO='$id_usuario'";   
-   
-    mysqli_query($conexion2 , $sql);
-
-
-
-  } catch (Exception $e) {
-    // exception is raised and it'll be handled here
-    $var = $e->getMessage();
-    echo "<script type='text/javascript'>
-        window.location='CrudUsuarios.php';
-    </script>";     
-
-  }
 echo "<script type='text/javascript'>
         window.location='CrudUsuarios.php';
     </script>";     

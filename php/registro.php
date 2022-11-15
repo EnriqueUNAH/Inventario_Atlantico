@@ -18,6 +18,12 @@ $resultado= mysqli_query( $conexion , $consulta );
 $filas = mysqli_num_rows( $resultado );
 $filas=$filas+1;
 
+//id bitacora
+$consulta_bita="SELECT * FROM tbl_bitacora";
+$resultado_bita= mysqli_query( $conexion , $consulta_bita );
+$filas_bi = mysqli_num_rows( $resultado_bita );
+$filas_bbitacora=$filas_bi+1;
+
 #Consulta para saber si el usuario ya existe
 $consulta_="SELECT Usuario FROM tbl_ms_usuario WHERE Usuario='$usuario'";
 $resultado_= mysqli_query( $conexion , $consulta_ );
@@ -67,10 +73,10 @@ $fecha_v = date("Y-m-d",strtotime($fecha_v."+ $parametro_fecha days"));
     }else{
         $contrasenaA = $contrasena;
         $insertar="INSERT INTO tbl_ms_usuario VALUES('$filas_','$usuario','$nombre','3','$hash','$fechaC','0','0','$fecha_v','$correo','$usuario','$fechaC','$usuario','$fechaC','2')";
-       //$bitacora="INSERT INTO tbl_bitacora VALUES('$filas','$fechaC','$filas','$filas','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
-
         mysqli_query( $conexion , $insertar );
-        //mysqli_query( $conexion , $bitacora );
+
+        $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_bbitacora','$fechaC','$filas','3','AUTOREGISTRO','AUTOREGISTRO DE USUARIO DESDE EL LOGIN')";
+        mysqli_query( $conexion , $bitacora );
         echo '<script>alert("Usuario Creado satisfactoriamente");</script>';
 
     //code...

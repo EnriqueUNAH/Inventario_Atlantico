@@ -27,6 +27,17 @@
         $estado=$otra__['Nombre_Estado'];
     }
 
+//id bitacora
+$consulta_bita="SELECT * FROM tbl_bitacora";
+$resultado_bita= mysqli_query( $conexion , $consulta_bita );
+$filas_bi = mysqli_num_rows( $resultado_bita );
+$filas_bbitacora=$filas_bi+1;
+
+//id usuario
+$consulta="SELECT * FROM tbl_ms_usuario";
+$resultado= mysqli_query( $conexion , $consulta );
+$filas = mysqli_num_rows( $resultado );
+
 
     //consultar valor parametro de preguntas contestadas
     $consultar_parametro_contestadas = mysqli_query( $conexion , "SELECT VALOR FROM tbl_ms_parametros WHERE ID_PARAMETRO='2'");
@@ -40,6 +51,9 @@
 
     $insertar_="INSERT INTO tbl_ms_preguntas_usuario VALUES('$id','$filas','$respuesta','$nombre','$fechaC','$nombre','$fechaC')";
     mysqli_query( $conexion , $insertar_ );
+
+    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_bbitacora','$fechaC','$filas','3','AUTOREGISTRO','CONSTESTO PREGUNTA EXITOSAMENTE')";
+    mysqli_query( $conexion , $bitacora );
 
     $consultar_ = "SELECT * FROM tbl_ms_preguntas_usuario WHERE Creado_Por='$nombre'";
     $resultado_= mysqli_query( $conexion , $consultar_ );
@@ -61,6 +75,8 @@
          #Cambio valor de preguntas contestadas
          $actualizarPre = "UPDATE tbl_ms_usuario SET Preguntas_Contestadas = '$contestadas' WHERE Usuario = '$nombre'";
          mysqli_query( $conexion , $actualizarPre);
+
+       
  
         
         echo '<script>alert("Respuesta Guardada");</script>';
@@ -83,6 +99,7 @@
         if($estado == "NUEVO"){
             $ALTER = "UPDATE tbl_ms_usuario SET Id_Estado='2' WHERE  Usuario = '$nombre'";  //obeservar
             mysqli_query($conexion, $ALTER);
+
             mysqli_close($conexion);
         }else{
             $ALTER = "UPDATE tbl_ms_usuario SET Id_Estado='3' WHERE  Usuario = '$nombre'";  //obeservar

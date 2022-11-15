@@ -24,24 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="peticion.js"></script>
 
-    <style> 
-        table tr th{
-            background:rgba(0, 0, 0, .6);
-            color: black;
-        }
-        tbody tr{
-          font-size: 12px !important;
-
-        }
-        h3{
-            color:crimson; 
-            margin-top: 100px;
-        }
-        a:hover{
-            cursor: pointer;
-            color: #333 !important;
-        }
-      </style>
+    
 
       
 	</head>
