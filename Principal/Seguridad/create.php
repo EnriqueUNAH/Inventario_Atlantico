@@ -85,7 +85,7 @@ if($filas_ ){?>
     $sql="INSERT INTO tbl_ms_usuario VALUES('$filas','$Usuario','$NombreUsuario','1','$Contrasena','$fechaC','0','0','$fechaC','$correo_electronico','$user','$fechaC','$user','$fechaC','$id_rol_')";
     mysqli_query( $conexion2 , $sql);
 
-    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_bbitacora','$fechaC','$filas','4','SEGURIDAD','CREO USUARIO DESDE EL MODOULO DE SEGURIDAD')";
+    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_bbitacora','$fechaC','$filas','4','CREAR USUARIO','CREO USUARIO DESDE EL MODOULO DE SEGURIDAD')";
     mysqli_query( $conexion2 , $bitacora );
 
 

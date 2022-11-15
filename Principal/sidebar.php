@@ -66,7 +66,7 @@
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           
           <li>
-            <a href="../Mantenimiento/Mantenimiento-tipo-mov.php">
+            <a href="../Mantenimiento/crud_tipo_movimiento.php">
               <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
             </a>
           </li>
