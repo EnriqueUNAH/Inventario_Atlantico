@@ -27,7 +27,7 @@ if(isset($_POST['data']))
 
     $query="SELECT * FROM tbl_ms_objetos ob inner join  tbl_bitacora bi on bi.ID_OBJETO=ob.ID_OBJETO inner join tbl_ms_usuario us  on bi.ID_USUARIO=us.ID_USUARIO order by FECHA DESC
     WHERE 
-    NOMBRE_USUARIO LIKE '%".$q."%';
+    NOMBRE_USUARIO LIKE '".$q."";
 }
 
 $buscar=$conexion->query($query);
