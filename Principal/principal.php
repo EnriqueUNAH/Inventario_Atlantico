@@ -155,7 +155,7 @@ $_SESSION['nombre'];
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="Inventarios-compras.html">
+            <a href="../Principal/Inventario/crud_compras.php">
               <i class="bi bi-circle"></i><span>VER COMPRAS</span>
             </a>
           </li>
