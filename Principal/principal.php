@@ -256,7 +256,7 @@ $_SESSION['nombre'];
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/Pregunta.php">
+            <a href="../Seguridad/crud_preguntas.php">
               <i class="bi bi-circle"></i><span>PREGUNTAS</span>
             </a>
           </li>

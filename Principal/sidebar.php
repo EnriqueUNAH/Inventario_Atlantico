@@ -36,7 +36,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Principal/Inventario/crud_compras.php">
+            <a href="../crud_compras.php">
               <i class="bi bi-circle"></i><span>VER COMPRAS</span>
             </a>
           </li>
@@ -137,7 +137,7 @@
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/Pregunta.php">
+            <a href="../Seguridad/crud_preguntas.php">
               <i class="bi bi-circle"></i><span>PREGUNTAS</span>
             </a>
           </li>
