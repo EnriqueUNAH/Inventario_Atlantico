@@ -36,7 +36,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../crud_compras.php">
+            <a href="../Inventario/crud_compras.php">
               <i class="bi bi-circle"></i><span>VER COMPRAS</span>
             </a>
           </li>
