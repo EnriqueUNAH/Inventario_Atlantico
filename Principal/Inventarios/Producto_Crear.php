@@ -15,8 +15,8 @@
     <div class="col-7">
        <br>
         <label for="yourName" class="form-label">NOMBRE DEL PRODUCTO</label>
-        <input type="text" style="text-transform:uppercase" name="Nombre_PRODUCTO"  class="form-control" id="yourName" required><br>
-                   
+        <input type="text" style="text-transform:uppercase" name="Nombre_PRODUCTO"  class="form-control" id="yourName" value="<?php if(isset($_POST['Nombre_PRODUCTO'])){echo $_POST['Nombre_PRODUCTO'];}?>"><br>
+                                                                       
         <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DEL PRODUCTO!</div>
 
         
@@ -70,7 +70,26 @@
         </div>
       </div>
       
+
+
+
+
+
+
     </form><!-- End Change Password Form -->
+
+
+    <?php if(isset($_POST['save'])){
+        echo "Variables recepcionadas:<br>";
+        print_r($_POST);
+        }
+    ?>
+
+
+
+
+
+
 
   </main><!-- End #main -->
 
