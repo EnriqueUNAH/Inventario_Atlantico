@@ -19,7 +19,7 @@ $Nombre_Tipo_Producto = $_POST['NOMBRE_TIPO_PRODUCTO'];
 $Nombre_Producto = strtoupper($_POST['Nombre_PRODUCTO']);
 
 //consulta si el producto ya existe
-$consulta_="SELECT NOMBRE_PRODUCTO FROM tbl_Producto WHERE Nombre_PRODUCTO='$Nombre_Producto'";
+$consulta_="SELECT Nombre_PRODUCTO FROM tbl_Producto WHERE Nombre_PRODUCTO='$Nombre_Producto'";
 $resultado_= mysqli_query( $conexion2 , $consulta_ );
 $Nombre_Producto_ = mysqli_num_rows( $resultado_ );
 
@@ -46,7 +46,7 @@ if($Nombre_Producto_ ){?>
 <?php
 }else{
     //inserto datos en tabla Producto
-    $sql="INSERT INTO TBL_PRODUCTO VALUES('$filas','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$cod_tipo_producto_','$Precio_Venta')";
+    $sql="INSERT INTO TBL_PRODUCTO VALUES('','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$cod_tipo_producto_','$Precio_Venta')";
     mysqli_query( $conexion2 , $sql);
 
     include("CrudProducto.php");

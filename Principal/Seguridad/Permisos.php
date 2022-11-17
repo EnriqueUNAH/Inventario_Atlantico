@@ -1,5 +1,6 @@
 <?php include('../cabecera.php') ?>
 <?php include('../sidebar.php') ?>
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -49,69 +50,30 @@
 	<body>
     <main id="main" class="main">
     <?php
-
-
-
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_PRODUCTO as p INNER JOIN tbl_TIPO_PRODUCTO as tp on p.COD_TIPO_PRODUCTO = tp.COD_TIPO_PRODUCTO");
+        $sqlCliente   = ("SELECT * FROM  tbl_ms_roles as rol inner join tbl_ms_permisos as permiso on permiso.ID_ROL = rol.ID_ROL
+                                                                    inner join tbl_ms_objetos as objeto on objeto.ID_OBJETO = permiso.ID_OBJETO");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
-
-
-    $sql_p_insertar   = ("SELECT  MAX(ID_USUARIO) FROM tbl_ms_usuario as usuario inner join tbl_ms_roles as rol on usuario.ID_ROL = rol.ID_ROL 
-    inner join tbl_ms_permisos as permiso on permiso.ID_ROL = rol.ID_ROL            ");
-    $resultado = $conexion2->query($sql_p_insertar);
-    if($resultado->num_rows>0){
-        while($row = $resultado->fetch_assoc()){
-            echo  $row['USUARIO'];
-            echo   '<br>';
-        }
-    }
-
-
-    if(isset($_POST['btn2']))
-    {
-        include("db.php");
-        $resultados = mysqli_query($conexion2, "SELECT  MAX(COD_PRODUCTO) FROM tbl_producto" );
-        while($consulta2 = mysqli_fetch_array($resultados))
-        {
-            echo "Este es";
-            echo $consulta2['USUARIO'];
-            
-        }
-    }
-    
-
-
-
-
-
-
-
-
-
     ?>
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
+
+
+
+
 
 <div class="row clearfix">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2><b>PRODUCTOS</b></h2></div>
+      <div class="col-sm-12"><h2><b>PERMISOS</b></h2></div>
             <p></p>
-                <div class="col-sm-22">
-                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">NUEVO</button>
-                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
-             
-            </div>
-                <div>
-                    <p></p>
-                </div> 
 
+   
          
 
           <div class="col-sm-20">
@@ -123,46 +85,36 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            
-                            <th> NOMBRE</th>
-                            <th> DESCRIPCIÓN</th>
-                            <th> CANTIDAD MÍNIMA</th>
-                            <th> CANTIDAD MÁXIMA</th>
-                            <th> TIPO DE PRODUCTO</th>
-                            <th> PRECIO DE VENTA</th>
+                            <th> ROL</th>
+                            <th> PANTALLA</th>
+                            <th> PERMISO INSERCIÓN</th>
+                            <th> PERMISO ELIMINACIÓN</th>
+                            <th> PERMISO ACTUALIZACIÓN</th>
+                            <th> PERMISO_CONSULTAR</th>
                             <th> ACCIONES</th>
-
                           </tr>
                         </thead>
                         <tbody>
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['DESCRIPCION']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD_MINIMA']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD_MAXIMA']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_TIPO_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['PRECIO_VENTA']; ?></td>
-                           
+                          <td><?php echo $dataCliente['ROL']; ?></td>
+                          <td><?php echo $dataCliente['OBJETO']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_INSERCION']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_ELIMINACION']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_ACTUALIZACION']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_CONSULTAR']; ?></td>
+                            
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                  Eliminar
-                              </button>
-                            
-                            
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                  Modificar
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPermiso<?php echo $dataCliente['ID_ROL']?>">
+                                  Cambiar Permisos
                               </button>
                           </td>
                           </tr>
-                                                
-                            <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('Producto_Modal_Eliminar.php'); ?>
+                                                               
+                             <!--Ventana Modal para Actualizar--->
+                                <?php  include('Permiso_Modal_Editar.php'); ?>
 
-
-                            <!--Ventana Modal para Actualizar--->
-                            <?php  include('Producto_Modal_Editar.php'); ?>
 
                             
 
@@ -184,6 +136,11 @@
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 
+
+
+
+
+
 <script type="text/javascript">
     $(document).ready(function() {
 
@@ -202,15 +159,15 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'COD_PRODUCTO='+ id;
-        url = "Producto_recib_Delete.php";
+        var dataString = 'ID_ROL='+ id;
+        url = "Objetos_recib_Delete.php";
             $.ajax({
                 type: "POST",
                 url: url,
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="CrudProducto.php";
+                  window.location.href="Permisos.php";
                   $('#respuesta').html(data);
                 }
             });
@@ -220,6 +177,19 @@
 
 
 });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
     </main>
