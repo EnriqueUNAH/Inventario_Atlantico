@@ -2,9 +2,6 @@
 include('../db2.php');
 $dni      = $_REQUEST['DNI'];
 $nombreP      = $_REQUEST['primer'];
-$nombreS      = $_REQUEST['segundo'];
-$apellidoP      = $_REQUEST['apellido'];
-$apellidoS      = $_REQUEST['apellido2'];
 $tel	 = $_REQUEST['telefono'];
 $correo	 = $_REQUEST['correo'];
 $dir	 = $_REQUEST['direccion'];
@@ -24,7 +21,7 @@ $consulta="SELECT * FROM tbl_cliente";
 $resultado= mysqli_query( $conexion2 , $consulta );
 $filas = mysqli_num_rows( $resultado );
 
-$insertar_="INSERT INTO tbl_cliente VALUES('$filas','$dni','$nombreP','$nombreS','$apellidoP','$apellidoS','$tel','$correo','$dir','$fechaC','$gen')";
+$insertar_="INSERT INTO tbl_cliente VALUES('$filas','$dni','$nombreP','$tel','$correo','$dir','$fechaC','$gen')";
 
 mysqli_query($conexion2, $insertar_);
 

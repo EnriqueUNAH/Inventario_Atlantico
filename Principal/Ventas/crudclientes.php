@@ -92,10 +92,7 @@
                         <thead>
                           <tr>
                             <th scope="col">DNI</th>
-                            <th scope="col">PRIMER NOMBRE</th>
-                            <th scope="col">SEGUNDO NOMBRE</th>
-                            <th scope="col">PRIMER APELLIDO</th>
-                            <th scope="col">SEGUNDO APELLIDO</th>
+                            <th scope="col">NOMBRE</th>
                             <th scope="col">TELEFONO</th>
                             <th scope="col">CORREO ELECTONICO</th>
                             <th scope="col">DIRECCION</th>
@@ -108,10 +105,7 @@
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
-                            <td><?php echo $dataCliente['PRIMER_NOMBRE']; ?></td>
-                            <td><?php echo $dataCliente['SEGUNDO_NOMBRE']; ?></td>
-                            <td><?php echo $dataCliente['PRIMER_APELLIDO']; ?></td>
-                            <td><?php echo $dataCliente['SEGUNDO_APELLIDO']; ?></td>
+                            <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>
                             <td><?php echo $dataCliente['TELEFONO']; ?></td>
                             <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
                             <td><?php echo $dataCliente['DIRECCION']; ?></td>
@@ -220,21 +214,10 @@
                   <input type="text" name="DNI" class="form-control" required="true">
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">PRIMER NOMBRE:</label>
+                  <label for="recipient-name" class="col-form-label">NOMBRE COMPLETO:</label>
                   <input type="text" name="primer" class="form-control" required="true">
                 </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">SEGUNDO NOMBRE:</label>
-                  <input type="text" name="segundo" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">PRIMER APELLIDO:</label>
-                  <input type="text" name="apellido" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">SEGUNDO APELLIDO:</label>
-                  <input type="text" name="apellido2" class="form-control" required="true">
-                </div>
+
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">TELEFONO:</label>
                   <input type="text" name="telefono" class="form-control" required="true">
@@ -258,7 +241,7 @@
                             
                             $ejecutar= mysqli_query($conexion2,$consulta);
                         ?>
-                      <option selected value="">--Seleccionar genero--</option>
+                      <option selected value=>--Seleccionar genero--</option>
 
                         <?php foreach ($ejecutar as $opciones): ?>
                             <option name="genero" value="<?php echo $opciones['NOMBRE_GENERO']?>"><?php echo $opciones['NOMBRE_GENERO'] ?></option>

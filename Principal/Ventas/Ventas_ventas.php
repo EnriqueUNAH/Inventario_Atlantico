@@ -71,7 +71,7 @@
       <div class="col-sm-12"><h2><b>Ventas</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='Ventas_Crear.php'" class="btn btn-primary">NUEVO</button>
+                <button type="button" onclick="window.location='CrudVentasNuevo.php'" class="btn btn-primary">NUEVO</button>
                 <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
                 <p></p>
                 
@@ -108,28 +108,14 @@
                             <td><?php echo $dataCliente['FECHA']; ?></td>                   
                             <td><?php echo $dataCliente['PRIMER_NOMBRE']; ?></td>                            
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_VENTA']; ?>">
-                            Eliminar
-                          </button>
-                            
-                
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_VENTA']; ?>">
-                              Modificar
-                          </button>
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ver_detalles<?php echo $dataCliente['COD_VENTA']; ?>">
+                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ver_detalles<?php echo $dataCliente['COD_VENTA']; ?>">
                               Ver Detalles
                           </button>
                           </td>
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('ModalEliminar.php'); ?>
-
-
-                            <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditar.php'); ?>
-
-                            
+                            <?php include('Ventas_ModalDetalles.php'); ?>                          
 
 
                         <?php } ?>

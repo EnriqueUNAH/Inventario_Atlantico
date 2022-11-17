@@ -2,9 +2,9 @@
 ob_start();
 
 
+session_start();
+$_SESSION['nombre'];
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -30,6 +30,12 @@ ob_start();
     <!-- SCRIPTS JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="peticion.js"></script>
+
+
+    <link rel="stylesheet" href="./bs3.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
     <?php
@@ -39,6 +45,35 @@ $sqlCliente   = ("SELECT * FROM tbl_ms_estado e inner join tbl_ms_usuario u on e
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 ?>
+<?php
+$fecha = date("Y-m-d");
+$remitente = $_SESSION['nombre'];
+?>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-10 ">
+            <h1>Lista de Usuarios</h1>
+        </div>
+        <div class="col-xs-2">
+            <img class="img img-responsive" src="./parzibyte.jpg" alt="Logotipo">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-10">
+            <h1 class="h6"><?php echo $remitente ?></h1>
+        </div>
+        <div class="col-xs-2 text-center">
+            <strong>Fecha</strong>
+            <br>
+            <?php echo $fecha ?>
+            <br>
+    </div>
+    <hr>
+<p></p>
+<p></p>
 
 <table class="table table-bordered table-striped table-hover">
                         <thead>

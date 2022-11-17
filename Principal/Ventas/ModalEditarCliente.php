@@ -22,22 +22,10 @@
                   <input type="text" name="DNI" class="form-control" value="<?php echo $dataCliente['NUMERO_DNI']; ?>" required="true">
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">PRIMER NOMBRE:</label>
-                  <input type="text" name="nombre" class="form-control" value="<?php echo $dataCliente['PRIMER_NOMBRE']; ?>" required="true">
+                  <label for="recipient-name" class="col-form-label">NOMBRE COMPLETO:</label>
+                  <input type="text" name="nombre" class="form-control" value="<?php echo $dataCliente['NOMBRE_COMPLETO']; ?>" required="true">
                 </div>
-                
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">SEGUNDO NOMBRE:</label>
-                  <input type="text" name="nombre2" class="form-control" value="<?php echo $dataCliente['SEGUNDO_NOMBRE']; ?>" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">PRIMER APELLIDO:</label>
-                  <input type="text" name="apellido" class="form-control" value="<?php echo $dataCliente['PRIMER_APELLIDO']; ?>" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">SEGUNDO APELLIDO:</label>
-                  <input type="text" name="apellido2" class="form-control" value="<?php echo $dataCliente['SEGUNDO_APELLIDO']; ?>" required="true">
-                </div>
+
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">TELEFONO:</label>
                   <input type="text" name="tel" class="form-control" value="<?php echo $dataCliente['TELEFONO']; ?>" required="true">
