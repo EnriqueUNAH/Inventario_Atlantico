@@ -58,15 +58,6 @@
     </form><!-- End Change Password Form -->
 
 
-    <?php if(isset($_POST['save'])){
-        echo "Variables recepcionadas:<br>";
-        print_r($_POST);
-        }
-    ?>
-
-
-
-
 
 
 
