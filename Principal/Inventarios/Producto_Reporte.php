@@ -41,7 +41,9 @@ $cantidad     = mysqli_num_rows($queryCliente);
 ?>
 
 <table class="table table-bordered table-striped table-hover">
+                        
                         <thead>
+
                           <tr>
                             <th>NOMBRE PRODUCTO</th>
                             <th scope="col">DESCRIPCION</th>

@@ -57,6 +57,9 @@ if ($buscar->num_rows > 0)
 			<td>' . $row['PRIMER_INGRESO'] .'</td>
 			<td contenteditable="true">' . $row['CORREO_ELECTRONICO'] .'</td>
 			<td contenteditable="true">' . $row['ROL'] .'</td>
+
+
+			
             <td><a href="ActualizarUsuario.php" id="modificar" name="modificar" class="edit" title="Edit" data-toggle="tooltip"><i class=material-icons>&#xE254;</i></a><a href="BorrarUsuario.php" id="eliminar" name="eliminar" class="delete" title="Delete" data-toggle="tooltip"><i class=material-icons>&#xE872;</i></a></td>
 		 </tr>
 		';

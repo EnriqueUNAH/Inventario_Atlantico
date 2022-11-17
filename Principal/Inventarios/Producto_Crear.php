@@ -16,21 +16,22 @@
        <br>
         <label for="yourName" class="form-label">NOMBRE DEL PRODUCTO</label>
         <input type="text" style="text-transform:uppercase" name="Nombre_PRODUCTO"  class="form-control" id="yourName" required><br>
+                   
         <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DEL PRODUCTO!</div>
 
         
         <label for="yourName" class="form-label">DESCRIPCIÓN</label>
         <input type="text" style="text-transform:uppercase" name="DESCRIPCION"  class="form-control" id="yourName" required><br>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA DESCRIPCIÓN!</div>
-
+  
         <label for="yourName" class="form-label">CANTIDAD MÍNIMA</label>
         <input type="number" style="text-transform:uppercase" name="CANTIDAD_MINIMA"  class="form-control" id="yourName" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
-
+        <br>
         <label for="yourName" class="form-label">CANTIDAD MÁXIMA</label>
         <input type="number" style="text-transform:uppercase" name="CANTIDAD_MAXIMA"  class="form-control" id="yourName" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
-
+  <br>
         <label for="yourName" class="form-label">SELECCIONE UN TIPO DE PRODUCTO:</label>
         <select name="NOMBRE_TIPO_PRODUCTO" class="form-control">
         <?php
@@ -46,12 +47,13 @@
         </select>
         <div class="invalid-feedback">Tipo de Producto INVÁLIDO!</div>
       </div> 
+  <br><br>
 
-
+      <div class="col-7">
         <label for="yourName" class="form-label">PRECIO DE VENTA</label>
         <input type="number" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UN PRECIO DE VENTA!</div>
-
+      </div>
 
 
     </div>
@@ -72,4 +74,6 @@
 
   </main><!-- End #main -->
 
-<?php include("../footer.php")?>
+
+
+
