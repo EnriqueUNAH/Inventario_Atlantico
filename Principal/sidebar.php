@@ -160,6 +160,14 @@
           </li>
         </ul> 
         
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="../Seguridad/crud_permisos.php">
+              <i class="bi bi-circle"></i><span>PERMISOS</span>
+            </a>
+          </li>
+        </ul> 
+
       </li><!-- End Icons Nav -->
       
 
