@@ -21,15 +21,15 @@
 
         
         <label for="yourName" class="form-label">DESCRIPCIÓN</label>
-        <input type="text" style="text-transform:uppercase" name="DESCRIPCION"  class="form-control" id="yourName" required><br>
+        <input type="text" style="text-transform:uppercase" name="DESCRIPCION"  class="form-control" id="yourName" value="<?php if(isset($_POST['DESCRIPCION'])){echo $_POST['DESCRIPCION'];}?>" required><br>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA DESCRIPCIÓN!</div>
   
         <label for="yourName" class="form-label">CANTIDAD MÍNIMA</label>
-        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MINIMA"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MINIMA"  class="form-control" id="yourName" value="<?php if(isset($_POST['CANTIDAD_MINIMA'])){echo $_POST['CANTIDAD_MINIMA'];}?>" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
         <br>
         <label for="yourName" class="form-label">CANTIDAD MÁXIMA</label>
-        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MAXIMA"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MAXIMA"  class="form-control" id="yourName" value="<?php if(isset($_POST['CANTIDAD_MAXIMA'])){echo $_POST['CANTIDAD_MAXIMA'];}?>" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
   <br>
         <label for="yourName" class="form-label">SELECCIONE UN TIPO DE PRODUCTO:</label>
@@ -51,7 +51,7 @@
 
       <div class="col-7">
         <label for="yourName" class="form-label">PRECIO DE VENTA</label>
-        <input type="number" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" value="<?php if(isset($_POST['PRECIO_VENTA'])){echo $_POST['PRECIO_VENTA'];}?>" required>
         <div class="invalid-feedback">POR FAVOR, INGRESA UN PRECIO DE VENTA!</div>
       </div>
 
@@ -64,7 +64,7 @@
         <div class="form-group">
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
-          <input type="button" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
+          <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
           <a href="CrudProducto.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
@@ -79,11 +79,6 @@
     </form><!-- End Change Password Form -->
 
 
-    <?php if(isset($_POST['save'])){
-        echo "Variables recepcionadas:<br>";
-        print_r($_POST);
-        }
-    ?>
 
 
 
