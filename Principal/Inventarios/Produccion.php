@@ -19,7 +19,7 @@
         <select name="Nombre_PRODUCTO" class="form-control">
         <?php
               include("../db2.php");
-              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto " );
+              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto where cod_tipo_producto=2" );
               
           ?>
           <?php foreach ($ejecutar as $opciones): ?>
@@ -44,7 +44,7 @@
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
           <input type="submit" name="save" class="btn btn-sm btn-primary" value="Enviar Nueva Producción">
-          <a href="CrudProducto.php" class="btn btn-sm btn-danger">Cancelar</a>
+          <a href="Produccion.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
       </div>

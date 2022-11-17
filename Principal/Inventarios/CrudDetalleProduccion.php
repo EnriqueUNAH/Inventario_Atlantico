@@ -54,7 +54,7 @@
 
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_PRODUCTO as p INNER JOIN tbl_TIPO_PRODUCTO as tp on p.COD_TIPO_PRODUCTO = tp.COD_TIPO_PRODUCTO");
+        $sqlCliente   = ("SELECT * FROM tbl_detalle_produccion as dp INNER JOIN tbl_produccion as pr on dp.COD_PRODUCCION = pr.COD_PRODUCCION");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
 
@@ -62,6 +62,7 @@
 
 
     ?>
+        <?php include('Detalle_Produccion_Registrar.php');  ?>
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
@@ -70,21 +71,20 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="body">
       <div class="row clearfix">
+        <br><br> <br><br>
 
-      <div class="col-sm-12"><h2><b>PRODUCTOS</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">NUEVO</button> 
+                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
               <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>   -->
-                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
-             
+           
             </div>
                 <div>
                     <p></p>
                 </div> 
-
+                <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
          
 
           <div class="col-sm-20">
@@ -97,13 +97,8 @@
                         <thead>
                           <tr>
                             
-                            <th> NOMBRE</th>
-                            <th> DESCRIPCIÓN</th>
-                            <th> CANTIDAD MÍNIMA</th>
-                            <th> CANTIDAD MÁXIMA</th>
-                            <th> TIPO DE PRODUCTO</th>
-                            <th> PRECIO DE VENTA</th>
-                            <th> ACCIONES</th>
+                            <th> INSUMO</th>
+                            <th> CANTIDAD</th>
 
                           </tr>
                         </thead>
@@ -112,11 +107,8 @@
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['DESCRIPCION']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD_MINIMA']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD_MAXIMA']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_TIPO_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['PRECIO_VENTA']; ?></td>
+                            <td><?php echo $dataCliente['CANTIDAD']; ?></td>
+
                            
                           <td> 
                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
