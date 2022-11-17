@@ -59,36 +59,6 @@
         $cantidad     = mysqli_num_rows($queryCliente);
 
 
-    $sql_p_insertar   = ("SELECT  MAX(ID_USUARIO) FROM tbl_ms_usuario as usuario inner join tbl_ms_roles as rol on usuario.ID_ROL = rol.ID_ROL 
-    inner join tbl_ms_permisos as permiso on permiso.ID_ROL = rol.ID_ROL            ");
-    $resultado = $conexion2->query($sql_p_insertar);
-    if($resultado->num_rows>0){
-        while($row = $resultado->fetch_assoc()){
-            echo  $row['USUARIO'];
-            echo   '<br>';
-        }
-    }
-
-
-    if(isset($_POST['btn2']))
-    {
-        include("db.php");
-        $resultados = mysqli_query($conexion2, "SELECT  MAX(COD_PRODUCTO) FROM tbl_producto" );
-        while($consulta2 = mysqli_fetch_array($resultados))
-        {
-            echo "Este es";
-            echo $consulta2['USUARIO'];
-            
-        }
-    }
-    
-
-
-
-
-
-
-
 
 
     ?>
@@ -104,7 +74,10 @@
       <div class="col-sm-12"><h2><b>PRODUCTOS</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">NUEVO</button>
+                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">NUEVO</button> 
+              <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
+                                  NUEVO
+                              </button>   -->
                 <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
              
             </div>
@@ -226,5 +199,94 @@
     
 	</body>
 </html>
+
+
+
+
+<div id="InsertChildresn" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #3d5a7c !important;">
+        <h6 class="modal-title" style="color: #fff; text-align: center;">
+            INSERTAR PRODUCTOS
+        </h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <form method="POST" action="Producto_create.php">
+        <input type="hidden" name="id">
+
+            <div class="modal-body" id="cont_modal">
+
+
+                
+        <div class="col-7">
+       <br>
+        <label for="yourName" class="form-label">NOMBRE DEL PRODUCTO</label>
+        <input type="text" style="text-transform:uppercase" name="Nombre_PRODUCTO"  class="form-control" id="yourName" required><br>
+        <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DEL PRODUCTO!</div>
+
+        
+        <label for="yourName" class="form-label">DESCRIPCIÓN</label>
+        <input type="text" style="text-transform:uppercase" name="DESCRIPCION"  class="form-control" id="yourName" required><br>
+        <div class="invalid-feedback">POR FAVOR, INGRESA UNA DESCRIPCIÓN!</div>
+
+        <label for="yourName" class="form-label">CANTIDAD MÍNIMA</label>
+        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MINIMA"  class="form-control" id="yourName" required>
+        <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
+        <br>
+        <label for="yourName" class="form-label">CANTIDAD MÁXIMA</label>
+        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MAXIMA"  class="form-control" id="yourName" required>
+        <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
+        <br>
+        <label for="yourName" class="form-label">SELECCIONE UN TIPO DE PRODUCTO:</label>
+        <select name="NOMBRE_TIPO_PRODUCTO" class="form-control">
+        <?php
+              include("../db2.php");
+              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_tipo_producto " );
+              
+          ?>
+          <?php foreach ($ejecutar as $opciones): ?>
+              <option value="<?php echo $opciones['NOMBRE_TIPO_PRODUCTO']?>"><?php echo $opciones['NOMBRE_TIPO_PRODUCTO'] ?></option>
+          <?php endforeach ?>
+          <?php ?>
+                              
+        </select>
+        <div class="invalid-feedback">Tipo de Producto INVÁLIDO!</div>
+      </div> 
+
+      <br>
+        <label for="yourName" class="form-label">PRECIO DE VENTA</label>
+        <input type="number" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" required>
+        <div class="invalid-feedback">POR FAVOR, INGRESA UN PRECIO DE VENTA!</div>
+
+
+
+    </div>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+              <button type="submit" class="btn btn-primary">GUARDAR DATOS</button>
+            </div>
+       </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 
 <?php include("../footer.php")?>

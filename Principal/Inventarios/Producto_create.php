@@ -3,10 +3,12 @@ session_start();
 require_once "../db2.php";
 $usuario = $_SESSION['nombre'];
 
-$consulta="SELECT * FROM tbl_Producto";        
-$resultado= mysqli_query( $conexion2 , $consulta );
-$filas = mysqli_num_rows( $resultado );
-$filas=$filas+1;
+
+$consulta="SELECT Max(COD_PRODUCTO) FROM tbl_Producto";
+$result = mysqli_query($conexion2,$consulta);
+$row = mysqli_fetch_array($result);
+$max = $row[0];
+$filas=$max + 1;
 
 $Descripcion = $_POST['DESCRIPCION'];
 $Cantidad_Minima = $_POST['CANTIDAD_MINIMA'];
@@ -32,11 +34,6 @@ $resultado_tipo_producto= mysqli_query( $conexion2 , $cod_tipo_producto );
     }
 
 
-  
-
-
-
-
 //Decisiones de validaciones
 if($Nombre_Producto_ ){?>
 <script> 
@@ -46,7 +43,7 @@ if($Nombre_Producto_ ){?>
 <?php
 }else{
     //inserto datos en tabla Producto
-    $sql="INSERT INTO TBL_PRODUCTO VALUES('','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$cod_tipo_producto_','$Precio_Venta')";
+    $sql="INSERT INTO TBL_PRODUCTO VALUES('$filas','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$cod_tipo_producto_','$Precio_Venta')";
     mysqli_query( $conexion2 , $sql);
 
     include("CrudProducto.php");
