@@ -35,12 +35,10 @@ $resultado_tipo_producto= mysqli_query( $conexion2 , $cod_tipo_producto );
 
 
 //Decisiones de validaciones
-if($Nombre_Producto_ ){?>
-<script> 
-   alert("Producto ya existente");
-   location.href= "Producto_Crear.php";
-</SCRipt>
-<?php
+if($Nombre_Producto_ ){
+$var="Producto ya existente";
+echo "<script> alert('".$var."'); </script>";
+    include("Producto_Crear.php"); 
 }else{
     //inserto datos en tabla Producto
     $sql="INSERT INTO TBL_PRODUCTO VALUES('$filas','$Nombre_Producto','$Descripcion','$Cantidad_Minima','$Cantidad_Maxima','$cod_tipo_producto_','$Precio_Venta')";

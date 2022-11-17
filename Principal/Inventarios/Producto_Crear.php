@@ -64,7 +64,7 @@
         <div class="form-group">
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
-          <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
+          <input type="button" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
           <a href="CrudProducto.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
