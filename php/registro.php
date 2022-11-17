@@ -13,10 +13,12 @@ $correo = ($_POST[ 'email' ]);
 $fechaC = date('Y-m-d');
 $fecha_v = date('Y-m-d');
 
-$consulta="SELECT * FROM tbl_ms_usuario";
-$resultado= mysqli_query( $conexion , $consulta );
-$filas = mysqli_num_rows( $resultado );
-$filas=$filas+1;
+
+$consulta="SELECT Max(ID_USUARIO) FROM tbl_ms_usuario";
+$result = mysqli_query($conexion,$consulta);
+$row = mysqli_fetch_array($result);
+$max = $row[0];
+$filas=$max + 1;
 
 //id bitacora
 $consulta_bita="SELECT * FROM tbl_bitacora";
