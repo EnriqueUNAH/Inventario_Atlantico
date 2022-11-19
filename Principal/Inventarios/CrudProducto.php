@@ -118,16 +118,19 @@
                             <td><?php echo $dataCliente['NOMBRE_TIPO_PRODUCTO']; ?></td>
                             <td><?php echo $dataCliente['PRECIO_VENTA']; ?></td>
                            
-                          <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                  Eliminar
-                              </button>
-                            
-                            
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                  Modificar
-                              </button>
-                          </td>
+   
+
+			<td style="text-align: center;">
+				<span class="btn btn-raised btn-danger btn-xs" 
+					onclick="elimina('<?php echo $dataCliente['COD_PRODUCTO']; ?>')">
+					<span class="fa fa-trash"></span> Eliminar
+				</span>
+			</td>
+
+
+
+
+
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->

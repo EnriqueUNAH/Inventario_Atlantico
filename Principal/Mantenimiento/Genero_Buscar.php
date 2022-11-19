@@ -1,5 +1,8 @@
 <?php include('../cabecera.php') ?>
 <?php include('../sidebar.php') ?>
+<?php include('../sidebar.php') ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -50,6 +53,10 @@
 
 
 
+
+
+
+
         .form_search{
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -86,7 +93,6 @@
 
 
       </style>
-
       
 	</head>
   
@@ -104,11 +110,21 @@
 </div>
 
 
+<?php 
 
+$busqueda = strtolower($_REQUEST['busqueda']);
+if(empty($busqueda))
+{
+    header("location: CrudGenero.php");
+    mysqli_close($conection);
+}
+
+
+?>
 
 
 <form action="Genero_Buscar.php" method="get" class="form_search">
-			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
 			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
 
@@ -147,15 +163,36 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php
+
+                        <?php
+
+                        
+
+
+                        $queryCliente = mysqli_query($conexion2,"SELECT NOMBRE_GENERO FROM TBL_GENERO 
+										WHERE 
+                                        COD_GENERO LIKE '%$busqueda%' OR
+										NOMBRE_GENERO LIKE '%$busqueda%'  "); 
+											  
+                                            
+				
+                                          
+                                             
+
+
+                          
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
+                          
                             <td><?php echo $dataCliente['NOMBRE_GENERO']; ?></td>
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteGENERO<?php echo $dataCliente['COD_GENERO']; ?>">
+
+                         
+
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteGENERO<?php echo $dataCliente['NOMBRE_GENERO']; ?>">
                                   Eliminar
                               </button>
-                            
+                          
                             
                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ediTGENERO<?php echo $dataCliente['COD_GENERO']; ?>">
                                   Modificar
@@ -164,7 +201,7 @@
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('Genero_Modal_Eliminar.php'); ?>
+                            <?php include('Genero_Modal_EliminarB.php'); ?>
 
 
                             <!--Ventana Modal para Actualizar--->
@@ -174,6 +211,13 @@
 
 
                         <?php } ?>
+
+
+
+
+
+
+                        
                 
                     </table>
                 </div>
@@ -208,8 +252,8 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'COD_GENERO='+ id;
-        url = "Genero_recib_Delete.php";
+        var dataString = 'NOMBRE_GENERO='+ id;
+        url = "Genero_recib_DeleteB.php";
             $.ajax({
                 type: "POST",
                 url: url,
