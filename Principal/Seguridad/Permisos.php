@@ -122,6 +122,26 @@
                         <?php } ?>
                 
                     </table>
+
+
+                    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="$dataCliente['PERMISO_CONSULTAR']" id="flexCheckIndeterminateDisabled" enabled="">
+      <label class="form-check-label" for="flexCheckIndeterminateDisabled">
+        Agregar
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="$dataCliente['PERMISO_CONSULTAR']" id="flexCheckDisabled">
+      <label class="form-check-label" for="flexCheckDisabled">
+        Eliminar
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked="" enabled="">
+      <label class="form-check-label" for="flexCheckCheckedDisabled">
+        Disabled checked checkbox
+      </label>
+    </div>
                 </div>
 
 

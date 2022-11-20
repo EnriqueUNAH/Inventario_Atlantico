@@ -95,7 +95,7 @@ if(empty($busqueda)){
               <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>   -->
-                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
+                <button type="button" onclick="window.location='Producto_Reporte_Filtrado.php'" class="btn btn-warning">GENERAR PDF</button>
              
             </div>
                 <div>
