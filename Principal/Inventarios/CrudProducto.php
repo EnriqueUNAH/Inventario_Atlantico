@@ -75,17 +75,9 @@
 
 
 
-
-
-
-
-
-
-
-
       </style>
 
-      
+
 	</head>
   
 	<body>
@@ -101,6 +93,8 @@
     ?>
 
 
+
+<?php $busqueda = "";?>
 
 
 <div class="row text-center" style="background-color: #cecece">
