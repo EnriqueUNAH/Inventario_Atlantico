@@ -80,7 +80,6 @@ if(empty($busqueda)){
 
 
 
-
 <div class="row text-center" style="background-color: #cecece">
 </div>
 
