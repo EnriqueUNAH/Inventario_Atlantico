@@ -41,6 +41,50 @@
             cursor: pointer;
             color: #333 !important;
         }
+
+
+
+
+
+
+
+
+
+        .form_search{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	
+	background: initial;
+	padding: 10px;
+	border-radius: 10px;
+}
+.form_search .btn_search{
+	background: #1faac8;
+	color: #FFF;
+	padding: 10px;
+	border: 0;
+	cursor: pointer;
+	margin-left: 10px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
       </style>
 
       
@@ -58,6 +102,21 @@
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
+
+
+
+
+
+<form action="Genero_Buscar.php" method="get" class="form_search">
+			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
+		</form>
+
+
+
+
+
+
 
 <div class="row clearfix">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

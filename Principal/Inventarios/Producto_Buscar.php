@@ -41,43 +41,9 @@
             cursor: pointer;
             color: #333 !important;
         }
-
-
-
-
-
-
-        .form_search{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	
-	background: initial;
-	padding: 10px;
-	border-radius: 10px;
-}
-.form_search .btn_search{
-	background: #1faac8;
-	color: #FFF;
-	padding: 10px;
-	border: 0;
-	cursor: pointer;
-	margin-left: 10px;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	border-radius: 5px;
-}
-
-
-
       </style>
 
-
+      
 	</head>
   
 	<body>
@@ -94,13 +60,17 @@
 
 
 
-<?php $busqueda = "";?>
 
 
-<div class="row text-center" style="background-color: #cecece">
-</div>
+<?php 
 
+$busqueda = strtolower($_REQUEST['busqueda']);
+if(empty($busqueda)){
+        header("location: CrudProducto.php");
+        mysqli_close($conection);
+}
 
+?>
 
 <form action="Producto_Buscar.php" method="get" class="form_search">
 <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
@@ -108,6 +78,10 @@
 </form>
 
 
+
+
+<div class="row text-center" style="background-color: #cecece">
+</div>
 
 <div class="row clearfix">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -121,7 +95,7 @@
               <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>   -->
-                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
+                <button type="button" onclick="window.location='Producto_Reporte_Filtrado.php'" class="btn btn-warning">GENERAR PDF</button>
              
             </div>
                 <div>
@@ -152,6 +126,24 @@
                         </thead>
                         <tbody>
                           <?php
+
+
+                          $queryCliente = mysqli_query($conexion2,"SELECT * FROM tbl_PRODUCTO as p INNER JOIN tbl_TIPO_PRODUCTO as tp on p.COD_TIPO_PRODUCTO = tp.COD_TIPO_PRODUCTO 
+                                      WHERE 
+                                      Nombre_PRODUCTO LIKE '%$busqueda%' OR
+                                      DESCRIPCION LIKE '%$busqueda%'  OR
+                                      CANTIDAD_MINIMA LIKE '%$busqueda%' OR
+                                      CANTIDAD_MAXIMA LIKE '%$busqueda%' OR
+                                      NOMBRE_TIPO_PRODUCTO LIKE '%$busqueda%' OR
+                                      PRECIO_VENTA LIKE '%$busqueda%' 
+                                      
+                                      "); 
+    
+                   
+
+
+
+
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
