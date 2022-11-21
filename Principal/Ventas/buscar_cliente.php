@@ -12,6 +12,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Lista de clientes</title>
+
+	<link rel="stylesheet" href="../style.css">
+    <script type="text/javascript" src="../js/icons.js"></script>
+
 </head>
 <body>
 <main id="main" class="main">

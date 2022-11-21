@@ -324,8 +324,9 @@ table{
 table th{
 	text-align: left;
 	padding: 10px;
-	background: #1f82c8;
-	color: #FFF;
+	background: #ffffff;
+	color: rgb(10, 10, 10);	
+	border: #0000;
 }
 table tr:nth-child(odd){
 	background: #FFF;
