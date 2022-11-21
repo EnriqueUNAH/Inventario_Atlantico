@@ -315,22 +315,7 @@
 	border-radius: 4px;
 	margin: 20px;
 }
-table{
-	background:rgba(0, 0, 0, .6);
-	color: azure;
-}
-tbody tr{
-	font-size: 12px !important;
-}
 
-h3{
-	  color:crimson; 
-	  margin-top: 100px;
-}
-a:hover{
-	  cursor: pointer;
-	  color: #333 !important;
-}
 .link_edit{
 	color: #0ca4ce;
 }

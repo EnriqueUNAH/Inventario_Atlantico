@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="../style.css">
     <script type="text/javascript" src="../js/icons.js"></script>
 
+
+
+
 </head>
 <body>
 <main id="main" class="main">
@@ -39,7 +42,7 @@
 			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
 	<div class="containerTable">
-		<table>
+	<table class="table table-bordered table-striped table-hover" id="asd">
 			<tr>
             <th scope="col">DNI</th>
             <th scope="col">NOMBRE</th>
@@ -90,6 +93,7 @@
 				while ($data = mysqli_fetch_array($query)) {
 					
 			?>
+			<tbody>
 				<tr>
 					<td><?php echo $data["NUMERO_DNI"]; ?></td>
 					<td><?php echo $data["NOMBRE_COMPLETO"]; ?></td>
