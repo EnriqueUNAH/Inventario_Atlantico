@@ -74,7 +74,11 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>
-            
+                              <p></p>
+                              <form action="buscar_cliente.php" method="get" class="form_search">
+                              <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+                              <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
+                            </form>
                 </div>
                 <div>
                     <p></p>

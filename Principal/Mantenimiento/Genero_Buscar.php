@@ -1,5 +1,7 @@
 <?php include('../cabecera.php') ?>
 <?php include('../sidebar.php') ?>
+<?php include('../sidebar.php') ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -42,8 +44,55 @@
             cursor: pointer;
             color: #333 !important;
         }
-      </style>
 
+
+
+
+
+
+
+
+
+
+
+
+
+        .form_search{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	
+	background: initial;
+	padding: 10px;
+	border-radius: 10px;
+}
+.form_search .btn_search{
+	background: #1faac8;
+	color: #FFF;
+	padding: 10px;
+	border: 0;
+	cursor: pointer;
+	margin-left: 10px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+      </style>
       
 	</head>
   
@@ -52,14 +101,31 @@
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM  tbl_ms_roles as rol inner join tbl_ms_permisos as permiso on permiso.ID_ROL = rol.ID_ROL
-                                                                    inner join tbl_ms_objetos as objeto on objeto.ID_OBJETO = permiso.ID_OBJETO");
+        $sqlCliente   = ("SELECT * FROM tbl_genero");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
+
+
+        <?php 
+
+        $busqueda = strtolower($_REQUEST['busqueda']);
+        if(empty($busqueda)){
+                header("location: CrudGenero.php");
+                mysqli_close($conection);
+        }
+
+        ?>
+
+        <form action="Genero_Buscar.php" method="get" class="form_search">
+			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
+			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
+		</form>
+
+
 
 
 
@@ -70,10 +136,15 @@
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2><b>PERMISOS</b></h2></div>
+      <div class="col-sm-12"><h2><b>GENERO</b></h2></div>
             <p></p>
+                <div class="col-sm-22">
+                <button type="button" onclick="window.location='Genero_CrearRol.php'" class="btn btn-primary">NUEVO</button>
+                </div>
+                <div>
+                    <p></p>
+                </div> 
 
-   
          
 
           <div class="col-sm-20">
@@ -85,63 +156,62 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th> ROL</th>
-                            <th> PANTALLA</th>
-                            <th> PERMISO INSERCIÓN</th>
-                            <th> PERMISO ELIMINACIÓN</th>
-                            <th> PERMISO ACTUALIZACIÓN</th>
-                            <th> PERMISO_CONSULTAR</th>
-                            <th> ACCIONES</th>
+                            <th>NOMBRE GENERO</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <?php
+
+                        <?php
+
+                        
+
+
+      
+				
+                                          
+                                             
+
+
+                          
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                          <td><?php echo $dataCliente['ROL']; ?></td>
-                          <td><?php echo $dataCliente['OBJETO']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_INSERCION']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_ELIMINACION']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_ACTUALIZACION']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_CONSULTAR']; ?></td>
-                            
+                          
+                            <td><?php echo $dataCliente['NOMBRE_GENERO']; ?></td>
                           <td> 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPermiso<?php echo $dataCliente['ID_ROL']?>">
-                                  Cambiar Permisos
+
+                         
+
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteGENERO<?php echo $dataCliente['NOMBRE_GENERO']; ?>">
+                                  Eliminar
+                              </button>
+                          
+                            
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ediTGENERO<?php echo $dataCliente['COD_GENERO']; ?>">
+                                  Modificar
                               </button>
                           </td>
                           </tr>
-                                                               
-                             <!--Ventana Modal para Actualizar--->
-                                <?php  include('Permiso_Modal_Editar.php'); ?>
+                                                
+                            <!--Ventana Modal para la Alerta de Eliminar--->
+                            <?php include('Genero_Modal_EliminarB.php'); ?>
 
+
+                            <!--Ventana Modal para Actualizar--->
+                            <?php  include('Genero_Modal_Editar.php'); ?>
 
                             
 
 
                         <?php } ?>
+
+
+
+
+
+
+                        
                 
                     </table>
-
-
-                    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="$dataCliente['PERMISO_CONSULTAR']" id="flexCheckIndeterminateDisabled" enabled="">
-      <label class="form-check-label" for="flexCheckIndeterminateDisabled">
-        Agregar
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="$dataCliente['PERMISO_CONSULTAR']" id="flexCheckDisabled">
-      <label class="form-check-label" for="flexCheckDisabled">
-        Eliminar
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked="" enabled="">
-      <label class="form-check-label" for="flexCheckCheckedDisabled">
-        Disabled checked checkbox
-      </label>
-    </div>
                 </div>
 
 
@@ -155,11 +225,6 @@
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-
-
-
-
-
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -179,15 +244,15 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'ID_ROL='+ id;
-        url = "Objetos_recib_Delete.php";
+        var dataString = 'NOMBRE_GENERO='+ id;
+        url = "Genero_recib_DeleteB.php";
             $.ajax({
                 type: "POST",
                 url: url,
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="Permisos.php";
+                  window.location.href="CrudGenero.php";
                   $('#respuesta').html(data);
                 }
             });
@@ -197,19 +262,6 @@
 
 
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
     </main>
