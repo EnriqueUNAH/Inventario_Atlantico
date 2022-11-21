@@ -97,19 +97,14 @@
                         <tbody>
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
-
-                             <?php if($dataCliente['PERMISO_INSERCION']='1'){
-                                  
-                              }   ?>
-
                           <tr>
                           <td><?php echo $dataCliente['ROL']; ?></td>
                           <td><?php echo $dataCliente['OBJETO']; ?></td>
-                            <td><input class="form-check-input" type="checkbox" name="permisos" id="insertar" value=<?php echo "checked"; ?>><br></td>
-                            <td><input class="form-check-input" type="checkbox" name="permisos" id="eliminar" value=<?php echo $dataCliente['PERMISO_ELIMINACION']; ?>><br></td>
-                            <td><input class="form-check-input" type="checkbox" name="permisos" id="actualizar" value=<?php echo $dataCliente['PERMISO_ACTUALIZACION']; ?>><br></td>
-                            <td><input class="form-check-input" type="checkbox" name="permisos" id="consultar" value=<?php echo $dataCliente['PERMISO_CONSULTAR']; ?>><br></td>
-                            
+            <input type="checkbox" name="lenguajes[]" value="insertar" <?php if(mysqli_fetch_array("PERMISO_INSERCION", $queryCliente)) echo "checked"; ?>> Insertar <br>
+			<input type="checkbox" name="lenguajes[]" value="eliminar" <?php if(mysqli_fetch_array("PERMISO_ELIMINAR", $queryCliente)) echo "checked"; ?>> Eliminar <br>
+			<input type="checkbox" name="lenguajes[]" value="actualizar" <?php if(mysqli_fetch_array("PERMISO_ACTUALIZAR", $queryCliente)) echo "checked"; ?>> Actualizacion <br>
+			<input type="checkbox" name="lenguajes[]" value="consultar" <?php if(mysqli_fetch_array("PERMISO_CONSULTAR", $queryCliente)) echo "checked"; ?>> Consultar <br>
+		
                           </tr>
                                                                
                          
