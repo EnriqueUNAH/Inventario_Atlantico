@@ -109,11 +109,12 @@
                               <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['ID_USUARIO']; ?>">
                                   Modificar
                               </button>
+                                
 
                               
-                            <button type="button" onclick="window.location='Usuario_ver_mas.php'" class="btn btn-primary btn-xs"> Ver Más</button>
-
-                              
+                              <button href="" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#vermasusuarios<?php echo $dataCliente['ID_USUARIO']; ?>">
+                                  Ver Más
+                              </button>
                           </td>
                           </tr>
                                                 

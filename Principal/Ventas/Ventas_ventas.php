@@ -1,5 +1,10 @@
 <?php include('../cabecera.php') ?>
 <?php include('../sidebar.php') ?>
+<?php
+	session_start();
+	include "../db2.php";
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -7,11 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-  <link type="text/css" rel="shortcut icon" href="../img/logo-mywebsite-urian-viera.svg"/>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../css/cargando.css">
-  <link rel="stylesheet" type="text/css" href="../css/maquinawrite.css">
+  <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+    <link type="text/css" rel="shortcut icon" href="../img/logo-mywebsite-urian-viera.svg"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/cargando.css">
+    <link rel="stylesheet" type="text/css" href="../css/maquinawrite.css">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,161 +25,163 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    	<!-- SCRIPTS JS-->
+    <!-- SCRIPTS JS-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="peticion.js"></script>
-
-    <style> 
-        table tr th{
-            background:rgba(0, 0, 0, .6);
-            color: black;
-        }
-        tbody tr{
-          font-size: 12px !important;
-
-        }
-        h3{
-            color:crimson; 
-            margin-top: 100px;
-        }
-        a:hover{
-            cursor: pointer;
-            color: #333 !important;
-        }
-      </style>
+    <link rel="stylesheet" href="../style.css">
+    <script type="text/javascript" src="../js/icons.js"></script>
 
       
 	</head>
   
 	<body>
-     <ul class="navbar-nav mr-auto collapse navbar-collapse">
-      <li class="nav-item active">
-        <a href="CrudUsuarios.php"> 
-        </a>
+   
     <main id="main" class="main">
-    <?php
-        include('../db2.php');
+    <section id="container">
 
-        $sqlCliente   = ("SELECT * FROM tbl_venta  e inner join tbl_cliente u on e.COD_CLIENTE = u.COD_CLIENTE");
-        $queryCliente = mysqli_query($conexion2, $sqlCliente);
-        $cantidad     = mysqli_num_rows($queryCliente);
-    ?>
+<h1><i class="far fa-newspaper"></i> Lista de ventas</h1>
+<a href="nueva_venta.php" class="btn_new btnNewVenta"><i class="fas fa-plus"></i> Nueva venta</a>
 
-<div class="row text-center" style="background-color: #F8F413">
+<form action="buscar_venta.php" method="get" class="form_search">
+  <input type="text" name="busqueda" id="busqueda" placeholder="No. Factura">
+  <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
+</form>
+
+<div>
+  <h5>Buscar por Fecha</h5>
+  <form action="buscar_venta.php" method="get" class="form_search_date">
+    <label>De: </label>
+    <input type="date" name="fecha_de" id="fecha_de" required>
+    <label> A </label>
+    <input type="date" name="fecha_a" id="fecha_a" required>
+    <button type="submit" class="btn_view"><i class="fas fa-search"></i></button>
+  </form>
+</div>
+<div class="containerTable">
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Fecha / Hora</th>
+    <th>Cliente</th>
+    <th>Vendedor</th>
+    <th>Estado</th>
+    <th class="textright">Total Factura</th>
+    <th class="textright">Acciones</th>
+  </tr>
+<?php
+  //Paginador
+  $sql_registe = mysqli_query($conexion2,"SELECT COUNT(*) as total_registro FROM factura WHERE estatus != 10 ");
+  $result_register = mysqli_fetch_array($sql_registe);
+  $total_registro = $result_register['total_registro'];
+
+  $por_pagina = 50;
+
+  if(empty($_GET['pagina']))
+  {
+    $pagina = 1;
+  }else{
+    $pagina = $_GET['pagina'];
+  }
+
+  $desde = ($pagina-1) * $por_pagina;
+  $total_paginas = ceil($total_registro / $por_pagina);
+
+  $query = mysqli_query($conexion2,"SELECT f.nofactura,f.fecha,f.totalfactura,f.codcliente,f.estatus,
+                       u.nombre as vendedor,
+                       cl.nombre as cliente
+                    FROM factura f
+                    INNER JOIN usuario u
+                    ON f.usuario = u.idusuario
+                    INNER JOIN cliente cl
+                    ON f.codcliente = cl.idcliente
+                    WHERE f.estatus != 10
+                      ORDER BY f.fecha DESC LIMIT $desde,$por_pagina");
+
+  mysqli_close($conexion2);
+
+  $result = mysqli_num_rows($query);
+  if($result > 0){
+
+    while ($data = mysqli_fetch_array($query)) {
+
+      if($data["estatus"] == 1){
+        $estado = '<span class="pagada">Pagada</span>';
+      }else{
+        $estado = '<span class="anulada">Anulada</span>';
+      }
+  ?>
+    <tr id="row_<?php echo $data["nofactura"]; ?>">
+      <td><?php echo $data["nofactura"]; ?></td>
+      <td><?php echo $data["fecha"]; ?></td>
+      <td><?php echo $data["cliente"]; ?></td>
+      <td><?php echo $data["vendedor"]; ?></td>
+      <td class="estado"><?php echo $estado; ?></td>
+      <td class="textright totalfactura"><span>$.</span><?php echo $data["totalfactura"]; ?></td>
+
+      <td>
+        <div class="div_acciones">
+          <div>
+            <button class="btn_view view_factura" type="button" cl="<?php echo $data["codcliente"]; ?>" f="<?php echo $data['nofactura'];?>"><i class="fas fa-eye"></i></button>
+          </div>
+
+
+        <?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
+            if($data["estatus"] == 1)
+            {
+        ?>
+        <div class="div_factura">
+          <button class="btn_anular anular_factura" fac="<?php echo $data["nofactura"]; ?>"><i class="fas fa-ban"></i></button>
+        </div>
+      <?php 		}else{ ?>
+
+        <div class="div_factura">
+          <button type="button" class="btn_anular inactive" ><i class="fas fa-ban"></i></button>
+        </div>
+      <?php 			}
+          }
+      ?>
+
+        </div>
+
+      </td>
+    </tr>
+<?php
+    }
+
+  }
+ ?>
+</table>
+</div>
+<div class="paginador">
+  <ul>
+  <?php
+    if($pagina != 1)
+    {
+   ?>
+    <li><a href="?pagina=<?php echo 1; ?>"><i class="fas fa-step-backward"></i></a></li>
+    <li><a href="?pagina=<?php echo $pagina-1; ?>"><i class="fas fa-backward"></i></a></li>
+  <?php
+    }
+    for ($i=1; $i <= $total_paginas; $i++) {
+      # code...
+      if($i == $pagina)
+      {
+        echo '<li class="pageSelected">'.$i.'</li>';
+      }else{
+        echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
+      }
+    }
+
+    if($pagina != $total_paginas)
+    {
+   ?>
+    <li><a href="?pagina=<?php echo $pagina + 1; ?>"><i class="fas fa-forward"></i></a></li>
+    <li><a href="?pagina=<?php echo $total_paginas; ?> "><i class="fas fa-step-forward"></i></a></li>
+  <?php } ?>
+  </ul>
 </div>
 
-<div class="row clearfix">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="body">
-      <div class="row clearfix">
 
-      <div class="col-sm-12"><h2><b>Ventas</b></h2></div>
-            <p></p>
-                <div class="col-sm-22">
-                <button type="button" onclick="window.location='CrudVentasNuevo.php'" class="btn btn-primary">NUEVO</button>
-                <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
-                <p></p>
-                
-                <div class="search-box">
-                  <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Buscar&hellip;">
-                </div>
-                  <div class="col-sm-20">
-                <div>
-                    <p></p>
-                </div> 
-
-          <div class="col-sm-20">
-              <div class="row">
-                <div class="col-md-12 p-2">
-
-
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th>CODIGO VENTA</th>
-                            <th scope="col">TOTAL VENDIDO</th>
-                            <th scope="col">FECHA VENTA</th>
-                            <th scope="col">CLIENTE</th>
-                            <th scope="col">ACIONES</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php
-                              while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
-                          <tr>
-                            <td><?php echo $dataCliente['COD_VENTA']; ?></td>
-                            <td><?php echo $dataCliente['TOTAL_VENDIDO']; ?></td>
-                            <td><?php echo $dataCliente['FECHA']; ?></td>                   
-                            <td><?php echo $dataCliente['PRIMER_NOMBRE']; ?></td>                            
-                          <td> 
-                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ver_detalles<?php echo $dataCliente['COD_VENTA']; ?>">
-                              Ver Detalles
-                          </button>
-                          </td>
-                          </tr>
-                                                
-                            <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('Ventas_ModalDetalles.php'); ?>                          
-
-
-                        <?php } ?>
-                
-                    </table>
-                </div>
-
-
-              </div>
-          </div>
-          </div>
-      </div>
-  </div>
-</div>
-
-<script src="../js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $(window).load(function() {
-            $(".cargando").fadeOut(1000);
-        });
-
-//Ocultar mensaje
-    setTimeout(function () {
-        $("#contenMsjs").fadeOut(1000);
-    }, 3000);
-
-
-
-    $('.btnBorrar').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr("id");
-
-        var dataString = 'ID_USUARIO='+ id;
-        url = "recib_Delete.php";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: dataString,
-                success: function(data)
-                {
-                  window.location.href="CrudUsuarios.php";
-                  $('#respuesta').html(data);
-                }
-            });
-    return false;
-
-    });
-
-
-});
-</script>
-
-
-
+</section>
 
     </main>
     

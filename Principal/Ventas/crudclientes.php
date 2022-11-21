@@ -23,6 +23,8 @@
     	<!-- SCRIPTS JS-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="peticion.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script type="text/javascript" src="../js/icons.js"></script>
 
     <style> 
         table tr th{
