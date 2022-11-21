@@ -83,32 +83,18 @@
 	<body>
     <main id="main" class="main">
     <?php
-
         include('../db2.php');
-
         $sqlCliente   = ("SELECT * FROM tbl_PRODUCTO as p INNER JOIN tbl_TIPO_PRODUCTO as tp on p.COD_TIPO_PRODUCTO = tp.COD_TIPO_PRODUCTO");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
-
     ?>
-
-
-
 <?php $busqueda = "";?>
-
-
 <div class="row text-center" style="background-color: #cecece">
 </div>
-
-
-
 <form action="Producto_Buscar.php" method="get" class="form_search">
 <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
 <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 </form>
-
-
-
 <div class="row clearfix">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="body">
@@ -121,15 +107,11 @@
               <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>   -->
-                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>
-             
+                <button type="button" onclick="window.location='Producto_Reporte.php'" class="btn btn-warning">GENERAR PDF</button>        
             </div>
                 <div>
                     <p></p>
                 </div> 
-
-         
-
           <div class="col-sm-20">
               <div class="row">
                 <div class="col-md-12 p-2">
@@ -173,11 +155,6 @@
                                   Modificar
                               </button>
                           </td>
-
-
-
-
-
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->

@@ -21,12 +21,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     	<!-- SCRIPTS JS-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="peticion.js"></script>
-
-    
-
-      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="peticion.js"></script>
+    <link rel="stylesheet" href="stylese.css">
+    <script type="text/javascript" src="../js/icons.js"></script>      
 	</head>
   
 	<body>
@@ -57,13 +55,13 @@
                 <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-primary">NUEVO</button>
                 <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
                 
+<form action="buscar_venta.php" method="get" class="form_search">
+  <input type="text" name="busqueda" id="busqueda" placeholder="Nombre">
+  <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
+</form>
                 <p></p>
                 
-                <div class="search-box">
-                                <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Buscar&hellip;">
-                            </div>
-                        <div class="col-sm-20">
-                <div>
+                
                     <p></p>
                 </div> 
 
