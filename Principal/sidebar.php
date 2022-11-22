@@ -100,7 +100,15 @@
               <i class="bi bi-circle"></i><span>GENERO</span>
             </a>
           </li>
+          <li>
+          <a href="../Mantenimiento/CrudConfiguracionCAI.php">
+              <i class="bi bi-circle"></i><span>CAI</span>
+            </a>
+          </li>
+
         </ul>
+
+
       </li><!-- End Tables Nav -->
       
   <!-- ======= Sidebar Seguridad======= -->

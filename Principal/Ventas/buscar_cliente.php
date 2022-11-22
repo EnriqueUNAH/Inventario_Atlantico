@@ -100,11 +100,23 @@
 					<td><?php echo $data["TELEFONO"]; ?></td>
 					<td><?php echo $data['CORREO_ELECTRONICO'] ?></td>
                     <td><?php echo $data['DIRECCION'] ?></td>
-					<td>
-						
-						
-					</td>
+					<td> 
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['NUMERO_DNI']; ?>">
+                                  Eliminar
+                              </button>
+                        <!--Ventana Modal para la Alerta de Eliminar--->
+						<?php include('ModalDeleteCliente.php'); ?>
+                            
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['NUMERO_DNI']; ?>">
+                                  Modificar
+                              </button>
+
+							  <!--Ventana Modal para Actualizar--->
+<?php  include('ModalEditCliente.php'); ?>
+                          </td>
 				</tr>
+
+	
 			
 		<?php 
 				}
