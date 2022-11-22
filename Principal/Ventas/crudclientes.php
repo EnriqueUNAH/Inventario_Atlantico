@@ -89,7 +89,7 @@
                         </thead>
                         <tbody>
                           <?php
-                              while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
+                              while ($dataCliente =  mysqli_result($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>

@@ -243,7 +243,7 @@ $_SESSION['nombre'];
         </ul>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Principal/Seguridad/crud_bitacora.php">
+            <a href="../Principal/Seguridad/bitacora.php">
               <i class="bi bi-circle"></i><span>BITACORA</span>
             </a>
           </li>
