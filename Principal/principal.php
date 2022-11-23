@@ -334,7 +334,6 @@ $_SESSION['nombre'];
           </div>                          
       </div> 
       
-    
 
 
     </div><!-- End Page Title -->
