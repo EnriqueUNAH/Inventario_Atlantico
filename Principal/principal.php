@@ -123,7 +123,7 @@ $_SESSION['nombre'];
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="../Principal/principal.php">
+        <a class="nav-link " href="../Principal/inicio.php">
           <i class="bi bi-grid"></i>
           <span>INICIO</span>
         </a>
@@ -307,12 +307,36 @@ $_SESSION['nombre'];
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">INICIO</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
+      <br>
+      <div class="col-sm-6">
+         <div class="card card-primary">
+            <div class="card-body">
+            <br> 
+            <h5><b>VISION</b></h5>
+            <p>Llegar a ser una empresa muy reconocida a nivel mundial por la calidad que ofrecemos
+              en nuestros productos y buen servicio que le brindamos a nuestros clientes.
+            </p>                               
+            </div>                            
+          </div>                          
+      </div>                        
+  
+      <div class="col-sm-6">
+         <div class="card">
+            <div class="card-body">
+            <br> 
+            <h5><b>MISION</b></h5>
+            <p>Fabricar y comercializar uniformes y ropa deportiva a nivel nacional e internacional y 
+              ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las necesidades
+              de nuestros clientes ofreciendo mayor calidad y comodidad.
+              
+            </p>                               
+            </div>                            
+          </div>                          
+      </div> 
+      
+    
+
+
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
