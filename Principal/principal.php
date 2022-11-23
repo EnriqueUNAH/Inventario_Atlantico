@@ -210,7 +210,7 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Principal/Mantenimiento/Mantenimiento descuento.php">
+            <a href="../Principal/Mantenimiento/crud_descuento.php">
               <i class="bi bi-circle"></i><span>DESCUENTO</span>
             </a>
           </li>
@@ -243,7 +243,7 @@ $_SESSION['nombre'];
         </ul>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Principal/Seguridad/crud_bitacora.php">
+            <a href="../Principal/Seguridad/bitacora.php">
               <i class="bi bi-circle"></i><span>BITACORA</span>
             </a>
           </li>

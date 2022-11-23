@@ -57,7 +57,7 @@ $remitente = $_SESSION['nombre'];
             <h1>Lista de Usuarios</h1>
         </div>
         <div class="col-xs-2">
-            <img class="img img-responsive" src="./parzibyte.jpg" alt="Logotipo">
+            <p><img src="../logo.png"></p>
         </div>
     </div>
     <hr>

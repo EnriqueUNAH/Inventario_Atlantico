@@ -23,8 +23,25 @@
     	<!-- SCRIPTS JS-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="peticion.js"></script>
-    <script type="text/javascript" src="../js/icons.js"></script>
-    <link rel="stylesheet" href="style.css">
+
+    <style> 
+        table tr th{
+            background:rgba(0, 0, 0, .6);
+            color: black;
+        }
+        tbody tr{
+          font-size: 12px !important;
+
+        }
+        h3{
+            color:crimson; 
+            margin-top: 100px;
+        }
+        a:hover{
+            cursor: pointer;
+            color: #333 !important;
+        }
+      </style>
 
       
 	</head>
@@ -38,7 +55,7 @@
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_cliente");
+        $sqlCliente   = ("SELECT * FROM tbl_descuento");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -51,17 +68,13 @@
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2>DETALLE DE <b>CLIENTES</b></h2></div>
+      <div class="col-sm-12"><h2>DETALLE DE <b>DESCUENTO</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>
-                              <p></p>
-                              <form action="buscar_cliente.php" method="get" class="form_search">
-                              <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
-                              <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
-                            </form>
+            
                 </div>
                 <div>
                     <p></p>
@@ -78,43 +91,37 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">DNI</th>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">TELEFONO</th>
-                            <th scope="col">CORREO ELECTONICO</th>
-                            <th scope="col">DIRECCION</th>
-                            <th scope="col">ACCIONES</th>
-
+                            <th scope="col">NOMBRE DESCUENTO</th>
+                            <th scope="col">CANTIDAD/PORCENTAJE DESCUENTO</th>
+                           <th scope="col">ACCIONES</th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
-                              while ($dataCliente =  mysqli_result($queryCliente)) { ?>
+                              while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>
-                            <td><?php echo $dataCliente['TELEFONO']; ?></td>
-                            <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
-                            <td><?php echo $dataCliente['DIRECCION']; ?></td>
+                            <td><?php echo $dataCliente['NOMBRE_DESCUENTO']; ?></td>
+                            <td><?php echo $dataCliente['PORCENTAJE_DESCUENTO']; ?></td>
                             
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_CLIENTE']; ?>">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_DESCUENTO']; ?>">
                                   Eliminar
                               </button>
                             
                             
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_CLIENTE']; ?>">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_DESCUENTO']; ?>">
                                   Modificar
                               </button>
                           </td>
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('ModalEliminarCliente.php'); ?>
+                            <?php include('ModalEliminarDescuento.php'); ?>
 
 
                             <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditarCliente.php'); ?>
+                            <?php  include('ModalEditarDescuento.php'); ?>
+
 
                         <?php } ?>
                 
@@ -130,7 +137,7 @@
 </div>
 
 <script src="../js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
+<script src="../js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
@@ -151,15 +158,15 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'COD_CLIENTE='+ id;
-        url = "reciboborrado.php";
+        var dataString = 'COD_DESCUENTO='+ id;
+        url = "reciboborradodescuento.php";
             $.ajax({
                 type: "POST",
                 url: url,
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="crudclientes.php";
+                  window.location.href="crud_descuento.php";
                   $('#respuesta').html(data);
                 }
             });
@@ -178,7 +185,8 @@
     
 	</body>
 </html>
-<div class="modal fade" id="InsertChildresn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div id="InsertChildresn" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #3d5a7c !important;">
@@ -191,53 +199,20 @@
       </div>
 
 
-      <form method="POST" action="recibcliente.php">
+      <form method="POST" action="recibDescuento.php">
         <input type="hidden" name="id">
 
             <div class="modal-body" id="cont_modal">
 
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">DNI:</label>
-                  <input type="text" name="DNI" class="form-control" required="true">
+                  <label for="recipient-name" class="col-form-label">NOMBRE DEL DESCUENTO:</label>
+                  <input type="text" name="nombre" class="form-control" required="true">
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">NOMBRE COMPLETO:</label>
-                  <input type="text" name="primer" class="form-control" required="true">
+                  <label for="recipient-name" class="col-form-label">PORCENTAJE DEL DESCUENTO:</label>
+                  <input type="text" name="cantidad" class="form-control" required="true">
                 </div>
-
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">TELEFONO:</label>
-                  <input type="text" name="telefono" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="email" class="form-label">CORREO ELECTONICO:</label>
-                  <input type="email" class="form-control" name="correo" required='true'>
-              </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">DIRECCION:</label>
-                  <input type="text" name="direccion" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                      <label for="yourName" class="form-label">SELECCIONE GENERO:</label>
-                      <select name="genero" class="form-control">
-                      <?php
-                            
-                              # code...
-                              include("../db2.php");
-                              $consulta = "SELECT * FROM tbl_genero";
-                            
-                            $ejecutar= mysqli_query($conexion2,$consulta);
-                        ?>
-                      <option selected value=>--Seleccionar genero--</option>
-
-                        <?php foreach ($ejecutar as $opciones): ?>
-                            <option name="genero" value="<?php echo $opciones['NOMBRE_GENERO']?>"><?php echo $opciones['NOMBRE_GENERO'] ?></option>
-                        <?php endforeach ?>
-                        <?php ?>    
-                                            
-                      </select>
-                      <div class="invalid-feedback">GENERO INVALIDO!</div>
-                    </div>
+                
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
@@ -248,4 +223,5 @@
     </div>
   </div>
 </div>
+
 <?php include("../footer.php")?>
