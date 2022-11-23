@@ -33,6 +33,18 @@ $_SESSION['nombre'];
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
 
+  <style>
+    .contenedor {
+  
+    display:flex;
+    grid-template-rows: 100px 100px;
+
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+  </style>
+
 </head>
 
 <body>
@@ -41,7 +53,7 @@ $_SESSION['nombre'];
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../Principal/principal.php" class="logo d-flex align-items-center">
+      <a href="../Principal/principal2.php" class="logo d-flex align-items-center">
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">INVERSIONES DEL ATLÁNTICO</span>
       </a>
@@ -123,7 +135,7 @@ $_SESSION['nombre'];
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="../Principal/principal.php">
+        <a class="nav-link " href="../Principal/principal2.php">
           <i class="bi bi-grid"></i>
           <span>INICIO</span>
         </a>
@@ -182,124 +194,11 @@ $_SESSION['nombre'];
         </ul>
       </li><!-- End Forms Nav -->
 
-      <!-- Dashboard Matenimiento -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>MANTENIMIENTO</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          
-          <li>
-            <a href="../Principal/Mantenimiento/crud_tipo_movimiento.php">
-              <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
-            </a>
-          </li>
-          <li>
-            <a href="../Principal/Mantenimiento/Mantenimiento-tipo-producto.php">
-              <i class="bi bi-circle"></i><span>TIPO PRODUCTO</span>
-            </a>
-          </li>
-          <li>
-            <a href="../Principal/Mantenimiento/Mantenimiento-estante.php">
-              <i class="bi bi-circle"></i><span>ESTANTE</span>
-            </a>
-          </li>
-          <li>
-            <a href="../Principal/Mantenimiento/CrudPromocion.php">
-              <i class="bi bi-circle"></i><span>PROMOCION</span>
-            </a>
-          </li>
-          <li>
-            <a href="../Principal/Mantenimiento/crud_descuento.php">
-              <i class="bi bi-circle"></i><span>DESCUENTO</span>
-            </a>
-          </li>
-          <li>
-            <a href="../Principal/Mantenimiento/CrudGenero.php">
-              <i class="bi bi-circle"></i><span>GENERO</span>
-            </a>
-          </li>
-          <li>
-            <a href="../Principal/Mantenimiento/CrudConfiguracionCAI.php">
-              <i class="bi bi-circle"></i><span>CAI</span>
-            </a>
-          </li>
-
-
+     
         </ul>
       </li><!-- End Tables Nav -->
       
-  <!-- ======= Sidebar Seguridad======= -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>SEGURIDAD</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/CrudUsuarios.php">
-              <i class="bi bi-circle"></i><span>MANTENIMIENTO DE USUARIOS</span>
-            </a>
-          </li>
-        </ul>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/bitacora.php">
-              <i class="bi bi-circle"></i><span>BITACORA</span>
-            </a>
-          </li>
-        </ul>
-
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/CrudRoles.php">
-              <i class="bi bi-circle"></i><span>ROLES</span>
-            </a>
-          </li>
-        </ul>
-
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/CrudEstado.php">
-              <i class="bi bi-circle"></i><span>ESTADOS</span>
-            </a>
-          </li>
-        </ul>
-
-
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/crud_preguntas.php">
-              <i class="bi bi-circle"></i><span>PREGUNTAS</span>
-            </a>
-          </li>
-        </ul>     
-        
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/CrudParametros.php">
-              <i class="bi bi-circle"></i><span>PARAMETROS</span>
-            </a>
-          </li>
-        </ul> 
-
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/CrudObjetos.php">
-              <i class="bi bi-circle"></i><span>OBJETOS</span>
-            </a>
-          </li>
-        </ul> 
-
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../Principal/Seguridad/crud_permisos.php">
-              <i class="bi bi-circle"></i><span>PERMISOS</span>
-            </a>
-          </li>
-        </ul> 
-
-      </li><!-- End Icons Nav -->
-      
+       
 
   </aside><!-- End Sidebar-->
 
@@ -308,32 +207,43 @@ $_SESSION['nombre'];
     <div class="pagetitle">
       <h1>Dashboard</h1>
       <br>
+      <section class="contenedor">
       <div class="col-sm-6">
          <div class="card card-primary">
             <div class="card-body">
             <br> 
             <h5><b>VISION</b></h5>
-            <p>Llegar a ser una empresa muy reconocida a nivel mundial por la calidad que ofrecemos
-              en nuestros productos y buen servicio que le brindamos a nuestros clientes.
-            </p>                               
+            <p>
+                <p>
+                Llegar a ser una empresa muy reconocida a nivel mundial 
+                </p>
+                <p>
+                por la calidad que ofrecemos
+              en nuestros productos y buen servicio que le     
+                </p>
+                brindamos a nuestros clientes.
+                <p>                            
             </div>                            
           </div>                          
       </div>                        
-  
+  <div class="contenedor">
+    <p></p>
+  </div>
       <div class="col-sm-6">
          <div class="card">
             <div class="card-body">
             <br> 
             <h5><b>MISION</b></h5>
             <p>Fabricar y comercializar uniformes y ropa deportiva a nivel nacional e internacional y 
-              ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las necesidades
-              de nuestros clientes ofreciendo mayor calidad y comodidad.
+                <p>
+                ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las necesidades de nuestros clientes ofreciendo mayor calidad y comodidad.
+                </p>
               
             </p>                               
             </div>                            
           </div>                          
       </div> 
-      
+      </section>
 
 
     </div><!-- End Page Title -->

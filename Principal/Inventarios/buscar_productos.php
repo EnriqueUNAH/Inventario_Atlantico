@@ -1,7 +1,17 @@
 <?php include('../cabecera.php') ?>
-<?php include('../sidebar.php') ?>
+<?php 
+session_start();
+if ($_SESSION['nombre']=="ADMINISTRADOR") {
+	# code...
+	include('../sidebar.php');
+  }else{
+	# code...
+	include('../sidebar2.php');
+  }
+
+?>
 <?php
-	session_start();
+	
 	include "../db2.php";
  ?>
 <!DOCTYPE html>

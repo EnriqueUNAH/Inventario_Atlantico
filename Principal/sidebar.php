@@ -91,7 +91,7 @@
             </a>
           </li>
           <li>
-            <a href="../Mantenimiento/Mantenimiento descuento.php">
+            <a href="../Mantenimiento/crud_descuento.php">
               <i class="bi bi-circle"></i><span>DESCUENTO</span>
             </a>
           </li>

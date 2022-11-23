@@ -1,5 +1,14 @@
 <?php include('../cabecera.php') ?>
-<?php include('../sidebar.php') ?>
+<?php 
+if ($_SESSION['nombre']=="ADMINISTRADOR") {
+	# code...
+	include('../sidebar.php');
+  }else{
+	# code...
+	include('../sidebar2.php');
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -89,7 +98,7 @@
                         </thead>
                         <tbody>
                           <?php
-                              while ($dataCliente =  mysqli_result($queryCliente)) { ?>
+                              while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>

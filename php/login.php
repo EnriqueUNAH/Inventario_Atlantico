@@ -90,17 +90,17 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
 <?php
 
  }elseif ($estado=='NUEVO' and (password_verify($contraseña, $hash))){   
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = $filas_PAR WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );   
      include('../Login/preguntasPrimeraVez.php');
 
 }elseif($estado=="RESETEO" and (password_verify($contraseña, $hash))){  
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = $filas_PAR WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      include('../Login/cambiar_contrasena.php');
 
-}elseif($estado=="ACTIVO" and (password_verify($contraseña, $hash))){
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
+}elseif($estado=="ACTIVO" and (password_verify($contraseña, $hash)) and $_SESSION['nombre']=="ADMINISTRADOR"){
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = $filas_PAR WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      $primer_ = $primer + 1;
      $actualizarPrimer = "UPDATE tbl_ms_usuario SET Primer_Ingreso = '$primer_' WHERE Id_Usuario = $id";
@@ -108,6 +108,16 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
      $bitacora3="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','1','INGRESO AL SISTEMA','INGRESO A LA PANTALLA PRINCIPAL DESDE LOGIN')";
      mysqli_query( $conexion , $bitacora3 );
      include('../Principal/principal.php');
+}elseif ($estado=="ACTIVO" and (password_verify($contraseña, $hash)) and $_SESSION['nombre']<>"ADMINISTRADOR") {
+     # code...
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET VALOR = $filas_PAR WHERE PARAMETRO='ADMIN_INTENTOS'";
+     mysqli_query( $conexion , $Actualizar_parametro );
+     $primer_ = $primer + 1;
+     $actualizarPrimer = "UPDATE tbl_ms_usuario SET Primer_Ingreso = '$primer_' WHERE Id_Usuario = $id";
+     mysqli_query( $conexion , $actualizarPrimer);
+     $bitacora3="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','1','INGRESO AL SISTEMA','INGRESO A LA PANTALLA PRINCIPAL DESDE LOGIN')";
+     mysqli_query( $conexion , $bitacora3 );
+     include('../Principal/principal2.php');
 
 }elseif($estado=="BLOQUEADO"){
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
@@ -138,7 +148,7 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
 if ( $filas_PAR==0 and $usuario<>"ADMIN") {
      # code...
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
-     $Actualizar_parametro="UPDATE tbl_ms_parametros SET valor = '3' WHERE PARAMETRO='ADMIN_INTENTOS'";
+     $Actualizar_parametro="UPDATE tbl_ms_parametros SET valor = $filas_PAR WHERE PARAMETRO='ADMIN_INTENTOS'";
      mysqli_query( $conexion , $Actualizar_parametro );
      $actualizarEstado_ = "UPDATE tbl_ms_usuario SET ESTADO_USUARIO = 'BLOQUEADO' WHERE ID_USUARIO = $id";
      mysqli_query( $conexion , $actualizarEstado_ );
