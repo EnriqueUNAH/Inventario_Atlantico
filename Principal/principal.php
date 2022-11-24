@@ -200,7 +200,7 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Principal/Mantenimiento/Mantenimiento-estante.php">
+            <a href="../Principal/Mantenimiento/CrudEstante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>
             </a>
           </li>

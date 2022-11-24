@@ -81,7 +81,7 @@
             </a>
           </li>
           <li>
-            <a href="../Mantenimiento/Mantenimiento-estante.php">
+            <a href="../Mantenimiento/CrudEstante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>
             </a>
           </li>
