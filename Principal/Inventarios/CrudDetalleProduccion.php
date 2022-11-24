@@ -68,12 +68,12 @@
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
 
-        $nombreProducto=$_POST['Nombre_PRODUCTO'];
-        $cantidadProducir=$_POST['cantidad_producir'];
+       // $nombreProducto=$_POST['Nombre_PRODUCTO'];
+       // $cantidadProducir=$_POST['cantidad_producir'];
 
 
     ?>
-        <?php include('Detalle_Produccion_Registrar.php');  ?>
+       <?php include('Detalle_Produccion_Registrar.php');  ?>
 
 <div class="row text-center" style="background-color: #cecece">
 </div>

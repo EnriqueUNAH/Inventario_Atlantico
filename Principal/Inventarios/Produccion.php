@@ -78,7 +78,3 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
 
   </main><!-- End #main -->
-
-
-
-
