@@ -21,7 +21,7 @@ $NOMBRE_ESTANTE_ = mysqli_num_rows( $resultado_ );
 if($NOMBRE_ESTANTE_ ){?>
 <script> 
    alert("Estante ya existente");
-   location.href= "Estante_CrearROl.php";
+   location.href= "Estante_Crear.php";
 </SCRipt>
 <?php
 }else{

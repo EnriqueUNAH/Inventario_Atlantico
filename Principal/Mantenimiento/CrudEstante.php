@@ -76,7 +76,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
       <div class="col-sm-12"><h2><b>ESTANTE</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='Estante_CrearRol.php'" class="btn btn-primary">NUEVO</button>
+                <button type="button" onclick="window.location='Estante_Crear.php'" class="btn btn-primary">NUEVO</button>
                 </div>
                 <div>
                     <p></p>
