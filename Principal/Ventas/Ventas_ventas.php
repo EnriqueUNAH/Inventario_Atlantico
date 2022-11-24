@@ -1,15 +1,5 @@
 <?php include('../cabecera.php') ?>
-<?php 
-if ($_SESSION['nombre']=="ADMINISTRADOR") {
-	# code...
-	include('../sidebar.php');
-  }else{
-	# code...
-	include('../sidebar2.php');
-  }
-
-?>
-<?php
+<?php 	include('../sidebar.php');
 	session_start();
 	include "../db2.php";
  ?>
@@ -78,7 +68,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
   </tr>
 <?php
   //Paginador
-  $sql_registe = mysqli_query($conexion2,"SELECT COUNT(*) as total_registro FROM factura WHERE estatus != 10 ");
+  $sql_registe = mysqli_query($conexion2,"SELECT COUNT(*) as total_registro FROM tbl_factura WHERE ESTADO != 10 ");
   $result_register = mysqli_fetch_array($sql_registe);
   $total_registro = $result_register['total_registro'];
 
@@ -94,16 +84,16 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
   $desde = ($pagina-1) * $por_pagina;
   $total_paginas = ceil($total_registro / $por_pagina);
 
-  $query = mysqli_query($conexion2,"SELECT f.nofactura,f.fecha,f.totalfactura,f.codcliente,f.estatus,
-                       u.nombre as vendedor,
-                       cl.nombre as cliente
-                    FROM factura f
-                    INNER JOIN usuario u
-                    ON f.usuario = u.idusuario
-                    INNER JOIN cliente cl
-                    ON f.codcliente = cl.idcliente
-                    WHERE f.estatus != 10
-                      ORDER BY f.fecha DESC LIMIT $desde,$por_pagina");
+  $query = mysqli_query($conexion2,"SELECT f.NO_FACTURA,f.FECHA,f.TOTAL_FACTURA,f.COD_CLIENTE,f.ESTADO,
+                       u.NOMBRE_USUARIO as vendedor,
+                       cl.NOMBRE_COMPLETO as cliente
+                    FROM tbl_factura f
+                    INNER JOIN tbl_ms_usuario u
+                    ON f.ID_USUARIO = u.ID_USUARIO
+                    INNER JOIN tbl_cliente cl
+                    ON f.COD_CLIENTE = cl.COD_CLIENTE
+                    WHERE f.ESTADO != 10
+                      ORDER BY f.FECHA DESC LIMIT $desde,$por_pagina");
 
   mysqli_close($conexion2);
 
@@ -112,42 +102,36 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
     while ($data = mysqli_fetch_array($query)) {
 
-      if($data["estatus"] == 1){
+      if($data["ESTADO"] == 1){
         $estado = '<span class="pagada">Pagada</span>';
       }else{
         $estado = '<span class="anulada">Anulada</span>';
       }
   ?>
-    <tr id="row_<?php echo $data["nofactura"]; ?>">
-      <td><?php echo $data["nofactura"]; ?></td>
-      <td><?php echo $data["fecha"]; ?></td>
+    <tr id="row_<?php echo $data["NO_FACTURA"]; ?>">
+      <td><?php echo $data["NO_FACTURA"]; ?></td>
+      <td><?php echo $data["FECHA"]; ?></td>
       <td><?php echo $data["cliente"]; ?></td>
       <td><?php echo $data["vendedor"]; ?></td>
       <td class="estado"><?php echo $estado; ?></td>
-      <td class="textright totalfactura"><span>$.</span><?php echo $data["totalfactura"]; ?></td>
+      <td class="textright totalfactura"><span>$.</span><?php echo $data["TOTAL_FACTURA"]; ?></td>
 
       <td>
         <div class="div_acciones">
           <div>
-            <button class="btn_view view_factura" type="button" cl="<?php echo $data["codcliente"]; ?>" f="<?php echo $data['nofactura'];?>"><i class="fas fa-eye"></i></button>
+            <button class="btn_view view_factura" type="button" cl="<?php echo $data["COD_CLIENTE"]; ?>" f="<?php echo $data['NO_FACTURA'];?>"><i class="fas fa-eye"></i></button>
           </div>
 
 
-        <?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
-            if($data["estatus"] == 1)
-            {
-        ?>
+        <
         <div class="div_factura">
-          <button class="btn_anular anular_factura" fac="<?php echo $data["nofactura"]; ?>"><i class="fas fa-ban"></i></button>
+          <button class="btn_anular anular_factura" fac="<?php echo $data["NO_FACTURA"]; ?>"><i class="fas fa-ban"></i></button>
         </div>
-      <?php 		}else{ ?>
-
+     
         <div class="div_factura">
           <button type="button" class="btn_anular inactive" ><i class="fas fa-ban"></i></button>
         </div>
-      <?php 			}
-          }
-      ?>
+      <
 
         </div>
 

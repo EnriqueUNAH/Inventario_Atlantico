@@ -141,7 +141,7 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Principal/Ventas/Ventas_ventas.php">
+            <a href="../Principal/Inventarios/sistema/ventas.php">
               <i class="bi bi-circle"></i><span>VER VENTAS</span>
             </a>
           </li>
@@ -170,8 +170,8 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Principal/Inventarios/CrudProducto.php">
-              <i class="bi bi-circle"></i><span>VER PRODUCTOS</span>
+            <a href="../Principal/Inventarios/Sistema/lista_producto.php">
+              <i class="bi bi-circle"></i><span>PRODUCTOS</span>
             </a>
           </li>
           <li>

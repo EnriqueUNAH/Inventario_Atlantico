@@ -2,7 +2,7 @@
 
 	if(empty($_SESSION['active']))
 	{
-		header('location: ../');
+		//header('location: ../');
 	}
  ?>
 	<header>
