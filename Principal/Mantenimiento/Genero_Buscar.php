@@ -1,14 +1,6 @@
 <?php include('../cabecera.php') ?>
-<?php 
-if ($_SESSION['nombre']=="ADMINISTRADOR") {
-	# code...
-	include('../sidebar.php');
-  }else{
-	# code...
-	include('../sidebar2.php');
-  }
-
-?>
+<?php include('../sidebar.php') ?>
+<?php include('../sidebar.php') ?>
 
 
 <!DOCTYPE html>
@@ -118,17 +110,20 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 </div>
 
 
-        <?php 
+<?php 
 
-        $busqueda = strtolower($_REQUEST['busqueda']);
-        if(empty($busqueda)){
-                header("location: CrudGenero.php");
-                mysqli_close($conection);
-        }
+$busqueda = strtolower($_REQUEST['busqueda']);
+if(empty($busqueda))
+{
+    header("location: CrudGenero.php");
+    mysqli_close($conection);
+}
 
-        ?>
 
-        <form action="Genero_Buscar.php" method="get" class="form_search">
+?>
+
+
+<form action="Genero_Buscar.php" method="get" class="form_search">
 			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
 			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
@@ -174,7 +169,12 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                         
 
 
-      
+                        $queryCliente = mysqli_query($conexion2,"SELECT NOMBRE_GENERO FROM TBL_GENERO 
+										WHERE 
+                                        COD_GENERO LIKE '%$busqueda%' OR
+										NOMBRE_GENERO LIKE '%$busqueda%'  "); 
+											  
+                                            
 				
                                           
                                              
