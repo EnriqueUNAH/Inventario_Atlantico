@@ -102,12 +102,12 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                           <tr>
                             <td><?php echo $dataCliente['NOMBRE_ESTANTE']; ?></td>
                           <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteESTANTE<?php echo $dataCliente['COD_GENERO']; ?>">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteESTANTE<?php echo $dataCliente['COD_ESTANTE']; ?>">
                                   Eliminar
                               </button>
                             
                             
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ediTESTANTE<?php echo $dataCliente['COD_GENERO']; ?>">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ediTESTANTE<?php echo $dataCliente['COD_ESTANTE']; ?>">
                                   Modificar
                               </button>
                           </td>
