@@ -68,7 +68,8 @@
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
 
-
+        $nombreProducto=$_POST['Nombre_PRODUCTO'];
+        $cantidadProducir=$_POST['cantidad_producir'];
 
 
     ?>

@@ -41,7 +41,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
         
         <br>
         <label for="yourName" class="form-label">INGRESE LA CANTIDAD A PRODUCIR</label>
-        <input type="number" style="text-transform:uppercase" name="NOMBRE_GENERO"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="cantidad_producir"  class="form-control" id="yourName" required>
 
       </div>
         <div class="invalid-feedback">Producto INVÁLIDO!</div>
