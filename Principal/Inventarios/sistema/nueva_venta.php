@@ -8,11 +8,14 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Nueva Venta</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
-
+	
+	<?php include "../../cabecera2.php"; ?>
+	<?php include "../../sidebar3.php"; ?>
+	<main id="main" class="main">
 	<section id="container">
 		<div class="title_page">
 			<h1><i class="fas fa-cube"></i> Nueva Venta</h1>
@@ -26,7 +29,7 @@
 				<input type="hidden" name="action" value="addCliente" >
 				<input type="hidden" id="idcliente" name="idcliente" value="" required>
 				<div class="wd30">
-					<label>Nit</label>
+					<label>RTN</label>
 					<input type="text" name="nit_cliente" id="nit_cliente">
 				</div>
 				<div class="wd30">
@@ -101,8 +104,9 @@
 		</table>
 	</div>
 	</section>
+	</main>
+	<?php include "../../footer2.php"; ?>
 
-	<?php include "includes/footer.php"; ?>
 
 	<script type="text/javascript">
 		$(document).ready(function(){

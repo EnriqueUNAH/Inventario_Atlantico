@@ -110,9 +110,16 @@
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
 	<title>Actualizar Usuario</title>
+	<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
+	<?php include "includes/header.php"; ?>
+
+	<?php include "../../cabecera2.php"; ?>
+	<?php include "../../sidebar3.php"; ?>
+	<main id="main" class="main">
 	<section id="container">
 		
 		<div class="form_register">
@@ -164,6 +171,7 @@
 
 
 	</section>
+	</main>
 	<?php include "includes/footer.php"; ?>
 </body>
 </html>
