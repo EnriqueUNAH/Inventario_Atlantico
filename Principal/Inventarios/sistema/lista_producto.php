@@ -10,12 +10,14 @@
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
 	<title>Lista de productos</title>
+	<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
 
 	<?php include "../../cabecera2.php"; ?>
-	<?php include "../../sidebar.php"; ?>
+	<?php include "../../sidebar3.php"; ?>
 	<main id="main" class="main">
 	<section id="container">
 
@@ -27,7 +29,7 @@
 			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
 	<div class="containerTable">
-		<table>
+		<table  class="table table-bordered table-striped table-hover">
 			<tr>
 				<th>Código</th>
 				<th>Descripción</th>
@@ -106,11 +108,11 @@
 					<td class="img_producto"><img src="<?php echo $foto; ?>" alt="<?php echo $data["descripcion"]; ?>"></td>
 					<?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){ ?>
 					<td>
-						<a class="link_add add_product" product="<?php echo $data["codproducto"]; ?>" href="#"><i class="fas fa-plus"></i> Agregar</a>
+						<a class="link_add add_product" product="<?php echo $data["codproducto"]; ?>" href="#"><i class="fas fa-plus"></i> </a>
 						|
-						<a class="link_edit" href="editar_producto.php?id=<?php echo $data["codproducto"]; ?>"><i class="far fa-edit"></i> Editar</a>
+						<a class="link_edit" href="editar_producto.php?id=<?php echo $data["codproducto"]; ?>"><i class="far fa-edit"></i> </a>
 						|
-						<a class="link_delete del_product" href="#" product="<?php echo $data["codproducto"]; ?>"><i class="far fa-trash-alt"></i> Eliminar</a>
+						<a class="link_delete del_product" href="#" product="<?php echo $data["codproducto"]; ?>"><i class="far fa-trash-alt"></i> </a>
 					</td>
 					<?php } ?>
 				</tr>
