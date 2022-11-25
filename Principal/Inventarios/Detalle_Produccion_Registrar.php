@@ -9,18 +9,18 @@
       <input type="number" class="form-control" name="CANTIDAD" required='true' autofocus>
   </div>
 
-  <div class="col-7">
+  <div class="col-4">
        <br>
 
         <label for="yourName" class="form-label">SELECCIONE UN INSUMO PARA LA PRODUCCIÓN:</label>
-        <select name="Nombre_PRODUCTO" class="form-control">
+        <select name="descripcion" class="form-control">
         <?php
               include("../db2.php");
-              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto where cod_tipo_producto=2" );
+              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM producto where cod_tipo_producto=1" );
               
           ?>
           <?php foreach ($ejecutar as $opciones): ?>
-              <option value="<?php echo $opciones['Nombre_PRODUCTO']?>"><?php echo $opciones['Nombre_PRODUCTO'] ?></option>
+              <option value="<?php echo $opciones['descripcion']?>"><?php echo $opciones['descripcion'] ?></option>
           <?php endforeach ?>
           <?php ?>
                               

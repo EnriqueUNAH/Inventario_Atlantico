@@ -1,5 +1,6 @@
 <?php include("../cabecera2.php") ?>
 <?php 
+
 if ($_SESSION['nombre']=="ADMINISTRADOR") {
 	# code...
 	include('../sidebar.php');
@@ -19,20 +20,21 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
     </div><!-- End Page Title -->
 <!-- Change Password Form -->
 
+
     <form action="CrudDetalleProduccion.php" method="post"  class="row g-3 needs-validation" novalidate="false">
 
-    <div class="col-7">
+    <div class="col-3" >
        <br>
 
         <label for="yourName" class="form-label">SELECCIONE UN PRODUCTO:</label>
-        <select name="Nombre_PRODUCTO" class="form-control">
+        <select name="" id="selectProducto" class="form-control">
         <?php
               include("../db2.php");
-              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto where cod_tipo_producto=2" );
+              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM producto where cod_tipo_producto=2" );
               
           ?>
           <?php foreach ($ejecutar as $opciones): ?>
-              <option value="<?php echo $opciones['Nombre_PRODUCTO']?>"><?php echo $opciones['Nombre_PRODUCTO'] ?></option>
+              <option value="<?php echo $opciones['descripcion']?>"><?php echo $opciones['descripcion'] ?></option>
           <?php endforeach ?>
           <?php ?>
                               
@@ -40,10 +42,15 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
         
         <br>
-        <label for="yourName" class="form-label">INGRESE LA CANTIDAD A PRODUCIR</label>
-        <input type="number" style="text-transform:uppercase" name="cantidad_producir"  class="form-control" id="yourName" required>
+        <label for="yourName" class="form-label">CANTIDAD</label>
+        <input type="number" style="text-transform:uppercase" name="cantidad_producir" id="cantidad_producir" class="form-control" id="yourName" placeholder="Cantidad a Producir"required>
+
+
+
+        
 
       </div>
+
         <div class="invalid-feedback">Producto INVÁLIDO!</div>
       </div> 
  
@@ -59,21 +66,21 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
         <div class="form-group">
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
-          <input type="submit" name="save" class="btn btn-sm btn-primary" value="Enviar Nueva Producción">
+          <input type="submit" name="save" id="btnProductoProducir" class="btn btn-sm btn-primary" value="Enviar Nueva Producción" disabled>
+         
           <a href="Produccion.php" class="btn btn-sm btn-danger">Cancelar</a>
           </div>
         </div>
       </div>
       
-
+              <script src="Produccion.js"></script>
 
 
 
 
 
     </form><!-- End Change Password Form -->
-
-
+          
 
 
 
