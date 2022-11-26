@@ -451,16 +451,30 @@ $_SESSION['nombre'];
 //FACTURAS
 include('db2.php');
  # Consulto Factura
- $consulta="SELECT MAX(TOTAL_FACTURA) FROM tbl_factura";
+
+
+
+
+ $max=mysqli_query($conexion2,"SELECT MAX(TOTAL_FACTURA) as maximo from tbl_factura");
+ $n=mysqli_fetch_assoc($max);
+ $nmax=$n["maximo"];
+
+
+$consulta_="SELECT NO_FACTURA FROM tbl_factura where TOTAL_FACTURA = '$nmax'";
+$resultado_=mysqli_query( $conexion2 , $consulta_ );
+while ($valor_=mysqli_fetch_array( $resultado_ )) {
+     # code...
+     $NoFact=$valor_['NO_FACTURA'];
+ }
+
+ $consulta="SELECT PRECIO_VENTA FROM tbl_detalle_factura where NO_FACTURA = '$NoFact'";
  $resultado=mysqli_query( $conexion2 , $consulta );
  while ($valor=mysqli_fetch_array( $resultado )) {
       # code...
-      $max=$valor;
+      $precio=$valor['PRECIO_VENTA'];
   }
 
-
-
-
+  $ventas=$nmax/$precio;
 ?>
       <!-- Top Selling -->
       <div class="col-12">
@@ -483,9 +497,9 @@ include('db2.php');
                       <tr>
                         <th scope="row"><a href="#"><img src="../assets/img/BUZO.jpg" alt="" width="100" height="100"></a></th>
                         <td><a href="#" class="text-primary fw-bold">UNIFORMES</a></td>
-                        <td><?php echo $max ?></td>
-                        <td class="fw-bold">124</td>
-                        <td>$5,828</td>
+                        <td><?php echo $precio ?> </td>
+                        <td> <?php echo intval($ventas)  ?></td>
+                        <td><?php echo $nmax ?></td>
                       </tr>
 
                     </tbody>
