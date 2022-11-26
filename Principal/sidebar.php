@@ -22,7 +22,7 @@
             </a>
           </li>
           <li>
-          <a href="../Ventas/Ventas_ventas.php">
+          <a href="../Inventarios/Sistema/ventas.php">
               <i class="bi bi-circle"></i><span>VER VENTAS</span>
             </a>
           </li>
@@ -51,8 +51,8 @@
             </a>
           </li>
           <li>
-            <a href="../Inventarios/CrudProducto.php">
-              <i class="bi bi-circle"></i><span>VER PRODUCTOS</span>
+            <a href="../Inventarios/Sistema/lista_producto.php">
+              <i class="bi bi-circle"></i><span> PRODUCTOS</span>
             </a>
           </li>
           <li>

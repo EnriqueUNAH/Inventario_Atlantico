@@ -32,6 +32,8 @@
 
     <script type="text/javascript" src="../js/icons.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Inventarios/sistema/style.css">
+
 
       
 	</head>
@@ -54,7 +56,7 @@
 		</form>
 	
 	<div class="containerTable">
-		<table>
+		<table lass="table table-bordered table-striped table-hover">
         <tr>
                 <th>NOMBRE USUARIO</th>
                 <th scope="col">ESTADO</th>
