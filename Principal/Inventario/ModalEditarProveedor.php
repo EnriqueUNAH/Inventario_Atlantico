@@ -29,6 +29,15 @@
                   <label for="recipient-name" class="col-form-label">RTN:</label>
                   <input type="number" name="RTN" class="form-control" value="<?php echo $dataCliente['RTN']; ?>" required="true">
                 </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">TELEFONO:</label>
+                  <input type="number" name="TELEFONO" class="form-control" value="<?php echo $dataCliente['TELEFONO']; ?>" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">DIRECCION:</label>
+                  <input type="text" name="DIRECCION" class="form-control" value="<?php echo $dataCliente['DIRECCION']; ?>" required="true">
+                </div>
+
                 
             </div>
             <div class="modal-footer">

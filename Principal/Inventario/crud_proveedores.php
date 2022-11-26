@@ -103,7 +103,11 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                             <th scope="col">NOMBRE REPRESENTANTE</th>
                             <th scope="col">NOMBRE DE LA EMPRESA</th>
                             <th scope="col">RTN</th>
+                            <th scope="col">TELEFONO</th>
+                            <th scope="col">DIRECCION</th>
                             <th scope="col">ACCIONES</th>
+                           
+
 
                           </tr>
                         </thead>
@@ -114,6 +118,8 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                             <td><?php echo $dataCliente['NOMBRE_REPRESENTANTE']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_EMPRESA']; ?></td>
                             <td><?php echo $dataCliente['RTN']; ?></td>
+                            <td><?php echo $dataCliente['TELEFONO']; ?></td>
+                            <td><?php echo $dataCliente['DIRECCION']; ?></td>
                             
                           <td> 
                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_PROVEEDOR']; ?>">
@@ -228,6 +234,15 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                   <label for="recipient-name" class="col-form-label">RTN:</label>
                   <input type="number" name="RTN" class="form-control" required="true">
                 </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">TELEFONO:</label>
+                  <input type="number" name="TELEFONO" class="form-control" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">DIRECCION:</label>
+                  <input type="text" name="DIRECCION" class="form-control" required="true">
+                </div>
+
                 
             </div>
             <div class="modal-footer">
