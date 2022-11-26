@@ -73,7 +73,7 @@
 
 
     ?>
-    <?php include('Producto_Producir.php');  ?>
+  
        <?php include('Detalle_Produccion_Registrar.php');  ?>
 
 <div class="row text-center" style="background-color: #cecece">
@@ -118,9 +118,8 @@
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD']; ?></td>
-
+                            <td><?php echo $dataCliente['descripcion']; ?></td>
+                          
                            
                           <td> 
                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">

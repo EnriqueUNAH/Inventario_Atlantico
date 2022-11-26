@@ -56,7 +56,6 @@
                                                                     inner join tbl_ms_objetos as objeto on objeto.ID_OBJETO = permiso.ID_OBJETO");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
-        $tabla="";
     ?>
 
 <div class="row text-center" style="background-color: #cecece">
@@ -80,7 +79,7 @@
           <div class="col-sm-20">
               <div class="row">
                 <div class="col-md-12 p-2">
-                <input type="submit" value="GUARDAR PERMISOS">
+
 
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
@@ -91,97 +90,57 @@
                             <th> PERMISO INSERCIÓN</th>
                             <th> PERMISO ELIMINACIÓN</th>
                             <th> PERMISO ACTUALIZACIÓN</th>
-                            <th> PERMISO CONSULTAR</th>
-                     
+                            <th> PERMISO_CONSULTAR</th>
+                            <th> ACCIONES</th>
                           </tr>
                         </thead>
                         <tbody>
-                        <?php
-                              while ($dataCliente =mysqli_fetch_array($queryCliente)){
-                                $tabla.=
-                        '<tr>';
-
-                           if($dataCliente['PERMISO_INSERCION']=='1' and $dataCliente['PERMISO_ELIMINACION']=='1' and $dataCliente['PERMISO_ACTUALIZACION']=='1'and $dataCliente['PERMISO_CONSULTAR']=='1'){
-                                     echo '<td>' .$dataCliente['ROL']. '</td>';
-                                     echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                                    echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar' checked><br></td>";
-                                    echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar' checked><br></td>";
-                                    echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar' checked><br></td>";
-                                    echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar' checked><br></td>";
-                                        
-                              }elseif ($dataCliente['PERMISO_INSERCION']=='0' && $dataCliente['PERMISO_ELIMINACION']=='0' && $dataCliente['PERMISO_ACTUALIZACION']=='0'and $dataCliente['PERMISO_CONSULTAR']=='0') {
-                                # code...
-                                echo '<td>' .$dataCliente['ROL']. '</td>';
-                                echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar'><br></td>";
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar'><br></td>";
-                                echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar'><br></td>";
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar'><br></td>";
-                        }elseif ($dataCliente['PERMISO_INSERCION']=='0' && $dataCliente['PERMISO_ELIMINACION']=='1' && $dataCliente['PERMISO_ACTUALIZACION']=='1'and $dataCliente['PERMISO_CONSULTAR']=='1') {
-                          # code...
-                          echo '<td>' .$dataCliente['ROL']. '</td>';
-                                echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar'><br></td>";
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar'checked><br></td>";
-                                echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar'checked><br></td>";
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar' checked><br></td>";
-                        }elseif ($dataCliente['PERMISO_INSERCION']=='0' && $dataCliente['PERMISO_ELIMINACION']=='0' && $dataCliente['PERMISO_ACTUALIZACION']=='1'and $dataCliente['PERMISO_CONSULTAR']=='1') {
-                          # code...
-                          echo '<td>' .$dataCliente['ROL']. '</td>';
-                          echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar'><br></td>";
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar'><br></td>";
-                                echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar'checked><br></td>";
-                                echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar' checked><br></td>";
-                        }elseif ($dataCliente['PERMISO_INSERCION']=='0' && $dataCliente['PERMISO_ELIMINACION']=='0' && $dataCliente['PERMISO_ACTUALIZACION']=='0'and $dataCliente['PERMISO_CONSULTAR']=='1') {
-                          # code...
-                          echo '<td>' .$dataCliente['ROL']. '</td>';
-                          echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar'><br></td>";
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar'><br></td>";
-                          echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar'><br></td>";
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar' checked><br></td>";
-                        }elseif ($dataCliente['PERMISO_INSERCION']=='1' && $dataCliente['PERMISO_ELIMINACION']=='0' && $dataCliente['PERMISO_ACTUALIZACION']=='0'and $dataCliente['PERMISO_CONSULTAR']=='1') {
-                          # code...
-                          echo '<td>' .$dataCliente['ROL']. '</td>';
-                          echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar' checked><br></td>";
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar'><br></td>";
-                          echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar'><br></td>";
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar' checked><br></td>";
-                        }elseif ($dataCliente['PERMISO_INSERCION']=='1' && $dataCliente['PERMISO_ELIMINACION']=='1' && $dataCliente['PERMISO_ACTUALIZACION']=='0'and $dataCliente['PERMISO_CONSULTAR']=='1') {
-                          # code...
-                          echo '<td>' .$dataCliente['ROL']. '</td>';
-                          echo '<td>' .$dataCliente['OBJETO']. '</td>';
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosI' id='insertar' checked><br></td>";
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosE' id='eliminar' checked><br></td>";
-                          echo "<td><input class='form-check-input'  type='checkbox' name='permisosA' id='actualizar'><br></td>";
-                          echo "<td><input class='form-check-input' type='checkbox' name='permisosC' id='consultar' checked><br></td>";
-                        }
-                      
+                          <?php
+                              while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
+                          <tr>
+                          <td><?php echo $dataCliente['ROL']; ?></td>
+                          <td><?php echo $dataCliente['OBJETO']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_INSERCION']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_ELIMINACION']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_ACTUALIZACION']; ?></td>
+                            <td><?php echo $dataCliente['PERMISO_CONSULTAR']; ?></td>
+                            
+                          <td> 
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPermiso<?php echo $dataCliente['ID_ROL']?>">
+                                  Cambiar Permisos
+                              </button>
+                          </td>
+                          </tr>
+                                                               
+                             <!--Ventana Modal para Actualizar--->
+                                <?php  include('Permiso_Modal_Editar.php'); ?>
 
 
-                          
-                       echo '</tr>';   
-                     
-                         
-                         }
-                         $tabla.= '</table>';
+                            
 
-                         echo $tabla;
-                      
-                echo '</div>';
 
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>'; 
-?>
+                        <?php } ?>
+                
+                    </table>
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>'
+<script src="../js/bootstrap.min.js"></script>
 
 
 
