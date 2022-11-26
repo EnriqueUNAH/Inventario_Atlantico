@@ -32,7 +32,17 @@ $_SESSION['nombre'];
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+    .contenedor {
+  
+    display:flex;
+    grid-template-rows: 100px 100px;
 
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+  </style>
 </head>
 
 <body>
@@ -306,37 +316,204 @@ $_SESSION['nombre'];
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+    <h1>Dashboard</h1>
       <br>
+      <section class="contenedor">
       <div class="col-sm-6">
          <div class="card card-primary">
             <div class="card-body">
             <br> 
             <h5><b>VISION</b></h5>
-            <p>Llegar a ser una empresa muy reconocida a nivel mundial por la calidad que ofrecemos
-              en nuestros productos y buen servicio que le brindamos a nuestros clientes.
-            </p>                               
+            <p>
+                <p>
+                Llegar a ser una empresa muy reconocida a nivel mundial 
+                </p>
+                <p>
+                por la calidad que ofrecemos
+              en nuestros productos y buen servicio que le     
+                </p>
+                brindamos a nuestros clientes.
+                <p>                            
             </div>                            
           </div>                          
       </div>                        
-  
+  <div class="contenedor">
+    <p></p>
+  </div>
       <div class="col-sm-6">
          <div class="card">
             <div class="card-body">
             <br> 
             <h5><b>MISION</b></h5>
             <p>Fabricar y comercializar uniformes y ropa deportiva a nivel nacional e internacional y 
-              ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las necesidades
-              de nuestros clientes ofreciendo mayor calidad y comodidad.
+                <p>
+                ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las necesidades de nuestros clientes ofreciendo mayor calidad y comodidad.
+                </p>
               
             </p>                               
             </div>                            
           </div>                          
       </div> 
-      
+      </section>
 
 
     </div><!-- End Page Title -->
+  </div>
+
+  <section class="contenedor">
+      <div class="col-sm-6">
+         <div class="card card-primary">
+            <div class="card-body">
+            <?php 
+
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_ms_usuario";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+                  <br> 
+                  <h5><b<i class="bi bi-people-fill"></i> TOTAL DE USUARIOS</b></h5>
+                  <?php echo $filas ?>              
+                  </div>                            
+                </div>                          
+              </div>                          
+      </div>                        
+  <div class="contenedor">
+    <p></p>
+  </div>
+      <div class="col-sm-6">
+         <div class="card">
+            <div class="card-body">
+            <?php 
+
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_proveedor";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+              <br> 
+                  <h5><b<i class="bi bi-briefcase-fill"> TOTAL DE PROVEEDORES</b></h5>
+                  <?php echo $filas ?>                
+                  </div>                            
+                </div>                                                   
+          </div>                          
+      </div> 
+      </section>
+
+      <section class="contenedor">
+      <div class="col-sm-6">
+         <div class="card card-primary">
+            <div class="card-body">
+            <?php 
+
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_cliente";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+                  <br> 
+                  <h5><b<i class="bi bi-emoji-laughing"></i> TOTAL DE CLIENTES</b></h5>
+                  <?php echo $filas ?>              
+                  </div>                            
+                </div>                          
+              </div>                          
+      </div>            
+      
+      
+      <!-- Reports -->
+
+            
+  <div class="contenedor">
+    <p></p>
+  </div>
+      <div class="col-sm-6">
+         <div class="card">
+            <div class="card-body">
+            <?php 
+
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_venta";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+              <br> 
+                  <h5><b<i class="bi bi-cash"> TOTAL DE VENTAS</b></h5>
+                  <?php echo $filas ?>                
+                  </div>                            
+                </div>                                                   
+          </div>                          
+      </div> 
+      </section>
+
+<!-- Line REPORT -->
+<?php 
+// CONSULTAS
+//VENTAS
+
+
+
+
+?>
+      <!-- Top Selling -->
+      <div class="col-12">
+              <div class="card top-selling overflow-auto">
+
+                <div class="card-body pb-0">
+                  <h5 class="card-title">LO MAS VENDIDO <span></span></h5>
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">PRE VISUALIZACION</th>
+                        <th scope="col">PRODUCTO</th>
+                        <th scope="col">PRECIO</th>
+                        <th scope="col">VENTAS</th>
+                        <th scope="col">INGRESOS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="../assets/img/product-1.jpg" alt="" width="100" height="100"></a></th>
+                        <td><a href="#" class="text-primary fw-bold">UNIFORMES</a></td>
+                        <td>$64</td>
+                        <td class="fw-bold">124</td>
+                        <td>$5,828</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="../assets/img/product-2.jpg" alt="" width="100" height="100"></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
+                        <td>$46</td>
+                        <td class="fw-bold">98</td>
+                        <td>$4,508</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="../assets/img/product-3.jpg" alt="" width="100" height="100"></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
+                        <td>$59</td>
+                        <td class="fw-bold">74</td>
+                        <td>$4,366</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="../assets/img/product-4.jpg" alt="" width="100" height="100"></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
+                        <td>$32</td>
+                        <td class="fw-bold">63</td>
+                        <td>$2,016</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="../assets/img/product-5.jpg" alt="" width="100" height="100"></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
+                        <td>$79</td>
+                        <td class="fw-bold">41</td>
+                        <td>$3,239</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Top Selling -->
 
     <section class="section dashboard">
       <div class="row">
