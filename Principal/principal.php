@@ -432,7 +432,7 @@ $_SESSION['nombre'];
             <?php 
 
               include('db2.php');
-              $consulta="SELECT * FROM tbl_venta";
+              $consulta="SELECT * FROM tbl_factura";
               $resultado= mysqli_query( $conexion2 , $consulta );
               $filas = mysqli_num_rows( $resultado );
               ?>      
@@ -448,7 +448,15 @@ $_SESSION['nombre'];
 <!-- Line REPORT -->
 <?php 
 // CONSULTAS
-//VENTAS
+//FACTURAS
+include('db2.php');
+ # Consulto Factura
+ $consulta="SELECT MAX(TOTAL_FACTURA) FROM tbl_factura";
+ $resultado=mysqli_query( $conexion2 , $consulta );
+ while ($valor=mysqli_fetch_array( $resultado )) {
+      # code...
+      $max=$valor;
+  }
 
 
 
@@ -473,40 +481,13 @@ $_SESSION['nombre'];
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row"><a href="#"><img src="../assets/img/product-1.jpg" alt="" width="100" height="100"></a></th>
+                        <th scope="row"><a href="#"><img src="../assets/img/BUZO.jpg" alt="" width="100" height="100"></a></th>
                         <td><a href="#" class="text-primary fw-bold">UNIFORMES</a></td>
-                        <td>$64</td>
+                        <td><?php echo $max ?></td>
                         <td class="fw-bold">124</td>
                         <td>$5,828</td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="../assets/img/product-2.jpg" alt="" width="100" height="100"></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                        <td>$46</td>
-                        <td class="fw-bold">98</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="../assets/img/product-3.jpg" alt="" width="100" height="100"></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
-                        <td class="fw-bold">74</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="../assets/img/product-4.jpg" alt="" width="100" height="100"></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                        <td>$32</td>
-                        <td class="fw-bold">63</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="../assets/img/product-5.jpg" alt="" width="100" height="100"></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                        <td>$79</td>
-                        <td class="fw-bold">41</td>
-                        <td>$3,239</td>
-                      </tr>
+
                     </tbody>
                   </table>
 
