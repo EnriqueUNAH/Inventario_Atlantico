@@ -24,6 +24,7 @@ $_SESSION['nombre'];
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" media="all" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -36,9 +37,34 @@ $_SESSION['nombre'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+
+#logo {
+
+  margin:auto;
+	text-align:center;
+}
+      h3 {
+
+  text-align:center;
+}
+
+
+.container {
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+    </style>
+
+
 </head>
 <body>
     <?php
+    
+          
 include('../db2.php');
 
 $sqlCliente   = ("SELECT * FROM tbl_ms_estado e inner join tbl_ms_usuario u on e.ID_ESTADO = u.ID_ESTADO inner join tbl_ms_roles r on u.ID_ROL =r.ID_ROL ORDER BY ID_USUARIO");
@@ -46,35 +72,38 @@ $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 ?>
 <?php
-$fecha = date("Y-m-d");
+$fecha = date("d-m-y h:i:s A");
+date_default_timezone_set('America/El_Salvador');
 $remitente = $_SESSION['nombre'];
 ?>
 
+<header>
+<div>
+      <div >
+            <img src="../logo.png">
+            <p></p>
+        </div>
+        <div >REPORTE A:</div>
+          <h4 ><?php echo $_SESSION['nombre'] ?></h4>
+        </div>
+      <div >
+        <h2 class="center">INVERSIONES DEL ATLANTICO</h2>
+      </div>
+          <div>La Ceiba, Atlantida, Honduras</div>
+          <div>(504) 9952-56-71</div>
+          <div><a href="mailto:company@example.com">company@inversionesdelatlantico.com</a></div>
+       <div>
+        </div>
+      </div>
+      </div>
+    </header>
+    <main>       
+    
+    <br>
+            <h3 class="center">Lista de Usuarios</h3>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-10 ">
-            <h1>Lista de Usuarios</h1>
-        </div>
-        <div class="col-xs-2">
-            <p><img src="../logo.png"></p>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-xs-10">
-        </div>
-        <div class="col-xs-2 text-center">
-            <strong>Fecha</strong>
-            <br>
-            <?php echo $fecha ?>
-            <br>
-    </div>
-    <hr>
-<p></p>
-<p></p>
+<table class="table table-striped table-hover">
 
-<table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
                             <th>NOMBRE USUARIO</th>
@@ -101,6 +130,18 @@ $remitente = $_SESSION['nombre'];
                         <?php } ?>
                 
 </table>
+
+        <div>
+        </div>
+        <div class="text-right">
+          <br>
+          <p></p>
+            <strong>Fecha</strong>
+            <br>
+            <?php echo $fecha ?>
+            <br>
+    </div>
+
 </body>
 </html>
 
@@ -120,7 +161,7 @@ $dompdf->setOptions($options);
 
 $dompdf->loadHtml($html);
 
-$dompdf->setPaper('letter');
+$dompdf->setPaper('A4');
  
 $dompdf->render();
 $dompdf->stream("Usuarios.pdf", array("Attachment"=> true)); //descargar o no el pdf
