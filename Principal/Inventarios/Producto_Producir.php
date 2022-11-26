@@ -57,7 +57,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
           <div class="col-sm-6">
           <input type="submit" name="save" id="btnProductoProducir" class="btn btn-sm btn-primary" value="Enviar Nueva Producción" disabled>
          
-          <a href="Produccion.php" class="btn btn-sm btn-danger">Cancelar</a>
+          <!-- <a href="Produccion.php" class="btn btn-sm btn-danger">Cancelar</a>  -->
           </div>
         </div>
       </div>

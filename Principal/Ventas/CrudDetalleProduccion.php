@@ -73,7 +73,7 @@
 
 
     ?>
-    <?php include('Produccion.php');  ?>
+  
        <?php include('Detalle_Produccion_Registrar.php');  ?>
 
 <div class="row text-center" style="background-color: #cecece">
