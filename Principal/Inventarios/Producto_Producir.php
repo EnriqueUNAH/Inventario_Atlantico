@@ -1,4 +1,5 @@
 <?php include("../cabecera2.php") ?>
+
 <?php 
 
 if ($_SESSION['nombre']=="ADMINISTRADOR") {
@@ -12,6 +13,10 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 ?>
 
  
+
+
+
+
 
     <div class="pagetitle">
       <h1>PRODUCTO A PRODUCIR</h1>

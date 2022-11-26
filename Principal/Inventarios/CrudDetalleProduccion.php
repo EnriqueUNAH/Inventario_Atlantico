@@ -10,6 +10,33 @@
     }
 
 ?>
+
+
+
+
+
+
+<?php
+
+     // Incluir db2 file   
+     require_once "../db2.php";
+        $Descripcion = ($_POST['selectProducto']);
+
+     $CantidadProducto=$_POST['cantidad_producir'];
+
+            $id_producto="SELECT codproducto FROM producto WHERE descripcion='$Descripcion'";
+            $resultado_producto= mysqli_query( $conexion2 , $id_producto );
+                  while ($id_producto=mysqli_fetch_array( $resultado_producto )) {
+                   # code...
+                  $id_producto_=$id_producto['codproducto'];
+    }
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -67,14 +94,10 @@
         $sqlCliente   = ("SELECT * FROM tbl_detalle_produccion as dp INNER JOIN tbl_produccion as pr on dp.COD_PRODUCCION = pr.COD_PRODUCCION");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
-
-       // $nombreProducto=$_POST['Nombre_PRODUCTO'];
-       // $cantidadProducir=$_POST['cantidad_producir'];
-
-
     ?>
-    <?php include('Producto_Producir.php');  ?>
+    
        <?php include('Detalle_Produccion_Registrar.php');  ?>
+      
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
@@ -97,7 +120,8 @@
                     <p></p>
                 </div> 
                 <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
-         
+                <?php echo $id_producto?>
+
 
           <div class="col-sm-20">
               <div class="row">
@@ -118,30 +142,22 @@
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD']; ?></td>
-
+                            <td><?php echo $dataCliente['descripcion']; ?></td>
+                            <td><?php echo $id_producto_; ?></td>
                            
-                          <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                  Eliminar
-                              </button>
-                            
-                            
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                  Modificar
-                              </button>
-                          </td>
+                                <td> 
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
+                                            Eliminar
+                                    </button>
+                                                       
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
+                                             Modificar
+                                    </button>
+                                </td>
+                                
                           </tr>
                                                 
-                            <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('Producto_Modal_Eliminar.php'); ?>
-
-
-                            <!--Ventana Modal para Actualizar--->
-                            <?php  include('Producto_Modal_Editar.php'); ?>
-
-                            
+     
 
 
                         <?php } ?>
@@ -205,92 +221,3 @@
 </html>
 
 
-
-
-<div id="InsertChildresn" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #3d5a7c !important;">
-        <h6 class="modal-title" style="color: #fff; text-align: center;">
-            INSERTAR PRODUCTOS
-        </h6>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-
-      <form method="POST" action="Producto_create.php">
-        <input type="hidden" name="id">
-
-            <div class="modal-body" id="cont_modal">
-
-
-                
-        <div class="col-7">
-       <br>
-        <label for="yourName" class="form-label">NOMBRE DEL PRODUCTO</label>
-        <input type="text" style="text-transform:uppercase" name="Nombre_PRODUCTO"  class="form-control" id="yourName" required><br>
-        <div class="invalid-feedback">POR FAVOR, INGRESA EL NOMBRE DEL PRODUCTO!</div>
-
-        
-        <label for="yourName" class="form-label">DESCRIPCIÓN</label>
-        <input type="text" style="text-transform:uppercase" name="DESCRIPCION"  class="form-control" id="yourName" required><br>
-        <div class="invalid-feedback">POR FAVOR, INGRESA UNA DESCRIPCIÓN!</div>
-
-        <label for="yourName" class="form-label">CANTIDAD MÍNIMA</label>
-        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MINIMA"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
-        <br>
-        <label for="yourName" class="form-label">CANTIDAD MÁXIMA</label>
-        <input type="number" style="text-transform:uppercase" name="CANTIDAD_MAXIMA"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA UNA CANTIDAD!</div>
-        <br>
-        <label for="yourName" class="form-label">SELECCIONE UN TIPO DE PRODUCTO:</label>
-        <select name="NOMBRE_TIPO_PRODUCTO" class="form-control">
-        <?php
-              include("../db2.php");
-              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_tipo_producto " );
-              
-          ?>
-          <?php foreach ($ejecutar as $opciones): ?>
-              <option value="<?php echo $opciones['NOMBRE_TIPO_PRODUCTO']?>"><?php echo $opciones['NOMBRE_TIPO_PRODUCTO'] ?></option>
-          <?php endforeach ?>
-          <?php ?>
-                              
-        </select>
-        <div class="invalid-feedback">Tipo de Producto INVÁLIDO!</div>
-      </div> 
-
-      <br>
-        <label for="yourName" class="form-label">PRECIO DE VENTA</label>
-        <input type="number" style="text-transform:uppercase" name="PRECIO_VENTA"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA UN PRECIO DE VENTA!</div>
-
-
-
-    </div>
-
-
-
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-              <button type="submit" class="btn btn-primary">GUARDAR DATOS</button>
-            </div>
-       </form>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-<?php include("../footer.php")?>

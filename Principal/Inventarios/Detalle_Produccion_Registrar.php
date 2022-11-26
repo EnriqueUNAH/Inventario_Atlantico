@@ -1,10 +1,4 @@
 
-<?php
-        $ProductoProducir=$_POST['descripcion'];
-        $CantidadProducto=$_POST['cantidad_producir'];
-
-?>
-
 
 
 <form name="form-data" action="" method="POST">
@@ -15,8 +9,7 @@
 
 
      <div class="col-4">
-
-
+  
        <br>
             <label for="yourName" class="form-label">SELECCIONE UN INSUMO PARA LA PRODUCCIÓN:</label>
                   <select name="descripcion" class="form-control">
