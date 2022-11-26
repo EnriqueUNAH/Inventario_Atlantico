@@ -11,7 +11,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
 ?>
 
-  <main id="main" class="main">
+ 
 
     <div class="pagetitle">
       <h1>PRODUCTO A PRODUCIR</h1>
@@ -20,10 +20,10 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
     </div><!-- End Page Title -->
 <!-- Change Password Form -->
 
+<div class="col-7" >
+    <form action="CrudDetalleProduccion.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
 
-    <form action="CrudDetalleProduccion.php" method="post"  class="row g-3 needs-validation" novalidate="false">
-
-    <div class="col-3" >
+    <div class="col-5" >
        <br>
 
         <label for="yourName" class="form-label">SELECCIONE UN PRODUCTO:</label>
@@ -43,26 +43,15 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
         
         <br>
         <label for="yourName" class="form-label">CANTIDAD</label>
-        <input type="number" style="text-transform:uppercase" name="cantidad_producir" id="cantidad_producir" class="form-control" id="yourName" placeholder="Cantidad a Producir"required>
-
-
-
-        
-
-      </div>
-
-        <div class="invalid-feedback">Producto INVÁLIDO!</div>
-      </div> 
- 
-
-
-
-
+        <input type="number" style="text-transform:uppercase" name="cantidad_producir" id="cantidad_producir" class="form-control" id="yourName" placeholder="Cantidad a Producir" required>
+      
     </div>
 
+        <div class="invalid-feedback">Producto INVÁLIDO!</div>
 
 
-      <div class="text-center">
+
+        <div class="text-center">
         <div class="form-group">
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
@@ -73,6 +62,12 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
         </div>
       </div>
       
+
+      
+ </div>
+
+
+
               <script src="Produccion.js"></script>
 
 
@@ -80,8 +75,8 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
 
     </form><!-- End Change Password Form -->
-          
+    </div>         
+</div>
 
 
-
-  </main><!-- End #main -->
+ 
