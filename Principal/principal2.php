@@ -205,7 +205,7 @@ $_SESSION['nombre'];
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+    <h1>Dashboard</h1>
       <br>
       <section class="contenedor">
       <div class="col-sm-6">
@@ -247,73 +247,159 @@ $_SESSION['nombre'];
 
 
     </div><!-- End Page Title -->
+  </div>
 
-    <section class="section dashboard">
-      <div class="row">
+  <section class="contenedor">
+      <div class="col-sm-6">
+         <div class="card card-primary">
+            <div class="card-body">
+            <?php 
 
-        <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_ms_usuario";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+                  <br> 
+                  <h5><b<i class="bi bi-people-fill"></i> TOTAL DE USUARIOS</b></h5>
+                  <?php echo $filas ?>              
+                  </div>                            
+                </div>                          
+              </div>                          
+      </div>                        
+  <div class="contenedor">
+    <p></p>
+  </div>
+      <div class="col-sm-6">
+         <div class="card">
+            <div class="card-body">
+            <?php 
 
-            <!-- Sales Card -->            
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_proveedor";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+              <br> 
+                  <h5><b<i class="bi bi-briefcase-fill"> TOTAL DE PROVEEDORES</b></h5>
+                  <?php echo $filas ?>                
+                  </div>                            
+                </div>                                                   
+          </div>                          
+      </div> 
+      </section>
+
+      <section class="contenedor">
+      <div class="col-sm-6">
+         <div class="card card-primary">
+            <div class="card-body">
+            <?php 
+
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_cliente";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+                  <br> 
+                  <h5><b<i class="bi bi-emoji-laughing"></i> TOTAL DE CLIENTES</b></h5>
+                  <?php echo $filas ?>              
+                  </div>                            
+                </div>                          
+              </div>                          
+      </div>            
+      
+      
+      <!-- Reports -->
+
+            
+  <div class="contenedor">
+    <p></p>
+  </div>
+      <div class="col-sm-6">
+         <div class="card">
+            <div class="card-body">
+            <?php 
+
+              include('db2.php');
+              $consulta="SELECT * FROM tbl_factura";
+              $resultado= mysqli_query( $conexion2 , $consulta );
+              $filas = mysqli_num_rows( $resultado );
+              ?>      
+              <br> 
+                  <h5><b<i class="bi bi-cash"> TOTAL DE VENTAS</b></h5>
+                  <?php echo $filas ?>                
+                  </div>                            
+                </div>                                                   
+          </div>                          
+      </div> 
+      </section>
+
+<!-- Line REPORT -->
+<?php 
+// CONSULTAS
+//FACTURAS
+include('db2.php');
+ # Consulto Factura
+
+
+
+
+ $max=mysqli_query($conexion2,"SELECT MAX(TOTAL_FACTURA) as maximo from tbl_factura");
+ $n=mysqli_fetch_assoc($max);
+ $nmax=$n["maximo"];
+
+
+$consulta_="SELECT NO_FACTURA FROM tbl_factura where TOTAL_FACTURA = '$nmax'";
+$resultado_=mysqli_query( $conexion2 , $consulta_ );
+while ($valor_=mysqli_fetch_array( $resultado_ )) {
+     # code...
+     $NoFact=$valor_['NO_FACTURA'];
+ }
+
+ $consulta="SELECT PRECIO_VENTA FROM tbl_detalle_factura where NO_FACTURA = '$NoFact'";
+ $resultado=mysqli_query( $conexion2 , $consulta );
+ while ($valor=mysqli_fetch_array( $resultado )) {
+      # code...
+      $precio=$valor['PRECIO_VENTA'];
+  }
+
+  $ventas=$nmax/$precio;
+?>
+      <!-- Top Selling -->
+      <div class="col-12">
+              <div class="card top-selling overflow-auto">
+
+                <div class="card-body pb-0">
+                  <h5 class="card-title">LO MAS VENDIDO <span></span></h5>
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">PRE VISUALIZACION</th>
+                        <th scope="col">PRODUCTO</th>
+                        <th scope="col">PRECIO</th>
+                        <th scope="col">VENTAS</th>
+                        <th scope="col">INGRESOS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="../assets/img/BUZO.jpg" alt="" width="100" height="100"></a></th>
+                        <td><a href="#" class="text-primary fw-bold">UNIFORMES</a></td>
+                        <td><?php echo $precio ?> </td>
+                        <td> <?php echo intval($ventas)  ?></td>
+                        <td><?php echo $nmax ?></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
 
                 </div>
 
               </div>
-            </div><!-- End Reports -->            
+            </div><!-- End Top Selling -->
+
+    
           </div>
         </div><!-- End Left side columns -->
     </section>
