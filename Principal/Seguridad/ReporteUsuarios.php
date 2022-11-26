@@ -63,7 +63,6 @@ $remitente = $_SESSION['nombre'];
     <hr>
     <div class="row">
         <div class="col-xs-10">
-            <h1 class="h6"><?php echo $remitente ?></h1>
         </div>
         <div class="col-xs-2 text-center">
             <strong>Fecha</strong>

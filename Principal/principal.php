@@ -170,7 +170,7 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Inventarios/Produccion.php">
+            <a href="../Inventarios/Producto_Producir.php">
               <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
             </a>
           </li>
@@ -302,7 +302,7 @@ $_SESSION['nombre'];
 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Principal/Seguridad/crud_permisos.php">
+            <a href="../Principal/Seguridad/permisos.php">
               <i class="bi bi-circle"></i><span>PERMISOS</span>
             </a>
           </li>

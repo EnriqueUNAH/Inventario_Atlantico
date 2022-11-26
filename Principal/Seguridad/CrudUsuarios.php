@@ -54,8 +54,9 @@
                 <div class="col-sm-22">
                 <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-primary">NUEVO</button>
                 <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
+                <button type="button" onclick="window.location='Usuario_ver_mas.php'" class="btn btn-info"> Ver Más</button>                
                 
-<form action="buscar_venta.php" method="get" class="form_search">
+<form action="buscar_usuario.php" method="get" class="form_search">
   <input type="text" name="busqueda" id="busqueda" placeholder="Nombre">
   <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 </form>
@@ -106,11 +107,7 @@
                             
                               <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['ID_USUARIO']; ?>">
                                   Modificar
-                              </button>
-
-                              
-                            <button type="button" onclick="window.location='Usuario_ver_mas.php'" class="btn btn-primary btn-xs"> Ver Más</button>
-
+                              </button>    
                               
                           </td>
                           </tr>

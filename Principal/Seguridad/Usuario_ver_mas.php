@@ -21,12 +21,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     	<!-- SCRIPTS JS-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="peticion.js"></script>
-
-    
-
-      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="peticion.js"></script>
+    <link rel="stylesheet" href="stylese.css">
+    <script type="text/javascript" src="../js/icons.js"></script>      
 	</head>
   
 	<body>
@@ -56,14 +54,16 @@
                 <div class="col-sm-22">
                 <button type="button" onclick="window.location='CrearUsuario.php'" class="btn btn-primary">NUEVO</button>
                 <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
+                <button type="button" onclick="window.location='CrudUsuarios.php'" class="btn btn-info"> Ver menos</button>                
                 
+                
+<form action="buscar_usuario.php" method="get" class="form_search">
+  <input type="text" name="busqueda" id="busqueda" placeholder="Nombre">
+  <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
+</form>
                 <p></p>
                 
-                <div class="search-box">
-                                <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Buscar&hellip;">
-                            </div>
-                        <div class="col-sm-20">
-                <div>
+                
                     <p></p>
                 </div> 
 
@@ -79,13 +79,14 @@
                         <thead>
                           <tr>
                             <th>NOMBRE USUARIO</th>
+                            <th> USUARIO</th>
                             <th scope="col">ESTADO</th>
                             <th scope="col">ULTIMA CONEXIÓN</th>
                             <th scope="col">INGRESOS</th>
                             <th scope="col">CORREO ELECTRONICO</th>
                             <th scope="col">ROL</th>
-                            <th scope="col">ACCIONES</th>
-
+                            <th>ULTIMO INGRESO</th>
+                            <th>FECHA VENCIMIENTO</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -93,29 +94,14 @@
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['NOMBRE_USUARIO']; ?></td>
+                            <td><?php echo $dataCliente['USUARIO']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_ESTADO']; ?></td>
                             <td><?php echo $dataCliente['FECHA_ULTIMA_CONEXION']; ?></td>
                             <td><?php echo $dataCliente['PRIMER_INGRESO']; ?></td>
                             <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
                             <td><?php echo $dataCliente['ROL']; ?></td>
-
-                            
-                          <td> 
-                          <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['ID_USUARIO']; ?>">
-                                  Eliminar
-                              </button>
-                            
-                            
-                              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['ID_USUARIO']; ?>">
-                                  Modificar
-                              </button>
-                                
-
-                              
-                              <button href="" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#vermasusuarios<?php echo $dataCliente['ID_USUARIO']; ?>">
-                                  Ver Más
-                              </button>
-                          </td>
+                            <td><?php echo $dataCliente['FECHA_ULTIMA_CONEXION']; ?></td>
+                            <td><?php echo $dataCliente['FECHA_VENCIMIENTO']; ?></td>
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->

@@ -22,7 +22,7 @@
             </a>
           </li>
           <li>
-          <a href="../Ventas/Ventas_ventas.php">
+          <a href="../Inventarios/Sistema/ventas.php">
               <i class="bi bi-circle"></i><span>VER VENTAS</span>
             </a>
           </li>
@@ -41,7 +41,7 @@
             </a>
           </li>
           <li>
-            <a href="../Inventarios/Produccion.php">
+            <a href="../Inventarios/Producto_Producir.php">
               <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
             </a>
           </li>
@@ -51,8 +51,8 @@
             </a>
           </li>
           <li>
-            <a href="../Inventarios/CrudProducto.php">
-              <i class="bi bi-circle"></i><span>VER PRODUCTOS</span>
+            <a href="../Inventarios/Sistema/lista_producto.php">
+              <i class="bi bi-circle"></i><span> PRODUCTOS</span>
             </a>
           </li>
           <li>
@@ -175,7 +175,7 @@
         
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Seguridad/crud_permisos.php">
+            <a href="../Seguridad/permisos.php">
               <i class="bi bi-circle"></i><span>PERMISOS</span>
             </a>
           </li>
