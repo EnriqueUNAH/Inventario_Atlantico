@@ -41,11 +41,7 @@
             </a>
           </li>
           <li>
-<<<<<<< HEAD
-            <a href="../../Principal/Inventarios/Producto_Producir.php">
-=======
             <a href="../Inventarios/Producto_Producir.php">
->>>>>>> 8fb55661cc5add48273c1730f9bf6af7a406a8f8
               <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
             </a>
           </li>
