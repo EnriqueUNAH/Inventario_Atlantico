@@ -1,4 +1,4 @@
-<?php include("../cabecera2.php") ?>
+<?php include("../cabecera3.php") ?>
 
 <?php 
 
@@ -16,7 +16,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
 
 
-
+<main id="main" class="main">
 
     <div class="pagetitle">
       <h1>PRODUCTO A PRODUCIR</h1>
@@ -83,5 +83,6 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
     </div>         
 </div>
 
+</main>
 
  
