@@ -41,12 +41,16 @@
             </a>
           </li>
           <li>
+<<<<<<< HEAD
             <a href="../Inventario/crud_detalle_compra.php">
               <i class="bi bi-circle"></i><span>DETALLE COMPRAS</span>
             </a>
           </li>
           <li>
             <a href="../Inventarios/Producto_Producir.php">
+=======
+            <a href="../Principal/Inventarios/Producto_Producir.php">
+>>>>>>> 79ae30f4c0a33f73e5bcca07daafd82fe5822a09
               <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
             </a>
           </li>
