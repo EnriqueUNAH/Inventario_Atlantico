@@ -117,7 +117,7 @@ while ($primerI=mysqli_fetch_array( $resultado_primer )) {
      mysqli_query( $conexion , $actualizarPrimer);
      $bitacora3="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$id','1','INGRESO AL SISTEMA','INGRESO A LA PANTALLA PRINCIPAL DESDE LOGIN')";
      mysqli_query( $conexion , $bitacora3 );
-     include('../Principal/principal2.php');
+     include('../Principal/principal.php');
 
 }elseif($estado=="BLOQUEADO"){
      echo '<script>alert("SU USUARIO ESTA BLOQUEADO LLAME AL ADMINISTRADOR");</script>';
