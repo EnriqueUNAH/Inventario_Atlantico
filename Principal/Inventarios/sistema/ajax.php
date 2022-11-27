@@ -182,7 +182,7 @@
 											<td class="textright">'.$tl_sniva.'</td>
 										</tr>
 										<tr>
-											<td colspan="5" class="textright">IVA ('.$iva.'%)</td>
+											<td colspan="5" class="textright">ISV ('.$iva.'%)</td>
 											<td class="textright">'.$impuesto.'</td>
 										</tr>
 										<tr>
@@ -268,7 +268,7 @@
 											<td class="textright">'.$tl_sniva.'</td>
 										</tr>
 										<tr>
-											<td colspan="5" class="textright">IVA ('.$iva.'%)</td>
+											<td colspan="5" class="textright">ISV ('.$iva.'%)</td>
 											<td class="textright">'.$impuesto.'</td>
 										</tr>
 										<tr>
@@ -344,7 +344,7 @@
 											<td class="textright">'.$tl_sniva.'</td>
 										</tr>
 										<tr>
-											<td colspan="5" class="textright">IVA ('.$iva.'%)</td>
+											<td colspan="5" class="textright">ISV ('.$iva.'%)</td>
 											<td class="textright">'.$impuesto.'</td>
 										</tr>
 										<tr>

@@ -9,7 +9,6 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Lista de ventas</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
