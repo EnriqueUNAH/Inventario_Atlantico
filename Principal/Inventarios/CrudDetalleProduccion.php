@@ -13,9 +13,6 @@
 
 
 
-
-
-
 <?php
 
      // Incluir db2 file   
