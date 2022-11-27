@@ -102,7 +102,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                             <th scope="col">COMPRA</th>
                             <th scope="col">PRECIO</th>
                             <th scope="col">CANTIDAD</th>
-                            <th scope="col">PRODUCTO</th>
+                            <th scope="col">INSUMO</th>
                             <th scope="col">ACCIONES</th>
 
                           </tr>
