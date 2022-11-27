@@ -52,3 +52,41 @@
 </form>
 
 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(window).load(function() {
+            $(".cargando").fadeOut(1000);
+        });
+
+//Ocultar mensaje
+    setTimeout(function () {
+        $("#contenMsjs").fadeOut(1000);
+    }, 3000);
+
+
+
+    $('.agregar_insumo').click(function(e){
+        e.preventDefault();
+        var id = $(this).attr("id");
+
+        var dataString = 'COD_PRODUCTO='+ id;
+        url = "Detalle_Produccion_Create.php";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: dataString,
+                success: function(data)
+                {
+                  window.location.href="CrudDetalleProduccion.php";
+                  $('#respuesta').html(data);
+                }
+            });
+    return false;
+
+    });
+
+
+});
+</script>

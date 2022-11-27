@@ -10,3 +10,7 @@
     }
 
 ?>
+
+
+<?php echo $Descripcion; ?> 
+<?php echo $CantidadProducir; ?>

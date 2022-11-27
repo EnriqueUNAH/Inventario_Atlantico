@@ -77,14 +77,29 @@
 
     <main id="main" class="main">
     <?php
-
-
-
         include('../db2.php');
+        $Descripcion="";
+        $Descripcion= ($_POST[ 'selectProducto' ]);
+        $CantidadProducir = $_POST[ 'cantidad_producir' ];
+        
 
         $sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
+
+
+//Consultar el id seleccionado de la tabla producto
+$cod_producto="SELECT codproducto FROM producto WHERE descripcion='$Descripcion'";
+$resultado_producto= mysqli_query( $conexion2 , $cod_producto );
+    while ($Cod_Producto=mysqli_fetch_array( $resultado_producto )) {
+        # code...
+        $cod_producto_=$Cod_Producto['codproducto'];
+    }
+
+
+
+
+
     ?>
     
        <?php include('Detalle_Produccion_Registrar.php');  ?>
@@ -124,7 +139,7 @@
                             <th class="col-sm-4"> INSUMO</th>
                             <th class="col-sm-4"> CANTIDAD</th>
                             <th> ACCIÓN</th>
-
+                            <th> ACCIÓN</th>
                           </tr>
                         </thead>
                       
@@ -134,7 +149,9 @@
                             
                             <td><?php echo $dataCliente['insumo']; ?></td>
                             <td><?php echo $dataCliente['cantidad']; ?></td>
-                                
+                            <td><?php echo $Descripcion; ?></td>  
+                            <td><?php echo $CantidadProducir; ?></td>
+                             
                           </tr>                                               
                         <?php } ?>
   

@@ -32,16 +32,16 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
        <br>
 
         <label for="yourName" class="form-label">SELECCIONE UN PRODUCTO:</label>
-        <select name="" id="selectProducto" class="form-control">
-        <?php
-              include("../db2.php");
-              $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM producto where cod_tipo_producto=2" );
-              
-          ?>
-          <?php foreach ($ejecutar as $opciones): ?>
-              <option value="<?php echo $opciones['descripcion']?>"><?php echo $opciones['descripcion'] ?></option>
-          <?php endforeach ?>
-          <?php ?>
+        <select name="selectProducto" id="selectProducto" class="form-control">
+
+              <?php
+                    include("../db2.php");
+                    $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM producto where cod_tipo_producto=2" );           
+              ?>
+             <?php foreach ($ejecutar as $opciones): ?>
+                    <option value="<?php echo $opciones['descripcion']?>"><?php echo $opciones['descripcion'] ?></option>
+              <?php endforeach ?>
+              <?php ?>
                               
         </select>
 
