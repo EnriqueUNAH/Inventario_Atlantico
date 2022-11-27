@@ -13,27 +13,13 @@
 
 
 
-
-
-
 <?php
 
      // Incluir db2 file   
      require_once "../db2.php";
-        $Descripcion = ($_POST['selectProducto']);
-
-     $CantidadProducto=$_POST['cantidad_producir'];
-
-            $id_producto="SELECT codproducto FROM producto WHERE descripcion='$Descripcion'";
-            $resultado_producto= mysqli_query( $conexion2 , $id_producto );
-                  while ($id_producto=mysqli_fetch_array( $resultado_producto )) {
-                   # code...
-                  $id_producto_=$id_producto['codproducto'];
-    }
-
+    
 
 ?>
-
 
 
 
@@ -84,6 +70,11 @@
 	</head>
   
 	<body>
+
+
+
+
+
     <main id="main" class="main">
     <?php
 
@@ -91,7 +82,7 @@
 
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_detalle_produccion as dp INNER JOIN tbl_produccion as pr on dp.COD_PRODUCCION = pr.COD_PRODUCCION");
+        $sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -110,18 +101,15 @@
 
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
-              <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
-                                  NUEVO
-                              </button>   -->
+                <button type="button" onclick="window.location='ProduccionEnProceso.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
+      
            
             </div>
                 <div>
                     <p></p>
                 </div> 
                 <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
-                <?php echo $id_producto?>
-
+         
 
           <div class="col-sm-20">
               <div class="row">
@@ -133,35 +121,29 @@
                         <thead>
                           <tr>
                             
-                            <th> INSUMO</th>
-                            <th> CANTIDAD</th>
+                            <th class="col-sm-4"> INSUMO</th>
+                            <th class="col-sm-4"> CANTIDAD</th>
+                            <th> ACCIÓN</th>
 
                           </tr>
                         </thead>
-                        <tbody>
+                      
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['descripcion']; ?></td>
-                            <td><?php echo $id_producto_; ?></td>
-                           
-                                <td> 
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                            Eliminar
-                                    </button>
-                                                       
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
-                                             Modificar
-                                    </button>
-                                </td>
+                            
+                            <td><?php echo $dataCliente['insumo']; ?></td>
+                            <td><?php echo $dataCliente['cantidad']; ?></td>
                                 
-                          </tr>
-                                                
-     
-
-
+                          </tr>                                               
                         <?php } ?>
-                
+  
+                        <tr>
+
+
+                        </tr> 
+
+
                     </table>
                 </div>
 
