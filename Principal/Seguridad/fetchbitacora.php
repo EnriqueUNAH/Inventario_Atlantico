@@ -30,11 +30,10 @@ while($row = mysqli_fetch_array($result))
 {
 $CON=$CON+1;
  $sub_array = array();
- $sub_array[] = '<div contenteditable class="update" data-id="'.$row["NOMBRE_USUARIO"].'"'. $CON .' data-column="NOMBRE_USUARIO">' . $row["NOMBRE_USUARIO"] . '</div>';
- $sub_array[] = '<div contenteditable="FALSE" class="update" data-id="'.$row["OBJETO"].'"'. $CON .' data-column="OBJETO">' . $row["OBJETO"] . '</div>';
- $sub_array[] = '<div contenteditable="FALSE" class="update" data-id="'.$row["ACCION"].'"'. $CON .' data-column="ACCION">' . $row["ACCION"] . '</div>';
- $sub_array[] = '<div contenteditable class="update" data-id="'.$row["DESCRIPCION"].'"'. $CON .' data-column="DESCRIPCION">' . $row["DESCRIPCION"] . '</div>';
- $sub_array[] = '<button type="button" name="delete" class="btn btn-danger bt=n-xs delete" id"'.$row["ID_OBJETO"].'">BORRAR</button>';
+ $sub_array[] = '<div data-id="'.$row["NOMBRE_USUARIO"].'"'. $CON .' data-column="NOMBRE_USUARIO">' . $row["NOMBRE_USUARIO"] . '</div>';
+ $sub_array[] = '<div data-id="'.$row["OBJETO"].'"'. $CON .' data-column="OBJETO">' . $row["OBJETO"] . '</div>';
+ $sub_array[] = '<div data-id="'.$row["ACCION"].'"'. $CON .' data-column="ACCION">' . $row["ACCION"] . '</div>';
+ $sub_array[] = '<div data-id="'.$row["DESCRIPCION"].'"'. $CON .' data-column="DESCRIPCION">' . $row["DESCRIPCION"] . '</div>';
  $data[] = $sub_array;
  $draw[]= $sub_array;
 }

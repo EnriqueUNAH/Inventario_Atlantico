@@ -1,5 +1,13 @@
 <?php
 include('../db2.php');
+session_start();
+$var=$_SESSION['nombre'];
+$consulta_="SELECT ID_USUARIO FROM tbl_ms_usuario where NOMBRE_USUARIO = '$var'";
+     $resultado_=mysqli_query( $conexion2 , $consulta_ );
+     while ($valor=mysqli_fetch_array( $resultado_ )) {
+          # code...
+          $filas_=$valor['ID_USUARIO'];
+      }
 $dni      = $_REQUEST['DNI'];
 $nombreP      = $_REQUEST['primer'];
 $tel	 = $_REQUEST['telefono'];
@@ -20,8 +28,8 @@ if ($genero=="MASCULINO") {
 $consulta="SELECT * FROM tbl_cliente";
 $resultado= mysqli_query( $conexion2 , $consulta );
 $filas = mysqli_num_rows( $resultado );
-
-$insertar_="INSERT INTO tbl_cliente VALUES('$filas','$dni','$nombreP','$tel','$correo','$dir','$fechaC','$gen')";
+$filas=$filas+1;
+$insertar_="INSERT INTO tbl_cliente VALUES('$filas','$dni','$nombreP','$tel','$correo','$dir','$fechaC','$gen','$filas_','1')";
 
 mysqli_query($conexion2, $insertar_);
 

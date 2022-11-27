@@ -47,7 +47,7 @@
        <th>OBJETO</th>
        <th>ACCION</th>
        <th>DESCRIPCION</th>
-       <th></th>
+   
       </tr>
      </thead>
     </table>
