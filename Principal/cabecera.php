@@ -92,7 +92,6 @@ $('[data-toggle="tooltip"]').tooltip();
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?php echo $_SESSION['nombre'];?></h6>
-              <span>Diseñador web</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -109,9 +108,9 @@ $('[data-toggle="tooltip"]').tooltip();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="../ajustes.php">
                 <i class="bi bi-gear"></i>
-                <span>Ajustes de la cuenta</span>
+                <span>Ajustes de la empresa</span>
               </a>
             </li>
             <li>

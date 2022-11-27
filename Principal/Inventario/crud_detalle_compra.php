@@ -63,7 +63,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_compra");
+        $sqlCliente   = ("SELECT * FROM tbl_detalle_compra");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -76,7 +76,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2><b>COMPRAS</b></h2></div>
+      <div class="col-sm-12"><h2><b>DETALLE DE COMPRAS</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
@@ -100,10 +100,9 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                         <thead>
                           <tr>
                             <th scope="col">COMPRA</th>
-                            <th scope="col">TOTAL PAGADO</th>
-                            <th scope="col">FECHA</th>
-                            <th scope="col">IMPUESTOS</th>
-                            <th scope="col">PROVEEDOR</th>
+                            <th scope="col">PRECIO</th>
+                            <th scope="col">CANTIDAD</th>
+                            <th scope="col">PRODUCTO</th>
                             <th scope="col">ACCIONES</th>
 
                           </tr>
@@ -111,21 +110,20 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                         <tbody>
                           <?php
                            while ($dataCliente = mysqli_fetch_array($queryCliente)) {
-                          $var=$dataCliente['COD_PROVEEDOR'];
-                          $consultaproveedor="SELECT NOMBRE_EMPRESA FROM tbl_proveedor where COD_PROVEEDOR = '$var'";
-                          $resultado_proveedor=mysqli_query( $conexion2 , $consultaproveedor );
-                          while ($proveedor_=mysqli_fetch_array( $resultado_proveedor )) {
+                          $var=$dataCliente['COD_PRODUCTO'];
+                          $consultaproducto="SELECT DESCRIPCION FROM tbl_producto where COD_PRODUCTO = '$var'";
+                          $resultado_producto=mysqli_query( $conexion2 , $consultaproducto );
+                          while ($producto_=mysqli_fetch_array( $resultado_producto )) {
                                # code...
-                               $proveedor=$proveedor_['NOMBRE_EMPRESA'];
+                               $producto=$producto_['DESCRIPCION'];
                            }
                               ?>
                               
                           <tr>
                             <td><?php echo $dataCliente['COD_COMPRA']; ?></td>
-                            <td><?php echo $dataCliente['TOTAL_PAGADO']; ?></td>
-                            <td><?php echo $dataCliente['FECHA']; ?></td>
-                            <td><?php echo $dataCliente['ISV']; ?></td>
-                            <td><?php echo $proveedor?></td>
+                            <td><?php echo $dataCliente['PRECIO_COMPRA']; ?></td>
+                            <td><?php echo $dataCliente['CANTIDAD']; ?></td>
+                            <td><?php echo $producto?></td>
                           <td> 
                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_COMPRA']; ?>">
                                   Anular
@@ -134,11 +132,11 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('ModalEliminarCompra.php'); ?>
+                            <?php include('ModalEliminarDetalleCompra.php'); ?>
 
 
                             <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditarCompra.php'); ?>
+                            <?php  include('ModalEditarDetalleCompra.php'); ?>
 
 
                         <?php } ?>
@@ -223,36 +221,32 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
             <div class="modal-body" id="cont_modal">
 
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">TOTAL PAGADO:</label>
+                  <label for="recipient-name" class="col-form-label">PRECIO:</label>
                   <input type="text" name="total" class="form-control" required="true">
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">FECHA:</label>
-                  <input type="date" name="fecha">
+                  <label for="recipient-name" class="col-form-label">CANTIDAD:</label>
+                  <input type="text" name="total" class="form-control" required="true">
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">IMPUESTOS:</label>
-                  <input type="number" name="ISV" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                      <label for="yourName" class="form-label">SELECCIONE PROVEEDOR:</label>
-                      <select name="proveedor" class="form-control">
+                      <label for="yourName" class="form-label">SELECCIONE INSUMOS:</label>
+                      <select name="producto" class="form-control">
                       <?php
                               # code...
                               include("../db2.php");
-                              $consulta = "SELECT * FROM tbl_proveedor";
+                              $consulta = "SELECT * FROM tbl_producto";
                             
                             $ejecutar= mysqli_query($conexion2,$consulta);
                         ?>
-                      <option selected value="">--Seleccionar proveedor--</option>
+                      <option selected value="">--Seleccionar insumo--</option>
 
                         <?php foreach ($ejecutar as $opciones): ?>
-                            <option name="empresa" value="<?php echo $opciones['NOMBRE_EMPRESA']?>"><?php echo $opciones['NOMBRE_EMPRESA'] ?></option>
+                            <option name="producto" value="<?php echo $opciones['DESCRIPCION']?>"><?php echo $opciones['DESCRIPCION'] ?></option>
                         <?php endforeach ?>
                         <?php ?>    
                                             
                       </select>
-                      <div class="invalid-feedback">EMPRESA INVALIDA!</div>
+                      <div class="invalid-feedback">PRODUCTO INVALIDA!</div>
                     </div>
             </div>
             <div class="modal-footer">
