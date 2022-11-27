@@ -46,14 +46,14 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 		
 		<h1> <i class="fas fa-users"></i> Lista de clientes</h1>
 		
-		<form action="buscar_cliente.php" method="get" class="form_search">
+		<form action="crudclientes.php" method="get" class="form_search">
 			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
 			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
 	<div class="containerTable">
 	<table class="table table-bordered table-striped table-hover" id="asd">
 			<tr>
-            <th scope="col">DNI</th>
+            <th scope="col">RTN</th>
             <th scope="col">NOMBRE</th>
             <th scope="col">TELEFONO</th>
             <th scope="col">CORREO ELECTONICO</th>
@@ -65,7 +65,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 			//Paginador
 			$sql_registe = mysqli_query($conexion2,"SELECT COUNT(*) as total_registro FROM tbl_cliente 
 																WHERE ( COD_CLIENTE LIKE '%$busqueda%' OR 
-																		NUMERO_DNI LIKE '%$busqueda%' OR 
+																		RTN LIKE '%$busqueda%' OR 
 																		NOMBRE_COMPLETO LIKE '%$busqueda%' OR 
 																		TELEFONO LIKE '%$busqueda%' OR
 																		CORREO_ELECTRONICO LIKE '%$busqueda%' OR
@@ -90,7 +90,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
 			$query = mysqli_query($conexion2,"SELECT * FROM tbl_cliente WHERE 
 										( COD_CLIENTE LIKE '%$busqueda%' OR 
-											NUMERO_DNI LIKE '%$busqueda%' OR 
+											RTN LIKE '%$busqueda%' OR 
 											NOMBRE_COMPLETO LIKE '%$busqueda%' OR 
 											TELEFONO LIKE '%$busqueda%' OR 
 											CORREO_ELECTRONICO LIKE  '%$busqueda%' ) OR
@@ -104,7 +104,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 			?>
 			<tbody>
 				<tr>
-					<td><?php echo $data["NUMERO_DNI"]; ?></td>
+					<td><?php echo $data["RTN"]; ?></td>
 					<td><?php echo $data["NOMBRE_COMPLETO"]; ?></td>
 					<td><?php echo $data["TELEFONO"]; ?></td>
 					<td><?php echo $data['CORREO_ELECTRONICO'] ?></td>

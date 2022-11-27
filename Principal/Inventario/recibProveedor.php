@@ -19,7 +19,7 @@ VALUES (
     '".$empresa. "',
     '".$rtn."',
     '".$TELEFONO. "',
-    '".$DIRECCION."',
+    '".$DIRECCION."'
 )");
 mysqli_query($conexion2, $QueryInsert);
 

@@ -66,14 +66,12 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>
-                              <p></p>
                               <form action="buscar_cliente.php" method="get" class="form_search">
                               <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
                               <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
                             </form>
                 </div>
                 <div>
-                    <p></p>
                 </div> 
 
          
@@ -87,7 +85,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">DNI</th>
+                            <th scope="col">RTN</th>
                             <th scope="col">NOMBRE</th>
                             <th scope="col">TELEFONO</th>
                             <th scope="col">CORREO ELECTONICO</th>
@@ -100,7 +98,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['NUMERO_DNI']; ?></td>
+                            <td><?php echo $dataCliente['RTN']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>
                             <td><?php echo $dataCliente['TELEFONO']; ?></td>
                             <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
