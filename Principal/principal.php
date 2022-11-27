@@ -453,7 +453,7 @@ include('db2.php');
  # Consulto Factura
 
 
-
+/*
 
  $max=mysqli_query($conexion2,"SELECT MAX(TOTAL_FACTURA) as maximo from tbl_factura");
  $n=mysqli_fetch_assoc($max);
@@ -474,7 +474,7 @@ while ($valor_=mysqli_fetch_array( $resultado_ )) {
       $precio=$valor['PRECIO_VENTA'];
   }
 
-  $ventas=$nmax/$precio;
+  $ventas=$nmax/$precio;*/
 ?>
       <!-- Top Selling -->
       <div class="col-12">

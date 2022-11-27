@@ -122,6 +122,11 @@
 			top: 50%;
 			transform: translateX(-50%) translateY(-50%);
 		}
+		#logo {
+			margin:auto;
+  			text-align:center;
+		}
+
     </style>
 </head>
 <body>
@@ -131,7 +136,7 @@
 		<tr>
 			<td class="logo_factura">
 				<div>
-					<img src="data:image/png;base64,<?php echo $logoBase64; ?>">
+				<img src="../../../logo.png">
 				</div>
 			</td>
 			<td class="info_empresa">
