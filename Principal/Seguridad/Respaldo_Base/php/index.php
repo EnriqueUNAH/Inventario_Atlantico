@@ -35,7 +35,7 @@ include('../../../sidebarB.php');
 <body>
 <main id="main" class="main">
 	<a href="./Backup.php">
-	<button type="button">Realizar copia de seguridad</button>
+	<button type="button" class="btn btn-info">Realizar copia de seguridad</button>
 	</a>
 	
 	<form action="./Restore.php" method="POST">
@@ -65,7 +65,7 @@ include('../../../sidebarB.php');
 				}
 			?>
 		</select>
-		<button type="submit">Restaurar</button>
+		<button type="submit" class="btn btn-primary">Restaurar</button>
 	</form>
 
 
