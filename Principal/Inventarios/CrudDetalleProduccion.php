@@ -65,34 +65,16 @@ include('../sidebar.php');
 
 
 
+<?php
 
+$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
+$queryCliente = mysqli_query($conexion2, $sqlCliente);
+$cantidad     = mysqli_num_rows($queryCliente);
+
+?>
 
     <main id="main" class="main">
-    <?php
-        include('../db2.php');
-        $Descripcion="";
-        $Descripcion= ($_POST[ 'selectProducto' ]);
-        $CantidadProducir = $_POST[ 'cantidad_producir' ];
-        
 
-        $sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
-        $queryCliente = mysqli_query($conexion2, $sqlCliente);
-        $cantidad     = mysqli_num_rows($queryCliente);
-
-
-//Consultar el id seleccionado de la tabla producto
-$cod_producto="SELECT codproducto FROM producto WHERE descripcion='$Descripcion'";
-$resultado_producto= mysqli_query( $conexion2 , $cod_producto );
-    while ($Cod_Producto=mysqli_fetch_array( $resultado_producto )) {
-        # code...
-        $cod_producto_=$Cod_Producto['codproducto'];
-    }
-
-
-
-
-
-    ?>
     
        <?php include('Detalle_Produccion_Registrar.php');  ?>
       
@@ -108,7 +90,7 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
 
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" onclick="window.location='ProduccionEnProceso.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
+                <button type="button" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
       
            
             </div>
@@ -131,7 +113,7 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
                             <th class="col-sm-4"> INSUMO</th>
                             <th class="col-sm-4"> CANTIDAD</th>
                             <th> ACCIÓN</th>
-                            <th> ACCIÓN</th>
+                            
                           </tr>
                         </thead>
                       
@@ -141,8 +123,7 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
                             
                             <td><?php echo $dataCliente['insumo']; ?></td>
                             <td><?php echo $dataCliente['cantidad']; ?></td>
-                            <td><?php echo $Descripcion; ?></td>  
-                            <td><?php echo $CantidadProducir; ?></td>
+              
                              
                           </tr>                                               
                         <?php } ?>
@@ -163,6 +144,26 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
       </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>

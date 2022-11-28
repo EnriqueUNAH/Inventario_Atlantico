@@ -5,12 +5,27 @@ $usuario = $_SESSION['nombre'];
 $fechaC = date('Y-m-d');
 
 
+
+
+
+$sqlProduccion   = ("SELECT * FROM tbl_produccion_temp");
+$queryProduccion = mysqli_query($conexion2, $sqlProduccion);
+
+
+$sqlDetalle   = ("SELECT * FROM tbl_detalle_produccion_temp");
+$queryDetalle = mysqli_query($conexion2, $sqlDetalle);
+
+
+
   $consulta="SELECT Max(id) FROM tbl_detalle_produccion_temp";
   $result = mysqli_query($conexion2,$consulta);
   $row = mysqli_fetch_array($result);
   $max = $row[0];
   $filas=$max + 1;
   
+
+
+
 
 
 //Variables ingresadas

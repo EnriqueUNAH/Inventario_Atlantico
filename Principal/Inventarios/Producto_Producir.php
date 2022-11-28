@@ -26,7 +26,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 <!-- Change Password Form -->
 
 <div class="col-7" >
-    <form action="CrudDetalleProduccion.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
+    <form action="Producto_Producir_Create.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
 
     <div class="col-5" >
        <br>
