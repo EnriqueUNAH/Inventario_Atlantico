@@ -35,12 +35,13 @@ include('../../../sidebarB.php');
 <body>
 <main id="main" class="main">
 	<a href="./Backup.php">
-	<button type="button" class="btn btn-info">Realizar copia de seguridad</button>
+	<button type="button" class="btn btn-primary">Realizar copia de seguridad</button>
 	</a>
 	
 	<form action="./Restore.php" method="POST">
-		<br><label>Selecciona un punto de restauración</label><br>
-		<select name="restorePoint">
+		<div class="col-5"><br><label>Selecciona un punto de restauración</label><br></di>
+		
+		<select name="restorePoint" class="form-select form-select-lg mb-3">
 			<option value="" disabled="" selected="">Selecciona un punto de restauración</option>
 			<?php
 				include_once './Connet.php';
@@ -65,7 +66,7 @@ include('../../../sidebarB.php');
 				}
 			?>
 		</select>
-		<button type="submit" class="btn btn-primary">Restaurar</button>
+		<button type="submit" class="btn btn-info">Restaurar</button>
 	</form>
 
 
