@@ -183,10 +183,18 @@
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="../Seguridad/CrudConfi.php">
-              <i class="bi bi-circle"></i><span>Configuracion </span>
+              <i class="bi bi-circle"></i><span>CONFIGURACION</span>
             </a>
           </li>
         </ul> 
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="../Respaldo_Base/index.php">
+              <i class="bi bi-circle"></i><span>BACKUP</span>
+            </a>
+          </li>
+        </ul> 
+
 
       </li><!-- End Icons Nav -->
       

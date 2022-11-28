@@ -8,10 +8,10 @@ error_reporting(E_PARSE);
  const SERVER = "localhost"; 
 
 //Nombre de la base de datos
-const BD = "librarysystem";
+const BD = "inversionesatlantico";
 
 //Contraseña de myqsl
-const PASS = "";
+const PASS = "123456";
 
 //Carpeta donde se almacenaran las copias de seguridad
 const BACKUP_PATH =  "../backup/";
