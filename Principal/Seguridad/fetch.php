@@ -34,7 +34,7 @@ $CON=$CON+1;
  $sub_array[] = '<div contenteditable="FALSE" class="update" data-id="'.$row["FECHA_ULTIMA_CONEXION"].'"'. $CON .' data-column="FECHA_ULTIMA_CONEXION">' . $row["FECHA_ULTIMA_CONEXION"] . '</div>';
  $sub_array[] = '<div contenteditable="FALSE" class="update" data-id="'.$row["PRIMER_INGRESO"].'"'. $CON .' data-column="PRIMER_INGRESO">' . $row["PRIMER_INGRESO"] . '</div>';
  $sub_array[] = '<div contenteditable class="update" data-id="'.$row["CORREO_ELECTRONICO"].'"'. $CON .' data-column="CORREO_ELECTRONICO">' . $row["CORREO_ELECTRONICO"] . '</div>';
- $sub_array[] = '<div contenteditable class="update" data-id="'.$row["NOMBRE_ESTADO"].'"'. $CON .' data-column="NOMBRE_ESTADO">' . $row["NOMBRE_ESTADO"] . '</div>';
+ $sub_array[] = '<div contenteditable class="update" data-id="'.$row["NOMBRE_ESTADO"].'"'. $CON .' data-column="ID_ESTADO">' . $row["NOMBRE_ESTADO"] . '</div>';
  $sub_array[] = '<div contenteditable class="update" data-id="'.$row["ROL"].'"'. $CON .' data-column="ROL">' . $row["ROL"] . '</div>';
  $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["ID_USUARIO"].'">BORRAR</button>';
  $data[] = $sub_array;
