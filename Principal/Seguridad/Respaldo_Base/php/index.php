@@ -1,6 +1,6 @@
-<?php include('../../cabecera.php') ?>
+<?php include('../../../cabeceraB.php') ?>
 <?php 
-include('../../sidebar.php');
+include('../../../sidebarB.php');
 ?>
 
 
@@ -73,4 +73,4 @@ include('../../sidebar.php');
 </body>
 </html>
 
-<?php include("../../../footer.php")?>
+<?php include("../../../footerB.php")?>
