@@ -12,7 +12,17 @@ for($i = 0; $i < (count($sql)-1); $i++){
 $con->query("SET FOREIGN_KEY_CHECKS=1");
 $con->close();
 if($totalErrors<=0){
-	echo "Restauración completada con éxito";
+
+	echo '<script>alert("Restauración completada con éxito");</script>';
+	?>
+   <script type="text/javascript">
+   window.location.href = "index.php";
+   </script>
+
+ <?php
+
+
 }else{
 	echo "Ocurrio un error inesperado, no se pudo hacer la restauración completamente";
 }
+?>

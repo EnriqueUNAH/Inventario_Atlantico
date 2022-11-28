@@ -54,7 +54,16 @@ if($result){
         $handle=fopen(BACKUP_PATH.$DataBASE,'w+');
         if(fwrite($handle, $sql)){
             fclose($handle);
-            echo 'Copia de seguridad realizada con éxito';
+            
+            echo '<script>alert("Copia de seguridad realizada con exito");</script>';
+            ?>
+           <script type="text/javascript">
+           window.location.href = "index.php";
+
+           </script>
+
+         <?php
+         
         }else{
             echo 'Ocurrio un error inesperado al crear la copia de seguridad';
         }
