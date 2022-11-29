@@ -9,6 +9,11 @@ session_start();
 $fechaC = date('Y-m-d');
 $usuario_id  = $_SESSION['idUser'];
 
+# Consulto filas
+$consulta="SELECT * FROM proveedor";
+$resultado= mysqli_query( $conexion2 , $consulta );
+$filas = mysqli_num_rows( $resultado );
+$filas=$filas+1;
 
 $QueryInsert = ("INSERT INTO tbl_proveedor(
     NOMBRE_REPRESENTANTE,
@@ -25,10 +30,11 @@ VALUES (
     '".$DIRECCION."'
 )");
 mysqli_query($conexion2, $QueryInsert);
-/*
-$insert = mysqli_query($conexion2,"INSERT INTO proveedor(proveedor,contacto,telefono,direccion,usuario_id)
-														VALUES('$empresa','$nombre','$TELEFONO','$DIRECCION','$usuario_id')");
-mysqli_query($conexion2, $insert);*/
+
+$insertar2="INSERT INTO proveedor VALUES('$filas','$empresa','$nombre','$TELEFONO','$DIRECCION','$fechaC','1','1')";
+mysqli_query($conexion2, $insertar2);
+
+
 
 header("location:crud_proveedores.php");
 ?>
