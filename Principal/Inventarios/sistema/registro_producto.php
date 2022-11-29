@@ -6,6 +6,28 @@
 		header("location: ./");
 	}
 
+	# Consulto filas
+$consulta="SELECT * FROM tbl_producto";
+$resultado= mysqli_query( $conection , $consulta );
+$filas = mysqli_num_rows( $resultado );
+$filas=$filas+1;
+
+$consultas="SELECT * FROM proveedor";
+$resultados= mysqli_query( $conection , $consultas );
+$filass = mysqli_num_rows( $resultados );
+$filas_s=$filass+1;
+
+
+$consultass="SELECT * FROM producto";
+$resultadoss= mysqli_query( $conection , $consultass);
+$filassx = mysqli_num_rows( $resultadoss );
+$filasx_s=$filassx+1;
+
+$fechaC = date('Y-m-d');
+
+
+
+
 	if(!empty($_POST))
 	{
 
@@ -26,6 +48,10 @@
 			$type 		 = $foto['type'];
 			$url_temp    = $foto['tmp_name'];
 
+			$CantidaMi = $_POST['cantidadMi'];
+			$CantidaMa = $_POST['cantidadMa'];
+
+
 			$imgProducto = 'img_producto.png';
 
 			if($nombre_foto != '')
@@ -36,14 +62,24 @@
 				$src        = $destino.$imgProducto;
 			}
 
-			$query_insert = mysqli_query($conection,"INSERT INTO producto(descripcion,proveedor,precio,existencia,usuario_id,foto)
-													 VALUES('$producto','$proveedor','$precio','$cantidad','$usuario_id','$imgProducto')");
+			$query_insert = mysqli_query($conection,"INSERT INTO producto(codproducto,descripcion,proveedor,precio,existencia,usuario_id,foto)
+													 VALUES('$filasx_s','$producto','$proveedor','$precio','$cantidad','$usuario_id','$imgProducto')");
+			
+			$insertartbl="INSERT INTO tbl_producto VALUES('$filas','$producto','$producto','$CantidaMi','$CantidaMa','2','$filasx_s','$precio','$cantidad','$fechaC','1','1','asdasdasda')";
+			mysqli_query( $conection , $insertartbl ); 
+			
 			if($query_insert){
 				if($nombre_foto != '')
 				{
 					move_uploaded_file($url_temp, $src);
 				}
-				$alert='<p class="msg_save">Producto guardado correctamente.</p>';
+				echo '<script>alert("Producto guardado correctamente.");</script>';
+					?>
+				<script type="text/javascript">
+				window.location.href = "lista_producto.php";
+				</script>
+
+				<?php
 			}else{
 				$alert='<p class="msg_error">Error al guardar el producto.</p>';
 			}
@@ -70,7 +106,7 @@
 	<section id="container">
 
 		<div class="form_register">
-			<h1><i class="fas fa-cubes"></i> Registro Productos</h1>
+			<h1><i ></i> Registro Productos</h1>
 			<hr>
 			<div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
 
@@ -102,6 +138,12 @@
 				<input type="text" name="precio" id="precio" placeholder="Precio del producto">
 				<label for="cantidad">Cantidad</label>
 				<input type="number" name="cantidad" id="cantidad" placeholder="Cantidad de producto" min="1">
+				<div class="photo">
+				<label for="cantidad">Cantidad Minima</label>
+				<input type="number" name="cantidadMi" id="cantidadMi" placeholder="Cantidad minima de producto" min="1">
+				<div class="photo">
+				<label for="cantidad">Cantidad Máxima</label>
+				<input type="number" name="cantidadMa" id="cantidadMa" placeholder="Cantidad máxima de producto" min="1">
 				<div class="photo">
 					<label for="foto">Foto</label>
                     <div class="prevPhoto">

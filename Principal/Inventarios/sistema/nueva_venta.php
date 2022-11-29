@@ -18,7 +18,7 @@
 	<main id="main" class="main">
 	<section id="container">
 		<div class="title_page">
-			<h1><i class="fas fa-cube"></i> Nueva Venta</h1>
+			<h1><i></i> Nueva Venta</h1>
 		</div>
 		<div class="datos_cliente">
 			<div class="action_cliente">
