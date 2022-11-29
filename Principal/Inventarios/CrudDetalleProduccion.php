@@ -88,23 +88,19 @@ $cantidad     = mysqli_num_rows($queryCliente);
       <div class="row clearfix">
         <br><br> <br><br>
 
-            <p></p>
-                <div class="col-sm-22">
-                <button type="button" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
-      
-           
-            </div>
+
                 <div>
                     <p></p>
                 </div> 
                 <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
          
 
-          <div class="col-sm-20">
+          <div class="col-sm-15">
               <div class="row">
-                <div class="col-md-12 p-2">
+                <div class="col-md-9 p-2">
 
-
+              
+                
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
@@ -124,8 +120,24 @@ $cantidad     = mysqli_num_rows($queryCliente);
                             <td><?php echo $dataCliente['insumo']; ?></td>
                             <td><?php echo $dataCliente['cantidad']; ?></td>
               
+
+                            <td> 
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>">
+                                  Eliminar
+                              </button>
+                            
+     
+                          </td>
                              
-                          </tr>                                               
+                          </tr>   
+                          
+                          
+
+                          <!--Ventana Modal para la Alerta de Eliminar--->
+                          <?php include('Insumo_ModalEliminar.php'); ?>
+
+
+
                         <?php } ?>
   
                         <tr>
@@ -135,6 +147,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
 
 
                     </table>
+                    
                 </div>
 
 
@@ -145,6 +158,11 @@ $cantidad     = mysqli_num_rows($queryCliente);
   </div>
 </div>
 
+
+<?php include('Producto_Producir.php') ?>
+
+
+<?php include('../footer2.php') ?>
 
 
 

@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <?php include("../cabecera3.php") ?>
 
 <?php 
@@ -26,7 +33,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 <!-- Change Password Form -->
 
 <div class="col-7" >
-    <form action="Producto_Producir_Create.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
+    <form action="Produccion_Create.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
 
     <div class="col-5" >
        <br>
@@ -60,8 +67,9 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
         <div class="form-group">
           <label class="col-sm-6 control-label">&nbsp;</label>
           <div class="col-sm-6">
-          <input type="submit" name="save" id="btnProductoProducir" class="btn btn-sm btn-primary" value="Enviar Nueva Producción" disabled>
-         
+          <input type="submit" name="save" id="btnProductoProducir" class="btn btn-sm btn-primary" value="Enviar Nueva Producción" disabled> 
+          <!--<button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button>  -->
+      
           <!-- <a href="Produccion.php" class="btn btn-sm btn-danger">Cancelar</a>  -->
           </div>
         </div>
@@ -75,6 +83,8 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
               <script src="Produccion.js"></script>
 
+
+  
 
 
 
