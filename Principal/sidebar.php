@@ -91,11 +91,7 @@
               <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
             </a>
           </li>
-          <li>
-            <a href="../Mantenimiento/Mantenimiento-tipo-producto.php">
-              <i class="bi bi-circle"></i><span>TIPO PRODUCTO</span>
-            </a>
-          </li>
+       
           <li>
             <a href="../Mantenimiento/CrudEstante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>

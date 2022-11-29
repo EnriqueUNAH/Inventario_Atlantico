@@ -219,11 +219,7 @@ $_SESSION['nombre'];
               <i class="bi bi-circle"></i><span>TIPO MOVIMIENTO</span>
             </a>
           </li>
-          <li>
-            <a href="../Principal/Mantenimiento/Mantenimiento-tipo-producto.php">
-              <i class="bi bi-circle"></i><span>TIPO PRODUCTO</span>
-            </a>
-          </li>
+    
           <li>
             <a href="../Principal/Mantenimiento/CrudEstante.php">
               <i class="bi bi-circle"></i><span>ESTANTE</span>
