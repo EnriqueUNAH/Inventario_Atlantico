@@ -83,7 +83,7 @@ include('../sidebar.php');
 
 <?php
 
-$sqlCliente   = ("SELECT * FROM tbl_produccion");
+$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join producto p on tp.cod_producto = p.codproducto");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 
@@ -105,6 +105,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
 
                  <div>
                        <button type="submit" onclick="window.location='Producto_Producir.php'" class="btn btn-primary">INGRESAR NUEVA PRODUCCIÓN</button> 
+                       <button type="button" onclick="window.location='ReporteProduccion.php'" class="btn btn-warning">GENERAR PDF</button>
                 </div> 
 
 
@@ -142,7 +143,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
                             
                             <td><?php echo $dataCliente['FECHA']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_USUARIO']; ?></td>
-                            <td><?php echo $dataCliente['COD_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['descripcion']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD_PRODUCIENDO']; ?></td>
                             <td><?php echo $dataCliente['ESTADO']; ?></td>
                             
