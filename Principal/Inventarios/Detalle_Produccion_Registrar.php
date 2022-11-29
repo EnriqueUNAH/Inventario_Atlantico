@@ -5,7 +5,7 @@
 
 
 <div class="row">
-<div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4> <br>
+<div class="col-sm-7"><h4><b>INSUMOS</b></h4> <br>
 
 
      <div class="col-4">
@@ -50,6 +50,12 @@
 </div>
 
 </form>
+<div>
+
+<?php include('../footer2.php') ?>
+
+</div>
+
 
 
 

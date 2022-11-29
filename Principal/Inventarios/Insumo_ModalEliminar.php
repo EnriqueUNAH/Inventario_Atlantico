@@ -10,7 +10,7 @@
 
         <div class="modal-body">
           <strong style="text-align: center !important"> 
-            <?php echo $dataCliente['INSUMO']; ?>
+            <?php echo $dataCliente['insumo']; ?>
         
           </strong>
         </div>

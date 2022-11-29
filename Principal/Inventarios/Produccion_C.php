@@ -38,7 +38,6 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
 
 
 
-
   
   ?>
 

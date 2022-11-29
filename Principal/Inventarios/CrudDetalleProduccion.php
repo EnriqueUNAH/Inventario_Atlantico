@@ -79,20 +79,16 @@ $cantidad     = mysqli_num_rows($queryCliente);
        <?php include('Detalle_Produccion_Registrar.php');  ?>
       
 
-<div class="row text-center" style="background-color: #cecece">
+       <br><br><br><br><div class="row text-center" style="background-color: #cecece">
 </div>
 
 <div class="row clearfix">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="body">
       <div class="row clearfix">
-        <br><br> <br><br>
-       <button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
-      
+        <br>
 
-                <div>
-                    <p></p>
-                </div> 
+
                 <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
          
 
@@ -100,7 +96,9 @@ $cantidad     = mysqli_num_rows($queryCliente);
               <div class="row">
                 <div class="col-md-9 p-2">
 
-              
+                <div>
+                <button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
+                </div>              
                 
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
@@ -163,8 +161,6 @@ $cantidad     = mysqli_num_rows($queryCliente);
 
 
 <?php include('../footer2.php') ?>
-
-
 
 
 

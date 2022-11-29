@@ -95,4 +95,5 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
 </main>
 
- 
+<?php include('../footer2.php') ?>
+

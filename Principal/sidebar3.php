@@ -46,8 +46,8 @@
             </a>
           </li>
           <li>
-            <a href="../../Inventarios/Producto_Producir.php">
-              <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
+            <a href="../../Inventarios/ProduccionEnProceso.php">
+              <i class="bi bi-circle"></i><span>PRODUCCIÓN</span>
             </a>
           </li>
           <li>

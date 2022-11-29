@@ -102,6 +102,12 @@ $cantidad     = mysqli_num_rows($queryCliente);
         <br><br> <br><br>
 
 
+
+                 <div>
+                       <button type="submit" onclick="window.location='Producto_Producir.php'" class="btn btn-primary">INGRESAR NUEVA PRODUCCIÓN</button> 
+                </div> 
+
+
                 <div>
                     <p></p>
                 </div> 
@@ -141,11 +147,13 @@ $cantidad     = mysqli_num_rows($queryCliente);
                             <td><?php echo $dataCliente['ESTADO']; ?></td>
                             
                             <td> 
-                          <!--<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>">
-                                  Eliminar
-                              </button>
-                              -->
-     
+
+
+
+
+
+
+
                           </td>
                              
                           </tr>   
@@ -176,25 +184,6 @@ $cantidad     = mysqli_num_rows($queryCliente);
       </div>
   </div>
 </div>
-
-
-
-<?php include('../footer2.php') ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -246,5 +235,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
     
 	</body>
 </html>
+
+<?php include('../footer2.php') ?>
 
 

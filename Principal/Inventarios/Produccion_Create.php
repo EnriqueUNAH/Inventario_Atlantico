@@ -11,7 +11,7 @@ $rowP = mysqli_fetch_array($resultP);
 $filasP = $rowP[0];
 
 
-$consultaPT="SELECT Max(COD_PRODUCCION) FROM tbl_produccion_temp";
+$consultaPT="SELECT Max(COD_PRODUCCION) FROM tbl_produccion";
 $resultPT = mysqli_query($conexion2,$consultaPT);
 $rowPT = mysqli_fetch_array($resultPT);
 $filasPT = $rowPT[0];
@@ -37,7 +37,7 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
 */
 
       //inserto datos en tabla DETALLE produccion 
-      $sql4="INSERT INTO tbl_produccion (FECHA, NOMBRE_USUARIO, COD_PRODUCTO, CANTIDAD_PRODUCIENDO, ESTADO) (SELECT FECHA, NOMBRE_USUARIO, '$filasP', CANTIDAD_PRODUCIENDO, ESTADO FROM tbl_produccion_temp)";
+      $sql4="INSERT INTO tbl_produccion (FECHA, NOMBRE_USUARIO, COD_PRODUCTO, CANTIDAD_PRODUCIENDO, ESTADO) (SELECT FECHA, NOMBRE_USUARIO, COD_PRODUCTO, CANTIDAD_PRODUCIENDO, ESTADO FROM tbl_produccion_temp)";
       mysqli_query( $conexion2 , $sql4);      
 
 
