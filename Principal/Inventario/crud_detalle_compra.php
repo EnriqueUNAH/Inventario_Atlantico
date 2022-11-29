@@ -93,7 +93,7 @@ include('../sidebar.php');
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">COMPRA</th>
+                            <th scope="col">No.COMPRA</th>
                             <th scope="col">PRECIO</th>
                             <th scope="col">CANTIDAD</th>
                             <th scope="col">INSUMO</th>

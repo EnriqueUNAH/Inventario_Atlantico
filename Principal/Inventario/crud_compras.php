@@ -96,7 +96,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">COMPRA</th>
+                            <th scope="col">No.COMPRA</th>
                             <th scope="col">TOTAL PAGADO</th>
                             <th scope="col">FECHA</th>
                             <th scope="col">IMPUESTOS</th>
