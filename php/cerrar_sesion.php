@@ -17,7 +17,7 @@ $fechaC = date('Y-m-d');
     $filas_id_BIT = mysqli_num_rows( $resultado_id_BIT );
     $filas_id_BIT++;
 
-    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','$filas_id','CERRAR SESION','CIERE DE SESION PANTALLA PRINCIPAL')";
+    $bitacora="INSERT INTO tbl_bitacora VALUES('$filas_id_BIT','$fechaC','$filas_id','$filas_id','CERRAR SESION','CIERRE DE SESION PANTALLA PRINCIPAL')";
     mysqli_query( $conexion , $bitacora);
     session_destroy();
 	header("Location: index.php");
