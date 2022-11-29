@@ -10,16 +10,24 @@
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
 	<title>Lista de productos</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<?php include "includes/header.php"; ?>
+<?php include "includes/header.php"; ?>
+	<?php include "../../cabecera2.php"; ?>
+	<?php include "../../sidebar3.php"; ?>
+	<main id="main" class="main">
 	<section id="container">
 		<?php 
 			$busqueda= '';
 			$search_proveedor= '';
 			if(empty($_REQUEST['busqueda']) && empty($_REQUEST['proveedor']))
 			{
-				header("location: lista_producto.php");
+				?>
+					<script type="text/javascript">
+					window.location.href = " lista_producto.php";
+					</script>
+				<?php
 			}
 			if(!empty($_REQUEST['busqueda'])){
 				$busqueda = strtolower($_REQUEST['busqueda']);
@@ -43,7 +51,7 @@
 			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
 	<div class="containerTable">
-		<table>
+		<table  class="table table-bordered table-striped table-hover">
 			<tr>
 				<th>Código</th>
 				<th>Descripción</th>
@@ -187,6 +195,7 @@
 <?php } ?>
 
 	</section>
+	</main>
 	<?php include "includes/footer.php"; ?>
 </body>
 </html>

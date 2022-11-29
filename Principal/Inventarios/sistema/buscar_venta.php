@@ -59,9 +59,13 @@
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
 	<title>Lista de ventas</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
+	<?php include ("../../cabecera2.php");?>
+	<?php include ("../../sidebar3.php");?>
+	<main id="main" class="main">
 	<section id="container">
 
 		<h1><i class="far fa-newspaper"></i> Lista de ventas</h1>
@@ -83,7 +87,7 @@
 			</form>
 		</div>
 	<div class="containerTable">
-		<table>
+		<table class="table table-bordered table-striped table-hover">
 			<tr>
 				<th>No.</th>
 				<th>Fecha / Hora</th>
@@ -208,6 +212,7 @@
 
 
 	</section>
-	<?php include "includes/footer.php"; ?>
+	</main>
+	<?php include "../../footer2.php"; ?>
 </body>
 </html>

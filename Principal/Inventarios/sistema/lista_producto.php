@@ -31,10 +31,10 @@
 	<div class="containerTable">
 		<table  class="table table-bordered table-striped table-hover">
 			<tr>
-				<th>Código</th>
-				<th>Descripción</th>
-				<th>Precio</th>
-				<th>Existencia</th>
+				<th>CÓDIGO</th>
+				<th>DESCRIPCION</th>
+				<th>PRECIO</th>
+				<th>EXITENCIA</th>
 				<th>
 				<?php
 
@@ -58,8 +58,8 @@
 				</select>
 
 				</th>
-				<th>Foto</th>
-				<th>Acciones</th>
+				<th>FOTO</th>
+				<th>ACCIONES</th>
 			</tr>
 		<?php
 			//Paginador
