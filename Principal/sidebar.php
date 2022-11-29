@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a href="../Inventario/Inventario-inventario.php">
+            <a href="../Inventario/crud_inventario.php">
               <i class="bi bi-circle"></i><span>VER INVENTARIO</span>
             </a>
           </li>

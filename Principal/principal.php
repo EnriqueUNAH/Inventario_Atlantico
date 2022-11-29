@@ -179,7 +179,7 @@ $_SESSION['nombre'];
             </a>
           </li>
           <li>
-            <a href="../Principal/Inventario/Inventario-inventario.php">
+            <a href="../Principal/Inventario/crud_inventario.php">
               <i class="bi bi-circle"></i><span>VER INVENTARIO</span>
             </a>
           </li>
