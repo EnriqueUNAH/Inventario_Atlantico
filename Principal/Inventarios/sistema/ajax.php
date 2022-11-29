@@ -116,7 +116,19 @@
 
 			$query_insert = mysqli_query($conection,"INSERT INTO cliente(
 														nit,nombre,telefono,direccion,usuario_id)
-													VALUES('$nit','$nombre','$telefono','$direccion','$usuario_id')");
+													VALUES('$nit','$nombre','$telefono','$direccion','1')");
+
+			$consulta="SELECT * FROM tbl_cliente";
+			$resultado= mysqli_query( $conexion2 , $consulta );
+			$filas = mysqli_num_rows( $resultado );
+			$filas=$filas+1;
+			$fechaC = date('Y-m-d');
+
+			
+			$insertar_="INSERT INTO tbl_cliente VALUES('$filas','$nit','$nombre','$telefono','-----','$direccion','$fechaC','1','1','1')";
+			mysqli_query($conexion2, $insertar_);
+			
+
 			if($query_insert){
 				$codCliente = mysqli_insert_id($conection);
 				$msg = $codCliente;

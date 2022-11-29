@@ -205,7 +205,7 @@
         </ul> 
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="../Respaldo_Base/index.php">
+            <a href="../Seguridad/Respaldo_Base/php/index.php">
               <i class="bi bi-circle"></i><span>BACKUP</span>
             </a>
           </li>

@@ -22,7 +22,7 @@
 		</div>
 		<div class="datos_cliente">
 			<div class="action_cliente">
-				<h4>Datos del Cliente</h4>
+				<h4>DATOS DEL CLIENTE</h4>
 				<a href="#" class="btn_new btn_new_cliente"><i class="fas fa-plus"></i> Nuevo cliente</a>
 			</div>
 			<form name="form_new_cliente_venta" id="form_new_cliente_venta" class="datos">
@@ -33,15 +33,15 @@
 					<input type="text" name="nit_cliente" id="nit_cliente">
 				</div>
 				<div class="wd30">
-					<label>Nombre</label>
+					<label>NOMBRE</label>
 					<input type="text" name="nom_cliente" id="nom_cliente" disabled required>
 				</div>
 				<div class="wd30">
-					<label>Teléfono</label>
+					<label>TELÉFONO</label>
 					<input type="number" name="tel_cliente" id="tel_cliente" disabled required>
 				</div>
 				<div class="wd100">
-					<label>Dirección</label>
+					<label>DIRECCION</label>
 					<input type="text" name="dir_cliente" id="dir_cliente" disabled required>
 				</div>
 				<div id="div_registro_cliente" class="wd100">
@@ -69,13 +69,13 @@
 		<table class="tbl_venta">
 			<thead>
 				<tr>
-					<th width="100px">Código</th>
-					<th>Descripción</th>
-					<th>Existencia</th>
-					<th width="100px">Cantidad</th>
-					<th class="textright">Precio</th>
-					<th class="textright">Precio Total</th>
-					<th> Acción</th>
+					<th width="100px">CÓDIGO</th>
+					<th>DESCRPCION</th>
+					<th>EXISTENIAS</th>
+					<th width="100px">CANTIDAD</th>
+					<th class="textright">PRECIO</th>
+					<th class="textright">PRECIO TOTAL</th>
+					<th> ACCIÓN</th>
 				</tr>
 				<tr>
 					<td><input type="text" name="txt_cod_producto" id="txt_cod_producto"></td>

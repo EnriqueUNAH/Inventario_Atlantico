@@ -69,7 +69,7 @@ $COMPRA="INSERT INTO tbl_detalle_compra VALUES('$filas','$preciocompra','$cant',
 
 mysqli_query($conexion2, $COMPRA);
 
-$inventario="INSERT INTO tbl_inventario VALUES('$filas','$fecha','$insumo','$cant','$codigo','1')";
+$inventario="INSERT INTO tbl_inventario VALUES('$filas','$fecha','$insumo','$cant','1','1')";
 mysqli_query($conexion2, $inventario);
 
 header("location:crud_compras.php");

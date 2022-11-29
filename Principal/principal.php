@@ -460,7 +460,7 @@ $_SESSION['nombre'];
             <?php 
 
               include('db2.php');
-              $consulta="SELECT * FROM tbl_factura";
+              $consulta="SELECT * FROM factura";
               $resultado= mysqli_query( $conexion2 , $consulta );
               $filas = mysqli_num_rows( $resultado );
               ?>      

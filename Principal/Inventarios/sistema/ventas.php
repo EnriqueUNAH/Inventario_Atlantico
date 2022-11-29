@@ -18,7 +18,7 @@
 	<main id="main" class="main">
 	<section id="container">
 
-		<h1><i class="far fa-newspaper"></i> Lista de ventas</h1>
+		<h1><i ></i> Lista de ventas</h1>
 		<a href="nueva_venta.php" class="btn_new btnNewVenta"><i class="fas fa-plus"></i> Nueva venta</a>
 
 		<form action="buscar_venta.php" method="get" class="form_search">
