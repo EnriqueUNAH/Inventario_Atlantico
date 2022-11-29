@@ -1,4 +1,4 @@
-<?php include("../cabecera2.php") ?>
+<?php include("../cabecera3.php") ?>
 <?php 
 if ($_SESSION['nombre']=="ADMINISTRADOR") {
 	# code...
@@ -108,17 +108,17 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
     <div class="col-8">
         <label for="yourName" class="form-label">RANGO INICIAL:</label>
-        <input type="varchar" style="text-transform:uppercase" name="RANGO_INICIAL"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="RANGO_INICIAL"  class="form-control" id="yourName" required>
       </div>
 
       <div class="col-8">
         <label for="yourName" class="form-label">RANGO FINAL:</label>
-        <input type="varchar" style="text-transform:uppercase" name="RANGO_FINAL"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="RANGO_FINAL"  class="form-control" id="yourName" required>
       </div>
 
       <div class="col-8">
         <label for="yourName" class="form-label">RANGO ACTUAL:</label>
-        <input type="varchar" style="text-transform:uppercase" name="RANGO_ACTUAL"  class="form-control" id="yourName" required>
+        <input type="number" style="text-transform:uppercase" name="RANGO_ACTUAL"  class="form-control" id="yourName" required>
       </div>
 
       <div class="col-8">

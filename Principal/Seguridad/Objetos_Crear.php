@@ -1,4 +1,4 @@
-<?php include("../cabecera2.php") ?>
+<?php include("../cabecera3.php") ?>
 <?php include("../sidebar.php")?>
 
 <script>
@@ -101,7 +101,7 @@
     <div class="col-8">
         <label for="yourName" class="form-label">NOMBRE OBJETO:</label>
         <input type="text" style="text-transform:uppercase" name="OBJETO"  class="form-control" id="yourName" required>
-        <div class="invalid-feedback">POR FAVOR, INGRESA UN NOMBRE DE ESTADO!</div>
+        <div class="invalid-feedback">POR FAVOR, INGRESA UN NOMBRE DE OBJETO!</div>
       </div>
 
       <div class="col-8">

@@ -1,4 +1,4 @@
-<?php include("../cabecera2.php") ?>
+<?php include("../cabecera3.php") ?>
 <?php 
 
 if ($_SESSION['nombre']=="ADMINISTRADOR") {

@@ -18,17 +18,17 @@
 
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label"> RANGO INICIAL:</label>
-                  <input type="varchar" name="RANGO_INICIAL"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['RANGO_INICIAL']; ?>" required="true">
+                  <input type="number" name="RANGO_INICIAL"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['RANGO_INICIAL']; ?>" required="true">
                 </div>
 
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label"> RANGO FINAL:</label>
-                  <input type="varchar" name="RANGO_FINAL" style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['RANGO_FINAL']; ?>" required="true">
+                  <input type="number" name="RANGO_FINAL" style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['RANGO_FINAL']; ?>" required="true">
                 </div>
 
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label"> RANGO ACTUAL:</label>
-                  <input type="varchar" name="RANGO_ACTUAL"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['RANGO_ACTUAL']; ?>" required="true">
+                  <input type="number" name="RANGO_ACTUAL"  style="text-transform:uppercase" class="form-control" value="<?php echo $dataCliente['RANGO_ACTUAL']; ?>" required="true">
                 </div>
 
                 <div class="form-group">
