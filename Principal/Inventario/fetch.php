@@ -3,7 +3,7 @@
 $connect = mysqli_connect("localhost", "root", "123456", "inversionesatlantico");
 $columns = array('COD_INVENTARIO','DESCRIPCION', 'CANTIDAD', 'FECHA','NOMBRE_EMPRESA');
 
-$query = "SELECT * FROM tbl_inventario i inner join tbl_producto p on i.COD_PRODUCTO = p.COD_PRODUCTO inner join tbl_proveedor";
+$query = "SELECT * FROM tbl_inventario i inner join tbl_producto p on i.DESCRIPCION = p.Nombre_PRODUCTO inner join tbl_proveedor pr on p.COD_PROVEEDOR = pr.COD_PROVEEDOR";
 
 
 if(isset($_POST["search"]["value"]))
