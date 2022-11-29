@@ -33,7 +33,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 <!-- Change Password Form -->
 
 <div class="col-7" >
-    <form action="Produccion_Create.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
+    <form action="Produccion_C.php" method="post"  class="row g-3 needs-validation" novalidate="false" >
 
     <div class="col-5" >
        <br>
@@ -55,7 +55,7 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
         
         <br>
         <label for="yourName" class="form-label">CANTIDAD</label>
-        <input type="number" style="text-transform:uppercase" name="cantidad_producir" id="cantidad_producir" class="form-control" id="yourName" placeholder="Cantidad a Producir" required>
+        <input type="number" style="text-transform:uppercase" name="cantidad_producir" id="cantidad_producir" class="form-control" id="yourName" placeholder="Cantidad a Producir" min="1" required>
       
     </div>
 

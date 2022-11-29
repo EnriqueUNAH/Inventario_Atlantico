@@ -1,20 +1,5 @@
 <?php include('../cabecera.php') ?>
-<?php 
-include('../sidebar.php');
-?>
-
-
-
-<?php
-
-     // Incluir db2 file   
-     require_once "../db2.php";
-    
-
-?>
-
-
-
+<?php include('../sidebar.php') ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -62,22 +47,14 @@ include('../sidebar.php');
 	</head>
   
 	<body>
-
-
-
-<?php
-
-$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
-$queryCliente = mysqli_query($conexion2, $sqlCliente);
-$cantidad     = mysqli_num_rows($queryCliente);
-
-?>
-
     <main id="main" class="main">
+    <?php
+        include('../db2.php');
 
-    
-       <?php include('Detalle_Produccion_Registrar.php');  ?>
-      
+        $sqlCliente   = ("SELECT * FROM tbl_PRODUCTO as p INNER JOIN tbl_TIPO_PRODUCTO as tp on p.COD_TIPO_PRODUCTO = tp.COD_TIPO_PRODUCTO");
+        $queryCliente = mysqli_query($conexion2, $sqlCliente);
+        $cantidad     = mysqli_num_rows($queryCliente);
+    ?>
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
@@ -86,69 +63,73 @@ $cantidad     = mysqli_num_rows($queryCliente);
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="body">
       <div class="row clearfix">
-        <br><br> <br><br>
-       <button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
-      
 
+      <div class="col-sm-12"><h2><b>PRODUCTO</b></h2></div>
+            <p></p>
+                <div class="col-sm-22">
+                <button type="button" onclick="window.location='Producto_Crear.php'" class="btn btn-primary">NUEVO</button>
+                </div>
                 <div>
                     <p></p>
                 </div> 
-                <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
+
          
 
-          <div class="col-sm-15">
+          <div class="col-sm-20">
               <div class="row">
-                <div class="col-md-9 p-2">
+                <div class="col-md-12 p-2">
 
-              
-                
+
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
                             
-                            <th class="col-sm-4"> INSUMO</th>
-                            <th class="col-sm-4"> CANTIDAD</th>
-                            <th> ACCIÓN</th>
-                            
+                            <th> NOMBRE</th>
+                            <th> DESCRIPCIÓN</th>
+                            <th> CANTIDAD MÍNIMA</th>
+                            <th> CANTIDAD MÁXIMA</th>
+                            <th> TIPO DE PRODUCTO</th>
+                            <th> PRECIO DE VENTA</th>
+
                           </tr>
                         </thead>
-                      
+                        <tbody>
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            
-                            <td><?php echo $dataCliente['insumo']; ?></td>
-                            <td><?php echo $dataCliente['cantidad']; ?></td>
-              
-
-                            <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>">
+                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['DESCRIPCION']; ?></td>
+                            <td><?php echo $dataCliente['CANTIDAD_MINIMA']; ?></td>
+                            <td><?php echo $dataCliente['CANTIDAD_MAXIMA']; ?></td>
+                            <td><?php echo $dataCliente['NOMBRE_TIPO_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['PRECIO_VENTA']; ?></td>
+                           
+                          <td> 
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
                                   Eliminar
                               </button>
                             
-     
+                            
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProducto<?php echo $dataCliente['COD_PRODUCTO']; ?>">
+                                  Modificar
+                              </button>
                           </td>
-                             
-                          </tr>   
-                          
-                          
+                          </tr>
+                                                
+                            <!--Ventana Modal para la Alerta de Eliminar--->
+                            <?php include('Producto_Modal_Eliminar.php'); ?>
 
-                          <!--Ventana Modal para la Alerta de Eliminar--->
-                          <?php include('Insumo_ModalEliminar.php'); ?>
 
+                            <!--Ventana Modal para Actualizar--->
+                            <?php  include('Producto_Modal_Editar.php'); ?>
+
+                            
 
 
                         <?php } ?>
-  
-                        <tr>
-
-
-                        </tr> 
-
-
+                
                     </table>
-                    
                 </div>
 
 
@@ -158,18 +139,6 @@ $cantidad     = mysqli_num_rows($queryCliente);
       </div>
   </div>
 </div>
-
-
-
-
-<?php include('../footer2.php') ?>
-
-
-
-
-
-
-
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>
@@ -218,4 +187,4 @@ $cantidad     = mysqli_num_rows($queryCliente);
 	</body>
 </html>
 
-
+<?php include("../footer.php")?>

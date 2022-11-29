@@ -27,7 +27,7 @@
         </select>
 
         <label for="name" class="form-label">CANTIDAD REQUERIDA</label>
-      <input type="number" class="form-control" name="cantidad_insumo" id="cantidad_insumo" required='true' placeholder="Cantidad" autofocus>
+      <input type="number" class="form-control" name="cantidad_insumo" id="cantidad_insumo" required='true' placeholder="Cantidad" min="1" autofocus>
 
                 <div class="invalid-feedback">Producto INVÁLIDO!</div>
     </div> 
