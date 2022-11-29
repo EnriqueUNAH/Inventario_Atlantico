@@ -43,10 +43,10 @@ if ($_SESSION['nombre']=="ADMINISTRADOR") {
 
               <?php
                     include("../db2.php");
-                    $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM producto where cod_tipo_producto=2" );           
+                    $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto where cod_tipo_producto=2" );           
               ?>
              <?php foreach ($ejecutar as $opciones): ?>
-                    <option value="<?php echo $opciones['descripcion']?>"><?php echo $opciones['descripcion'] ?></option>
+                    <option value="<?php echo $opciones['Nombre_PRODUCTO']?>"><?php echo $opciones['Nombre_PRODUCTO'] ?></option>
               <?php endforeach ?>
               <?php ?>
                               
