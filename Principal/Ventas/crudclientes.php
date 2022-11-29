@@ -47,7 +47,7 @@ include('../sidebar.php');
 
 <div class="row text-center" style="background-color: #cecece">
 </div>
-
+            
 <div class="row clearfix">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="body">
@@ -55,10 +55,14 @@ include('../sidebar.php');
 
       <div class="col-sm-12"><h2>DETALLE DE <b>CLIENTES</b></h2></div>
             <p></p>
+            
                 <div class="col-sm-22">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
-                                  NUEVO
-                              </button>
+                  
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">                  
+                        NUEVO
+                </button>
+                         <button type="button" onclick="window.location='ReporteClientes.php'" class="btn btn-warning">GENERAR PDF</button>
+    
                               <form action="buscar_cliente.php" method="get" class="form_search">
                               <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
                               <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
