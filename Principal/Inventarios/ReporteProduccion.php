@@ -67,7 +67,7 @@ justify-content: center;
           
 include('../db2.php');
 
-$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join producto p on tp.cod_producto = p.codproducto");
+$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join tbl_producto p on tp.COD_PRODUCTO = p.COD_PRODUCTO");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 ?>
@@ -120,7 +120,7 @@ $remitente = $_SESSION['nombre'];
                           <tr>
                             <td><?php echo $dataCliente['FECHA']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_USUARIO']; ?></td>
-                            <td><?php echo $dataCliente['descripcion']; ?></td>
+                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD_PRODUCIENDO']; ?></td>
                             <td><?php echo $dataCliente['ESTADO']; ?></td>
 
