@@ -158,7 +158,7 @@ $_SESSION['nombre'];
       </li><!-- End Components Nav -->
 
   <!-- ======= Sidebar Inventarios======= -->
-      <li class="nav-item">
+  <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>INVENTARIOS</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -170,23 +170,27 @@ $_SESSION['nombre'];
           </li>
           <li>
             <a href="../Principal/Inventario/crud_detalle_compra.php">
-              <i class="bi bi-circle"></i><span>DETALLE COMPRAS</span>
+              <i class="bi bi-circle"></i><span>DETALLES DE COMPRAS</span>
             </a>
           </li>
           <li>
-            <a href="../Inventarios/Producto_Producir.php">
             <a href="../Principal/Inventarios/Producto_Producir.php">
               <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
             </a>
           </li>
           <li>
-          <a href="../Principal/Inventario/Inventario-inventario.php">
+            <a href="../Principal/Inventario/Inventario-inventario.php">
               <i class="bi bi-circle"></i><span>VER INVENTARIO</span>
             </a>
           </li>
           <li>
+            <a href="../Principal/Inventario/tipodeinventario.php">
+              <i class="bi bi-circle"></i><span>VER TIPO DE INVENTARIO</span>
+            </a>
+          </li>
+          <li>
             <a href="../Principal/Inventarios/Sistema/lista_producto.php">
-              <i class="bi bi-circle"></i><span>PRODUCTOS</span>
+              <i class="bi bi-circle"></i><span> PRODUCTOS</span>
             </a>
           </li>
           <li>

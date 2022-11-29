@@ -41,13 +41,23 @@
             </a>
           </li>
           <li>
-            <a href="../Principal/Inventarios/Producto_Producir.php">
+            <a href="../Inventario/crud_detalle_compra.php">
+              <i class="bi bi-circle"></i><span>DETALLES DE COMPRAS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Inventarios/Producto_Producir.php">
               <i class="bi bi-circle"></i><span>NUEVA PRODUCCIÓN</span>
             </a>
           </li>
           <li>
             <a href="../Inventario/Inventario-inventario.php">
               <i class="bi bi-circle"></i><span>VER INVENTARIO</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Inventario/tipodeinventario.php">
+              <i class="bi bi-circle"></i><span>VER TIPO DE INVENTARIO</span>
             </a>
           </li>
           <li>

@@ -73,10 +73,10 @@ include('../sidebar.php');
       <div class="col-sm-12"><h2><b>DETALLE DE COMPRAS</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
                               </button>
-            
+             -->
                 </div>
                 <div>
                     <p></p>
@@ -97,7 +97,7 @@ include('../sidebar.php');
                             <th scope="col">PRECIO</th>
                             <th scope="col">CANTIDAD</th>
                             <th scope="col">INSUMO</th>
-                            <th scope="col">ACCIONES</th>
+                            <!-- <th scope="col">ACCIONES</th> -->
 
                           </tr>
                         </thead>
@@ -118,12 +118,12 @@ include('../sidebar.php');
                             <td><?php echo $dataCliente['PRECIO_COMPRA']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD']; ?></td>
                             <td><?php echo $producto?></td>
-                          <td> 
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_COMPRA']; ?>">
+                          <!-- <td> 
+                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_COMPRA']; ?>">
                                   Anular
-                              </button>
-                          </td>
-                          </tr>
+                              </button> 
+                          </td> 
+                          </tr>-->
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
                             <?php include('ModalEliminarDetalleCompra.php'); ?>
@@ -196,7 +196,7 @@ include('../sidebar.php');
 	</body>
 </html>
 
-<div id="InsertChildresn" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div id="InsertChildresn" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #3d5a7c !important;">
@@ -251,6 +251,6 @@ include('../sidebar.php');
 
     </div>
   </div>
-</div>
+</div> -->
 
 <?php include("../footer.php")?>

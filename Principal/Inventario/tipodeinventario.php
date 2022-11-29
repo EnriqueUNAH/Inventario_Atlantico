@@ -54,13 +54,13 @@
 	<body>
      <ul class="navbar-nav mr-auto collapse navbar-collapse">
       <li class="nav-item active">
-        <a href="crud_compras.php"> 
+        <a href="tipodeinventario.php"> 
         </a>
     <main id="main" class="main">
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_compra");
+        $sqlCliente   = ("SELECT * FROM tbl_tipo_inventario");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -73,7 +73,7 @@
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2><b>COMPRAS</b></h2></div>
+      <div class="col-sm-12"><h2><b>TIPOS DE INVENTARIOS</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
@@ -96,46 +96,43 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">COMPRA</th>
-                            <th scope="col">TOTAL PAGADO</th>
-                            <th scope="col">FECHA</th>
-                            <th scope="col">IMPUESTOS</th>
-                            <th scope="col">PROVEEDOR</th>
+                            <th scope="col">NO.</th>
+                            <th scope="col">TIPO DE INVENTARIO</th>
                             <th scope="col">ACCIONES</th>
-
                           </tr>
                         </thead>
                         <tbody>
-                          <?php
-                           while ($dataCliente = mysqli_fetch_array($queryCliente)) {
-                          $var=$dataCliente['COD_PROVEEDOR'];
-                          $consultaproveedor="SELECT NOMBRE_EMPRESA FROM tbl_proveedor where COD_PROVEEDOR = '$var'";
-                          $resultado_proveedor=mysqli_query( $conexion2 , $consultaproveedor );
-                          while ($proveedor_=mysqli_fetch_array( $resultado_proveedor )) {
-                               # code...
-                               $proveedor=$proveedor_['NOMBRE_EMPRESA'];
-                           }
-                              ?>
+                           <?php
+                         while ($dataCliente = mysqli_fetch_array($queryCliente)) {
+                        //   $var=$dataCliente['COD_TIPO_INVENTARIO'];
+                        //   $consultaproveedor="SELECT NOMBRE_EMPRESA FROM tbl_proveedor where COD_PROVEEDOR = '$var'";
+                        //   $resultado_proveedor=mysqli_query( $conexion2 , $consultaproveedor );
+                        //   while ($proveedor_=mysqli_fetch_array( $resultado_proveedor )) {
+                        //        # code...
+                        //        $proveedor=$proveedor_['NOMBRE_EMPRESA'];
+                           
+                              ?> 
                               
                           <tr>
-                            <td><?php echo $dataCliente['COD_COMPRA']; ?></td>
-                            <td><?php echo $dataCliente['TOTAL_PAGADO']; ?></td>
-                            <td><?php echo $dataCliente['FECHA']; ?></td>
-                            <td><?php echo $dataCliente['ISV']; ?></td>
-                            <td><?php echo $proveedor?></td>
+                            <td><?php echo $dataCliente['COD_TIPO_INVENTARIO']; ?></td>
+                            <td><?php echo $dataCliente['NOMBRE_TIPO_INVENTARIO']; ?></td>
                           <td> 
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_COMPRA']; ?>">
-                                  Anular
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_TIPO_INVENTARIO']; ?>">
+                                  Eliminar
+                              </button>
+
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_TIPO_INVENTARIO']; ?>">
+                                  Modificar
                               </button>
                           </td>
                           </tr>
                                                 
                             <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('ModalEliminarCompra.php'); ?>
+                            <?php include('ModalEliminarTipoInv.php'); ?>
 
 
                             <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditarCompra.php'); ?>
+                            <?php  include('ModalEditarTipoInv.php'); ?>
 
 
                         <?php } ?>
@@ -173,15 +170,15 @@
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'COD_COMPRA='+ id;
-        url = "reciboborradocompras.php";
+        var dataString = 'COD_TIPO_INVENTARIO='+ id;
+        url = "reciboborradotipoinventario.php";
             $.ajax({
                 type: "POST",
                 url: url,
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="crud_compras.php";
+                  window.location.href="tipodeinventario.php";
                   $('#respuesta').html(data);
                 }
             });
@@ -201,6 +198,7 @@
 	</body>
 </html>
 
+<?php include("../footer.php")?>
 <div id="InsertChildresn" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -214,54 +212,16 @@
       </div>
 
 
-      <form method="POST" action="recibCompra.php">
+      <form method="POST" action="recibTipoInventario.php">
         <input type="hidden" name="id">
 
             <div class="modal-body" id="cont_modal">
 
-            <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">INSUMO:</label>
-                  <input type="text" name="insumo" class="form-control" required="true">
-                </div>
-
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">CANTIDAD:</label>
-                  <input type="text" name="cantidad" class="form-control" required="true">
+                  <label for="recipient-name" class="col-form-label">TIPO DE INVENTARIO:</label>
+                  <input type="text" name="tipo" class="form-control" required="true">
                 </div>
-
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">TOTAL PAGADO:</label>
-                  <input type="text" name="total" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">FECHA:</label>
-                  <input type="date" name="fecha">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">IMPUESTOS:</label>
-                  <input type="text" name="ISV" class="form-control" required="true">
-                </div>
-                <div class="form-group">
-                      <label for="yourName" class="form-label">SELECCIONE PROVEEDOR:</label>
-                      <select name="proveedor" class="form-control">
-                      <?php
-                              # code...
-                              include("../db2.php");
-                              $consulta = "SELECT * FROM tbl_proveedor";
-                            
-                            $ejecutar= mysqli_query($conexion2,$consulta);
-                        ?>
-                      <option selected value="">--Seleccionar proveedor--</option>
-
-                        <?php foreach ($ejecutar as $opciones): ?>
-                            <option name="empresa" value="<?php echo $opciones['NOMBRE_EMPRESA']?>"><?php echo $opciones['NOMBRE_EMPRESA'] ?></option>
-                        <?php endforeach ?>
-                        <?php ?>    
-                                            
-                      </select>
-                      <div class="invalid-feedback">EMPRESA INVALIDA!</div>
-                    </div>
-            </div>
+                
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
               <button type="submit" class="btn btn-primary">GUARDAR DATOS</button>
@@ -271,5 +231,3 @@
     </div>
   </div>
 </div>
-
-<?php include("../footer.php")?>
