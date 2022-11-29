@@ -38,6 +38,17 @@ $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
 
 
 
+
+      //inserto datos en tabla DETALLE produccion 
+      $sql3="INSERT INTO tbl_detalle_produccion (INSUMO, CANTIDAD, COD_PRODUCCION) (SELECT insumo, cantidad, '$filasP' FROM tbl_detalle_produccion_temp)";
+      mysqli_query( $conexion2 , $sql3);
+
+
+      $sql4="TRUNCATE TABLE tbl_detalle_produccion_temp";
+      mysqli_query( $conexion2 , $sql4);
+
+
+
   
   ?>
 

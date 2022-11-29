@@ -178,8 +178,6 @@ $cantidad     = mysqli_num_rows($queryCliente);
 </div>
 
 
-<?php include('Producto_Producir.php') ?>
-
 
 <?php include('../footer2.php') ?>
 
