@@ -10,6 +10,7 @@
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
 	<link rel="stylesheet" href="style.css">
+	<script src="functions.js"></script>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
