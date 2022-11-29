@@ -20,11 +20,11 @@ $CantidadProducir = $_POST[ 'cantidad_producir' ];
 
 
 //Consultar el id seleccionado de la tabla producto
-$cod_producto="SELECT codproducto FROM producto WHERE descripcion='$Descripcion'";
+$cod_producto="SELECT COD_PRODUCTO FROM tbl_producto WHERE Nombre_Producto='$Descripcion'";
 $resultado_producto= mysqli_query( $conexion2 , $cod_producto );
     while ($Cod_Producto=mysqli_fetch_array( $resultado_producto )) {
         # code...
-        $cod_producto_=$Cod_Producto['codproducto'];
+        $cod_producto_=$Cod_Producto['COD_PRODUCTO'];
     }
 
 
