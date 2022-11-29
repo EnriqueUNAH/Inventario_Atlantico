@@ -70,6 +70,12 @@
               <i class="bi bi-circle"></i><span>VER PROVEEDORES</span>
             </a>
           </li>
+          <li>
+            <a href="../Inventarios/Kardex.php">
+              <i class="bi bi-circle"></i><span>KARDEX</span>
+            </a>
+          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 

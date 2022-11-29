@@ -34,10 +34,28 @@ include('../../../sidebarB.php');
 </head>
 <body>
 <main id="main" class="main">
-	<a href="./Backup.php">
-	<button type="button" class="btn btn-primary">Realizar copia de seguridad</button>
-	</a>
-	
+<center> <div class="card">
+  
+  <div class="card-body">
+  <center><h3> Punto de Backup</h3></center>
+   
+    <p class="card-text">Hacer click en el boton respaldo para hacer una copia de seguridad de la base de datos</p>
+
+    
+    <center> <a href="./Backup.php" class="btn btn-primary" onclick="return ConfirmarRespaldo()">
+          
+           Respaldo       
+          </a> </center>    
+
+  </div>
+</div></center> 
+
+
+<center> <div class="card">
+  
+  <div class="card-body">
+  <center><h3> Punto de Restauracion</h3></center>
+
 	<form action="./Restore.php" method="POST">
 		<div class="col-5"><br><label>Selecciona un punto de restauración</label><br></di>
 		
@@ -66,8 +84,10 @@ include('../../../sidebarB.php');
 				}
 			?>
 		</select>
-		<button type="submit" class="btn btn-info">Restaurar</button>
+		<button type="submit" class="btn btn-warning">Restaurar</button>
 	</form>
+</div></center> 
+
 
 
    </main>

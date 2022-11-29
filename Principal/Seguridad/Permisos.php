@@ -1,5 +1,21 @@
-<?php include('../cabecera.php') ?>
-<?php include('../sidebar.php') ?>
+<?php 
+include('../cabecera.php') ;
+include('../sidebar.php'); 
+
+
+
+$checkeado="";
+if ($Estatus==1)
+{
+$checkeado="checked";
+}
+else
+{
+$checkeado="";
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -91,7 +107,7 @@
                             <th> PERMISO ELIMINACIÓN</th>
                             <th> PERMISO ACTUALIZACIÓN</th>
                             <th> PERMISO_CONSULTAR</th>
-                            <th> ACCIONES</th>
+                            <th> Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -100,24 +116,36 @@
                           <tr>
                           <td><?php echo $dataCliente['ROL']; ?></td>
                           <td><?php echo $dataCliente['OBJETO']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_INSERCION']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_ELIMINACION']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_ACTUALIZACION']; ?></td>
-                            <td><?php echo $dataCliente['PERMISO_CONSULTAR']; ?></td>
+                            <td> <div class="icheck-success d-inline">
+                        <input type="checkbox" id="checkboxactivomodificar" name="checkboxactivomodificar" <?php echo $checkeado; ?>  value="true">
+                        <label for="checkboxactivomodificar">Activo
+                        </label>
+                      </div></td>
+                            <td> <div class="icheck-success d-inline">
+                        <input type="checkbox" id="checkboxactivomodificar" name="checkboxactivomodificar" <?php echo $checkeado; ?>  value="true">
+                        <label for="checkboxactivomodificar">Activo
+                        </label>
+                      </div></td>
+                            <td> <div class="icheck-success d-inline">
+                        <input type="checkbox" id="checkboxactivomodificar" name="checkboxactivomodificar" <?php echo $checkeado; ?>  value="true">
+                        <label for="checkboxactivomodificar">Activo
+                        </label>
+                      </div></td>
+                            <td>  <div class="form-group clearfix" >
+                    <div class="icheck-success d-inline">
+                        <input type="checkbox" id="checkboxactivomodificar" name="checkboxactivomodificar" <?php echo $checkeado; ?>  value="true">
+                        <label for="checkboxactivomodificar">Activo
+                        </label>
+                      </div>
+                </div></td>
                             
                           <td> 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPermiso<?php echo $dataCliente['ID_ROL']?>">
-                                  Cambiar Permisos
-                              </button>
+                        
                           </td>
                           </tr>
                                                                
                              <!--Ventana Modal para Actualizar--->
                                 <?php  include('Permiso_Modal_Editar.php'); ?>
-
-
-                            
-
 
                         <?php } ?>
                 

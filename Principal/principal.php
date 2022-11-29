@@ -198,6 +198,12 @@ $_SESSION['nombre'];
               <i class="bi bi-circle"></i><span>VER PROVEEDORES</span>
             </a>
           </li>
+          <li>
+            <a href="../Principal/Inventarios/Kardex.php">
+              <i class="bi bi-circle"></i><span>KARDEX</span>
+            </a>
+          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -353,12 +359,10 @@ $_SESSION['nombre'];
             <p>
                 <p>
                 Llegar a ser una empresa muy reconocida a nivel mundial 
+                por la calidad que ofrecemos en nuestros productos y 
+                buen servicio que le brindamos a nuestros clientes.
                 </p>
-                <p>
-                por la calidad que ofrecemos
-              en nuestros productos y buen servicio que le     
-                </p>
-                brindamos a nuestros clientes.
+
                 <p>                            
             </div>                            
           </div>                          
@@ -371,11 +375,9 @@ $_SESSION['nombre'];
             <div class="card-body">
             <br> 
             <h5><b>MISION</b></h5>
-            <p>Fabricar y comercializar uniformes y ropa deportiva a nivel nacional e internacional y 
-                <p>
-                ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las necesidades de nuestros clientes ofreciendo mayor calidad y comodidad.
-                </p>
-              
+            <p>Fabricar y comercializar uniformes y ropa deportiva a nivel nacional e internacional
+               y ofrecer a nuestros clientes productos de alta calidad, para asi cumplir con las 
+               necesidades de nuestros clientes ofreciendo mayor calidad y comodidad.
             </p>                               
             </div>                            
           </div>                          
