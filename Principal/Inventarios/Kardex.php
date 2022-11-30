@@ -53,7 +53,7 @@ include('../sidebar.php');
     <?php
         include('../db2.php');
 
-        $sqlCliente   = ("SELECT * FROM tbl_kardex ORDER By COD_KARDEX");
+        $sqlCliente   = ("SELECT * FROM tbl_kardex k inner join tbl_producto p on k.COD_PRODUCTO=p.COD_PRODUCTO ORDER By COD_KARDEX");
         $queryCliente = mysqli_query($conexion2, $sqlCliente);
         $cantidad     = mysqli_num_rows($queryCliente);
     ?>
@@ -86,9 +86,10 @@ include('../sidebar.php');
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th>FECHA</th>
-                            <th scope="col">CODIGO PRODUCTO</th>
-                            <th scope="col">CODIGO TIPO MOVIMIENTO</th>
+
+                            <th scope="col">FECHA</th>
+                            <th scope="col">TIPO MOVIMIENTO</th>
+                            <th scope="col">PRODUCTO</th>
 
                           </tr>
                         </thead>
@@ -97,28 +98,14 @@ include('../sidebar.php');
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
                             <td><?php echo $dataCliente['FECHA']; ?></td>
-                            <td><?php echo $dataCliente['COD_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['COD_TIPO_MOVIMIENTO']; ?></td>
+                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
+                            <td><?php echo $dataCliente['TIPO_MOVIMIENTO']; ?></td>
                           <td> 
-                          <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCAI<?php echo $dataCliente['COD_TALONARIO']; ?>">
-                                  Eliminar
-                              </button>
-                            
-                            
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editCAI<?php echo $dataCliente['COD_TALONARIO']; ?>">
-                                  Modificar
-                              </button> -->
+        
                           </td>
                           </tr>
                                                 
-                            <!--Ventana Modal para la Alerta de Eliminar--->
-                            <!-- <?php include('ConfiguracionCAI_ModalEliminar.php'); ?> -->
-
-
-                            <!--Ventana Modal para Actualizar--->
-                            <!-- <?php  include('ConfiguracionCAI_ModalEditar.php'); ?> -->
-
-                            
+    
 
 
                         <?php } ?>

@@ -59,7 +59,7 @@
 
 <?php
 
-$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join producto p on tp.cod_producto = p.codproducto");
+$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join tbl_producto p on tp.cod_producto = p.COD_PRODUCTO");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 
@@ -119,14 +119,16 @@ $cantidad     = mysqli_num_rows($queryCliente);
                             
                             <td><?php echo $dataCliente['FECHA']; ?></td>
                             <td><?php echo $dataCliente['NOMBRE_USUARIO']; ?></td>
-                            <td><?php echo $dataCliente['descripcion']; ?></td>
+                            <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
                             <td><?php echo $dataCliente['CANTIDAD_PRODUCIENDO']; ?></td>
                             <td><?php echo $dataCliente['ESTADO']; ?></td>
                             
                             <td> 
 
 
-
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_PRODUCCION']; ?>">
+                                  Ver Detalles
+                              </button>
 
 
 
@@ -137,8 +139,8 @@ $cantidad     = mysqli_num_rows($queryCliente);
                           
                           
 
-                          <!--Ventana Modal para la Alerta de Eliminar--->
-                          <?php include('Insumo_ModalEliminar.php'); ?>
+                          <!--Ventana Modal para --->
+                          <?php include('Produccion_Modal.php'); ?>
 
 
 
