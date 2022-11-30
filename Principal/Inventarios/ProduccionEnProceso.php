@@ -215,6 +215,6 @@ $cantidad     = mysqli_num_rows($queryCliente);
 	</body>
 </html>
 
-<?php include('../footer2.php') ?>
+<?php include('../footer.php') ?>
 
 
