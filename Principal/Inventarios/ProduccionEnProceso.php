@@ -59,7 +59,7 @@
 
 <?php
 
-$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join tbl_producto p on tp.cod_producto = p.COD_PRODUCTO");
+$sqlCliente   = ("SELECT * FROM  tbl_producto p inner join tbl_produccion tp  on tp.cod_producto = p.COD_PRODUCTO");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 
