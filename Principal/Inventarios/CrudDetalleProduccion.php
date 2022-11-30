@@ -189,15 +189,15 @@ $cantidad     = mysqli_num_rows($queryCliente);
         e.preventDefault();
         var id = $(this).attr("id");
 
-        var dataString = 'COD_PRODUCTO='+ id;
-        url = "Producto_recib_Delete.php";
+        var dataString = 'id='+ id;
+        url = "Insumo_recib_Delete.php";
             $.ajax({
                 type: "POST",
                 url: url,
                 data: dataString,
                 success: function(data)
                 {
-                  window.location.href="CrudProducto.php";
+                  window.location.href="CrudDetalleProduccion.php";
                   $('#respuesta').html(data);
                 }
             });
