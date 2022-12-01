@@ -121,23 +121,22 @@ $cantidad     = mysqli_num_rows($queryCliente);
 </form>
 
 
-       <br><br><br><br><div class="row text-center" style="background-color: #cecece">
-</div>
 
-<div class="row clearfix">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="body">
-      <div class="row clearfix">
-        <br>
+
+
+
+<br><br><br>
+            <div class="row clearfix">
+              <br>
 
                 <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>        
 
           <div class="col-sm-15">
               <div class="row">
-                <div class="col-md-9 p-2">
+                  <div class="col-md-9 p-2">
 
                 <div>
-                <button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
+                      <button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
                 </div>              
                 
                 <div class="table-responsive">
@@ -166,20 +165,18 @@ $cantidad     = mysqli_num_rows($queryCliente);
                           <!--Ventana Modal para la Alerta de Eliminar--->
                           <?php include('Insumo_ModalEliminar.php'); ?>
 
-                        <?php } ?>
-  
-                        <tr>
-                        </tr> 
+                          <?php } ?>
+ 
 
-                    </table>
-                    
+                    </table>                   
                 </div>
+
+
               </div>
           </div>
           </div>
-      </div>
-  </div>
-</div>
+   
+
 
 
 <?php include('../footer.php') ?>
