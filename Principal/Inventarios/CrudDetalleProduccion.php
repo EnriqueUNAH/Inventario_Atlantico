@@ -225,16 +225,6 @@ $cantidad     = mysqli_num_rows($queryCliente);
 </script>
 
 
-
-
-    </main>
-    
-	</body>
-</html>
-
-
-
-
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btnguardar').click(function(){
@@ -256,4 +246,15 @@ $cantidad     = mysqli_num_rows($queryCliente);
 		});
 	});
 </script>
+
+
+
+                </main>   
+	      </body>
+</html>
+
+
+
+
+
 
