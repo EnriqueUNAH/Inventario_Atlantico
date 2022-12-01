@@ -80,12 +80,21 @@ $cantidad     = mysqli_num_rows($queryCliente);
 
 <main id="main" class="main">
 
+
+
+<div class="container">
+      <div class="row p-4">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-body">
+              <!-- FORM TO ADD TASKS -->
+
 <form id="frmdp"  method="POST">
 <div class="row">
-    <div class="col-sm-7"><h4><b>INSUMOS</b></h4> <br>
-        <div class="col-4"> 
+    <div class="col-sm-7"><h4><b>INSUMOS</b></h4> 
+        <div class="col-15"> 
             <br>
-                <label for="yourName" class="form-label">SELECCIONE UN INSUMO PARA LA PRODUCCIÓN:</label>
+                <label for="yourName" class="form-label">SELECCIONE UN INSUMO PARA LA PRODUCCIÓN</label><br>
                 <select name="insumo" id="insumo" class="form-control">
                   
                     <?php
@@ -97,7 +106,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
                                     <option value="<?php echo $opciones['Nombre_PRODUCTO']?>"><?php echo $opciones['Nombre_PRODUCTO'] ?></option>
                      <?php endforeach ?>
                                               
-                </select>
+                </select><br>
 
             <label for="name" class="form-label">CANTIDAD REQUERIDA</label>
                 <input type="number" class="form-control" name="cantidad_insumo" id="cantidad_insumo" required='true' placeholder="Cantidad" min="1" autofocus>
@@ -105,41 +114,44 @@ $cantidad     = mysqli_num_rows($queryCliente);
                 <div class="invalid-feedback">Producto INVÁLIDO!</div>
         </div> 
 
-        <div class="row justify-content-start text-center mt-5">
-                <div class="col-5">
-                          <button class="btn btn-success" 
-                                  name="btnguardar" 
-                                  id="btnguardar"
-                                  value="agregar" 
-                                  type="submit">
-                Agregar a la lista
-                          </button>
-                </div>
+                      <div class="row justify-content-start text-center mt-5">
+                          <div class="col-5">
+                                <button class="btn btn-success" 
+                                        name="btnguardar" 
+                                        id="btnguardar"
+                                        value="agregar" 
+                                        type="submit">
+                                 Agregar a la lista
+                                </button>
+                          </div>
+                     </div>
+              </div>
         </div>
-    </div>
-</div>
 </form>
 
+            </div>
+      </div>
+</div>
 
 
 
 
 
-<br><br><br>
-            <div class="row clearfix">
-              <br>
 
-                <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>        
+         
 
-          <div class="col-sm-15">
-              <div class="row">
-                  <div class="col-md-9 p-2">
-
-                <div>
+                        <!-- TABLE  -->
+        <div class="col-md-7">
+          <div class="card my-4" id="task-result">
+            <div class="card-body">
+              <!-- SEARCH -->
+              <ul id="container"></ul>
+            </div>
+          </div>
+          <div class="col-sm-7"><h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
+          <div>
                       <button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button> 
-                </div>              
-                
-                <div class="table-responsive">
+                </div> 
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                               <tr>                            
@@ -168,14 +180,15 @@ $cantidad     = mysqli_num_rows($queryCliente);
                           <?php } ?>
  
 
-                    </table>                   
-                </div>
+                    </table>   
 
-
-              </div>
-          </div>
-          </div>
-   
+                    
+                                    
+                    </div>
+                    
+      </div>
+      
+    </div>
 
 
 
