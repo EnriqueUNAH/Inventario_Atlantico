@@ -30,25 +30,8 @@ include('../sidebar.php');
 				<!-- SCRIPTS JS-->
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 				<script src="peticion.js"></script>
-				<script src="jquery-3.2.1.min.js"></script>
-				<!-- <style> 
-        table tr th{
-            background:rgba(0, 0, 0, .6);
-            color: black;
-        }
-        tbody tr{
-          font-size: 12px !important;
+				<script src="jquery-3.6.1.min.js"></script>
 
-        }
-        h3{
-            color:crimson; 
-            margin-top: 100px;
-        }
-        a:hover{
-            cursor: pointer;
-            color: #333 !important;
-        }
-      </style>  -->
 			</head>
 
 			<body>
@@ -101,17 +84,13 @@ $cantidad     = mysqli_num_rows($queryCliente);
 										</div>
 									</div>
 								</div>
-                
+
 								<!-- TABLE  -->
 								<div class="col-md-7">
-									<div class="card my-4" id="task-result">
-										<div class="card-body">
-											<!-- SEARCH -->
-											<ul id="container"></ul>
-										</div>
-									</div>
+
 									<div class="col-sm-7">
-										<h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
+										<h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4>
+                  </div>
 									<div>
 										<button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button>
 									</div>
@@ -168,6 +147,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
 									$.ajax({
 										type: "POST",
 										url: url,
+                    async: true,
 										data: dataString,
 										success: function(data) {
 											window.location.href = "CrudDetalleProduccion.php";
@@ -193,10 +173,14 @@ $cantidad     = mysqli_num_rows($queryCliente);
 											window.location.href = "CrudDetalleProduccion.php";
 										}
 									});
+
 									return false;
 								});
 							});
 							</script>
+
+
+
 
 					</main>
 			</body>

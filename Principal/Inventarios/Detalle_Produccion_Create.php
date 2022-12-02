@@ -12,7 +12,7 @@ $fechaC = date('Y-m-d');
   $filas=$max + 1;
   
   //Variables ingresadas
-    $Cantidad_Insumo = strtoupper($_POST[ 'cantidad_insumo' ]);
+    $Cantidad_Insumo = $_POST[ 'cantidad_insumo' ];
     $Insumo = strtoupper($_POST[ 'insumo' ]);
 
   //inserto datos en tabla detalle produccion temporal
@@ -25,9 +25,9 @@ $fechaC = date('Y-m-d');
 
     ?>
 
-    
+    <!--
      <script type="text/javascript">
      window.location.href = "CrudDetalleProduccion.php";
      </script>
-
+-->
 
