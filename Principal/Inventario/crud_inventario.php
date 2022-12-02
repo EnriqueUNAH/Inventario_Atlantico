@@ -33,24 +33,21 @@
  <body>
  <main id="main" class="main">
   <div>
-   <h1>DETALLE DE INVENTARIO</h1>
+   <h1>INVENTARIO</h1>
    <br />
    <div>
    <br />
     <div>
-    <button type="button" onclick="window.location='ReporteUsuarios.php'" class="btn btn-warning">GENERAR PDF</button>
-    <button type="button" onclick="window.location='Usuario_ver_mas.php'" class="btn btn-info"> Ver Más</button>    
+    <button type="button" onclick="window.location='reporteinventario.php'" class="btn btn-warning">GENERAR PDF</button>  
     </div>
     <br />
     <div id="alert_message"></div>
     <table id="user_data" class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th>CODIGO INVENTARIO</th>
        <th>DESCRIPCION</th>
        <th>CANTIDAD</th>
-       <th>FECHA</th>
-       <th>PROVEEDOR</th>
+       <th>ESTADO</th>
       </tr>
      </thead>
     </table>

@@ -29,11 +29,20 @@ while($row = mysqli_fetch_array($result))
 {
 $CON=$CON+1;
  $sub_array = array();
- $sub_array[] = '<div data-id="'.$row["COD_INVENTARIO"].'"'. $CON .' data-column="COD_INVENTARIO">' . $row["COD_INVENTARIO"] . '</div>';
  $sub_array[] = '<div data-id="'.$row["DESCRIPCION"].'"'. $CON .' data-column="DESCRIPCION">' . $row["DESCRIPCION"] . '</div>';
- $sub_array[] = '<div data-id="'.$row["CANTIDAD"].'"'. $CON .' data-column="CANTIDAD">' . $row["CANTIDAD"] . '</div>';
- $sub_array[] = '<div data-id="'.$row["FECHA"].'"'. $CON .' data-column="FECHA">' . $row["FECHA"] . '</div>';
- $sub_array[] = '<div data-id="'.$row["NOMBRE_EMPRESA"].'"'. $CON .' data-column="NOMBRE_EMPRESA">' . $row["NOMBRE_EMPRESA"] . '</div>';
+ if ($row["CANTIDAD"]>100) {
+    # code...
+    $sub_array[] = '<div data-id="'.$row["CANTIDAD"].'"'. $CON .' data-column="CANTIDAD">' . $row["CANTIDAD"] . '</div>';
+    $sub_array[] = '<div style="background-color: green; color: green"; data-id="'.$row["COD_INVENTARIO"].'"'. $CON .' data-column="NOMBRE_EMPRESA">' . $row["COD_INVENTARIO"] . '</div>';
+
+ } else {
+    # code...
+    $sub_array[] = '<div data-id="'.$row["CANTIDAD"].'"'. $CON .' data-column="CANTIDAD">' . $row["CANTIDAD"] . '</div>';
+    $sub_array[] = '<div style="background-color:red; color: red"; data-id="'.$row["COD_INVENTARIO"].'"'. $CON .' data-column="NOMBRE_EMPRESA">' . $row["COD_INVENTARIO"] . '</div>';
+
+ }
+ 
+ 
  $data[] = $sub_array;
 }
 
