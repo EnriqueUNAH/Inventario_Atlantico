@@ -110,8 +110,6 @@ include('../sidebar.php');
 
 
 <form action="Genero_Buscar.php" method="get" class="form_search">
-			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
-			<button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
 		</form>
 
 

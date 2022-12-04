@@ -30,11 +30,11 @@ $resultado= mysqli_query( $conexion2 , $consulta );
 $filas = mysqli_num_rows( $resultado );
 $filas=$filas+1;
 $insertar_="INSERT INTO tbl_cliente VALUES('$filas','$dni','$nombreP','$tel','$correo','$dir','$fechaC','$gen','$filas_','1')";
-$insertar2="INSERT INTO cliente VALUES('$filas','$dni','$nombreP','$tel','$dir','$fechaC','1','1')";
+//$insertar2="INSERT INTO cliente VALUES('$filas','$dni','$nombreP','$tel','$dir','$fechaC','1','1')";
 
 
 mysqli_query($conexion2, $insertar_);
-mysqli_query($conexion2, $insertar2);
+//mysqli_query($conexion2, $insertar2);
 
 
 header("location:crudclientes.php");

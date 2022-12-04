@@ -72,7 +72,7 @@ include('../sidebar.php');
   <div class="body">
       <div class="row clearfix">
 
-      <div class="col-sm-12"><h2>DETALLE DE <b>MOVIMIENTOS</b></h2></div>
+      <div class="col-sm-12"><h2><b>MOVIMIENTOS</b></h2></div>
             <p></p>
                 <div class="col-sm-22">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
