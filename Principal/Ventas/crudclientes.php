@@ -53,6 +53,7 @@
        <th>TELEFONO</th>
        <th>CORREO</th>
        <th>DIRECCION</th>
+       <th>ACCION</th>
       </tr>
      </thead>
     </table>

@@ -34,10 +34,10 @@ $CON=$CON+1;
  $sub_array = array();
  $sub_array[] = '<div contenteditable class="update" data-id="'.$row["NOMBRE_COMPLETO"].'"'. $CON .' data-column="NOMBRE_COMPLETO">' . $row["NOMBRE_COMPLETO"] . '</div>';
  $sub_array[] = '<div contenteditable class="update" data-id="'.$row["RTN"].'"'. $CON .' data-column="RTN">' . $row["RTN"] . '</div>';
- $sub_array[] = '<div contenteditable="FALSE" class="update" data-id="'.$row["TELEFONO"].'"'. $CON .' data-column="TELEFONO">' . $row["TELEFONO"] . '</div>';
- $sub_array[] = '<div contenteditable="FALSE" class="update" data-id="'.$row["CORREO_ELECTRONICO"].'"'. $CON .' data-column="CORREO_ELECTRONICO">' . $row["CORREO_ELECTRONICO"] . '</div>';
+ $sub_array[] = '<div contenteditable class="update" data-id="'.$row["TELEFONO"].'"'. $CON .' data-column="TELEFONO">' . $row["TELEFONO"] . '</div>';
+ $sub_array[] = '<div contenteditable class="update" data-id="'.$row["CORREO_ELECTRONICO"].'"'. $CON .' data-column="CORREO_ELECTRONICO">' . $row["CORREO_ELECTRONICO"] . '</div>';
  $sub_array[] = '<div contenteditable class="update" data-id="'.$row["DIRECCION"].'"'. $CON .' data-column="DIRECCION">' . $row["DIRECCION"] . '</div>';
- $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["ID_USUARIO"].'">BORRAR</button>';
+ $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["COD_CLIENTE"].'">BORRAR</button>';
  $data[] = $sub_array;
 }
 
