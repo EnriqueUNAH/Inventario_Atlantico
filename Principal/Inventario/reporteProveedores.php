@@ -67,7 +67,7 @@ justify-content: center;
           
 include('../db2.php');
 
-$sqlCliente   = ("SELECT * FROM tbl_cliente");
+$sqlCliente   = ("SELECT * FROM tbl_proveedor");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 ?>
@@ -100,28 +100,27 @@ $remitente = $_SESSION['nombre'];
     <main>       
     
     <br>
-            <h3 class="center">Lista de Clientes</h3>
+            <h3 class="center">Lista de Proveedores</h3>
 
 <table class="table table-striped table-hover">
 
                         <thead>
                           <tr>
-                            <th>RTN</th>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">TELÉFONO</th>
-                            <th scope="col">CRORREO ELECTRÓNICO</th>
-                            <th scope="col">DIRECCIÓN</th>
-
+                            <th scope="col">NOMBRE DEL REPRESENTANTE</th>
+                            <th scope="col">NOMBRE DE LA EMPRESA</th>
+                            <th scope="col">RTN</th>
+                            <th scope="col">TELEFONO</th>
+                            <th scope="col">DIRECCION</th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
+                            <td><?php echo $dataCliente['NOMBRE_REPRESENTANTE']; ?></td>
+                            <td><?php echo $dataCliente['NOMBRE_EMPRESA']; ?></td>
                             <td><?php echo $dataCliente['RTN']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>
                             <td><?php echo $dataCliente['TELEFONO']; ?></td>
-                            <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
                             <td><?php echo $dataCliente['DIRECCION']; ?></td>
 
                           </tr>
@@ -163,6 +162,6 @@ $dompdf->loadHtml($html);
 $dompdf->setPaper('A4');
  
 $dompdf->render();
-$dompdf->stream("Clientes.pdf", array("Attachment"=> true)); //descargar o no el pdf
+$dompdf->stream("Proveedores.pdf", array("Attachment"=> true)); //descargar o no el pdf
 
 ?>

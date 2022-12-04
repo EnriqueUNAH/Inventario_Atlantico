@@ -40,7 +40,8 @@
     <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
                                   NUEVO
-                              </button>   
+                              </button>  
+    <button type="button" onclick="window.location='reporteProveedores.php'" class="btn btn-warning">GENERAR PDF</button>   
     </div>
     <br />
     <div id="alert_message"></div>
