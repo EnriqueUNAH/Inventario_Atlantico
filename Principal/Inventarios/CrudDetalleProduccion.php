@@ -37,8 +37,11 @@ include('../sidebar.php');
 			<body>
 				<?php
 
-$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
+//$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp dp inner join tbl_producto p on dp.COD_PRODUCTO-p.COD_PRODUCTO");
+$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp dp inner join tbl_producto p on dp.COD_PRODUCTO=p.COD_PRODUCTO");
+
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
+
 $cantidad     = mysqli_num_rows($queryCliente);
 
 ?>
@@ -63,7 +66,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
                         $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto where cod_tipo_producto=1" );             
                     ?>
 																	<?php foreach ($ejecutar as $opciones): ?>
-																		<option value="<?php echo $opciones['Nombre_PRODUCTO']?>">
+																		<option value="<?php echo $opciones['COD_PRODUCTO']?>">
 																			<?php echo $opciones['Nombre_PRODUCTO'] ?>
 																		</option>
 																		<?php endforeach ?>
@@ -106,7 +109,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
 											<tr>
 												<td>
-													<?php echo $dataCliente['insumo']; ?>
+													<?php echo $dataCliente['Nombre_PRODUCTO']; ?>
 												</td>
 												<td>
 													<?php echo $dataCliente['cantidad']; ?>
