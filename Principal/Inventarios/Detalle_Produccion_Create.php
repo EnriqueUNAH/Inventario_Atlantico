@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once "../db2.php";
+
+require_once "CrudDetalleProduccion.php";
+
 $usuario = $_SESSION['nombre'];
 $fechaC = date('Y-m-d');
 
@@ -19,6 +22,9 @@ $fechaC = date('Y-m-d');
         $cod_producto_=$Cod_Producto['COD_PRODUCTO'];
     }
 
+    $sqlC  = ("SELECT * FROM tbl_detalle_produccion_temp");
+$queryC = mysqli_query($conexion2, $sqlC);
+
   
   //Variables ingresadas
     $Cantidad_Insumo = $_POST[ 'cantidad_insumo' ];
@@ -29,7 +35,8 @@ $fechaC = date('Y-m-d');
     mysqli_query( $conexion2 , $sql);
    
 
-
+                  $sqll = "CALL actualizar_existencia_insumo($Cantidad_Insumo,$Insumo)"; 
+                  mysqli_query( $conexion2 , $sqll);
 
     ?>
 

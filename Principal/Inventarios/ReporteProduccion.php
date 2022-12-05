@@ -67,7 +67,7 @@ justify-content: center;
           
 include('../db2.php');
 
-$sqlCliente   = ("SELECT * FROM tbl_produccion tp inner join tbl_producto p on tp.COD_PRODUCTO = p.COD_PRODUCTO");
+$sqlCliente   = ("SELECT * FROM tbl_producto tp inner join tbl_produccion p on tp.COD_PRODUCTO = p.COD_PRODUCTO");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 ?>

@@ -22,6 +22,8 @@ $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 
 
+
+
       //inserto datos en tabla DETALLE produccion 
       $sql4="INSERT INTO tbl_produccion (FECHA, NOMBRE_USUARIO, COD_PRODUCTO, CANTIDAD_PRODUCIENDO, ESTADO) (SELECT FECHA, NOMBRE_USUARIO, COD_PRODUCTO, CANTIDAD_PRODUCIENDO, ESTADO FROM tbl_produccion_temp)";
       mysqli_query( $conexion2 , $sql4);      
@@ -32,16 +34,13 @@ $cantidad     = mysqli_num_rows($queryCliente);
       $sql3="INSERT INTO tbl_detalle_produccion (COD_PRODUCTO, CANTIDAD, COD_PRODUCCION) (SELECT COD_PRODUCTO, cantidad, '$filasPT' FROM tbl_detalle_produccion_temp)";
       mysqli_query( $conexion2 , $sql3);
 
+    
 
-      while ($dataCliente = mysqli_fetch_array($queryCliente)) { 
 
-        $codPro=$dataCliente['COD_PRODUCTO']; 
-          $cant=$dataCliente['cantidad']; 
-          $sqll = "call actualizar_existencia_insumo('$cant','$codPro')"; 
-          mysqli_query( $conexion2 , $sqll);
+ 
+ 			
 
-     } 
-      
+
      ?>
 <?php
       $sql5="TRUNCATE TABLE tbl_detalle_produccion_temp";
@@ -49,6 +48,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
 
       $sql6="TRUNCATE TABLE tbl_produccion_temp";
       mysqli_query( $conexion2 , $sql6);
+     
 ?>
 
   

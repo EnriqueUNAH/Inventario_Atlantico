@@ -115,8 +115,15 @@ $cantidad     = mysqli_num_rows($queryCliente);
 													<?php echo $dataCliente['cantidad']; ?>
 												</td>
 												<td>
-													<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>"> Eliminar </button>
+
+
+
+
+												<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>">
+                                 						 Eliminar
+                             					 </button>
 												</td>
+
 											</tr>
 											<!--Ventana Modal para la Alerta de Eliminar--->
 											<?php include('Insumo_ModalEliminar.php'); ?>
@@ -127,13 +134,21 @@ $cantidad     = mysqli_num_rows($queryCliente);
 						</div>
 
 
-						<?php include('../footer.php') ?>
+
+
+
+
+
+
+
+
+						
 							<script src="../js/jquery.min.js"></script>
 							<script src="../js/popper.min.js"></script>
 							<script src="../js/bootstrap.min.js"></script>
 
 
-							<script type="text/javascript">
+							 <script type="text/javascript">
 							$(document).ready(function() {
 								$(window).load(function() {
 									$(".cargando").fadeOut(1000);
@@ -146,11 +161,11 @@ $cantidad     = mysqli_num_rows($queryCliente);
 									e.preventDefault();
 									var id = $(this).attr("id");
 									var dataString = 'id=' + id;
-									url = "Insumo_recib_Delete.php";
+
+									url = "Insumo_recib_D.php";
 									$.ajax({
 										type: "POST",
 										url: url,
-                    async: true,
 										data: dataString,
 										success: function(data) {
 											window.location.href = "CrudDetalleProduccion.php";
@@ -160,7 +175,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
 									return false;
 								});
 							});
-							</script>
+							</script> 
 
 
 							<script type="text/javascript">
@@ -180,12 +195,48 @@ $cantidad     = mysqli_num_rows($queryCliente);
 									return false;
 								});
 							});
-							</script>
 
 
 
 
-					</main>
-			</body>
+							
 
-			</html>
+
+
+
+
+			function elimina(id){
+     		 alertify.confirm('Eliminar juego', '¿Desea eliminar este registro?', 
+              function(){ 
+                  $.ajax({
+                     type:"POST",
+                      data:"id=" + id,
+                      url:"eliminar.php",
+   
+                  });
+              }
+              ,function(){ 
+                alertify.error('Cancelo')
+              });
+  }
+
+
+
+
+</script>
+
+
+	
+
+
+
+				</main>
+		</body>
+</html>
+
+
+
+
+
+
+<?php include('../footer.php') ?>
