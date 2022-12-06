@@ -21,7 +21,7 @@ $filas_s=$filass+1;
 $consultass="SELECT * FROM producto";
 $resultadoss= mysqli_query( $conection , $consultass);
 $filassx = mysqli_num_rows( $resultadoss );
-$filasx_s=$filassx+1;
+$filasx_s=$filassx+10;
 
 $fechaC = date('Y-m-d');
 
