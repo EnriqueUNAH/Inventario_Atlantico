@@ -1,187 +1,385 @@
 <?php include('../cabecera.php') ?>
-<?php 
-include('../sidebar.php');
-?>
+<?php include('../sidebar.php') ?>
 <!DOCTYPE html>
-<html lang="es">
-	<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-  <link type="text/css" rel="shortcut icon" href="../img/logo-mywebsite-urian-viera.svg"/>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../css/cargando.css">
-  <link rel="stylesheet" type="text/css" href="../css/maquinawrite.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    	<!-- SCRIPTS JS-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="peticion.js"></script>
-    <script type="text/javascript" src="../js/icons.js"></script>
-    <link rel="stylesheet" href="style.css">
-
-      
-	</head>
-  
-	<body>
-     <ul class="navbar-nav mr-auto collapse navbar-collapse">
-      <li class="nav-item active">
-        <a href="crud_proveedores.php"> 
-        </a>
-    <main id="main" class="main">
-    <?php
-        include('../db2.php');
-
-        $sqlCliente   = ("SELECT * FROM tbl_cliente");
-        $queryCliente = mysqli_query($conexion2, $sqlCliente);
-        $cantidad     = mysqli_num_rows($queryCliente);
-    ?>
-
-<div class="row text-center" style="background-color: #cecece">
-</div>
-            
-<div class="row clearfix">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="body">
-      <div class="row clearfix">
-
-      <div class="col-sm-12"><h2>DETALLE DE <b>CLIENTES</b></h2></div>
-            <p></p>
-            
-                <div class="col-sm-22">
-                  
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">                  
-                        NUEVO
-                </button>
-                         <button type="button" onclick="window.location='ReporteClientes.php'" class="btn btn-warning">GENERAR PDF</button>
-    
-                              <form action="buscar_cliente.php" method="get" class="form_search">
-                              <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
-                              <button type="submit" class="btn_search"><i class="fas fa-search"></i></button>
-                            </form>
-                </div>
-                <div>
-                </div> 
-
-         
-
-          <div class="col-sm-20">
-              <div class="row">
-                <div class="col-md-12 p-2">
-
-
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">RTN</th>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">TELEFONO</th>
-                            <th scope="col">CORREO ELECTONICO</th>
-                            <th scope="col">DIRECCION</th>
-                            <th scope="col">ACCIONES</th>
-
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php
-                              while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
-                          <tr>
-                            <td><?php echo $dataCliente['RTN']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>
-                            <td><?php echo $dataCliente['TELEFONO']; ?></td>
-                            <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
-                            <td><?php echo $dataCliente['DIRECCION']; ?></td>
-                            
-                          <td> 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $dataCliente['COD_CLIENTE']; ?>">
-                                  Eliminar
+<html lang="en">
+ <head>
+  <title>CLIENTES</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+  <style>
+  body
+  {
+   margin:0;
+   padding:0;
+   background-color:0,0,0;
+  }
+  .box
+  {
+   width:1024px;
+   padding:10px;
+   background-color:#fff;
+   border:1px solid #ccc;
+   border-radius:5px;
+   margin-top:25px;
+   box-sizing:border-box;
+  }
+  </style>
+ </head>
+ </main>
+ <body>
+ <main id="main" class="main">
+  <div>
+   <h1>CLIENTES</h1>
+   <br />
+   <div>
+   <br />
+    <div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#InsertChildresn">
+                                  NUEVO
                               </button>
-                            
-                            
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $dataCliente['COD_CLIENTE']; ?>">
-                                  Modificar
-                              </button>
-                          </td>
-                          </tr>
-                                                
-                            <!--Ventana Modal para la Alerta de Eliminar--->
-                            <?php include('ModalEliminarCliente.php'); ?>
-
-
-                            <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditarCliente.php'); ?>
-
-                        <?php } ?>
-                
-                    </table>
-                </div>
-
-
-              </div>
-          </div>
-          </div>
-      </div>
+    <button type="button" onclick="window.location='ReporteClientes.php'" class="btn btn-warning">GENERAR PDF</button> 
+    </div>
+    <br />
+    <div id="alert_message"></div>
+    <table id="user_data" class="table table-bordered table-striped">
+     <thead>
+      <tr>
+       <th>NOMBRE</th>
+       <th>RTN</th>
+       <th>TELEFONO</th>
+       <th>CORREO</th>
+       <th>DIRECCION</th>
+       <th>ACCION</th>
+      </tr>
+     </thead>
+    </table>
+   </div>
   </div>
-</div>
-
-<script src="../js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $(window).load(function() {
-            $(".cargando").fadeOut(1000);
-        });
-
-//Ocultar mensaje
-    setTimeout(function () {
-        $("#contenMsjs").fadeOut(1000);
-    }, 3000);
-
-
-
-    $('.btnBorrar').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr("id");
-
-        var dataString = 'COD_CLIENTE='+ id;
-        url = "reciboborrado.php";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: dataString,
-                success: function(data)
-                {
-                  window.location.href="crudclientes.php";
-                  $('#respuesta').html(data);
-                }
-            });
-    return false;
-
-    });
-
-
-});
-</script>
-
-
-
-
-    </main>
-    
-	</body>
+ </body>
 </html>
+<script type="text/javascript" language="javascript/spanish" >
+ $(document).ready(function(){
+  
+  fetch_data();
+
+  function fetch_data()
+  {
+    var espanol =
+    {
+    "processing": "Procesando...",
+    "lengthMenu": "Mostrar _MENU_ registros",
+    "zeroRecords": "No se encontraron resultados",
+    "emptyTable": "Ningún dato disponible en esta tabla",
+    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+    "search": "Buscar:",
+    "infoThousands": ",",
+    "loadingRecords": "Cargando...",
+    "paginate": {
+        "first": "Primero",
+        "last": "Último",
+        "next": "Siguiente",
+        "previous": "Anterior"
+    },
+    "aria": {
+        "sortAscending": ": Activar para ordenar la columna de manera ascendente",
+        "sortDescending": ": Activar para ordenar la columna de manera descendente"
+    },
+    "buttons": {
+        "copy": "Copiar",
+        "colvis": "Visibilidad",
+        "collection": "Colección",
+        "colvisRestore": "Restaurar visibilidad",
+        "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+        "copySuccess": {
+            "1": "Copiada 1 fila al portapapeles",
+            "_": "Copiadas %ds fila al portapapeles"
+        },
+        "copyTitle": "Copiar al portapapeles",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pageLength": {
+            "-1": "Mostrar todas las filas",
+            "_": "Mostrar %d filas"
+        },
+        "pdf": "PDF",
+        "print": "Imprimir",
+        "renameState": "Cambiar nombre",
+        "updateState": "Actualizar",
+        "createState": "Crear Estado",
+        "removeAllStates": "Remover Estados",
+        "removeState": "Remover",
+        "savedStates": "Estados Guardados",
+        "stateRestore": "Estado %d"
+    },
+    "autoFill": {
+        "cancel": "Cancelar",
+        "fill": "Rellene todas las celdas con <i>%d<\/i>",
+        "fillHorizontal": "Rellenar celdas horizontalmente",
+        "fillVertical": "Rellenar celdas verticalmentemente"
+    },
+    "decimal": ",",
+    "searchBuilder": {
+        "add": "Añadir condición",
+        "button": {
+            "0": "Constructor de búsqueda",
+            "_": "Constructor de búsqueda (%d)"
+        },
+        "clearAll": "Borrar todo",
+        "condition": "Condición",
+        "conditions": {
+            "date": {
+                "after": "Despues",
+                "before": "Antes",
+                "between": "Entre",
+                "empty": "Vacío",
+                "equals": "Igual a",
+                "notBetween": "No entre",
+                "notEmpty": "No Vacio",
+                "not": "Diferente de"
+            },
+            "number": {
+                "between": "Entre",
+                "empty": "Vacio",
+                "equals": "Igual a",
+                "gt": "Mayor a",
+                "gte": "Mayor o igual a",
+                "lt": "Menor que",
+                "lte": "Menor o igual que",
+                "notBetween": "No entre",
+                "notEmpty": "No vacío",
+                "not": "Diferente de"
+            },
+            "string": {
+                "contains": "Contiene",
+                "empty": "Vacío",
+                "endsWith": "Termina en",
+                "equals": "Igual a",
+                "notEmpty": "No Vacio",
+                "startsWith": "Empieza con",
+                "not": "Diferente de",
+                "notContains": "No Contiene",
+                "notStartsWith": "No empieza con",
+                "notEndsWith": "No termina con"
+            },
+            "array": {
+                "not": "Diferente de",
+                "equals": "Igual",
+                "empty": "Vacío",
+                "contains": "Contiene",
+                "notEmpty": "No Vacío",
+                "without": "Sin"
+            }
+        },
+        "data": "Data",
+        "deleteTitle": "Eliminar regla de filtrado",
+        "leftTitle": "Criterios anulados",
+        "logicAnd": "Y",
+        "logicOr": "O",
+        "rightTitle": "Criterios de sangría",
+        "title": {
+            "0": "Constructor de búsqueda",
+            "_": "Constructor de búsqueda (%d)"
+        },
+        "value": "Valor"
+    },
+    "searchPanes": {
+        "clearMessage": "Borrar todo",
+        "collapse": {
+            "0": "Paneles de búsqueda",
+            "_": "Paneles de búsqueda (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown} ({total})",
+        "emptyPanes": "Sin paneles de búsqueda",
+        "loadMessage": "Cargando paneles de búsqueda",
+        "title": "Filtros Activos - %d",
+        "showMessage": "Mostrar Todo",
+        "collapseMessage": "Colapsar Todo"
+    },
+    "select": {
+        "cells": {
+            "1": "1 celda seleccionada",
+            "_": "%d celdas seleccionadas"
+        },
+        "columns": {
+            "1": "1 columna seleccionada",
+            "_": "%d columnas seleccionadas"
+        },
+        "rows": {
+            "1": "1 fila seleccionada",
+            "_": "%d filas seleccionadas"
+        }
+    },
+    "thousands": ".",
+    "datetime": {
+        "previous": "Anterior",
+        "next": "Proximo",
+        "hours": "Horas",
+        "minutes": "Minutos",
+        "seconds": "Segundos",
+        "unknown": "-",
+        "amPm": [
+            "AM",
+            "PM"
+        ],
+        "months": {
+            "0": "Enero",
+            "1": "Febrero",
+            "10": "Noviembre",
+            "11": "Diciembre",
+            "2": "Marzo",
+            "3": "Abril",
+            "4": "Mayo",
+            "5": "Junio",
+            "6": "Julio",
+            "7": "Agosto",
+            "8": "Septiembre",
+            "9": "Octubre"
+        },
+        "weekdays": [
+            "Dom",
+            "Lun",
+            "Mar",
+            "Mie",
+            "Jue",
+            "Vie",
+            "Sab"
+        ]
+    },
+    "editor": {
+        "close": "Cerrar",
+        "create": {
+            "button": "Nuevo",
+            "title": "Crear Nuevo Registro",
+            "submit": "Crear"
+        },
+        "edit": {
+            "button": "Editar",
+            "title": "Editar Registro",
+            "submit": "Actualizar"
+        },
+        "remove": {
+            "button": "Eliminar",
+            "title": "Eliminar Registro",
+            "submit": "Eliminar",
+            "confirm": {
+                "_": "¿Está seguro que desea eliminar %d filas?",
+                "1": "¿Está seguro que desea eliminar 1 fila?"
+            }
+        },
+        "error": {
+            "system": "Ha ocurrido un error en el sistema (<a target=\"\\\" rel=\"\\ nofollow\" href=\"\\\">Más información&lt;\\\/a&gt;).<\/a>"
+        },
+        "multi": {
+            "title": "Múltiples Valores",
+            "info": "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
+            "restore": "Deshacer Cambios",
+            "noMulti": "Este registro puede ser editado individualmente, pero no como parte de un grupo."
+        }
+    },
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+    "stateRestore": {
+        "creationModal": {
+            "button": "Crear",
+            "name": "Nombre:",
+            "order": "Clasificación",
+            "paging": "Paginación",
+            "search": "Busqueda",
+            "select": "Seleccionar",
+            "columns": {
+                "search": "Búsqueda de Columna",
+                "visible": "Visibilidad de Columna"
+            },
+            "title": "Crear Nuevo Estado",
+            "toggleLabel": "Incluir:"
+        },
+        "emptyError": "El nombre no puede estar vacio",
+        "removeConfirm": "¿Seguro que quiere eliminar este %s?",
+        "removeError": "Error al eliminar el registro",
+        "removeJoiner": "y",
+        "removeSubmit": "Eliminar",
+        "renameButton": "Cambiar Nombre",
+        "renameLabel": "Nuevo nombre para %s",
+        "duplicateError": "Ya existe un Estado con este nombre.",
+        "emptyStates": "No hay Estados guardados",
+        "removeTitle": "Remover Estado",
+        "renameTitle": "Cambiar Nombre Estado"
+    }
+} 
+   var dataTable = $('#user_data').DataTable({
+    "language": espanol,
+    "processing" : true,
+    "serverSide" : true,
+    "order" : [],
+    "ajax" : {
+     url:"fetch.php",
+     type:"POST"
+    }
+   });
+  }
+  
+  function update_data(id, column_name, value)
+  {
+   $.ajax({
+    url:"updateCliente.php",
+    method:"POST",
+    data:{id:id, column_name:column_name, value:value},
+    success:function(data)
+    {
+     $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+     $('#user_data').DataTable().destroy();
+     fetch_data();
+    }
+   });
+   setInterval(function(){
+    $('#alert_message').html('');
+   }, 10000);
+  }
+
+  $(document).on('blur', '.update', function(){
+   var id = $(this).data("id");
+   var column_name = $(this).data("column");
+   var value = $(this).text();
+   update_data(id, column_name, value);
+  });
+  
+  $('#add').click(function(){
+   var html = '<tr>';
+   html += '<td contenteditable id="data1"></td>';
+   html += '<td contenteditable id="data2"></td>';
+   html += '<td><button type="button" name="insert" id="insert" class="btn btn-success btn-xs">Insert</button></td>';
+   html += '</tr>';
+   $('#user_data tbody').prepend(html);
+  });
+  
+  $(document).on('click', '.delete', function(){
+   var id = $(this).attr("id");
+   if(confirm("¿Estás seguro de que quieres eliminar esto?"))
+   {
+    $.ajax({
+     url:"deleteCliente.php",
+     method:"POST",
+     data:{id:id},
+     success:function(data){
+      $('#alert_message').html('<div class="alert alert-success">'+"ERROR"+'</div>');
+      $('#user_data').DataTable().destroy();
+      fetch_data();
+     }
+    });
+    setInterval(function(){
+     $('#alert_message').html('');
+    }, 5000);
+   }
+  });
+ });
+</script>
+</html>
+
 <div class="modal fade" id="InsertChildresn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -201,7 +399,7 @@ include('../sidebar.php');
             <div class="modal-body" id="cont_modal">
 
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">DNI:</label>
+                  <label for="recipient-name" class="col-form-label">RTN:</label>
                   <input type="text" name="DNI" class="form-control" required="true">
                 </div>
                 <div class="form-group">

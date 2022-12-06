@@ -59,7 +59,7 @@
 
 <?php
 
-$sqlCliente   = ("SELECT * FROM  tbl_producto p inner join tbl_produccion tp  on tp.cod_producto = p.COD_PRODUCTO");
+$sqlCliente   = ("SELECT * FROM  tbl_detalle_produccion dp inner join tbl_producto p on dp.COD_PRODUCTO=p.COD_PRODUCTO");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 
@@ -79,16 +79,11 @@ $cantidad     = mysqli_num_rows($queryCliente);
 
 
 
-                 <div>
-                       <button type="submit" onclick="window.location='Producto_Producir.php'" class="btn btn-primary">INGRESAR NUEVA PRODUCCIÓN</button> 
-                       <button type="button" onclick="window.location='ReporteProduccion.php'" class="btn btn-warning">GENERAR PDF</button>
-                </div> 
-
 
                 <div>
                     <p></p>
                 </div> 
-                <div class="col-sm-7"><h4><b>LISTA DE PRODUCTOS EN PRODUCCIÓN</b></h4></div>
+                <div class="col-sm-7"><h4><b>DETALLES</b></h4></div>
          
 
           <div class="col-sm-15">
@@ -102,49 +97,30 @@ $cantidad     = mysqli_num_rows($queryCliente);
                         <thead>
                           <tr>
                             
-                            <th class="col-sm-4"> FECHA</th>
-                            <th class="col-sm-4"> USUARIO</th>
-                            <th class="col-sm-4"> PRODUCTO</th>
-                            <th class="col-sm-4"> CANTIDAD PRODUCIENDO</th>
-                            <th class="col-sm-4"> ESTADO</th>
-                      
-                            <th> ACCIÓN</th>
-                            
+                            <th class="col-sm-4"> INSUMO</th>
+                            <th class="col-sm-4"> CANTIDAD</th>
+
                           </tr>
                         </thead>
                       
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            
-                            <td><?php echo $dataCliente['FECHA']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_USUARIO']; ?></td>
+
                             <td><?php echo $dataCliente['Nombre_PRODUCTO']; ?></td>
-                            <td><?php echo $dataCliente['CANTIDAD_PRODUCIENDO']; ?></td>
-                            <td><?php echo $dataCliente['ESTADO']; ?></td>
-                            
-                          <td> 
-                            <button method="POST" type="button" class="btnD btn-primary" data-toggle="modal" id="<?php echo $dataCliente['COD_PRODUCCION']; ?>">
-                                  Ver Detalles
-                              </button>
-                          </td>  
-                          <td>   
-                              <button method="POST" type="button" class="btnD btn-success" id="<?php echo $dataCliente['COD_PRODUCCION']; ?>">
-                                  Finalizar Producción
-                              </button>
+                            <td><?php echo $dataCliente['CANTIDAD']; ?></td>
+
+                             <?php }?>
+                            <td> 
+
+
                           </td>
                              
                           </tr>   
                           
                           
 
-                          <!--Ventana Modal para --->
-                          <?php include('Produccion_Modal.php'); ?>
-
-
-
-                        <?php } ?>
-  
+ 
                         <tr>
 
 
@@ -171,89 +147,9 @@ $cantidad     = mysqli_num_rows($queryCliente);
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $(window).load(function() {
-            $(".cargando").fadeOut(1000);
-        });
-
-//Ocultar mensaje
-    setTimeout(function () {
-        $("#contenMsjs").fadeOut(1000);
-    }, 3000);
 
 
 
-    $('.btnBorrar').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr("id");
-
-        var dataString = 'COD_PRODUCCION='+ id;
-        url = "Insumo_recib_Delete.php";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: dataString,
-                success: function(data)
-                {
-                  window.location.href="ProduccionEnProceso.php";
-                  $('#respuesta').html(data);
-                }
-            });
-    return false;
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $('.btnD').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr("id");
-
-        var dataString = 'COD_PRODUCCION='+ id;
-        url = "P.php";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: dataString,
-                success: function(data)
-                {
-                  window.location.href="P.php";
-                  $('#respuesta').html(data);
-                }
-            });
-    return false;
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
-</script>
 
     </main>
     
@@ -263,3 +159,4 @@ $cantidad     = mysqli_num_rows($queryCliente);
 <?php include('../footer.php') ?>
 
 
+                              }

@@ -30,32 +30,18 @@ include('../sidebar.php');
 				<!-- SCRIPTS JS-->
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 				<script src="peticion.js"></script>
-				<script src="jquery-3.2.1.min.js"></script>
-				<!-- <style> 
-        table tr th{
-            background:rgba(0, 0, 0, .6);
-            color: black;
-        }
-        tbody tr{
-          font-size: 12px !important;
+				<script src="jquery-3.6.1.min.js"></script>
 
-        }
-        h3{
-            color:crimson; 
-            margin-top: 100px;
-        }
-        a:hover{
-            cursor: pointer;
-            color: #333 !important;
-        }
-      </style>  -->
 			</head>
 
 			<body>
 				<?php
 
-$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp");
+//$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp dp inner join tbl_producto p on dp.COD_PRODUCTO-p.COD_PRODUCTO");
+$sqlCliente   = ("SELECT * FROM tbl_detalle_produccion_temp dp inner join tbl_producto p on dp.COD_PRODUCTO=p.COD_PRODUCTO");
+
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
+
 $cantidad     = mysqli_num_rows($queryCliente);
 
 ?>
@@ -80,7 +66,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
                         $ejecutar= mysqli_query( $conexion2 , "SELECT * FROM tbl_producto where cod_tipo_producto=1" );             
                     ?>
 																	<?php foreach ($ejecutar as $opciones): ?>
-																		<option value="<?php echo $opciones['Nombre_PRODUCTO']?>">
+																		<option value="<?php echo $opciones['COD_PRODUCTO']?>">
 																			<?php echo $opciones['Nombre_PRODUCTO'] ?>
 																		</option>
 																		<?php endforeach ?>
@@ -101,17 +87,13 @@ $cantidad     = mysqli_num_rows($queryCliente);
 										</div>
 									</div>
 								</div>
-                
+
 								<!-- TABLE  -->
 								<div class="col-md-7">
-									<div class="card my-4" id="task-result">
-										<div class="card-body">
-											<!-- SEARCH -->
-											<ul id="container"></ul>
-										</div>
-									</div>
+
 									<div class="col-sm-7">
-										<h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4></div>
+										<h4><b>LISTA DE INSUMOS PARA LA PRODUCCIÓN</b></h4>
+                  </div>
 									<div>
 										<button type="submit" onclick="window.location='Produccion_Create.php'" class="btn btn-primary">REGISTRAR PRODUCCIÓN</button>
 									</div>
@@ -127,14 +109,21 @@ $cantidad     = mysqli_num_rows($queryCliente);
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
 											<tr>
 												<td>
-													<?php echo $dataCliente['insumo']; ?>
+													<?php echo $dataCliente['Nombre_PRODUCTO']; ?>
 												</td>
 												<td>
 													<?php echo $dataCliente['cantidad']; ?>
 												</td>
 												<td>
-													<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>"> Eliminar </button>
+
+
+
+
+												<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteINSUMO<?php echo $dataCliente['id']; ?>">
+                                 						 Eliminar
+                             					 </button>
 												</td>
+
 											</tr>
 											<!--Ventana Modal para la Alerta de Eliminar--->
 											<?php include('Insumo_ModalEliminar.php'); ?>
@@ -145,13 +134,21 @@ $cantidad     = mysqli_num_rows($queryCliente);
 						</div>
 
 
-						<?php include('../footer.php') ?>
+
+
+
+
+
+
+
+
+						
 							<script src="../js/jquery.min.js"></script>
 							<script src="../js/popper.min.js"></script>
 							<script src="../js/bootstrap.min.js"></script>
 
 
-							<script type="text/javascript">
+							 <script type="text/javascript">
 							$(document).ready(function() {
 								$(window).load(function() {
 									$(".cargando").fadeOut(1000);
@@ -164,7 +161,8 @@ $cantidad     = mysqli_num_rows($queryCliente);
 									e.preventDefault();
 									var id = $(this).attr("id");
 									var dataString = 'id=' + id;
-									url = "Insumo_recib_Delete.php";
+
+									url = "Insumo_recib_D.php";
 									$.ajax({
 										type: "POST",
 										url: url,
@@ -177,7 +175,7 @@ $cantidad     = mysqli_num_rows($queryCliente);
 									return false;
 								});
 							});
-							</script>
+							</script> 
 
 
 							<script type="text/javascript">
@@ -193,12 +191,52 @@ $cantidad     = mysqli_num_rows($queryCliente);
 											window.location.href = "CrudDetalleProduccion.php";
 										}
 									});
+
 									return false;
 								});
 							});
-							</script>
 
-					</main>
-			</body>
 
-			</html>
+
+
+							
+
+
+
+
+
+			function elimina(id){
+     		 alertify.confirm('Eliminar juego', '¿Desea eliminar este registro?', 
+              function(){ 
+                  $.ajax({
+                     type:"POST",
+                      data:"id=" + id,
+                      url:"eliminar.php",
+   
+                  });
+              }
+              ,function(){ 
+                alertify.error('Cancelo')
+              });
+  }
+
+
+
+
+</script>
+
+
+	
+
+
+
+				</main>
+		</body>
+</html>
+
+
+
+
+
+
+<?php include('../footer.php') ?>

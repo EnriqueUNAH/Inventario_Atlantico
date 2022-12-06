@@ -20,3 +20,9 @@ function habilitar(){
 
 document.getElementById("cantidad_producir").addEventListener("keyup", habilitar);
 document.getElementById("selectProducto").addEventListener("change", habilitar);
+
+
+
+
+
+

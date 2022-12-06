@@ -7,7 +7,7 @@ $TELEFONO	 = $_REQUEST['TELEFONO'];
 $DIRECCION 	 = $_REQUEST['DIRECCION'];
 session_start();
 $fechaC = date('Y-m-d');
-$usuario_id  = $_SESSION['idUser'];
+//$usuario_id  = $_SESSION['idUser'];
 
 # Consulto filas
 $consulta="SELECT * FROM proveedor";
@@ -31,8 +31,8 @@ VALUES (
 )");
 mysqli_query($conexion2, $QueryInsert);
 
-$insertar2="INSERT INTO proveedor VALUES('$filas','$empresa','$nombre','$TELEFONO','$DIRECCION','$fechaC','1','1')";
-mysqli_query($conexion2, $insertar2);
+//$insertar2="INSERT INTO proveedor VALUES('$filas','$empresa','$nombre','$TELEFONO','$DIRECCION','$fechaC','1','1')";
+//mysqli_query($conexion2, $insertar2);
 
 
 

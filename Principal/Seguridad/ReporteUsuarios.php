@@ -89,9 +89,9 @@ $remitente = $_SESSION['nombre'];
       <div >
         <h2 class="center">INVERSIONES DEL ATLANTICO</h2>
       </div>
-          <div>La Ceiba, Atlantida, Honduras</div>
-          <div>(504) 9952-56-71</div>
-          <div><a href="mailto:company@example.com">company@inversionesdelatlantico.com</a></div>
+      <div>Bo. El Centro, Domicilio Rentado, Atras de la Despensa Familiar, Tela, Atlantida, Honduras</div>
+          <div>(504) 9970-58-87</div>
+          <div><a href="mailto:company@example.com">uniformesdelatlanctico@hotmail.com</a></div>
        <div>
         </div>
       </div>

@@ -67,7 +67,7 @@ justify-content: center;
           
 include('../db2.php');
 
-$sqlCliente   = ("SELECT * FROM tbl_cliente");
+$sqlCliente   = ("SELECT * FROM tbl_ms_preguntas");
 $queryCliente = mysqli_query($conexion2, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 ?>
@@ -89,9 +89,9 @@ $remitente = $_SESSION['nombre'];
       <div >
         <h2 class="center">INVERSIONES DEL ATLANTICO</h2>
       </div>
-      <div>Bo. El Centro, Domicilio Rentado, Atras de la Despensa Familiar, Tela, Atlantida, Honduras</div>
+          <div>Bo. El Centro, Domicilio Rentado, Atras de la Despensa Familiar, Tela, Atlantida, Honduras</div>
           <div>(504) 9970-58-87</div>
-          <div><a href="mailto:company@example.com">uniformesdelatlanctico@hotmail.com</a></div>
+          <div><a href="mailto:uniformesdelatlanctico@hotmail.com">uniformesdelatlanctico@hotmail.com</a></div>
        <div>
         </div>
       </div>
@@ -100,17 +100,13 @@ $remitente = $_SESSION['nombre'];
     <main>       
     
     <br>
-            <h3 class="center">Lista de Clientes</h3>
+            <h3 class="center">Listado de Preguntas</h3>
 
 <table class="table table-striped table-hover">
 
                         <thead>
                           <tr>
-                            <th>RTN</th>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">TELÉFONO</th>
-                            <th scope="col">CRORREO ELECTRÓNICO</th>
-                            <th scope="col">DIRECCIÓN</th>
+                            <th scope="col">PREGUNTAS</th>
 
                           </tr>
                         </thead>
@@ -118,11 +114,7 @@ $remitente = $_SESSION['nombre'];
                           <?php
                               while ($dataCliente = mysqli_fetch_array($queryCliente)) { ?>
                           <tr>
-                            <td><?php echo $dataCliente['RTN']; ?></td>
-                            <td><?php echo $dataCliente['NOMBRE_COMPLETO']; ?></td>
-                            <td><?php echo $dataCliente['TELEFONO']; ?></td>
-                            <td><?php echo $dataCliente['CORREO_ELECTRONICO']; ?></td>
-                            <td><?php echo $dataCliente['DIRECCION']; ?></td>
+                            <td><?php echo $dataCliente['PREGUNTA']; ?></td>
 
                           </tr>
 
@@ -163,6 +155,6 @@ $dompdf->loadHtml($html);
 $dompdf->setPaper('A4');
  
 $dompdf->render();
-$dompdf->stream("Clientes.pdf", array("Attachment"=> true)); //descargar o no el pdf
+$dompdf->stream("Preguntas.pdf", array("Attachment"=> true)); //descargar o no el pdf
 
 ?>

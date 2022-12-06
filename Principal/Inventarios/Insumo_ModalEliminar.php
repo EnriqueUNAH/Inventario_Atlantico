@@ -10,11 +10,11 @@
 
         <div class="modal-body">
           <strong style="text-align: center !important"> 
-            <?php echo $dataCliente['insumo']; ?>
+            <?php echo $dataCliente['Nombre_PRODUCTO']; ?>
         
           </strong>
         </div>
-        
+           
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           <button type="submit" class="btn btn-danger btnBorrar" data-dismiss="modal" id="<?php echo $dataCliente['id']; ?>">Borrar</button>
